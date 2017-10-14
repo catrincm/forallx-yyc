@@ -1,23 +1,28 @@
-%!TEX root = forallxyyc.tex
+%!TEX root = forallxbris.tex
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{forallxyyc}[2011/10/29 support for a logic textbook]
+\ProvidesPackage{forallxbris}[2017/9/29 support for a logic textbook]
 \RequirePackage{amssymb,amsmath,hyperref,multicol,ifthen,graphicx,pifont,rotating,xcolor}
 \usepackage[numbered]{bookmark} %TB: added for speedy navigation
 %\usepackage{mdframed}
 \usepackage[nonumberlist,toc,style=index]{glossaries}
 \makeglossaries
 \usepackage{tabu}
+\usepackage{todonotes} %CCM
 
-%RZ: typefaces 
 
-\usepackage[sfdefault]{universalis}
-\usepackage[osf]{Baskervaldx} % oldstyle figures
-\usepackage[bigdelims,baskervaldx]{newtxmath} 
+
+
+%%RZ: typefaces 
+%
+\usepackage{universalis}
+%\usepackage[osf]{Baskervaldx} % oldstyle figures
+%\usepackage[bigdelims,baskervaldx]{newtxmath} 
 \usepackage[cal=boondoxo]{mathalfa}
-
-%RZ: Make sure we have a copyright symbol
-
-\def\copyright{\textcircled{C}}
+\usepackage{mathalfa}
+%
+%%RZ: Make sure we have a copyright symbol
+%
+%\def\copyright{\textcircled{C}}
 
 %RZ: Include git revision info
 
@@ -29,47 +34,47 @@
 \setlength{\cftchapternumwidth}{2.2em}
 \setlength{\cftsectionnumwidth}{3.3em}
 \setlength{\cftbeforechapterskip}{0pt} %TB: to leave no gap between sections (which LaTeX regards as chapters) in the TOC
-\renewcommand{\cftchapterfont}{\textrm}
-\renewcommand{\cftchapterpagefont}{\textrm}
+%\renewcommand{\cftchapterfont}{\textrm}
+%\renewcommand{\cftchapterpagefont}{\textrm}
 
 % Chapter style
 
-\newlength{\barlength}
-\makechapterstyle{leadbeater}{%
-  \setlength{\afterchapskip}{40pt}
-  \setlength{\beforechapskip}{50pt}
-    \setlength{\midchapskip}{10pt}
-  \renewcommand*{\afterchapternum}{\par\nobreak\vskip 0pt}
-  \renewcommand*{\chapnamefont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
-  \renewcommand*{\chapnumfont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
-  \renewcommand*{\chaptitlefont}{\normalfont\fontsize{48pt}{48pt}\selectfont\bfseries\itshape\color{leadbeater}}
-  \renewcommand*{\printchaptername}{%
-    \chapnamefont\MakeUppercase{\@chapapp}}
-  \renewcommand*{\printchaptertitle}[1]{%
-    \chaptitlefont ##1\\[-\baselineskip]%
-    \hspace*{-20pt}%
-    \smash{\color{leadbeater}\rule{7pt}{400pt}}}
-}
+%\newlength{\barlength}
+%\makechapterstyle{leadbeater}{%
+%  \setlength{\afterchapskip}{40pt}
+%  \setlength{\beforechapskip}{50pt}
+%    \setlength{\midchapskip}{10pt}
+%  \renewcommand*{\afterchapternum}{\par\nobreak\vskip 0pt}
+%  \renewcommand*{\chapnamefont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
+%  \renewcommand*{\chapnumfont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
+%  \renewcommand*{\chaptitlefont}{\normalfont\fontsize{48pt}{48pt}\selectfont\bfseries\itshape\color{leadbeater}}
+%  \renewcommand*{\printchaptername}{%
+%    \chapnamefont\MakeUppercase{\@chapapp}}
+%  \renewcommand*{\printchaptertitle}[1]{%
+%    \chaptitlefont ##1\\[-\baselineskip]%
+%    \hspace*{-20pt}%
+%    \smash{\color{leadbeater}\rule{7pt}{400pt}}}
+%}
 
-\renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
-\renewcommand*{\partnumfont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
-\renewcommand*{\parttitlefont}{\normalfont\fontsize{54pt}{54pt}\selectfont\bfseries\itshape\color{leadbeater}}
-\renewcommand*{\printpartname}{%
-  \partnamefont PART}
+%\renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
+%\renewcommand*{\partnumfont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
+%\renewcommand*{\parttitlefont}{\normalfont\fontsize{54pt}{54pt}\selectfont\bfseries\itshape\color{leadbeater}}
+%\renewcommand*{\printpartname}{%
+%  \partnamefont PART}
 
-\chapterstyle{leadbeater}
+%\chapterstyle{leadbeater}
 
-\copypagestyle{leadbeater}{headings}
+%\copypagestyle{leadbeater}{headings}
+%
+%\makeoddhead{leadbeater}{\small\sffamily\color{leadbeater}\rightmark}{}
+%            {\color{leadbeater}\sffamily\bfseries\thepage}
+%
+%\makeevenhead{leadbeater}{\small\sffamily\color{leadbeater}\leftmark}{}
+%            {\color{leadbeater}\sffamily\bfseries\thepage}
 
-\makeoddhead{leadbeater}{\small\sffamily\color{leadbeater}\rightmark}{}
-            {\color{leadbeater}\sffamily\bfseries\thepage}
+%\usepackage{atbegshi}  % to kill the blank page after the titling page
 
-\makeevenhead{leadbeater}{\small\sffamily\color{leadbeater}\leftmark}{}
-            {\color{leadbeater}\sffamily\bfseries\thepage}
-
-\usepackage{atbegshi}  % to kill the blank page after the titling page
-
-\usepackage[font={small,it}]{caption}
+%\usepackage[font={small,it}]{caption}
 
 
 % The original forallx.sty was written in 2005
@@ -87,6 +92,7 @@
 % the hoe to the swung dash, change \enot from \neg to {\sim}. Other examples
 % are given below.
 %
+
 \def\therefore{\ensuremath{\mathrel{\ldotp\dot{}\,\ldotp}}}
 % disjunction
 \def\eor{\ensuremath{\vee}}
@@ -111,8 +117,8 @@
 %    *        TITLE AND VERSION DATA        *
 %    ****************************************
 % the title of the book
-\newcommand*{\forallx}{\texttt{forall}\script{x}}
-\newcommand*{\forallxyyc}{\texttt{forall}\script{x}\texttt{:Calgary}}
+\newcommand*{\forallx}{\texttt{forall}$x$}
+\newcommand*{\forallxyyc}{\texttt{forall}$x$\texttt{:Bristol}}
 % The version number of the book is a 5 digit integer:
 % the last digit of the year, the month, the day of the month
 \newcounter{dummy}
@@ -151,6 +157,40 @@
 \newcommand*{\ntuple}[1]{\ensuremath{\mathopen{\openntuple}}#1\ensuremath{\mathclose{\closentuple}}} 
 % definitions
 \newcommand*{\define}[1]{\textsc{\lowercase{\color{leadbeater}#1}}}
+\newcommand{\NumberConnective}[3][black]{\stackrel{\textcolor{#1}{\hbox{#3}}}{\hbox{$#2$}}} %CCM added for the additional section. 
+
+
+
+
+
+%    ****************************************
+%    *          QUINE QUOTES          *
+%    ****************************************
+
+%%Godel Coding definitions
+%	\newbox\QuineQuoteBoxA
+%		\newdimen\QuineQuoteCornerHgt
+%		\setbox\QuineQuoteBoxA=\hbox{$\ulcorner$}
+%		\global\QuineQuoteCornerHgt=\ht\QuineQuoteBoxA
+%		\newdimen\QuineQuoteArgHgt
+%	\newcommand{\QuineQuoteraised}[1]{
+%				\setbox\gnBoxA=\hbox{$#1$}%
+%			\QuineQuoteArgHgt=\ht\QuineQuoteBoxA%
+%			\ifnum \QuineQuoteArgHgt<\QuineQuoteCornerHgt
+%			\QuineQuoteArgHgt=0pt%
+%			\else
+%			\advance \QuineQuoteArgHgt by -\QuineQuoteCornerHgt%
+%			\fi
+%			\raise\QuineQuoteArgHgt\hbox{$\ulcorner$} \box\QuineQuoteBoxA %
+%			\raise\QuineQuoteArgHgt\hbox{$\urcorner$}}
+%				
+%				
+%	\newcommand{\QuineQuote}[1]{\ensuremath{\ulcorner} #1 \ensuremath{\urcorner}}}
+%
+%\usepackage{suffix}
+%\WithSuffix\newcommand\QuineQuote*{\ensuremath{\gnraised}}
+
+\newcommand{\QuineQuote}[1]{\text{`}#1\text{'}}
 
 %    ****************************************
 %    *          LIST  ENVIRONMENTS          *
@@ -187,15 +227,7 @@
 % \factoidbox{...} produces an inset paragraph of text with a line around it
 % Neither for lists nor an environment, but it really didn't
 % belong anywhere else.
-\usepackage{tcolorbox}
-\newcommand{\factoidbox}[1]{
-  \begin{tcolorbox}[%width=.9\textwidth,
-      %      leftright skip=.05\textwidth,
-      sharp corners=downhill,
-      beforeafter skip=.7em,
-      colframe={leadbeater},colback={vltleadbeater}]   
-#1
-\end{tcolorbox}}
+\newcommand{\factoidbox}[1]{\begin{quote}\framebox{\parbox{\linewidth}{#1}}\end{quote}}
 
 % \tablefbox{...} is used in certain tables to put a box around the contents of specific table cells without having lines that run the whole length of the table
 \newcommand{\tablefbox}[1]{\multicolumn{1}{|p{10em}|}{#1}}
@@ -251,6 +283,13 @@
 \renewcommand{\thechapter}{\arabic{chapter}}
 \renewcommand{\thepart}{\Roman{part}}
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+
+
+%    ****************************************
+%    *            FORMATION TREES           *
+%    ****************************************
+
+\usepackage{forest}
 
 
 %    ****************************************
@@ -740,22 +779,73 @@
 \newcommand*{\andE}{\ae}
 \newcommand*{\orI}{\oi}
 \newcommand*{\orE}{\oe}
+\newcommand*{\redI}{\ri}
+\newcommand*{\redE}{\re}
 \newcommand*{\forallI}{\Ai}
 \newcommand*{\forallE}{\Ae}
 \newcommand*{\existsI}{\Ei}
 \newcommand*{\existsE}{\Ee}
+\newcommand*{\LEM}{\by{LEM}{}} %CCM added as easier to remember as a basic rule than TND
+\newcommand*{\ProofbyContradiction}{\by{Contradiction}}
 
 
+
+
+%    ****************************************
+%    *            STYLE OF THE BOOK           *
+%    ****************************************
+% TB: I moved from book to memoir and then radically changed the structuring. From the point of view of LaTeX, the book consists of 9 parts, containing roughly 5 chapters each. From the point of view of the user, the book consists of 9 chapters, containing roughly 5 sections each. This means a fair bit of internal redefinition of LaTeX code.
+
+\makeatletter
+\renewcommand{\@chapapp}{ } % TB: to prevent "chapter" appearing all over the place
+\makeatother
+\renewcommand\cftchapterfont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
+\renewcommand\cftchapterpagefont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
+\renewcommand\cftbeforechapterskip{0pt} %TB: to leave no gap between sections (which LaTeX regards as chapters) in the TOC
+\renewcommand{\partname}{Chapter} %TB: to make the chapters (which LaTeX regards as parts) labelled "chapter"
+\setlength{\headwidth}{\textwidth} 
+
+\makepagestyle{forallxpage} %TB: design new page style
+\makeheadrule{forallxpage}{\textwidth}{\normalrulethickness} %TB: put rule beneath page header
+\makeevenhead{forallxpage}{\small \thepage}{}{\small\leftmark}  %TB: page header consists of section name and page
+\makeoddhead{forallxpage}{\small\rightmark}{}{\small \thepage} 
+\makeatletter
+\makepsmarks{forallxpage}{
+	\nouppercaseheads
+	\createmark {chapter} {both} {shownumber}{}{.\ }
+}
+\makeatother
+\pagestyle{forallxpage}
 
 \setcounter{tocdepth}{0} %TB: only chapters and sections to appear
+\renewcommand{\thepart}{\arabic{part}}  % TB: chapters (which LaTeX regards as parts) to be numbered
+\renewcommand{\thechapter}{\arabic{chapter}} %TB: sections (which LaTeX regards as chapters) to be numbered
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}} %TB: subsections (which LaTeX regards as sections) to be n.m
+
+\makechapterstyle{forallx}{% TB defines a nice style for section headings (which LaTeX regards as chapter headings)
+	\renewcommand{\chapnamefont}{\normalfont\Huge\bfseries} 
+	\renewcommand{\chapnumfont}{\normalfont\Huge\bfseries}
+	\renewcommand{\chaptitlefont}{\normalfont\Huge\bfseries} 
+	\renewcommand{\afterchapternum}{}
+	\renewcommand{\printchaptername}{} 
+	\setlength{\midchapskip}{0mm} 
+	\renewcommand{\chapternamenum}{} 
+	\renewcommand{\printchapternum}{%
+		\noindent\marginpar{\chapnumfont\thechapter}}
+	\renewcommand{\printchaptertitle}[1]{\chaptitlefont ##1}
+}
+\chapterstyle{forallx}
 
 \setlength{\columnsep}{2em} % Sets 2em space between columns when calling multicol 
 
 \definecolor{darkred}{rgb}{0.5,0,0} % TB: used to color links in red
-\newcommand\myanswer[1]{\textcolor{leadbeater}{#1}} % TB: puts model answers in blue
+\newcommand{\myanswer}[1]{\textcolor{darkred}{#1}} % TB: puts model answers in blue
+
+
+
 
 % TB: information originally in the main body; but it is style information, so I have included it here.
-\hypersetup{pdfinfo={Title={forall x: Calgary Version}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Aaron Thomas-Bolduc, Richard Zach}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
+\hypersetup{pdfinfo={Title={forall x: Bristol Version}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Aaron Thomas-Bolduc, Richard Zach, Catrin Campbell-Moore}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
   bookmarks={true}, %
   bookmarksopen = true,
 	colorlinks={true}, %
@@ -778,6 +868,11 @@
 		grey_shape/.style={thick, fill=black!20, draw, minimum width=30pt, minimum height=30pt}, % TB: renders a light grey shape with a black outline
 		white_shape/.style={thick, fill=black!0, draw, minimum width=30pt, minimum height=30pt} % TB: renders a white shape with a black outline
 		}
+
+
+
+
+%\usepackage{tikz-qtree} % CCM for formation trees
 
 
 \IfFileExists{forallxyyc-local.sty}{\usepackage{forallxyyc-local}}{}

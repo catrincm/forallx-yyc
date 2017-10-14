@@ -1,5 +1,5 @@
-%!TEX root = forallxyyc.tex
-\chapter[Quick reference]{Quick reference}
+%!TEX root = forallxbris.tex
+\chapter{Quick reference}
 %\pagestyle{plain}
 \section{Characteristic Truth Tables}
 \label{app.CharacteristicTTs}
@@ -9,8 +9,6 @@
 \hline
 T & F\\
 F & T \\
-\phantom{.}\\
-\phantom{.}
 \end{tabular}
 \hfill
 \begin{tabular}{c c|c|c|c|c}
@@ -31,9 +29,9 @@ F & F & F & F & T & T
 \begin{tabular*}{\textwidth}{rl}
 \multicolumn{2}{c}{\textsc{Sentential Connectives}}\\ \\
 It is not the case that P & $\enot P$\\
-Either P, or Q & $(P \eor Q)$\\
-Neither P, nor Q & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
-Both P, and Q & $(P \eand Q)$\\
+P or Q & $(P \eor Q)$\\
+Neither P nor Q & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
+Both P and Q & $(P \eand Q)$\\
 If P, then Q & $(P \eif Q)$\\
 P only if Q & $(P \eif Q)$\\
 P if and only if Q & $(P \eiff Q)$\\
@@ -166,17 +164,9 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \have[\ ]{na}{\enot\meta{A}}\ni{a-nb}
 \end{proof}
 
-\subsection*{Tertium non datur}
+\subsection*{Law of Excluded Middle}
 	\begin{proof}
-		\open
-			\hypo[i]{a}{\meta{A}}
-			\have[j]{c1}{\meta{B}}
-		\close
-		\open
-			\hypo[k]{b}{\enot\meta{A}}
-			\have[l]{c2}{\meta{B}}
-		\close
-		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
+		\have[\ ]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
 	\end{proof}
 
 \subsection*{Disjunction}
@@ -203,24 +193,32 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \subsection*{Biconditional}
 
 \begin{proof}
-	\open
-		\hypo[i]{a1}{\meta{A}} 
-		\have[j]{b1}{\meta{B}}
-	\close
-	\open
-		\hypo[k]{b2}{\meta{B}}
-		\have[l]{a2}{\meta{A}}
-	\close
-	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
+\have[m]{ab}{\meta{A}\eiff\meta{B}}
+\have[\ ]{b}{(\meta{A}\eif\meta{B})\eand(\meta{B}\eif\meta{A})}\iffE{ab}
 
-	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-\\	\have[n]{a}{\meta{A}}
-	\have[\ ]{b}{\meta{B}} \be{ab,a}
-
-	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-\\	\have[n]{a}{\meta{B}}
-	\have[\ ]{b}{\meta{A}} \be{ab,a}
+\have[m]{b}{(\meta{A}\eif\meta{B})\eand(\meta{B}\eif\meta{A})}
+\\\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\iffI{b}
 \end{proof}
+
+%\begin{proof}
+%	\open
+%		\hypo[i]{a1}{\meta{A}} 
+%		\have[j]{b1}{\meta{B}}
+%	\close
+%	\open
+%		\hypo[k]{b2}{\meta{B}}
+%		\have[l]{a2}{\meta{A}}
+%	\close
+%	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
+%
+%	\have[m]{ab}{\meta{A}\eiff\meta{B}}
+%\\	\have[n]{a}{\meta{A}}
+%	\have[\ ]{b}{\meta{B}} \be{ab,a}
+%
+%	\have[m]{ab}{\meta{A}\eiff\meta{B}}
+%\\	\have[n]{a}{\meta{B}}
+%	\have[\ ]{b}{\meta{A}} \be{ab,a}
+%\end{proof}
 
 \end{multicols}
 
@@ -258,7 +256,19 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 		\have[m]{dna}{\enot \enot \meta{A}}
 		\have[ ]{a}{\meta{A}}\dne{dna}
 	\end{proof}
-	
+
+
+\subsection*{Proof by Contradiction}
+	\begin{proof}
+		\open
+			\hypo[m]{na}{\enot\meta{A}}
+			\have[n]{red}{\ered}
+		\close
+		\have[ ]{a}{\meta{A}}\by{IP}{na-red}
+	\end{proof}
+
+
+
 %
 %\subsection*{Hypothetical Syllogism}
 %

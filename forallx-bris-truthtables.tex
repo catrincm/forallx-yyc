@@ -1,4 +1,4 @@
-%!TEX root = forallxyyc.tex
+%!TEX root = forallxbris.tex
 \part{Truth tables}
 \label{ch.TruthTables}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
@@ -26,7 +26,7 @@ F & T
 \end{tabular}
 \end{center}
 
-\paragraph{Conjunction.} For any sentences \meta{A} and \meta{B}, \meta{A}\eand\meta{B} is true if and only if both \meta{A} and \meta{B} are true. We can summarize this in the {characteristic truth table} for conjunction:
+\paragraph{Conjunction.} For any sentences \meta{A} and \meta{B}, $\meta{A}\eand\meta{B}$ is true if and only if both \meta{A} and \meta{B} are true. We can summarize this in the {characteristic truth table} for conjunction:
 \begin{center}
 \begin{tabular}{c c |c}
 \meta{A} & \meta{B} & $\meta{A}\eand\meta{B}$\\
@@ -39,7 +39,7 @@ F & F & F
 \end{center}
 Note that conjunction is \emph{symmetrical}. The truth value for $\meta{A} \eand \meta{B}$ is always the same as the truth value for $\meta{B} \eand \meta{A}$.  
 
-\paragraph{Disjunction.} Recall that `$\eor$' always represents inclusive or. So, for any sentences \meta{A} and \meta{B}, $\meta{A}\eor \meta{B}$ is true if and only if either \meta{A} or \meta{B} is true. We can summarize this in the {characteristic truth table} for disjunction:
+\paragraph{Disjunction.} Recall that `$\eor$' always represents inclusive or. So, for any sentences \meta{A} and \meta{B}, $\meta{A}\eor \meta{B}$ is true if and only if \meta{A} is true or \meta{B} is true. We can summarize this in the {characteristic truth table} for disjunction:
 \begin{center}
 \begin{tabular}{c c|c}
 \meta{A} & \meta{B} & $\meta{A}\eor\meta{B}$ \\
@@ -218,7 +218,21 @@ $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
  F & F & {F} & & {F} & & {F}
 \end{tabular}
 \end{center}
-Now consider the subsentence `$(H\eand I)$'. This is a conjunction, $(\meta{A}\eand\meta{B})$, with `$H$' as \meta{A} and with `$I$' as \meta{B}. The characteristic truth table for conjunction gives the truth conditions for \emph{any} sentence of the form $(\meta{A}\eand\meta{B})$, whatever $\meta{A}$ and $\meta{B}$ might be. It represents the point that a conjunction is true iff both conjuncts are true. In this case, our conjuncts are just `$H$' and `$I$'. They are both true on (and only on) the first line of the truth table. Accordingly, we can calculate the truth value of the conjunction on all four rows.
+To know how to proceed we will want to look at the structure of the sentence, which we can do by producing a formation tree as in \S\ref{TFLsentences}: 
+
+\begin{center}
+\begin{forest}
+[$(H\eand I)\eif H$
+	[$(H\eand I)$
+		[$H$]
+		[$I$]
+	]
+	[$H$]
+]
+\end{forest}
+\end{center}
+
+To fill in the truth table we will be working up the tree. We have to have assigned truth values to all components lower in the tree to work out the node connecting them. So we should start with the lowest sentence that we have not yet got a truth value for: `$(H\eand I)$'. This is a conjunction, $(\meta{A}\eand\meta{B})$, with `$H$' as \meta{A} and with `$I$' as \meta{B}. The characteristic truth table for conjunction gives the truth conditions for \emph{any} sentence of the form $(\meta{A}\eand\meta{B})$, whatever $\meta{A}$ and $\meta{B}$ might be. It represents the point that a conjunction is true iff both conjuncts are true. In this case, our conjuncts are just `$H$' and `$I$'. They are both true on (and only on) the first line of the truth table. Accordingly, we can calculate the truth value of the conjunction on all four rows.
 \begin{center}
 \begin{tabular}{c c|d e e e f}
  & & \meta{A} & \eand & \meta{B} & & \\
@@ -345,7 +359,7 @@ it would be dangerously ambiguous. \emph{Never write this.} The moral is: never 
 
 \practiceproblems\label{pr.TT.TTorC}
 \problempart
-Offer complete truth tables for each of the following:
+Draw formation trees and offer complete truth tables for each of the following:
 \begin{earg}
 \item $A \eif A$ %taut
 \item $C \eif\enot C$ %contingent

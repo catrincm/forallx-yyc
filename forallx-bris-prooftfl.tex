@@ -1,4 +1,4 @@
-%!TEX root = forallxyyc.tex
+%!TEX root = forallxbris.tex
 \part{Natural deduction for TFL}
 \label{ch.NDTFL}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
@@ -50,7 +50,7 @@ There are, indeed, systems that codify ways to reason about all possible interpr
 %So here is our plan. 
 
 Rather than reasoning directly about all valuations (in the case of TFL), we will try to select a few basic rules of inference. Some of these will govern the behaviour of the sentential connectives. Others will govern the behaviour of the quantifiers and identity that are the hallmarks of FOL. The resulting system of rules will give us a new way to think about the validity of arguments. 
-The modern development of natural deduction dates from simultaneous and unrelated papers by Gerhard Gentzen and Stanis\l{}aw Ja\'{s}kowski (1934). However, the natural deduction system that we will consider is based largely around work by Frederic Fitch (first published in 1952). 
+The modern development of natural deduction dates from simultaneous and unrelated papers by Gerhard Gentzen and Stanis\l{}aw Ja\'{s}kowski (both in 1934). However, the natural deduction system that we will consider is based largely around work by Frederic Fitch (first published in 1952). 
 
 
 
@@ -202,7 +202,7 @@ But now we can merrily reintroduce conjunctions in the order we wanted them, so 
 \end{proof}
 Recall that our official definition of sentences in TFL only allowed conjunctions with two conjuncts. The proof just given suggests that we could drop inner brackets in all of our proofs. However, this is not standard, and we will not do this. Instead, we will maintain our more austere bracketing conventions. (Though we will still allow ourselves to drop outermost brackets, for legibility.)
 
-Let me offer one final illustration. When using the $\eand$I rule, there is no need to apply it to different sentences. So we can formally prove `$A$' from `$A$' as follows:
+Let me offer one final illustration. When using the $\eand$I rule, there is no requirement that it is applied to two different sentences. So we can formally prove `$A$' from `$A$' as follows:
 \begin{proof}
 	\hypo{a}{A}
 	\have{aa}{A \eand A}\ai{a, a}
@@ -213,7 +213,7 @@ Simple, but effective.
 \section{Conditional}
 Consider the following argument:
 	\begin{quote}
-		If Jane is smart then she is fast. Jane is smart. \therefore Jane is fast.
+		If Jane is smart then she is fast. Jane is smart. \therefore~ Jane is fast.
 	\end{quote}
 This argument is certainly valid, and it suggests a straightforward conditional elimination rule ($\eif$E):
 \factoidbox{
@@ -377,38 +377,52 @@ It is always permissible to open a subproof with any assumption. However, there 
 Equally, it is always permissible to close a subproof and discharge its assumptions. However, it will not be helpful to do so until you have reached something useful.
 
 
-\section{Biconditional}
-The rules for the biconditional will be like double-barrelled versions of the rules for the conditional.
-
-In order to prove `$W \eiff X$', for instance, you must be able to prove `$X$' on the assumption `$W$' \emph{and} prove `$W$' on the assumption `$X$'. The biconditional introduction rule ({\eiff}I) therefore requires two subproofs. Schematically, the rule works like this:
+\section{Biconditional}\todo{delete this!}
+The rules for the biconditional will just encode the fact that we didn't need to introduce the symbol and could have always written `$(\meta{A}\eif\meta{B})\wedge(\meta{B}\eif\meta{A})$' instead of $\meta{A}\eiff\meta{B}$. We thus introduce the rules allowing you to move between these formulations: 
 \factoidbox{
 \begin{proof}
-	\open
-		\hypo[i]{a1}{\meta{A}}
-		\have[j]{b1}{\meta{B}}
-	\close
-	\open
-		\hypo[k]{b2}{\meta{B}}
-		\have[l]{a2}{\meta{A}}
-	\close
-	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
-\end{proof}}
-There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
-
-The biconditional elimination rule ({\eiff}E) lets you do a bit more than the conditional rule. If you have the left-hand subsentence of the biconditional, you can obtain the right-hand subsentence. If you have the right-hand subsentence, you can obtain the left-hand subsentence. So we allow:
+\have[m]{ab}{\meta{A}\eiff\meta{B}}
+\have[\ ]{b}{(\meta{A}\eif\meta{B})\eand(\meta{B}\eif\meta{A})}\iffE{ab}
+\end{proof}
+}
 \factoidbox{
 \begin{proof}
-	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-	\have[n]{a}{\meta{A}}
-	\have[\ ]{b}{\meta{B}} \be{ab,a}
-\end{proof}}
-and equally:
-\factoidbox{\begin{proof}
-	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-	\have[n]{a}{\meta{B}}
-	\have[\ ]{b}{\meta{A}} \be{ab,a}
-\end{proof}}
-Note that the biconditional, and the right or left half, can be separated from one another, and they can appear in any order. However, in the citation for $\eiff$E, we always cite the biconditional first.
+\have[m]{b}{(\meta{A}\eif\meta{B})\eand(\meta{B}\eif\meta{A})}
+\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\iffI{b}
+\end{proof}
+}
+
+%The rules for the biconditional will be like double-barrelled versions of the rules for the conditional.
+%
+%In order to prove `$W \eiff X$', for instance, you must be able to prove `$X$' on the assumption `$W$' \emph{and} prove `$W$' on the assumption `$X$'. The biconditional introduction rule ({\eiff}I) therefore requires two subproofs. Schematically, the rule works like this:
+%\factoidbox{
+%\begin{proof}
+%	\open
+%		\hypo[i]{a1}{\meta{A}}
+%		\have[j]{b1}{\meta{B}}
+%	\close
+%	\open
+%		\hypo[k]{b2}{\meta{B}}
+%		\have[l]{a2}{\meta{A}}
+%	\close
+%	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
+%\end{proof}}
+%There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
+%
+%The biconditional elimination rule ({\eiff}E) lets you do a bit more than the conditional rule. If you have the left-hand subsentence of the biconditional, you can obtain the right-hand subsentence. If you have the right-hand subsentence, you can obtain the left-hand subsentence. So we allow:
+%\factoidbox{
+%\begin{proof}
+%	\have[m]{ab}{\meta{A}\eiff\meta{B}}
+%	\have[n]{a}{\meta{A}}
+%	\have[\ ]{b}{\meta{B}} \be{ab,a}
+%\end{proof}}
+%and equally:
+%\factoidbox{\begin{proof}
+%	\have[m]{ab}{\meta{A}\eiff\meta{B}}
+%	\have[n]{a}{\meta{B}}
+%	\have[\ ]{b}{\meta{A}} \be{ab,a}
+%\end{proof}}
+%Note that the biconditional, and the right or left half, can be separated from one another, and they can appear in any order. However, in the citation for $\eiff$E, we always cite the biconditional first.
 
 \section{Disjunction}
 Suppose Ludwig is reactionary. Then Ludwig is either reactionary or libertarian. After all, to say that Ludwig is either reactionary or libertarian is to say something weaker than to say that Ludwig is reactionary. 
@@ -499,7 +513,7 @@ An effective form of argument is to argue your opponent into contradicting thems
 \end{proof}}
 It does not matter what order the sentence and its negation appear in, and they do not need to appear on adjacent lines. However, we always cite the sentence first, followed by its negation. 
 
-Our elimination rule for `$\ered$' is known as \emph{ex falso quod libet}. This means `anything follows from a contradiction', and the idea is precisely that: if we obtained a contradiction, symbolized by `$\ered$', then we can infer whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `\ldots and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{i}s true then not only will we eat my hat, I'll have it too.\footnote{Thanks to Adam Caulton for this.} Here is the formal rule:
+Our elimination rule for `$\ered$' is known as \emph{ex falso quod libet}, or \emph{explosion}. This means `anything follows from a contradiction', and the idea is precisely that: if we obtained a contradiction, symbolized by `$\ered$', then we can infer whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `\ldots and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{i}s true then not only will we eat my hat, I'll have it too.\footnote{Thanks to Adam Caulton for this.} Here is the formal rule:
 \factoidbox{\begin{proof}
 \have[m]{bot}{\ered}
 \have[ ]{}{\meta{A}}\re{bot}
@@ -510,13 +524,14 @@ A final remark. We have said that `$\ered$' should be read as something like `co
 	\begin{ebullet}
 		\item We might regard `$\ered$' as a new atomic sentence of TFL, but one which can only ever have the truth value False. 
 		\item We might regard `$\ered$' as an abbreviation for some canonical contradiction, such as `$A \eand \enot A$'. This will have the same effect as the above---obviously, `$A \eand \enot A$' only ever has the truth value False---but it means that, officially, we do not need to add a new symbol to TFL.
+%		The disadvantage of this view is why should it be fixed to `$A$', an
 		\item We might regard `$\ered$', not as a symbol of TFL, but as something more like a \emph{punctuation mark} that appears in our proofs. (It is on a par with the line numbers and the vertical lines, say.)
 	\end{ebullet}
 There is something very philosophically attractive about the third option, but here we will \emph{officially} adopt the first. `$\ered$' is to be read as a sentence letter that is always false. This means that we can manipulate it, in our proofs, just like any other sentence.
 
 
 \section{Negation}
-There is obviously a tight link between contradiction and negation. Indeed, the $\ered$I rule essentially behaves as a rule for negation elimination: we introduce `$\bot$' when a sentence and its negation both appear in our proof. So there is no need for us to add a further rule for negation elimination. 
+There is obviously a tight link between contradiction and negation. Indeed, the $\ered$I rule essentially behaves as a rule for negation elimination: we introduce `$\ered$' when a sentence and its negation both appear in our proof. So there is no need for us to add a further rule for negation elimination.
 
 However, we do need to state a rule for negation introduction. The rule is very simple: if assuming something leads you to a contradiction, then the assumption must be wrong. This thought motivates the following rule:
 \factoidbox{\begin{proof}
@@ -535,29 +550,44 @@ There can be as many lines between $i$ and $j$ as you like. To see this in pract
 		\close
 		\have{con}{\enot\enot D}\ni{nd-ndr}
 	\end{proof}
-We will also add another rule for negation. It is much like the rule used in disjunction elimination, and it requires a little motivation. 
 
-Suppose that we can show that if it's sunny outside, then Bill will have brought an umbrella (for fear of burning). Suppose we can also show that, if it's not sunny outside, then Bill will have brought an umbrella (for fear of rain). Well, there is no third way for the weather to be. So, \emph{whatever the weather}, Bill will have brought an umbrella. 
+\section{Law of Excluded Middle}
+We will add a final rule to our system. Here's the motivation for it: it's either raining or it's not raining. The Law of Excluded Middle encodes the idea that every sentence is either true or false: either $\meta{A}$ or $\neg\meta{A}$. The rule simply says that you're always allowed to write $\meta{A}\eor\neg\meta{A}$:
 
-This line of thinking motivates the following rule:
-\factoidbox{\begin{proof}
-		\open
-			\hypo[i]{a}{\meta{A}}
-			\have[j]{c1}{\meta{B}}
-		\close
-		\open
-			\hypo[k]{b}{\enot\meta{A}}
-			\have[l]{c2}{\meta{B}}
-		\close
-		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
-	\end{proof}}
-The rule is sometimes called \emph{tertium non datur}, which means `no third way'. There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
+\factoidbox{
+\begin{proof}
+\have[i]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
+\end{proof}
+} 
+
+
+%
+%
+%
+% It is much like the rule used in disjunction elimination, and it requires a little motivation. 
+%
+%Suppose that we can show that if it's sunny outside, then Bill will have brought an umbrella (for fear of burning). Suppose we can also show that, if it's not sunny outside, then Bill will have brought an umbrella (for fear of rain). Well, there is no third way for the weather to be. So, \emph{whatever the weather}, Bill will have brought an umbrella. 
+%
+%This line of thinking motivates the following rule:
+%\factoidbox{\begin{proof}
+%		\open
+%			\hypo[i]{a}{\meta{A}}
+%			\have[j]{c1}{\meta{B}}
+%		\close
+%		\open
+%			\hypo[k]{b}{\enot\meta{A}}
+%			\have[l]{c2}{\meta{B}}
+%		\close
+%		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
+%	\end{proof}}
+%The rule is sometimes called \emph{tertium non datur}, which means `no third way'. There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
 
 To see the rule in action, consider:
 	$$P \therefore (P \eand D) \eor (P \eand \enot D)$$
 Here is a proof corresponding with the argument:
 	\begin{proof}
 		\hypo{a}{P}
+		\have{lem}{D\eor\enot D}\LEM
 		\open
 			\hypo{b}{D}
 			\have{ab}{P \eand D}\ai{a, b}
@@ -568,7 +598,7 @@ Here is a proof corresponding with the argument:
 			\have{anb}{P \eand \enot D}\ai{a, nb}
 			\have{anbo}{(P \eand D) \eor (P \eand \enot D)}\oi{anb}
 		\close
-		\have{con}{(P \eand D) \eor (P \eand \enot D)}\tnd{b-abo, nb-anbo}
+		\have{con}{(P \eand D) \eor (P \eand \enot D)}\orE{lem,b-abo, nb-anbo}
 	\end{proof}
 \emph{These are all of the basic rules for the proof system for TFL.}
 
@@ -578,6 +608,7 @@ Here is a proof corresponding with the argument:
 The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
 \begin{proof}
 \hypo{abc}{\enot L \eif (A \eand L)}
+\have{lem}{L\eor\enot L}\LEM
 \open
 	\hypo{nl}{\enot L}
 	\have{a}{A}\ce{abc, nl}
@@ -587,7 +618,7 @@ The following two `proofs' are \emph{incorrect}. Explain the mistakes they make.
 	\have{red}{\ered}\ri{l, nl}
 	\have{a2}{A}\re{red}
 \close
-\have{con}{A}\tnd{nl-a, l-a2}
+\have{con}{A}\orE{lem,nl-a, l-a2}
 \end{proof}
 
 \begin{proof}
@@ -662,7 +693,7 @@ Give a proof for each of the following arguments:
 \chapter{Additional rules for TFL}\label{s:Further}
 In \S\ref{s:BasicTFL}, we introduced the basic rules of our proof system for TFL. In this section, we will add some additional rules to our system. These will make our system much easier to work with. (However, in \S\ref{s:Derived} we will see that they are not strictly speaking \emph{necessary}.)
 
-\section{Reiteration}
+\section{Reiteration}\label{sec:reiteration}
 The first additional rule is \emph{reiteration} (R). This just allows us to repeat ourselves:
 \factoidbox{\begin{proof}
 	\have[m]{a}{\meta{A}}
@@ -670,17 +701,32 @@ The first additional rule is \emph{reiteration} (R). This just allows us to repe
 \end{proof}}
 Such a rule is obviously legitimate; but one might well wonder how such a rule could ever be useful. Well, consider:
 \begin{proof}
-	\hypo{ana}{A \eif \enot A}
+	\hypo{nna}{\enot\enot A}
+	\have{lem}{A\eor\enot A}\LEM
 	\open
 		\hypo{a}{A}
-		\have{na}{\enot A}\ce{ana, a}
+		\have{a2}{A}\by{R}{a}
 	\close
 	\open
-		\hypo{na1}{\enot A}
-		\have{na2}{\enot A}\by{R}{na1}
+		\hypo{na}{\enot A}
+		\have{bot}{\ered}\redI{na,nna}
+		\have{a3}{A}\redE{bot}
 	\close
-	\have{na3}{\enot A}\tnd{a-na, na1-na2}
+	\have{a4}{A}\orE{lem,a-a2, na-a3}
 \end{proof}
+
+%\begin{proof}
+%	\hypo{ana}{A \eif \enot A}
+%	\open
+%		\hypo{a}{A}
+%		\have{na}{\enot A}\ce{ana, a}
+%	\close
+%	\open
+%		\hypo{na1}{\enot A}
+%		\have{na2}{\enot A}\by{R}{na1}
+%	\close
+%	\have{na3}{\enot A}\tnd{a-na, na1-na2}
+%\end{proof}
 This is a fairly typical use of the R rule.
 
 \section{Disjunctive syllogism}
@@ -721,9 +767,22 @@ Another useful rule is \emph{double-negation elimination}. This rule does exactl
 		\have[m]{dna}{\enot \enot \meta{A}}
 		\have[ ]{a}{\meta{A}}\dne{dna}
 	\end{proof}}
+We actually gave the argument for this in \S\ref{sec:reiteration}
 The justification for this is that, in natural language, double-negations tend to cancel out. 
 
 That said, you should be aware that context and emphasis can prevent them from doing so. Consider: `Jane is not \emph{not} happy'. Arguably, one cannot infer `Jane is happy', since the first sentence should be understood as meaning the same as  `Jane is not \emph{un}happy'. This is compatible with `Jane is in a state of profound indifference'. As usual, moving to TFL forces us to sacrifice certain nuances of English expressions.
+
+\section{Proof by contradiction}
+A further rule is very closely related to $\enot$I. This is \emph{proof by contradiction}, also sometimes called \emph{indirect proof}. It allows us to prove something by assuming its negation and showing that it leads to contradiction. This technique is incredibly common in mathematics, for example it is used to show that $\sqrt{2}$ is irrational. 
+
+\factoidbox{\begin{proof}
+\open
+\hypo[m]{na}{\enot \meta{A}}
+\have[n]{red}{\ered}
+\close
+\have[ ]{a}{\meta{A}}\ProofbyContradiction{na-red}
+\end{proof}
+}
 
 \section{De Morgan Rules}
 Our final additional rules are called De Morgan's Laws. (These are named after Augustus De Morgan.) The shape of the rules should be familiar from truth tables.
@@ -1021,6 +1080,7 @@ Again, the rule of MT can be derived from the \emph{basic} rules of \S\ref{s:Bas
 Consider the following deduction scheme:
 	\begin{proof}
 	\have[m]{m}{\enot \enot \meta{A}}
+	\have[j]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
 	\open
 		\hypo[k]{a}{\meta{A}}
 		\have{a1}{\meta{A}}\by{R}{a}
@@ -1030,14 +1090,26 @@ Consider the following deduction scheme:
 		\have{red}{\ered}\ri{na, m}
 		\have{a2}{\meta{A}}\re{red}
 	\close
-	\have{con}{\meta{A}}\tnd{a-a1, na-a2}
+	\have{con}{\meta{A}}\orE{lem,a-a1, na-a2}
 \end{proof}
 Again,  we can derive the DNE rule from the \emph{basic} rules of \S\ref{s:BasicTFL}.
+
+\section{Derivation of Proof by Contradiction}
+Once we have DNE, proof by contradiction is a very quick consequence of $\enot$I:
+\begin{proof}
+\open
+\hypo[m]{na}{\enot \meta{A}}
+\have[n]{red}{\ered}
+\close
+\have[k]{nna}{\enot\enot \meta{A}}\notI{na-red}
+\have[ ]{a}{\meta{A}}\dne{nna}
+\end{proof}
 
 \section{Derivation of De Morgan rules}
 Here is a demonstration of how we could derive the first De Morgan rule:
  	\begin{proof}
 		\have[m]{nab}{\enot (\meta{A} \eand \meta{B})}
+		\have[j]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
 		\open
 			\hypo[k]{a}{\meta{A}}
 			\open
@@ -1052,7 +1124,7 @@ Here is a demonstration of how we could derive the first De Morgan rule:
 			\hypo{na1}{\enot \meta{A}}
 			\have{dis1}{\enot\meta{A} \eor \enot \meta{B}}\oi{na1}
 		\close
-		\have{con}{\enot \meta{A} \eor \enot \meta{B}}\tnd{a-dis, na1-dis1}
+		\have{con}{\enot \meta{A} \eor \enot \meta{B}}\orE{lem,a-dis, na1-dis1}
 	\end{proof}
 Here is a demonstration of how we could derive the second De Morgan rule:
  	\begin{proof}
