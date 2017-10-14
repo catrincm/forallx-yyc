@@ -1,6 +1,6 @@
-# forallx-yyc
+# forallx-bris
 
-![Book Cover](http://forallx.openlogicproject.org/forallxyyc.png)
+![Book Cover](http://forallx.openlogicproject.org/forallxbris.png)
 
 This is the formal logic textbook, _forall x: Calgary Remix_. It is
 based on [_forall x:
@@ -26,15 +26,15 @@ J. Robert Loftis, used under a [CC BY-SA
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-The LaTeX source code for this work is available on GitHub at [github.com/rzach/forallx-yyc](https://github.com/rzach/forallx-yyc).
+The LaTeX source code for this work is available on GitHub at [github.com/rzach/forallx-bris](https://github.com/rzach/forallx-bris).
 
 ## Download PDFs
 
 You can download PDFs of the files here:
 
-  - [`forallxyyc.pdf`](http://forallx.openlogicproject.org/forallxyyc.pdf) (in color, for screen reading)
-  - [`forallxyyc-print.pdf`](http://forallx.openlogicproject.org/forallxyyc-print.pdf) (b/w, for printing on Quarto stock)
-  - [`forallxyyc-letter.pdf`](http://forallx.openlogicproject.org/forallxyyc-letter.pdf) (b/w, for printing on regular letter-size paper)
+  - [`forallxbris.pdf`](http://forallx.openlogicproject.org/forallxbris.pdf) (in color, for screen reading)
+  - [`forallxbris-print.pdf`](http://forallx.openlogicproject.org/forallxbris-print.pdf) (b/w, for printing on Quarto stock)
+  - [`forallxbris-letter.pdf`](http://forallx.openlogicproject.org/forallxbris-letter.pdf) (b/w, for printing on regular letter-size paper)
   - [`forallxsol.pdf`](http://forallx.openlogicproject.org/solutions/forallxsol.pdf) (solutions booklet)
 
 ## Buy a Printed Copy
@@ -46,19 +46,19 @@ or
 ([Canada](https://www.amazon.ca/dp/1546435115/ref=cm_sw_r_cp_ep_dp_uLLhzbVJGFRNZ),
 [UK](https://www.amazon.co.uk/dp/1546435115/ref=cm_sw_r_cp_ep_dp_uLLhzbVJGFRNZ))
 
-(The process for getting the book printed is described [here](http://openlogicproject.org/2015/11/22/getting-your-book-to-print/) and [here](http://openlogicproject.org/2017/05/19/forall-x-yyc-is-now-on-amazon-and-how-it-got-there/).)
+(The process for getting the book printed is described [here](http://openlogicproject.org/2015/11/22/getting-your-book-to-print/) and [here](http://openlogicproject.org/2017/05/19/forall-x-bris-is-now-on-amazon-and-how-it-got-there/).)
 
 ## Make PDFs Yourself
 
-Clone the [GitHub repository](https://github.com/rzach/forallx-yyc) locally or download the ZIP file and run [LaTeX](http://www.latex-project.org/) on one of
+Clone the [GitHub repository](https://github.com/rzach/forallx-bris) locally or download the ZIP file and run [LaTeX](http://www.latex-project.org/) on one of
 
-  - `forallxyyc.tex` (in color, for screen reading)
-  - `forallxyyc-print.tex` (b/w, for printing on Quarto stock)
-  - `forallxyyc-letter.tex` (b/w, for printing on regular letter-size paper)
+  - `forallxbris.tex` (in color, for screen reading)
+  - `forallxbris-print.tex` (b/w, for printing on Quarto stock)
+  - `forallxbris-letter.tex` (b/w, for printing on regular letter-size paper)
 
 You'll have to run `makeglossaries` to produce the glossary as well.
 
-To make changes to the definitions in the preamble and `forallyyc.sty`
-file, put them in a file named `forallxyyc-local.sty`. For instance,
+To make changes to the definitions in the preamble and `forallbris.sty`
+file, put them in a file named `forallxbris-local.sty`. For instance,
 to get the connectives to be & for and and horseshoe for the
-conditional, copy `forallxyyc-local-sample.sty` to that file.
+conditional, copy `forallxbris-local-sample.sty` to that file.
