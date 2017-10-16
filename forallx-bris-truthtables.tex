@@ -564,9 +564,59 @@ If you want additional practice, you can construct truth tables for any of the s
 
 In the previous section, we introduced the idea of a valuation and showed how to determine the truth value of any TFL sentence, on any valuation, using a truth table. In this section, we will introduce some related ideas, and show how to use truth tables to test whether or not they apply.
 
+\section{Entailment and validity}
+Logic is particularly useful for evaluating arguments, in particular to help us see if an argument is \emph{valid}: logic can help us see if an argument is valid in virtue of its form. 
+
+In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if it's impossible for all the premises to be true and the conclusion false. We investigated validity as it applies to English language arguments, but we also have TFL arguments. The logical substitute notion of validity replaces `impossible' by `\emph{logically} impossible', where logical impossibility is characterised by there being no valuations with the property of interest. 
+\factoidbox{
+	The TFL argument `$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n\therefore \meta{B}$' is \define{valid} iff there are no valuations where the premises are true and the conclusion false. 
+}
+\newglossaryentry{logically valid in TFL}
+{
+	name=logical validity (in TFL),
+	text = logically valid,
+	description={A property held by arguments if and only if no \gls{valuation} makes all premises true and the conclusion false}
+}
+We will be using validity a lot in this course, and we have a corresponding notion that makes the claim that an argument is valid: that is the notion of \emph{entailment}. 
+\factoidbox{
+	The sentences $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ \define{entail} the sentence $\meta{C}$ if there are no valuations where all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and $\meta{C}$ false.
+}
+\newglossaryentry{logically valid in TFL}
+{
+	name=logical validity (in TFL),
+	text = logically valid,
+	description={A property held by arguments if and only if no \gls{valuation} makes all premises true and the conclusion false}
+}
+
+Entailment and validity are sister-notions: 
+\factoidbox{
+		$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$ iff $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ is valid.
+	}
+
+It is easy to test this with a truth table. Let us check whether `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$', we simply need to check whether there is any valuation which makes both `$\enot L \eif (J \eor L)$' and `$\enot L$' true whilst making `$J$' false. So we use a truth table: 
+\begin{center}
+	\begin{tabular}{c c|d e e e e f|d f| c}
+		$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
+		\hline
+		%J   L   -   L      ->     (J   v   L)
+		T & T & F & T & \TTbf{T} & T & T & T & \TTbf{F} & T & \TTbf{T}\\
+		T & F & T & F & \TTbf{T} & T & T & F & \TTbf{T} & F & \TTbf{T}\\
+		F & T & F & T & \TTbf{T} & F & T & T & \TTbf{F} & T & \TTbf{F}\\
+		F & F & T & F & \TTbf{F} & F & F & F & \TTbf{T} & F & \TTbf{F}
+	\end{tabular}
+\end{center}
+The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true is the second row, and that is a row on which `$J$' is also true. So `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$'.
+
+%We now make an important observation:
+%\factoidbox{
+%	$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$ iff $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ is valid.
+%}
+%Here's why. If $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$, then there is no valuation which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true whilst making $\meta{C}$ false. This means that it is \emph{logically impossible} for $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ all to be true whilst $\meta{C}$ is false. But this is just what it takes for an argument, with premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and conclusion $\meta{C}$, to be valid!
+
+In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$, and conclusion $\meta{C}$. Then we test for entailment using truth tables. 
 
 \section{Tautologies and contradictions}
-In \S\ref{s:BasicNotions}, we explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have surrogates in TFL. We will start with a surrogate for necessary truth.
+We have similar substitutes for the notions we introduced in \S\ref{s:BasicNotions}. There we explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have surrogates in TFL. We will start with a surrogate for necessary truth.
 	\factoidbox{
 		$\meta{A}$ is a \define{tautology} iff it is true on every valuation.
 	}
@@ -636,39 +686,7 @@ description={A property held by sentences if and only if the \gls{complete truth
 
 Derivatively, sentences are jointly logically inconsistent if there is no valuation that makes them all true. Again, it is easy to test for joint logical consistency using truth tables. 
 
-\section{Entailment and validity}
-The following idea is closely related to that of joint consistency:
-	\factoidbox{
-		The sentences $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ \define{entail} the sentence $\meta{C}$ if there is no valuation of the atomic sentences which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and $\meta{C}$ false.
-	}
-       \newglossaryentry{logically valid in TFL}
-{
-  name=logical validity (in TFL),
-  text = logically valid,
-description={A property held by arguments if and only if the \gls{complete truth table} for the argument contains no rows where the \glspl{premise} are all true and the \gls{conclusion} false, i.e., if no \gls{valuation} makes all premises true and the conclusion false}
-}
- 
-Again, it is easy to test this with a truth table. Let us check whether `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$', we simply need to check whether there is any valuation which makes both `$\enot L \eif (J \eor L)$' and `$\enot L$' true whilst making `$J$' false. So we use a truth table: 
-\begin{center}
-\begin{tabular}{c c|d e e e e f|d f| c}
-$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
-\hline
-%J   L   -   L      ->     (J   v   L)
- T & T & F & T & \TTbf{T} & T & T & T & \TTbf{F} & T & \TTbf{T}\\
- T & F & T & F & \TTbf{T} & T & T & F & \TTbf{T} & F & \TTbf{T}\\
- F & T & F & T & \TTbf{T} & F & T & T & \TTbf{F} & T & \TTbf{F}\\
- F & F & T & F & \TTbf{F} & F & F & F & \TTbf{T} & F & \TTbf{F}
-\end{tabular}
-\end{center}
-The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true is the second row, and that is a row on which `$J$' is also true. So `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$'.
 
-We now make an important observation:
-	\factoidbox{
-		If $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$, then $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ is valid.
-	}
-Here's why. If $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$, then there is no valuation which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true whilst making $\meta{C}$ false. This means that it is \emph{logically impossible} for $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ all to be true whilst $\meta{C}$ is false. But this is just what it takes for an argument, with premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and conclusion $\meta{C}$, to be valid!
-
-In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$, and conclusion $\meta{C}$. Then we test for entailment using truth tables. 
 
 
 \section{The limits of these tests}\label{s:ParadoxesOfMaterialConditional}
