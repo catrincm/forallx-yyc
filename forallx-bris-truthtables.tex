@@ -579,7 +579,7 @@ In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if 
 }
 We will be using validity a lot in this course, and we have a corresponding notion that makes the claim that an argument is valid: that is the notion of \emph{entailment}. 
 \factoidbox{
-	The TFL sentences $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ \define{entail} the sentence $\meta{C}$ if there are no valuations where all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and $\meta{C}$ false.
+	The TFL sentences $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ \define{entail} the sentence $\meta{C}$ iff there are no valuations where all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and $\meta{C}$ false.
 }
 \newglossaryentry{entailment in TFL}
 {
@@ -588,7 +588,7 @@ We will be using validity a lot in this course, and we have a corresponding noti
 	description={Some sentences entail another if and only if no \gls{valuation} makes all the former sentences true and the latter false, i.e.~if the corresponding argument is valid.}
 }
 
-Entailment and validity are sister-notions: 
+We can see that entailment and validity are sister-notions: 
 \factoidbox{
 		$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$ iff $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ is valid.
 	}
@@ -614,6 +614,37 @@ The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true i
 %Here's why. If $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$, then there is no valuation which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true whilst making $\meta{C}$ false. This means that it is \emph{logically impossible} for $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ all to be true whilst $\meta{C}$ is false. But this is just what it takes for an argument, with premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and conclusion $\meta{C}$, to be valid!
 
 In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$, and conclusion $\meta{C}$. Then we test for entailment using truth tables. 
+
+\subsection{The double-turnstile}
+We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\meta{A}_1, \meta{A}_2, \ldots$ and $\meta{A}_n$ together entail $\meta{C}$, we will abbreviate this by:
+$$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails \meta{C}$$
+The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
+
+Let me be clear. `$\entails$' is not a symbol of TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from \S\ref{s:UseMention}). So the metalanguage sentence:
+\begin{ebullet}
+	\item $P, P \eif Q \entails Q$
+\end{ebullet}
+is just an abbreviation for the English sentence: 
+\begin{ebullet}
+	\item The TFL sentences `$P$' and `$P \eif Q$' entail `$Q$'
+\end{ebullet}
+Note that there is no limit on the number of TFL sentences that can be mentioned before the symbol `$\entails$'. Indeed, we can even consider the limiting case:
+$$\entails \meta{C}$$
+This says that there is no valuation which makes all the sentences mentioned on the left hand side of `$\entails$' true whilst making $\meta{C}$ false. Since \emph{no} sentences are mentioned on the left hand side of `$\entails$' in this case, this just means that there is no valuation which makes $\meta{C}$ false. Otherwise put, it says that every valuation makes $\meta{C}$ true. Otherwise put, it says that $\meta{C}$ is a tautology. Equally:
+$$\meta{A} \entails$$
+says that $\meta{A}$ is a contradiction.
+
+\subsection{`$\entails$' versus `$\eif$'}
+We now want to compare and contrast `$\entails$' and `$\eif$'. 
+
+Observe: $\meta{A} \entails \meta{C}$ iff there is no valuation of the atomic sentences that makes $\meta{A}$ true and $\meta{C}$ false. 
+
+Observe: $\meta{A} \eif \meta{C}$ is a tautology iff there is no valuation of the atomic sentences that makes $\meta{A} \eif \meta{C}$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\meta{A} \eif \meta{C}$ is a tautology iff there is no valuation that makes $\meta{A}$ true and $\meta{C}$ false. 
+
+Combining these two observations, we see that $\meta{A} \eif \meta{C}$  is a tautology iff  $\meta{A} \entails \meta{C}$. But there is a really, really important difference between `$\entails$' and `$\eif$':
+\factoidbox{`$\eif$' is a sentential connective of TFL.\\ `$\entails$' is a symbol of augmented English.
+}
+Indeed, when `$\eif$' is flanked with two TFL sentences, the result is a longer TFL sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding TFL sentences. 
 
 \section{Tautologies and contradictions}
 We have similar substitutes for the notions we introduced in \S\ref{s:BasicNotions}. There we explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have surrogates in TFL. We will start with a surrogate for necessary truth.
@@ -722,36 +753,7 @@ and symbolize \ref{n:GodParadox2} as `$G \eif \enot M$'.  Now, if atheists are r
                 
 In different ways, these four examples highlight some of the limits of working with a language (like TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of the material conditional}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using TFL, before we can adequately discuss its limits, and consider alternatives. 
 
-\section{The double-turnstile}
-We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\meta{A}_1, \meta{A}_2, \ldots$ and $\meta{A}_n$ together entail $\meta{C}$, we will abbreviate this by:
-	$$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails \meta{C}$$
-The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
 
-Let me be clear. `$\entails$' is not a symbol of TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from \S\ref{s:UseMention}). So the metalanguage sentence:
-	\begin{ebullet}
-		\item $P, P \eif Q \entails Q$
-	\end{ebullet}
-is just an abbreviation for the English sentence: 
-	\begin{ebullet}
-		\item The TFL sentences `$P$' and `$P \eif Q$' entail `$Q$'
-	\end{ebullet}
-Note that there is no limit on the number of TFL sentences that can be mentioned before the symbol `$\entails$'. Indeed, we can even consider the limiting case:
-	$$\entails \meta{C}$$
-This says that there is no valuation which makes all the sentences mentioned on the left hand side of `$\entails$' true whilst making $\meta{C}$ false. Since \emph{no} sentences are mentioned on the left hand side of `$\entails$' in this case, this just means that there is no valuation which makes $\meta{C}$ false. Otherwise put, it says that every valuation makes $\meta{C}$ true. Otherwise put, it says that $\meta{C}$ is a tautology. Equally:
-	$$\meta{A} \entails$$
-says that $\meta{A}$ is a contradiction.
-
-\section{`$\entails$' versus `$\eif$'}
-We now want to compare and contrast `$\entails$' and `$\eif$'. 
-
-Observe: $\meta{A} \entails \meta{C}$ iff there is no valuation of the atomic sentences that makes $\meta{A}$ true and $\meta{C}$ false. 
-
-Observe: $\meta{A} \eif \meta{C}$ is a tautology iff there is no valuation of the atomic sentences that makes $\meta{A} \eif \meta{C}$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\meta{A} \eif \meta{C}$ is a tautology iff there is no valuation that makes $\meta{A}$ true and $\meta{C}$ false. 
-
-Combining these two observations, we see that $\meta{A} \eif \meta{C}$  is a tautology iff  $\meta{A} \entails \meta{C}$. But there is a really, really important difference between `$\entails$' and `$\eif$':
-	\factoidbox{`$\eif$' is a sentential connective of TFL.\\ `$\entails$' is a symbol of augmented English.
-	}
-Indeed, when `$\eif$' is flanked with two TFL sentences, the result is a longer TFL sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding TFL sentences. 
 
 
 \practiceproblems
