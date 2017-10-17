@@ -88,25 +88,26 @@ and we are hoping to conclude with some line:
 \end{proof}
 All that remains to do is to explain each of the rules that we can use along the way from premises to conclusion. The rules are broken down by our logical connectives.
 
-%\section{Reiteration}
-%The very first rule is so breathtakingly obvious that it is surprising we bother with it at all. 
-%
-%If you already have shown something in the course of a proof, the \emph{reiteration rule} allows you to repeat it on a new line. For example:
-%\begin{proof}
-%	\have[4]{a1}{A \eand B}
-%	\have[$\vdots$]{}{\vdots}
-%	\have[10]{a2}{A \eand B} \by{R}{a1}
-%\end{proof}
-%This indicates that we have written `$A \eand B$' on line 4. Now, at some later line---line 10, for example---we have decided that we want to repeat this. So we write it down again. We also add a citation which justifies what we have written. In this case, we write `R', to indicate that we are using the reiteration rule, and we write `$4$', to indicate that we have applied it to line $4$.
-%
-%Here is a general expression of the rule:
-%\begin{proof}
-%	\have[m]{a}{\meta{A}}
-%	\have[\ ]{c}{\meta{A}} \by{R}{a}
-%\end{proof}
-%The point is that, if any sentence $\meta{A}$ occurs on some line, then we can repeat $\meta{A}$ on later lines. Each line of our proof must be justified by some rule, and here we have `R $m$'. This means: Reiteration, applied to line $m$. 
-%
-%Two things need emphasising. First `$\meta{A}$' is not a sentence of TFL. Rather, it a symbol in the metalanguage, which we use when we want to talk about any sentence of TFL (see \S\ref{s:UseMention}). Second, and similarly, `$m$' is not a numeral that will appear on a proof. Rather, it is a symbol in the metalanguage, which we use when we want to talk about any line number of a proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth. But when we define the rule, we use variables to underscore the point that the rule may be applied at any point.
+
+\section{Reiteration}\label{s:Reiteration}
+The very first rule is so breathtakingly obvious that it is surprising we bother with it at all. 
+
+If you already have shown something in the course of a proof, the \emph{reiteration rule} allows you to repeat it on a new line. For example:
+\begin{proof}
+	\have[4]{a1}{A \eand B}
+	\have[$\vdots$]{}{\vdots}
+	\have[10]{a2}{A \eand B} \by{R}{a1}
+\end{proof}
+This indicates that we have written `$A \eand B$' on line 4. Now, at some later line---line 10, for example---we have decided that we want to repeat this. So we write it down again. We also add a citation which justifies what we have written. In this case, we write `R', to indicate that we are using the reiteration rule, and we write `$4$', to indicate that we have applied it to line $4$.
+
+Here is a general expression of the rule:
+\begin{proof}
+	\have[m]{a}{\meta{A}}
+	\have[\ ]{c}{\meta{A}} \by{R}{a}
+\end{proof}
+The point is that, if any sentence $\meta{A}$ occurs on some line, then we can repeat $\meta{A}$ on later lines. Each line of our proof must be justified by some rule, and here we have `R $m$'. This means: Reiteration, applied to line $m$. 
+
+Two things need emphasising. First `$\meta{A}$' is not a sentence of TFL. Rather, it a symbol in the metalanguage, which we use when we want to talk about any sentence of TFL (see \S\ref{s:UseMention}). Second, and similarly, `$m$' is not a numeral that will appear on a proof. Rather, it is a symbol in the metalanguage, which we use when we want to talk about any line number of a proof. In an actual proof, the lines are numbered `$1$', `$2$', `$3$', and so forth. But when we define the rule, we use variables to underscore the point that the rule may be applied at any point.
 
 \section{Conjunction}
 Suppose we want to show that Ludwig is both reactionary and libertarian. One obvious way to do this would be as follows: first we show that Ludwig is reactionary; then we show that Ludwig is libertarian; then we put these two demonstrations together, to obtain the conjunction.
@@ -208,7 +209,7 @@ Let me offer one final illustration. When using the $\eand$I rule, there is no r
 	\have{aa}{A \eand A}\ai{a, a}
 	\have{a2}{A}\ae{aa}
 \end{proof}
-Simple, but effective.
+Simple, but effective. In fact this shows that we didn't need to have the rule of Reiteration as we could always argue by $\eand$I then $\eand$E. But for ease we will allow Reiteration as a basic rule so you don't have to argue this way. 
 
 \section{Conditional}
 Consider the following argument:
@@ -307,8 +308,8 @@ Consider this proof:
 	\hypo{a}{A}
 	\open
 		\hypo{b1}{B}
-		\have{bb}{B \eand B}\ai{b1, b1}
-		\have{b2}{B} \ae{bb}
+%		\have{bb}{B \eand B}\ai{b1, b1}
+		\have{b2}{B} \Reiteration{b1}
 	\close
 	\have{con}{B \eif B}\ci{b1-b2}
 \end{proof}
@@ -319,8 +320,8 @@ But suppose we now tried to continue the proof as follows:
 	\hypo{a}{A}
 	\open
 		\hypo{b1}{B}
-		\have{bb}{B \eand B}\ai{b1, b1}
-		\have{b2}{B} \ae{bb}
+%		\have{bb}{B \eand B}\ai{b1, b1}
+		\have{b2}{B} \Reiteration{b1}
 	\close
 	\have{con}{B \eif B}\ci{b1-b2}
 	\have{b}{B}\by{naughty attempt to invoke $\eif$E}{con, b2}
@@ -513,7 +514,7 @@ An effective form of argument is to argue your opponent into contradicting thems
 \end{proof}}
 It does not matter what order the sentence and its negation appear in, and they do not need to appear on adjacent lines. However, we always cite the sentence first, followed by its negation. 
 
-Our elimination rule for `$\ered$' is known as \emph{ex falso quod libet}, or \emph{explosion}. This means `anything follows from a contradiction', and the idea is precisely that: if we obtained a contradiction, symbolized by `$\ered$', then we can infer whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `\ldots and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{i}s true then not only will we eat my hat, I'll have it too.\footnote{Thanks to Adam Caulton for this.} Here is the formal rule:
+Our elimination rule for `$\ered$' is known as \emph{ex falso quod libet}, or \emph{explosion}. This means `anything follows from a contradiction', and the idea is precisely that: if we obtained a contradiction, symbolized by `$\ered$', then we can infer whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `\ldots and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{i}s true then not only will I eat my hat, I'll have it too.\footnote{Thanks to Adam Caulton for this.} Here is the formal rule:
 \factoidbox{\begin{proof}
 \have[m]{bot}{\ered}
 \have[ ]{}{\meta{A}}\re{bot}
@@ -693,41 +694,41 @@ Give a proof for each of the following arguments:
 \chapter{Additional rules for TFL}\label{s:Further}
 In \S\ref{s:BasicTFL}, we introduced the basic rules of our proof system for TFL. In this section, we will add some additional rules to our system. These will make our system much easier to work with. (However, in \S\ref{s:Derived} we will see that they are not strictly speaking \emph{necessary}.)
 
-\section{Reiteration}\label{sec:reiteration}
-The first additional rule is \emph{reiteration} (R). This just allows us to repeat ourselves:
-\factoidbox{\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{b}{\meta{A}} \by{R}{a}
-\end{proof}}
-Such a rule is obviously legitimate; but one might well wonder how such a rule could ever be useful. Well, consider:
-\begin{proof}
-	\hypo{nna}{\enot\enot A}
-	\have{lem}{A\eor\enot A}\LEM
-	\open
-		\hypo{a}{A}
-		\have{a2}{A}\by{R}{a}
-	\close
-	\open
-		\hypo{na}{\enot A}
-		\have{bot}{\ered}\redI{na,nna}
-		\have{a3}{A}\redE{bot}
-	\close
-	\have{a4}{A}\orE{lem,a-a2, na-a3}
-\end{proof}
-
+%\section{Reiteration}\label{sec:reiteration}
+%The first additional rule is \emph{reiteration} (R). This just allows us to repeat ourselves:
+%\factoidbox{\begin{proof}
+%	\have[m]{a}{\meta{A}}
+%	\have[\ ]{b}{\meta{A}} \by{R}{a}
+%\end{proof}}
+%Such a rule is obviously legitimate; but one might well wonder how such a rule could ever be useful. Well, consider:
 %\begin{proof}
-%	\hypo{ana}{A \eif \enot A}
+%	\hypo{nna}{\enot\enot A}
+%	\have{lem}{A\eor\enot A}\LEM
 %	\open
 %		\hypo{a}{A}
-%		\have{na}{\enot A}\ce{ana, a}
+%		\have{a2}{A}\by{R}{a}
 %	\close
 %	\open
-%		\hypo{na1}{\enot A}
-%		\have{na2}{\enot A}\by{R}{na1}
+%		\hypo{na}{\enot A}
+%		\have{bot}{\ered}\redI{na,nna}
+%		\have{a3}{A}\redE{bot}
 %	\close
-%	\have{na3}{\enot A}\tnd{a-na, na1-na2}
+%	\have{a4}{A}\orE{lem,a-a2, na-a3}
 %\end{proof}
-This is a fairly typical use of the R rule.
+%
+%%\begin{proof}
+%%	\hypo{ana}{A \eif \enot A}
+%%	\open
+%%		\hypo{a}{A}
+%%		\have{na}{\enot A}\ce{ana, a}
+%%	\close
+%%	\open
+%%		\hypo{na1}{\enot A}
+%%		\have{na2}{\enot A}\by{R}{na1}
+%%	\close
+%%	\have{na3}{\enot A}\tnd{a-na, na1-na2}
+%%\end{proof}
+%This is a fairly typical use of the R rule.
 
 \section{Disjunctive syllogism}
 Here is a very natural argument form.
