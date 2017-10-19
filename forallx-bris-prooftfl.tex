@@ -154,26 +154,26 @@ The point is simply that, when you have a conjunction on some line of a proof, y
 
 Even with just these two rules, we can start to see some of the power of our formal proof system. Consider:
 \begin{earg}
-\item[] $[(A\eor B)\eif(C\eor D)] \eand [(E \eor F) \eif (G\eor H)]$
-\item[\therefore] $[(E \eor F) \eif (G\eor H)] \eand [(A\eor B)\eif(C\eor D)]$
+\item[] $[(A\eor B)\eif(C\eor D)] \eand \enot(E\eor F)$
+\item[\therefore] $\enot(E\eor F) \eand [(A\eor B)\eif(C\eor D)]$
 \end{earg}
 The main logical operator in both the premise and conclusion of this argument is `$\eand$'. In order to provide a proof, we begin by writing down the premise, which is our assumption. We draw a line below this: everything after this line must follow from our assumptions by (repeated applications of) our rules of inference. So the beginning of the proof looks like this:
 \begin{proof}
-	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand \enot(E\eor F)}
 \end{proof}
 From the premise, we can get each of the conjuncts by {\eand}E. The proof now looks like this:
 \begin{proof}
-	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand \enot(E\eor F)}
 	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
-	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
+	\have{b}{\enot(E\eor F)} \ae{ab}
 \end{proof}
 So by applying the {\eand}I rule to lines 3 and 2 (in that order), we arrive at the desired conclusion. The finished proof looks like this:
 \begin{proof}
-	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand {[}(E \eor F) \eif (G\eor H){]}}
+	\hypo{ab}{{[}(A\eor B)\eif(C\eor D){]} \eand \enot(E\eor F)}
 
 	\have{a}{{[}(A\eor B)\eif(C\eor D){]}} \ae{ab}
-	\have{b}{{[}(E \eor F) \eif (G\eor H){]}} \ae{ab}
-	\have{ba}{{[}(E \eor F) \eif (G\eor H){]} \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{b,a}
+	\have{b}{\enot(E\eor F)} \ae{ab}
+	\have{ba}{\enot(E\eor F) \eand {[}(A\eor B)\eif(C\eor D){]}} \ai{b,a}
 \end{proof}
 This is a very simple proof, but it shows how we can chain rules of proof together into longer proofs. In passing, note that investigating this argument with a truth table would have required a staggering 256 lines; our formal proof required only four lines. 
 
