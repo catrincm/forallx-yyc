@@ -115,6 +115,13 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 %{\LARGE \textbf{Basic Rules of Proof}}
 \begin{multicols}{2}
+\subsection*{Reiteration}
+
+\begin{proof}
+	\have[m]{a}{\meta{A}}
+	\have[\ ]{c}{\meta{A}} \by{R}{a}
+\end{proof}
+
 
 \subsection*{Conjunction}
 
@@ -190,7 +197,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
 \end{proof}
 
-\subsection*{Biconditional}
+\subsection*{Biconditional}(Will not be required for exam)
 
 \begin{proof}
 \have[m]{ab}{\meta{A}\eiff\meta{B}}
@@ -236,12 +243,12 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{con}{\meta{A}}\by{DS}{ab, nb}
 \end{proof}
 
-\subsection*{Reiteration}
-
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{c}{\meta{A}} \by{R}{a}
-\end{proof}
+%\subsection*{Reiteration}
+%
+%\begin{proof}
+%	\have[m]{a}{\meta{A}}
+%	\have[\ ]{c}{\meta{A}} \by{R}{a}
+%\end{proof}
 
 \subsection*{Modus Tollens}
 
