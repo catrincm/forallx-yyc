@@ -503,6 +503,58 @@ Here is a proof corresponding to this argument:
 	\end{proof}
 Don't be alarmed if you think that you wouldn't have been able to come up with this proof yourself. The ability to come up with novel proofs will come with practice. The key question at this stage is whether, looking at the proof, you can see that it conforms with the rules that we have laid down. That just involves checking every line, and making sure that it is justified in accordance with the rules we have laid down.
 
+\section{Law of Excluded Middle}
+We actually add another rule for how to introduce a disjunction. There are special kinds of disjunctions that don't need further justification, these are sentences like $A\eor\enot A$.
+In \S\ref{s:TautologiesAndContradictions} we saw that $A\eor\enot A$ is a tautology: it is true on all valuations. 
+The rule \emph{Law of Excluded Middle} encodes this fact: it simply says that you're always allowed to write $\meta{A}\eor\neg\meta{A}$:
+
+\factoidbox{
+	\begin{proof}
+		\have[m]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
+	\end{proof}
+} 
+
+As always, $\meta{A}$ can be whatever you want, e.g.~$(A\eand(B\eif C))$. Then the rule tells us, e.g.~that you can write $(A\eand(B\eif C))\eor\enot(A\eand(B\eif C))$ on any line of the proof. 
+
+%
+%
+%
+% It is much like the rule used in disjunction elimination, and it requires a little motivation. 
+%
+%Suppose that we can show that if it's sunny outside, then Bill will have brought an umbrella (for fear of burning). Suppose we can also show that, if it's not sunny outside, then Bill will have brought an umbrella (for fear of rain). Well, there is no third way for the weather to be. So, \emph{whatever the weather}, Bill will have brought an umbrella. 
+%
+%This line of thinking motivates the following rule:
+%\factoidbox{\begin{proof}
+%		\open
+%			\hypo[i]{a}{\meta{A}}
+%			\have[j]{c1}{\meta{B}}
+%		\close
+%		\open
+%			\hypo[k]{b}{\enot\meta{A}}
+%			\have[l]{c2}{\meta{B}}
+%		\close
+%		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
+%	\end{proof}}
+%The rule is sometimes called \emph{tertium non datur}, which means `no third way'. There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
+
+To see the rule in action, consider:
+$$P \therefore (P \eand D) \eor (P \eand \enot D)$$
+Here is a proof corresponding with the argument:
+\begin{proof}
+	\hypo{a}{P}
+	\have{lem}{D\eor\enot D}\LEM
+	\open
+	\hypo{b}{D}
+	\have{ab}{P \eand D}\ai{a, b}
+	\have{abo}{(P \eand D) \eor (P \eand \enot D)}\oi{ab}
+	\close
+	\open
+	\hypo{nb}{\enot D}
+	\have{anb}{P \eand \enot D}\ai{a, nb}
+	\have{anbo}{(P \eand D) \eor (P \eand \enot D)}\oi{anb}
+	\close
+	\have{con}{(P \eand D) \eor (P \eand \enot D)}\orE{lem,b-abo, nb-anbo}
+\end{proof}
 
 \section{Contradiction}
 We have only one connective left to deal with: negation, but we will not tackle negation directly. Instead, we will first think about \emph{contradiction}. 
@@ -554,56 +606,9 @@ There can be as many lines between $i$ and $j$ as you like. To see this in pract
 		\have{con}{\enot\enot D}\ni{nd-ndr}
 	\end{proof}
 
-\section{Law of Excluded Middle}
-We will add a final rule to our system. Here's the motivation for it: it's either raining or it's not raining. The Law of Excluded Middle encodes the idea that every sentence is either true or false: either $\meta{A}$ or $\neg\meta{A}$. The rule simply says that you're always allowed to write $\meta{A}\eor\neg\meta{A}$:
 
-\factoidbox{
-\begin{proof}
-\have[i]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
-\end{proof}
-} 
-
-
-%
-%
-%
-% It is much like the rule used in disjunction elimination, and it requires a little motivation. 
-%
-%Suppose that we can show that if it's sunny outside, then Bill will have brought an umbrella (for fear of burning). Suppose we can also show that, if it's not sunny outside, then Bill will have brought an umbrella (for fear of rain). Well, there is no third way for the weather to be. So, \emph{whatever the weather}, Bill will have brought an umbrella. 
-%
-%This line of thinking motivates the following rule:
-%\factoidbox{\begin{proof}
-%		\open
-%			\hypo[i]{a}{\meta{A}}
-%			\have[j]{c1}{\meta{B}}
-%		\close
-%		\open
-%			\hypo[k]{b}{\enot\meta{A}}
-%			\have[l]{c2}{\meta{B}}
-%		\close
-%		\have[\ ]{ab}{\meta{B}}\tnd{a-c1,b-c2}
-%	\end{proof}}
-%The rule is sometimes called \emph{tertium non datur}, which means `no third way'. There can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs can come in any order, and the second subproof does not need to come immediately after the first.
-
-To see the rule in action, consider:
-	$$P \therefore (P \eand D) \eor (P \eand \enot D)$$
-Here is a proof corresponding with the argument:
-	\begin{proof}
-		\hypo{a}{P}
-		\have{lem}{D\eor\enot D}\LEM
-		\open
-			\hypo{b}{D}
-			\have{ab}{P \eand D}\ai{a, b}
-			\have{abo}{(P \eand D) \eor (P \eand \enot D)}\oi{ab}
-		\close
-		\open
-			\hypo{nb}{\enot D}
-			\have{anb}{P \eand \enot D}\ai{a, nb}
-			\have{anbo}{(P \eand D) \eor (P \eand \enot D)}\oi{anb}
-		\close
-		\have{con}{(P \eand D) \eor (P \eand \enot D)}\orE{lem,b-abo, nb-anbo}
-	\end{proof}
-\emph{These are all of the basic rules for the proof system for TFL.}
+\emph{These are all of the basic rules for the proof system for TFL.} 
+%Any other forms of reasoning that you want to use will have to be reduced to these. 
 
 \practiceproblems
 

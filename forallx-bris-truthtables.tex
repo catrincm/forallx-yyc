@@ -646,7 +646,7 @@ Combining these two observations, we see that $\meta{A} \eif \meta{C}$  is a tau
 }
 Indeed, when `$\eif$' is flanked with two TFL sentences, the result is a longer TFL sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding TFL sentences. 
 
-\section{Tautologies and contradictions}
+\section{Tautologies and contradictions}\label{s:TautologiesAndContradictions}
 We have similar substitutes for the notions we introduced in \S\ref{s:BasicNotions}. There we explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have surrogates in TFL. We will start with a surrogate for necessary truth.
 	\factoidbox{
 		$\meta{A}$ is a \define{tautology} iff it is true on every valuation.
@@ -659,6 +659,17 @@ description={A sentence that has only Ts in the column under the main logical op
 }
 
 We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every line of a complete truth table, then it is true on every valuation, so it is a tautology. In the example of \S\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology. 
+
+Our main example of a tautology is $A\eor\enot A$. Whatever the weather is like you know it's either raining or not. Similarly here, whether or not $A$ is true, we already know $A\eor \enot A$. We can check this with a truth table. 
+\begin{center}
+	\begin{tabular}{c|deef}
+	$A$&$A$&$\eor$&$\enot$&$A$\\\hline
+	T&T&\textbf{T}&F&T\\
+	F&F&\textbf{T}&T&F
+\end{tabular}
+\end{center}
+Since there is a $T$ under the main connective on every line of the truth table, $A\eor \enot A$ is true, whatever the valuation is, i.e.~whether $A$ is true or false. 
+
 
 This is only, though, a \emph{surrogate} for necessary truth. There are some necessary truths that we cannot adequately symbolize in TFL. An example is `$2 + 2 = 4$'. This \emph{must} be true, but if we try to symbolize it in TFL, the best we can offer is an atomic sentence, and no atomic sentence is a tautology. Still, if we can adequately symbolize some English sentence using a TFL sentence which is a tautology, then that English sentence expresses a necessary truth.
 
@@ -673,7 +684,10 @@ We have a similar surrogate for necessary falsity:
 description={A sentence that has only Fs in the column under the main logical operator of its \gls{complete truth table}; a sentence that is false on every \gls{valuation}}
 }
 
-We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every line of a complete truth table, then it is false on every valuation, so it is a contradiction. In the example of \S\ref{s:CompleteTruthTables}, `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$' is a contradiction.
+We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every line of a complete truth table, then it is false on every valuation, so it is a contradiction. 
+%In the example of \S\ref{s:CompleteTruthTables}, `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$' is a contradiction. 
+
+Our core example of a contradiction is $A\eand\enot A$. Whether $A$ is true or false, $A\eand\enot A$ is false. This can again be checked using truth tables, observing that there is an F under the main connective in each line of the truth table. 
 
 
 \section{Logical equivalence}
