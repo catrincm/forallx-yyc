@@ -1,7 +1,5 @@
 # forallx-bris
 
-#![Book Cover](http://forallx.openlogicproject.org/forallxbris.png)
-
 This is the formal logic textbook, _forall x: Bristol Remix_. 
 
 This book is based on forallx: Calgary by
@@ -24,3 +22,4 @@ University of Bristol
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
 The LaTeX source code for this work is available on GitHub at [github.com/catrincm/forallx-bris](https://github.com/catrincm/forallx-bris).
+
