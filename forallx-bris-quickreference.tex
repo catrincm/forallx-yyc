@@ -153,6 +153,37 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{b}{\meta{B}} \ce{ab,a}
 \end{proof}
 
+\subsection*{Biconditional}
+
+\begin{proof}
+\have[m]{ab}{\meta{A}\eiff\meta{B}}
+\have[\ ]{b}{(\meta{A}\eif\meta{B})\eand(\meta{B}\eif\meta{A})}\iffE{ab}
+
+\have[m]{b}{(\meta{A}\eif\meta{B})\eand(\meta{B}\eif\meta{A})}
+\\\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\iffI{b}
+\end{proof}
+
+%\begin{proof}
+%	\open
+%		\hypo[i]{a1}{\meta{A}} 
+%		\have[j]{b1}{\meta{B}}
+%	\close
+%	\open
+%		\hypo[k]{b2}{\meta{B}}
+%		\have[l]{a2}{\meta{A}}
+%	\close
+%	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
+%
+%	\have[m]{ab}{\meta{A}\eiff\meta{B}}
+%\\	\have[n]{a}{\meta{A}}
+%	\have[\ ]{b}{\meta{B}} \be{ab,a}
+%
+%	\have[m]{ab}{\meta{A}\eiff\meta{B}}
+%\\	\have[n]{a}{\meta{B}}
+%	\have[\ ]{b}{\meta{A}} \be{ab,a}
+%\end{proof}
+
+
 \subsection*{Contradiction}
 
 \begin{proof}
@@ -205,35 +236,6 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
 \end{proof}
 
-\subsection*{Biconditional}
-
-\begin{proof}
-\have[m]{ab}{\meta{A}\eiff\meta{B}}
-\have[\ ]{b}{(\meta{A}\eif\meta{B})\eand(\meta{B}\eif\meta{A})}\iffE{ab}
-
-\have[m]{b}{(\meta{A}\eif\meta{B})\eand(\meta{B}\eif\meta{A})}
-\\\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\iffI{b}
-\end{proof}
-
-%\begin{proof}
-%	\open
-%		\hypo[i]{a1}{\meta{A}} 
-%		\have[j]{b1}{\meta{B}}
-%	\close
-%	\open
-%		\hypo[k]{b2}{\meta{B}}
-%		\have[l]{a2}{\meta{A}}
-%	\close
-%	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
-%
-%	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-%\\	\have[n]{a}{\meta{A}}
-%	\have[\ ]{b}{\meta{B}} \be{ab,a}
-%
-%	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-%\\	\have[n]{a}{\meta{B}}
-%	\have[\ ]{b}{\meta{A}} \be{ab,a}
-%\end{proof}
 
 \end{multicols}
 
