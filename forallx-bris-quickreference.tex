@@ -112,6 +112,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \renewenvironment{proof}
 	{\noindent\par\noindent\small$\begin{nd}}
 	{\end{nd}$\noindent\normalsize\ignorespacesafterend}
+	
 
 %{\LARGE \textbf{Basic Rules of Proof}}
 \begin{multicols}{2}
@@ -141,8 +142,9 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 \begin{proof}
 	\open
-		\hypo[i]{a}{\meta{A}}
-		\have[j]{b}{\meta{B}}
+		\hypo[m]{a}{\meta{A}}
+		\ellipsesline
+		\have[n]{b}{\meta{B}}
 	\close
 	\have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
 
@@ -162,19 +164,18 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \\\have[ ]{}{\meta{A}}\re{bot}
 \end{proof}
 
+
 \subsection*{Negation}
 \begin{proof}
 \open
-	\hypo[i]{a}{\meta{A}}
-	\have[j]{nb}{\ered}
+	\hypo[m]{a}{\meta{A}}
+	\ellipsesline
+	\have[n]{nb}{\ered}
 \close
 \have[\ ]{na}{\enot\meta{A}}\ni{a-nb}
 \end{proof}
 
-\subsection*{Law of Excluded Middle}
-	\begin{proof}
-		\have[\ ]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
-	\end{proof}
+
 
 \subsection*{Disjunction}
 
@@ -188,16 +189,23 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[m]{ab}{\meta{A}\eor\meta{B}}
 \\	\open
 		\hypo[i]{a}{\meta{A}}
+		\ellipsesline
 		\have[j]{c1}{\meta{C}}
 	\close
 	\open
 		\hypo[k]{b}{\meta{B}}
+		\ellipsesline
 		\have[l]{c2}{\meta{C}}
 	\close
 	\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
 \end{proof}
 
-\subsection*{Biconditional}(Will not be required for exam)
+\subsection*{Law of Excluded Middle}
+\begin{proof}
+	\have[\ ]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
+\end{proof}
+
+\subsection*{Biconditional}
 
 \begin{proof}
 \have[m]{ab}{\meta{A}\eiff\meta{B}}
@@ -269,6 +277,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\begin{proof}
 		\open
 			\hypo[m]{na}{\enot\meta{A}}
+			\ellipsesline
 			\have[n]{red}{\ered}
 		\close
 		\have[ ]{a}{\meta{A}}\by{IP}{na-red}

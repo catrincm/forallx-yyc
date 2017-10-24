@@ -268,11 +268,12 @@ Observe that we have dropped back to using one vertical line.  We have \emph{dis
 The general pattern at work here is the following. We first make an additional assumption, A; and from that additional assumption, we prove B. In that case, we know the following: If A, then B. This is wrapped up in the rule for conditional introduction:
 \factoidbox{
 	\begin{proof}
-		\open
-			\hypo[i]{a}{\meta{A}} 
-			\have[j]{b}{\meta{B}}
-		\close
-		\have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
+	\open
+		\hypo[m]{a}{\meta{A}}
+		\ellipsesline
+		\have[n]{b}{\meta{B}}
+	\close
+	\have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
 	\end{proof}}
 There can be as many or as few lines as you like between lines $i$ and $j$. 
 
@@ -455,15 +456,17 @@ But suppose that we could somehow show both of the following: first, that Ludwig
 \factoidbox{
 	\begin{proof}
 		\have[m]{ab}{\meta{A}\eor\meta{B}}
-		\open
-			\hypo[i]{a}{\meta{A}} {}
+	\\	\open
+			\hypo[i]{a}{\meta{A}}
+			\ellipsesline
 			\have[j]{c1}{\meta{C}}
 		\close
 		\open
-			\hypo[k]{b}{\meta{B}}{}
+			\hypo[k]{b}{\meta{B}}
+			\ellipsesline
 			\have[l]{c2}{\meta{C}}
 		\close
-		\have[ ]{c}{\meta{C}}\oe{ab, a-c1,b-c2}
+		\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
 	\end{proof}}
 This is obviously a bit clunkier to write down than our previous rules, but the point is fairly simple. Suppose we have some disjunction, $\meta{A} \eor \meta{B}$. Suppose we have two subproofs, showing us that $\meta{C}$ follows from the assumption that $\meta{A}$, and that $\meta{C}$ follows from the assumption that $\meta{B}$. Then we can infer $\meta{C}$ itself. As usual, there can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs and the disjunction can come in any order, and do not have to be adjacent.
 
@@ -510,7 +513,7 @@ The rule \emph{Law of Excluded Middle} encodes this fact: it simply says that yo
 
 \factoidbox{
 	\begin{proof}
-		\have[m]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
+	\have[\ ]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
 	\end{proof}
 } 
 
@@ -591,8 +594,9 @@ There is obviously a tight link between contradiction and negation. Indeed, the 
 However, we do need to state a rule for negation introduction. The rule is very simple: if assuming something leads you to a contradiction, then the assumption must be wrong. This thought motivates the following rule:
 \factoidbox{\begin{proof}
 \open
-	\hypo[i]{a}{\meta{A}}
-	\have[j]{nb}{\ered}
+	\hypo[m]{a}{\meta{A}}
+	\ellipsesline
+	\have[n]{nb}{\ered}
 \close
 \have[\ ]{na}{\enot\meta{A}}\ni{a-nb}
 \end{proof}}
@@ -1038,7 +1042,7 @@ You now want to repeat yourself, on some line $k$. You could just invoke the rul
 \end{proof}
 To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, `$\meta{A}$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\meta{A}$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
 
-Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the \emph{basic} rules of \S\ref{s:BasicTFL}. So we can describe the rule R as a \emph{derived} rule, since its justification is derived from our basic rules.
+Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the other rules of \S\ref{s:BasicTFL}. So we did not actually need to introduce it as a \emph{basic} rule in our system; we could have introduced it as a \emph{derived} rule. However, for ease, we have allowed it in as a basic rule. 
 
 
 \section{Derivation of Disjunctive syllogism}
@@ -1058,8 +1062,7 @@ You now want, on line $k$, to prove $\meta{B}$. You can do this with the rule of
 		\close
 		\open
 			\hypo{b}{\meta{B}}
-			\have{bb}{\meta{B} \eand \meta{B}}\ai{b, b}
-			\have{b2}{\meta{B}}\ae{bb}
+			\have{b2}{\meta{B}}\by{R}{b}
 		\close
 	\have{con}{\meta{B}}\oe{ab, a-b1, b-b2}
 \end{proof}

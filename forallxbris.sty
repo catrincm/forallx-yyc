@@ -725,6 +725,10 @@
 \newenvironment{ndresume}{\begingroup\nd*init\nd*resumeb\nd*clr}%
   {\nd*cmd\nd*endb\endgroup}
 
+
+
+
+
 % Example of a derivation using layer C syntax. As before, the "line
 % numbers" are really labels, which will be replaced by consecutive
 % line numbers in the output.
@@ -799,6 +803,17 @@
 \newcommand*{\Reiteration}{\by{R}}
 
 
+\newcommand*{\ellipsesline}{\have[\ ]{dots}{\;\raise-.65ex\hbox{\vdots}}} 
+% for elipses in statements of rules. E.g.:
+%\begin{proof}
+%\open
+%	\hypo[m]{a}{\meta{A}}
+%	\ellipsesline
+%	\have[n]{nb}{\ered}
+%\close
+%\have[\ ]{na}{\enot\meta{A}}\ni{a-nb}
+%\end{proof}
+
 
 
 %    ****************************************
@@ -849,7 +864,9 @@
 \setlength{\columnsep}{2em} % Sets 2em space between columns when calling multicol 
 
 \definecolor{darkred}{rgb}{0.5,0,0} % TB: used to color links in red
-\newcommand{\myanswer}[1]{\textcolor{darkred}{#1}} % TB: puts model answers in blue
+\newcommand{\myanswer}[1]{
+%\leavevmode\color{darkred}\ignorespaces{#1}}
+\textcolor{darkred}{#1}} % TB: puts model answers in blue
 
 
 
