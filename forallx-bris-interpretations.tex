@@ -90,28 +90,7 @@ Then `$Blm$' will be true, since \ntuple{Lenin, Marx} was in our explicit list, 
 To make these ideas more precise, we would need to develop some \emph{set theory}. That would give us some precise tools for dealing with extensions and with ordered pairs (and ordered triples, etc.). However, set theory is not covered in this book, so we will leave these ideas at an imprecise level. Nevertheless, the general idea should be clear.
 
 
-\section{Semantics for identity}
-Identity is a special predicate of FOL. We write it a bit differently than other two-place predicates: `$x=y$' instead of `$Ixy$' (for example). More important, though, its interpretation is fixed, once and for all. 
 
-If two names refer to the same object, then swapping one name for another will not change the truth value of any sentence. So, in particular, if `$a$' and `$b$' name the same object, then all of the following will be true:\label{model.nonidentity}
-	\begin{align*}
-	 	Aa &\eiff Ab \\
-	 	Ba &\eiff Bb\\
-		Raa &\eiff Rbb\\
-		Raa & \eiff Rab\\
-		Rca &\eiff Rcb\\
-		\forall x Rxa &\eiff \forall x Rxb
-	\end{align*}
-Some philosophers have believed the reverse of this claim. That is, they have believed that when exactly the same sentences (not containing `$=$') are true of two objects, then they are really just one and the same object after all. This is a highly controversial philosophical claim (sometimes called the \emph{identity of indiscernibles}) and our logic will not subscribe to it; we allow that exactly the same things might be true of two \emph{distinct} objects.  
-
-To bring this out, consider the following interpretation:
-	\begin{ebullet}
-		\item[\text{domain}:] P.D.\ Magnus, Tim Button
-		\item[$a$:] P.D.\ Magnus
-		\item[$b$:] Tim Button
-		\item For every primitive predicate we care to consider, that predicate is true of \emph{nothing}.
-	\end{ebullet}
-Suppose `$A$' is a one-place predicate; then `$Aa$' is false and `$Ab$' is false, so `$Aa \eiff Ab$' is true. Similarly, if `$R$' is a two-place predicate, then `$Raa$' is false and `$Rab$' is false, so that `$Raa \eiff Rab$' is true. And so it goes: every atomic sentence not involving `$=$' is false, so every biconditional linking such sentences is true. For all that, Tim Button and P.D.\ Magnus are two distinct people, not one and the same!
 
 \section{Interpretation}
 We defined a \define{valuation} in TFL as any assignment of truth and falsity to atomic sentences. In FOL, we are going to define an \define{interpretation} as consisting of three things:
@@ -206,12 +185,7 @@ Dealing with atomic sentences, then, is very intuitive. When \meta{R} is an $n$-
 		$\meta{R}\meta{a}_{1}\meta{a}_{2}\ldots\meta{a}_{n}$ is true in an interpretation \textbf{iff}\\
 		$\meta{R}$ is true of the objects named by $\meta{a}_{1}, \meta{a}_{2}, \ldots, \meta{a}_{n}$ in that interpretation (considered in that order)
 	}
-Recall, though, that there is a second kind of atomic sentence: two names connected by an identity sign constitute an atomic sentence. This kind of atomic sentence is also easy to handle. Where \meta{a} and \meta{b} are any names, 
-	\factoidbox{
-		$\meta{a} = \meta{b}$ is true in an interpretation \textbf{iff}\\
-		 \meta{a} and \meta{b} name the very same object in that interpretation
-	}
-So in our go-to interpretation, `$a = b$' is false, since Aristotle is distinct from Beyonc\'e.
+
 
 
 \section{Sentential connectives}
@@ -234,16 +208,17 @@ We saw in \S\ref{s:FOLSentences} that FOL sentences can be built up from simpler
 	}
 This presents the very same information as the characteristic truth tables for the connectives; it just does so in a slightly different way. Some examples will probably help to illustrate the idea. On our go-to interpretation:
 	\begin{earg}
-		\item[\textbullet] `$a = a \eand Pa$' is true
+		\item[\textbullet] `$ Pa$' is true
 		\item[\textbullet] `$Rab \eand Pb$' is false because, although `$Rab$' is true, `$Pb$' is false
-		\item[\textbullet] `$a = b \eor Pa$' is true
-		\item[\textbullet] `$\enot a = b$' is true
-		\item[\textbullet] `$Pa \eand \enot( a= b \eand Rab)$' is true, because `$Pa$' is true and `$a = b$' is false
+		\item[\textbullet] `$\enot Pa$' is false
+		\item[\textbullet] `$Pa \eand \enot(Pb\eand Rab)$' is true, because `$Pa$' is true and $Pb$ is false, so $Pb\eand Rab$ is false, thus $\enot (Pb\eand Rab)$ is also true.
 	\end{earg}
 Make sure you understand these examples.
 
 \section{When the main logical operator is a quantifier}
-The exciting innovation in FOL, though, is the use of \emph{quantifiers}, but expressing the truth conditions for quantified sentences is a bit more fiddly than one might first expect. 
+The exciting innovation in FOL, though, is the use of \emph{quantifiers}.
+%When is $\forall x Px$ true? The thought is: we introduce a new name: $d$, and we check if $Pd$ is true in the various interpretations where $d$ names the different objects. 
+But expressing the truth conditions for quantified sentences is a bit more fiddly than one might first expect. 
 
 Here is a na\"{i}ve first thought. We want to say that `$\forall x Fx$' is true iff `$Fx$' is true of everything in the domain. This should not be too problematic: our interpretation will specify directly what `$Fx$' is true of. 
 
@@ -263,7 +238,7 @@ In our go-to interpretation, `$\forall x \exists y Rxy$' should be false. After 
 
 If you have understood these three examples, good. That's what matters. Strictly speaking, though, we still need to give a precise definition of the truth conditions for quantified sentences. The result, sadly, is a bit ugly, and requires a few new definitions. Brace yourself!
 
-Suppose that \meta{A} is a formula containing at least one instance of the variable \meta{x}, and that $\meta{x}$ is free in $\meta{A}$. We will write this thus:
+Suppose that \meta{A} is an expression containing at least one instance of the variable \meta{x}, and that $\meta{x}$ is free in $\meta{A}$. We will write this thus:
 $$\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$$
 Suppose also that \meta{c} is a name. Then we will write:
 $$\meta{A}(\ldots \meta{c} \ldots \meta{c} \ldots)$$
