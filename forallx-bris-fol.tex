@@ -1066,14 +1066,14 @@ We can now give the recursive definition of what it is to be a sentence of FOL:
 		\item \meta{A} is a sentence, 
 		\item \meta{x} is a variable that does not appear in $\meta{A}$, 
 		\item $\meta{A'}$ is the expression that is the result of replacing any occurrences of a name, $\meta{a}$, by $\meta{x}$.
-		\end{itemize} then $\exists \meta{x}\meta{A'}$ and $\forall \meta{x} \meta{A'}$ 
+		\end{itemize} then $\exists \meta{x}\meta{A'}$ and $\forall \meta{x} \meta{A'}$ are sentences. 
 		\item Nothing else is a sentence.
 	\end {enumerate}
 	}
 	
 	The interesting clause here is \ref{item:quantifiers}. Let's see how it is used in action. Using the first clause we can see that $Aa$ is a sentence. \ref{item:quantifiers} then lets us replace $a$ by $x$, and \emph{bind} this with a quantifier, for example $\forall x Ax$. 
 	
-	We can then proceed to see that  $(\forall x Ax\eand Ab)$ is a sentence using the atomic clause and the clause for $\eand$. We can then replace the name $b$ with a variable $y$ and bind it with an existential quantifier, finding the sentence $\exists y(\forall x Ax\eand Ay)$
+	We can then proceed to see that  $(\forall x Ax\eand Ab)$ is a sentence using the clause for $\eand$. We can then replace the name $b$ with a variable $y$ and bind it with an existential quantifier, finding the sentence $\exists y(\forall x Ax\eand Ay)$
 	
 	For more complicated sentences, we can display the structure and construction of the sentence perspicuously by presenting a formation tree, similarly to as we did in
 	\ref{S:formationtree}.
@@ -1097,28 +1097,36 @@ We can now give the recursive definition of what it is to be a sentence of FOL:
 	
 
 Why in \ref{item:quantifiers} did we have the restriction that $\meta{x}$ is not already in $\meta{A}$? This is to ensure that variables only serve one master at any one time (see \S\ref{s:MultipleGenerality}).
-Otherwise we could see that $\forall x Rax$ is a sentence and then conclude that $\exists x\forall x Rxx$, which is not a good sentence. 
-
- In fact, we can now give a formal definition of scope, which incorporates the definition of the scope of a quantifier. Here we follow the case of TFL, though we note that a logical operator can be either a connective or a quantifier:
+Otherwise we could see that $\forall x Rax$ is a sentence and then conclude that $\exists x\forall x Rxx$, which is not a good sentence.  However, note that $\exists x Ax\;\eor\;\forall x Bx$ is a sentence. Here the variable $x$ is used in both quantifiers, but there's no ambiguity because the sentence was constructed by combing the two sentences $\exists x Ax$ and $\forall xBx$ with a connective, $\eor$. The \emph{scope} of $\exists x$ is just $\exists x Ax$; it doesn't look ``over'' the connective to where $\forall x$ is used. So the two uses of $x$ are kept separate and no problems arise. However, to avoid any potential worries it is generally a good idea to use different variables when symbolising sentences; in this case one could equally well give $\exists x Ax\;\eor\;\forall y By$ as a symbolisation.
+ 
+ The notions of scope and main logical operators that were given in \ref{S.sentsTFL} equally applies to FOL but now the main logical operator might be a quantifier. These were:
+% In fact, we can now give a formal definition of scope which incorporates the definition of the scope of a quantifier. Here we follow the case of TFL, though we note that a logical operator can be either a connective or a quantifier:
 	\factoidbox{
-		The \define{main logical operator} in a formula is the operator that was introduced last, when that formula was constructed using the recursion rules.
+		The \define{main logical operator} in a sentence is the operator that was introduced last when that sentence was constructed using the recursion rules.
 		
 \bigskip
 
-		The \define{scope} of a logical operator in a formula is the subformula for which that operator is the main logical operator.
-	}
-So we can graphically illustrate the scope of the quantifiers in the preceding example thus:
-	$$\overbrace{\forall x \overbrace{\exists y (Fx \eiff \overbrace{\forall z (Gayz \eif Syzyayx)}^{\text{scope of `}\forall z\text{'}}}^{\text{scope of `}\exists y\text{'}})}^{\text{scope of `$\forall x$'}}$$
+		The \define{scope} of a logical operator in a sentence is the formula for which that operator is the main logical operator.
+	}\todo{formula is undefined}
+We can graphically illustrate scopes as follows: 
+$$
+\overbrace{
+\exists z
+\underbrace{\forall y (\overbrace{\exists x Qx}^{\text{scope of $\exists x$}}\eand Ryz)}_{\text{scope of $\forall y$}}
+}^{\text{scope of $\exists z$}}
+$$
 
-\newglossaryentry{main logical operator}{
-  name = main logical operator,
-  description = {the operator used last in the construction of a \gls{formula}}
-}
+%	$$\overbrace{\forall x \overbrace{\exists y (Fx \eiff \overbrace{\forall z (Gayz \eif Syzyayx)}^{\text{scope of `}\forall z\text{'}}}^{\text{scope of `}\exists y\text{'}})}^{\text{scope of `$\forall x$'}}$$
 
-\newglossaryentry{scope}{
-  name = scope,
-  description = {the subformula of a \gls{formula} of FOL for which the \gls{main logical operator} is the operator}
-}
+%\newglossaryentry{main logical operator}{
+%  name = main logical operator,
+%  description = {the operator used last in the construction of a \gls{formula}}
+%}
+%
+%\newglossaryentry{scope}{
+%  name = scope,
+%  description = {the subformula of a \gls{formula} of FOL for which the \gls{main logical operator} is the operator}
+%}
 
 
 %\section{Sentences}

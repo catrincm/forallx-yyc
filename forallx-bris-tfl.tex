@@ -594,7 +594,7 @@ Brackets &( , )\\
 We define an \define{expression of TFL} as any string of symbols of TFL. Take any of the symbols of TFL and write them down, in any order, and you have an expression of TFL.
 
 
-\section{Sentences}
+\section{Sentences}\label{S.sentsTFL}
 Of course, many expressions of TFL will be total gibberish. For example $$\eand)A\neg$$ is an expression of TFL but not a sentence. We want to know when an expression of TFL amounts to a \emph{sentence}. 
 
 Obviously, individual atomic sentences like `$A$' and `$G_{13}$' should count as sentences. We can form further sentences out of these by using the various connectives. Using negation, we can get `$\enot A$' and `$\enot G_{13}$'. Using conjunction, we can get `$(A \eand G_{13})$', `$(G_{13} \eand A)$', `$(A \eand A)$', and `$(G_{13} \eand G_{13})$'. We could also apply negation repeatedly to get sentences like `$\enot \enot A$' or apply negation along with conjunction to get sentences like `$\enot(A \eand G_{13})$' and `$\enot(G_{13} \eand \enot G_{13})$'. The possible combinations are endless, even starting with just these two sentence letters, and there are infinitely many sentence letters. So there is no point in trying to list all the sentences one by one.
@@ -640,7 +640,7 @@ Next, consider the example `$\enot (P \eand \enot (\enot Q \eor R))$'. Looking a
 
 Ultimately, every sentence is constructed nicely out of atomic sentences. When we are dealing with a \emph{sentence} other than an atomic sentence, we can see that there must be some sentential connective that was introduced \emph{last}, when constructing the sentence. We call that connective the \define{main logical operator} of the sentence. In the case of `$\enot\enot\enot D$', the main logical operator is the very first `$\enot$' sign. In the case of `$(P \eand \enot (\enot Q \eor R))$', the main logical operator is `$\eand$'. In the case of `$((\enot E \eor F) \eif \enot\enot G)$', the main logical operator is `$\eif$'.
 
-\newglossaryentry{main logical operator}
+\newglossaryentry{main logical operator in TFL}
 {
 	name=main connective,
 	description={The last connective that you add when you assemble a sentence using the recursive definition.}
@@ -703,13 +703,13 @@ This has a formation tree:
 \end{forest}
 \end{center}
 
-The scope of `$\enot$' is `$\enot (R \eand B)$'. It is the subsentence in which `$\enot$' is the main logical operator. We have worked that out by drawing the formation tree and finding the lowest sentence in which `$\enot$' appears. \todo{check ths stuff}
+The scope of `$\enot$' is `$\enot (R \eand B)$'. It is the subsentence in which `$\enot$' is the main logical operator. We have worked that out by drawing the formation tree and finding the lowest sentence in which `$\enot$' appears. 
 
 
 %which was constructed by conjoining `$P$' with `$ (\enot (R \eand B) \eiff Q)$'. This last sentence was constructed by placing a biconditional between `$\enot (R \eand B)$' and `$Q$'. The former of these sentences---a subsentence of our original sentence---is a sentence for which `$\enot$' is the main logical operator. So the scope of the negation is just `$\enot(R \eand B)$'. 
 More generally:
 	\factoidbox{The \define{scope} of a connective (in a sentence) is the subsentence for which that connective is the main logical operator.}
-\newglossaryentry{scope}
+\newglossaryentry{scope in TFL}
 {
 name=scope,
 description={The sentences that are joined by a connective. These are the sentences the connective was applied to when the sentence was assembled using a recursive definition.}
