@@ -1051,7 +1051,7 @@ We define an \define{expression of FOL} as any string of symbols of FOL. Take an
 But which expressions are sentences?
 
 As we did for TFL, we will  present a recursive definition. The starting point of this is \emph{atomic sentences}. In TFL, these were given to us. In FOL, we form atomic sentences using predicates and names. For example $Aa$ will be an atomic sentence, so will $Rab$. We will express this in general using script fonts for metavariables, as introduced in  \S\ref{s:UseMention}:
-\factoidbox{ If $\meta{R}$ is an $n$-place predicate and $\meta{a}_1, \meta{a}_2, \ldots, \meta{a_n}$ are names, then $\meta{R a}_1 \meta{a}_2 \ldots \meta{a}_n$ is an atomic sentence.}
+\factoidbox{ If $\meta{R}$ is an $n$-place predicate and $\meta{c}_1, \meta{c}_2, \ldots, \meta{c_n}$ are names, then $\meta{R c}_1 \meta{c}_2 \ldots \meta{c}_n$ is an atomic sentence.}
 
 We can now give the recursive definition of what it is to be a sentence of FOL: 
 	\factoidbox{
@@ -1062,11 +1062,16 @@ We can now give the recursive definition of what it is to be a sentence of FOL:
 		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eor\meta{B})$ is a sentence.
 		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eif\meta{B})$ is a sentence.
 		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eiff\meta{B})$ is a sentence.
-		\item\label{item:quantifiers} If \begin{itemize}
-		\item \meta{A} is a sentence, 
-		\item \meta{x} is a variable that does not appear in $\meta{A}$, 
-		\item $\meta{A'}$ is the expression that is the result of replacing any occurrences of a name, $\meta{a}$, by $\meta{x}$.
-		\end{itemize} then $\exists \meta{x}\meta{A'}$ and $\forall \meta{x} \meta{A'}$ are sentences. 
+		\item\label{item:quantifiers} 
+		 If $\meta{A}(\ldots \meta{c}\ldots)$ is a sentence, where $\meta{c}$ is a name, then so is: \begin{itemize}
+		 \item $\forall \meta{x}\meta{A}(\ldots \meta{x}\ldots)$ (so long as $\meta{x}$ does not appear already in $\meta{A}$.)
+		 \item $\exists \meta{x}\meta{A}(\ldots \meta{x}\ldots)$ (so long as $\meta{x}$ does not appear already in $\meta{A}$.)
+		 \end{itemize}
+%		If \begin{itemize}
+%		\item \meta{A} is a sentence, 
+%		\item \meta{x} is a variable that does not appear in $\meta{A}$, 
+%		\item $\meta{A'}$ is the expression that is the result of replacing any occurrences of a name, $\meta{a}$, by $\meta{x}$.
+%		\end{itemize} then $\exists \meta{x}\meta{A'}$ and $\forall \meta{x} \meta{A'}$ are sentences. 
 		\item Nothing else is a sentence.
 	\end {enumerate}
 	}
