@@ -372,6 +372,10 @@ We can now see that $\forall x (\enot\, x\eid p \eif Opx)$ is a sentence, as it 
 	\end{forest}
 	\end{center} 
 
+Be aware that when you see $\enot\, a\eid b$ the negation is attached to the whole sentence $a\eid b$, not to $a$. So, you should not write $a\eid\enot b$. This is not a sentence. Sometimes you might see $a\neq b$, and this is short hand for $\enot\, a\eid b$. 
+
+Sometimes you might come across cases where you might feel tempted to write something like $a\eid\enot b$. Such temptation should be avoided. For example, in our semi-formalised English we might say `for all x, if x is not p, then $Ax$'. But note that this should be $\forall x(\enot\, x\eid p\eif Ax)$, and should not be written with $x\eid\enot p$. 
+
 \section{Semantics for identity}
 
 %In \S\ref{ch.semantics} we described when sentences of FOL were true or false. Whereas for TFL sentences were true or false \emph{on a valuation}, in FOL sentences were true or false \emph{on an interpretation}. For FOL with identity we will also use interpretations, for example: 	\begin{ekey}
