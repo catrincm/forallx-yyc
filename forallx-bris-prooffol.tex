@@ -8,21 +8,56 @@
 FOL makes use of all of the connectives of TFL. So proofs in FOL will use all of the basic and derived rules from Part~\ref{ch.NDTFL}. We will also use the proof-theoretic notions (particularly, the symbol `$\proves$') introduced there. However, we will also need some new basic rules to govern the quantifiers, and to govern the identity sign.
 
 
-\section{Universal elimination}
-
-From the claim that everything is F, you can infer that any particular thing is F. You name it; it's F. So the following should be fine:
+\section{Universal elimination}Consider:
+\begin{earg}
+\item[] Everyone is happy
+\item[\therefore] Catrin is happy.
+\end{earg} This is a valid argument. Generally, then, from the claim that everything is F, you can infer that any particular thing is F. You name it; it's F. So the following should be fine:
 \begin{proof}
-	\hypo{a}{\forall xRxxd}
-	\have{c}{Raad} \Ae{a}
+	\hypo{a}{\forall xFx}
+	\have{c}{Fa} \Ae{a}
 \end{proof}
-We obtained line 2 by dropping the universal quantifier and replacing every instance of `$x$' with `$a$'. Equally, the following should be allowed:
-\begin{proof}
-	\hypo{a}{\forall xRxxd}
-	\have{c}{Rddd} \Ae{a}
-\end{proof}
-We obtained line 2 here by dropping the universal quantifier and replacing every instance of `$x$' with `$d$'. We could have done the same with any other name we wanted. 
+We obtained line 2 by dropping the universal quantifier and replacing `$x$' with `$a$'. 
 
-This motivates the universal elimination rule ($\forall$E):
+This isn't restricted to simple properties. Consider the following argument:
+\begin{earg}
+\item[] Every cat is sleeping.
+\item[\therefore] If Fluffy is a cat, then she is sleeping.
+\end{earg}
+This is a valid argument. And it will be allowed by our rule $\forall$E:
+\begin{proof}
+	\hypo{a}{\forall x(Cx\eif Sx)}
+	\have{c}{Cf\eif Sf} \Ae{a}
+\end{proof}
+Note here that we have to replace two instances of `$x$' with our name: `$f$' or Fluffy. Indeed it would have been fine to do with any name. We can even do it with names we already have. Consider the following:
+\begin{earg}
+\item[] Pavel owes everyone money.
+\item[\therefore] Pavel owes Pavel money.
+\end{earg}
+This argument isn't so obviously valid. However, the way we symbolise it: 
+\begin{earg}
+\item[] $\forall x Opx$
+\item[\therefore] $Opp$
+\end{earg}we will have to accept it to be valid: the premise says \emph{everything} in the domain owes money to Pavel; and Pavel is something in the domain. So it implies that Pavel owes money to himself. A closely related sentence is: \begin{earg}
+\item Pavel owes money to everyone \emph{else}.
+\end{earg}and that will be symbolised differently. In fact we do not yet have the resources to symbolise at. We will introduce them in \S\ref{ch.identity}.
+
+This argument is also directly allowed by our rule $\forall$E: 
+\begin{proof}
+	\hypo{a}{\forall xOpx}
+	\have{c}{Opp} \Ae{a}
+\end{proof}
+
+We can now give our general rule: it says that whenever you have a sentence $\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots\meta{x}\ldots)$, for example $\forall x Fx$, $\forall x (Cx\eif Sx)$, $\forall x Opx$; one can conclude that we have the sentence which is obtained by stripping of the quantifier and replacing the variable by a name, be it $a,b,c\ldots$. So we could derive $Fa$, $Cf\eif Sf$ or $Opp$. 
+
+%We obtained line 2 by dropping the universal quantifier and replacing every instance of `$x$' with `$a$'. Equally, the following should be allowed:
+%\begin{proof}
+%	\hypo{a}{\forall xRxxd}
+%	\have{c}{Rddd} \Ae{a}
+%\end{proof}
+%We obtained line 2 here by dropping the universal quantifier and replacing every instance of `$x$' with `$d$'. We could have done the same with any other name we wanted. 
+
+Here is the formal specification of the universal elimination rule ($\forall$E):
 \factoidbox{
 \begin{proof}
 	\have[m]{a}{\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)}
@@ -38,43 +73,64 @@ I should emphasize that (as with every elimination rule) you can only apply the 
 This is illegitimate, since `$\forall x$' is not the main logical operator in line 1. (If you need a reminder as to why this sort of inference should be banned, reread \S\ref{s:MoreMonadic}.)
 
 \section{Existential introduction}
-From the claim that some particular thing is an F, you can infer that something is an F. So we ought to allow:
-\begin{proof}
-	\hypo{a}{Raad}
-	\have{b}{\exists x Raax} \Ei{a}
-\end{proof}
-Here, we have replaced the name `$d$' with a variable `$x$', and then existentially quantified over it. Equally, we would have allowed:
-\begin{proof}
-	\hypo{a}{Raad}
-	\have{c}{\exists x Rxxd} \Ei{a}
-\end{proof}
-Here we have replaced both instances of the name `$a$' with a variable, and then existentially generalised. But we do not need to replace \emph{both} instances of a name with a variable. (After all, if Narcissus loves himself, then there is someone who loves Narcissus.) So we would also allow:
-\begin{proof}
-	\hypo{a}{Raad}
-	\have{d}{\exists x Rxad} \Ei{a}
-\end{proof}
-Here we have replaced \emph{one} instance of the name `$a$' with a variable, and then existentially generalised. These observations motivate our introduction rule, although to explain it, we will need to introduce some new notation.
+The following argument is valid: 
+\begin{earg}
+\item[] Catrin is happy
+\item[\therefore] Someone is happy.
+\end{earg} 
 
-Where $\meta{A}$ is a sentence containing the name $\meta{c}$, we can emphasize this by writing `$\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$'. We will write `$\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)$' to indicate any formula obtained by replacing \emph{some or all} of the instances of the name \meta{c} with the variable \meta{x}. Armed with this, our introduction rule is:
+This is the idea of our existential introduction rule: from the claim that some particular thing is F, you can infer that something is F: 
+\begin{proof}
+	\hypo{a}{Fa}
+	\have{c}{\exists x Fx} \existsI{a}
+\end{proof}
+We obtained line 2 by replacing the name `$a$' with the variable `$x$' and adding $\exists x$ in front of the sentence. This will be permissible by our rule of $\exists$I. 
+
+This isn't restricted to simple properties. 
+\begin{earg}
+\item[] Catrin is a female philosopher.
+\item[\therefore] There is a female philosopher.
+\end{earg}
+\begin{proof}
+	\hypo{a}{Fc\eand Pc}
+	\have{c}{\exists x (Fx\eand Px)} \existsI{a}
+\end{proof} 
+
+Or even 
+\begin{earg}
+\item[] Catrin is friends with someone who is friends with everyone. 
+\item[\therefore] Someone is friends with someone who is friends with everyone. 
+\end{earg}
+\begin{proof}
+	\hypo{a}{\exists x (Fcx\eand\forall y Fxy)}
+	\have{c}{\exists z\exists x(Fzx\eand \forall y Fxy)} \existsI{a}
+\end{proof}We replaced the name, `$c$' with the variable `$z$' and added $\exists z$ at the beginning of the sentence. 
+
+
+Consider the following example:
+\begin{earg}
+\item[] Narcissus loves himeself.
+\item[\therefore] There is someone who loves Narcissus. 
+\end{earg}This is a valid argument. The formalised version, which will be allowed by our rule is:
+\begin{proof}
+	\hypo{a}{Lnn}
+	\have{c}{\exists x Lxn} \existsI{a}
+\end{proof} This shows us that we need not replace all instances of the name with the variable. Though of course we can if we wish: we could also deduce there is someone who loves himself. 
+
+To give our rule in general we need to introduce some new notation for this ability to replace just some of our instances of the name: If $\meta{A}$ is a sentence containing the name $\meta{c}$, we can emphasize this by writing `$\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$'. We will write `$\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)$' to indicate any formula obtained by replacing \emph{some or all} of the instances of the name \meta{c} with the variable \meta{x}. Armed with this, our introduction rule is:
 \factoidbox{
 \begin{proof}
 	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
 	\have[\ ]{c}{\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)} \Ei{a}
 \end{proof}
-\meta{x} must not occur in $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$}
-The constraint is included to guarantee that any application of the rule yields a  sentence of FOL. Thus the following is allowed:
+\meta{x} must not occur in $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$}All the cases we've seen in this section follow this rule. 
+
+You might have noticed the additional constraint that's added to the rule. Note that it is \emph{part} of the rule; so if you have to write what the rule $\exists$I is you \emph{must} include this constraint. However, you will not need to worry about it in practice. It's simply there to guarantee that applications of the rule yield sentences of FOL. If the rule were not there we would be allowed to write the following: 
 \begin{proof}
-	\hypo{a}{Raad}
-	\have{d}{\exists x Rxad} \Ei{a}
-	\have{e}{\exists y \exists x Rxyd} \Ei{d}
-\end{proof}
-But this is banned:
-\begin{proof}
-	\hypo{a}{Raad}
-	\have{d}{\exists x Rxad} \Ei{a}
-	\have{e}{\exists x \exists x Rxxd}\by{naughtily attempting to invoke $\exists$I}{d}
-\end{proof}
-since the expression on line 3 contains clashing variables, and so fails to count as a sentence of FOL.
+	\hypo{a}{\exists xLnx}
+	\have{e}{\exists x \exists x Lxx}\by{naughtily attempting to invoke $\exists$I}{a}
+\end{proof}But this expression on line 2 contains clashing variables. It will not count as a sentence of FOL. 
+
 
 \section{Empty domains}
 The following proof combines our two new rules for quantifiers:
