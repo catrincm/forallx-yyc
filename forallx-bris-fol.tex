@@ -1056,7 +1056,7 @@ As we did for TFL, we will  present a recursive definition. The starting point o
 \factoidbox{ If $\meta{R}$ is an $n$-place predicate and $\meta{c}_1, \meta{c}_2, \ldots, \meta{c_n}$ are names, then $\meta{R c}_1 \meta{c}_2 \ldots \meta{c}_n$ is an atomic sentence.}
 
 We can now give the recursive definition of what it is to be a sentence of FOL: 
-	\factoidbox{
+	\factoidbox{\label{FOLsentences}
 	\begin{enumerate}
 		\item Every atomic sentence is a sentence. 
 		\item If \meta{A} is a sentence, then $\enot\meta{A}$ is a sentence.
@@ -1076,6 +1076,11 @@ We can now give the recursive definition of what it is to be a sentence of FOL:
 %		\end{itemize} then $\exists \meta{x}\meta{A'}$ and $\forall \meta{x} \meta{A'}$ are sentences. 
 		\item Nothing else is a sentence.
 	\end {enumerate}
+	}
+	\newglossaryentry{sentence of FOL}
+	{
+	name=sentence of FOL,
+	description={A string of symbols in FPL that can be built up according to the recursive rules given on p.~\pageref{FOLsentences}}
 	}
 	
 	The interesting clause here is \ref{item:quantifiers}. Let's see how it is used in action. Using the first clause we can see that $Aa$ is a sentence. \ref{item:quantifiers} then lets us replace $a$ by $x$, and \emph{bind} this with a quantifier, for example $\forall x Ax$. 
@@ -1178,7 +1183,7 @@ $$
 %
 %\newglossaryentry{sentence of FOL}{
 %  name = sentence of FOL,
-%  description = {a \gls{formula} of FOL which has no \glspl{bound variable}}
+%  description = {a expression of FOL constructed according to the recursive rules. }
 %}
 
 

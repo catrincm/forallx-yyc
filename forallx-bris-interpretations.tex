@@ -250,7 +250,7 @@ with the instantiating name `$e$'.
 
 \newglossaryentry{substitution instance}{
   name = substitution instance,
-  description = {the result of replacing every occurrence of a \gls{free variable} in a \gls{formula} with a \gls{name}}
+  description = {the result of replacing every occurrence of a {free variable} in a {formula} with a \gls{name}}
 }
 
 Armed with this notation, the rough idea is as follows. The sentence $\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x} \ldots)$ will be true iff $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$ is true no matter what object (in the domain) we name with $\meta{c}$. Similarly, the sentence $\exists \meta{x}\meta{A}$ will be true iff there is \emph{some} way to assign the name $\meta{c}$ to an object that makes $\meta{A}(\ldots \meta{c} \ldots \meta{c} \ldots)$ true. More precisely, we stipulate:
@@ -374,7 +374,7 @@ The other logical notions also have corresponding definitions in FOL:
 \newglossaryentry{logical truth}
 {
 name=logical truth,
-description={A \gls{sentence of FOL} that is true in every \gls{interpretation}}
+description={A \gls{sentence of FOL} that is true in every \gls{interpretation}. Note that the equivalent notion for TFL is `tautology'}
 }
 
 \item $\meta{A}$ is a \define{contradiction} iff $\meta{A}$ is false in every interpretation; i.e., $\entails\enot\meta{A}$.
