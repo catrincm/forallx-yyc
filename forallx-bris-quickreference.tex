@@ -24,10 +24,11 @@ F & F & F & F & T & T
 \vfill
 
 \section{Symbolization}
-\begin{center}
+
 \label{app.symbolization}
-\begin{tabular*}{\textwidth}{rl}
-\multicolumn{2}{c}{\textsc{Sentential Connectives}}\\ \\
+\subsubsection*{Sentential Connectives}
+\begin{center}
+\begin{tabular*}{\textwidth}{ll}
 It is not the case that P & $\enot P$\\
 P or Q & $(P \eor Q)$\\
 Neither P nor Q & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
@@ -36,15 +37,21 @@ If P, then Q & $(P \eif Q)$\\
 P only if Q & $(P \eif Q)$\\
 P if and only if Q & $(P \eiff Q)$\\
 P unless Q & $(P \eor Q)$\\
-\\
-\multicolumn{2}{c}{\label{SymbolizingPredicates}\textsc{Predicates}}\\ \\
+\end{tabular*}
+\end{center}
+\subsubsection*{Predicates}
+\begin{center}
+\begin{tabular*}{\textwidth}{ll}\label{SymbolizingPredicates}
 All Fs are Gs & $\forall x(Fx \eif Gx)$\\
 Some Fs are Gs & $\exists x(Fx \eand Gx)$\\
 Not all Fs are Gs & $\enot\forall x(Fx \eif Gx)$\ or\ $\exists x(Fx \eand \enot Gx)$\\
 No Fs are Gs & $\forall x(Fx \eif\enot Gx)$\ or\ $\enot\exists x(Fx \eand Gx)$\\
-\\
-\multicolumn{2}{c}{\textsc{Identity}}\\ \\
-Only c is G & $\forall x(Gx \eiff x=c)$\\
+\end{tabular*}
+\end{center}
+\subsubsection*{Identity}
+\begin{center}
+\begin{tabular*}{\textwidth}{ll}
+Only c is G & $\forall x(Gx \eif x=c)$ or perhaps $\eiff$.  \\
 Everything besides c is G & $\forall x(\enot x = c \eif Gx)$\\
 %$j$ is more $R$ than anyone else. & $\forall x(x\neq j \eif Rjx)$\\
 The F is G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand Gx)$\\
@@ -75,7 +82,7 @@ The F is non-G & $\exists x(Fx \eand \forall y(Fy \eif x=y) \eand \enot Gx)$
 \item[n] $\exists x_1\ldots\exists x_n(Fx_1 \eand\ldots\eand Fx_n \eand \enot x_1 = x_2 \eand\ldots\eand \enot x_{n-1} = x_n)$ 
 \end{ekey}
 
-\subsection*{There are at most \blank\ Fs.}
+\subsubsection*{There are at most \blank\ Fs.}
 \label{summary.atmost}
 
 One way to say `there are at most $n$ Fs' is to put a negation sign in front of the symbolization for `there are at least $n+1$ Fs'. Equivalently, we can offer:
@@ -88,7 +95,7 @@ One way to say `there are at most $n$ Fs' is to put a negation sign in front of 
 \bigl[(Fx_1\eand \ldots \eand Fx_{n+1}) \eif (x_1=x_2 \eor \ldots \eor x_n=x_{n+1})\bigr]$ 
 \end{ekey}
 
-\subsection*{There are exactly \blank\ Fs.}
+\subsubsection*{There are exactly \blank\ Fs.}
 \label{summary.exactly}
 
 One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolizations above and say `there are at least $n$ Fs and there are at most $n$ Fs.' The following equivalent formulae are shorter:
@@ -116,7 +123,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 %{\LARGE \textbf{Basic Rules of Proof}}
 \begin{multicols}{2}
-\subsection*{Reiteration}
+\subsubsection*{Reiteration}
 
 \begin{proof}
 	\have[m]{a}{\meta{A}}
@@ -124,7 +131,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \end{proof}
 
 
-\subsection*{Conjunction}
+\subsubsection*{Conjunction}
 
 \begin{proof}
 	\have[m]{a}{\meta{A}}
@@ -138,7 +145,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \\	\have[\ ]{b}{\meta{B}} \ae{ab}
 \end{proof}
 
-\subsection*{Conditional}
+\subsubsection*{Conditional}
 
 \begin{proof}
 	\open
@@ -153,7 +160,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{b}{\meta{B}} \ce{ab,a}
 \end{proof}
 
-\subsection*{Biconditional}
+\subsubsection*{Biconditional}
 
 \begin{proof}
 \have[m]{ab}{\meta{A}\eiff\meta{B}}
@@ -184,7 +191,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 %\end{proof}
 
 
-\subsection*{Contradiction}
+\subsubsection*{Contradiction}
 
 \begin{proof}
 \have[m]{a}{\meta{A}}
@@ -196,7 +203,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \end{proof}
 
 
-\subsection*{Negation}
+\subsubsection*{Negation}
 \begin{proof}
 \open
 	\hypo[m]{a}{\meta{A}}
@@ -208,7 +215,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 
 
-\subsection*{Disjunction}
+\subsubsection*{Disjunction}
 
 \begin{proof}
 	\have[m]{a}{\meta{A}}
@@ -231,7 +238,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
 \end{proof}
 
-\subsection*{Law of Excluded Middle}
+\subsubsection*{Law of Excluded Middle}
 \begin{proof}
 	\have[\ ]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
 \end{proof}
@@ -242,7 +249,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \newpage
 \section{Derived rules for TFL}
 \begin{multicols}{2}
-\subsection*{Disjunctive syllogism}
+\subsubsection*{Disjunctive syllogism}
 \begin{proof}
 	\have[m]{ab}{\meta{A} \eor \meta{B}}
 	\have[n]{nb}{\enot \meta{A}}
@@ -253,14 +260,14 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{con}{\meta{A}}\by{DS}{ab, nb}
 \end{proof}
 
-%\subsection*{Reiteration}
+%\subsubsection*{Reiteration}
 %
 %\begin{proof}
 %	\have[m]{a}{\meta{A}}
 %	\have[\ ]{c}{\meta{A}} \by{R}{a}
 %\end{proof}
 
-\subsection*{Modus Tollens}
+\subsubsection*{Modus Tollens}
 
 \begin{proof}
 	\have[m]{ab}{\meta{A}\eif\meta{B}}
@@ -268,14 +275,14 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\have[\ ]{b}{\enot\meta{A}} \by{MT}{ab,a}
 \end{proof}
 
-\subsection*{Double-negation elimination}
+\subsubsection*{Double-negation elimination}
 	\begin{proof}
 		\have[m]{dna}{\enot \enot \meta{A}}
 		\have[ ]{a}{\meta{A}}\dne{dna}
 	\end{proof}
 
 
-\subsection*{Proof by Contradiction}
+\subsubsection*{Proof by Contradiction}
 	\begin{proof}
 		\open
 			\hypo[m]{na}{\enot\meta{A}}
@@ -288,7 +295,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 
 %
-%\subsection*{Hypothetical Syllogism}
+%\subsubsection*{Hypothetical Syllogism}
 %
 %\begin{proof}
 %	\have[m]{ab}{\meta{A}\eif\meta{B}}
@@ -296,7 +303,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 %	\have[\ ]{ac}{\meta{A}\eif\meta{C}}\by{HS}{ab,bc}
 %\end{proof}
 
-\subsection*{De Morgan Rules}
+\subsubsection*{De Morgan Rules}
 \begin{proof}
 	\have[m]{ab}{\enot (\meta{A} \eor \meta{B})}
 	\have[\ ]{dm}{\enot \meta{A} \eand \enot \meta{B}}\dem{ab}
@@ -317,14 +324,14 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \section{Basic deduction rules for FOL}
 
 \begin{multicols}{2}
-\subsection*{Universal elimination}
+\subsubsection*{Universal elimination}
 
 \begin{proof}
 	\have[m]{a}{\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)}
 	\have[\ ]{c}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)} \Ae{a}
 \end{proof}
 
-\subsection*{Universal introduction}
+\subsubsection*{Universal introduction}
 
 \begin{proof}
 	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
@@ -334,7 +341,9 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \noindent 	\meta{c} must not occur in any undischarged assumption\\ 
 \meta{x} must not occur in $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$
 
-\subsection*{Existential introduction}
+%\vfill
+
+\subsubsection*{Existential introduction}
 
 \begin{proof}
 	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
@@ -344,28 +353,32 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \noindent \meta{x} must not occur in $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$
 %\noindent You can replace one or more instance of \meta{c} with \meta{x}.
 
-\subsection*{Existential elimination}
+\subsubsection*{Existential elimination}
 
 \begin{proof}
 	\have[m]{a}{\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)}
 	\open	
 		\hypo[i]{b}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
+		\ellipsesline
 		\have[j]{c}{\meta{B}}
 	\close
 	\have[\ ]{d}{\meta{B}} \Ee{a,b-c}
 \end{proof}
 
-\noindent \meta{c} must not occur in any undischarged assumption, in $\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)$, or in \meta{B}\vfill\columnbreak
+\noindent \meta{c} must not occur in \\any undischarged assumption, \\in $\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)$, \\or in \meta{B}
+%\vfill\columnbreak
 \end{multicols}
 
-\subsection*{Identity introduction}
+\bigskip 
+
+\subsubsection*{Identity introduction}
 
 \begin{proof}
 	\have[\ \,\,\,]{x}{\meta{c}=\meta{c}} \by{=I}{}
 \end{proof}
 
 
-\subsection*{Identity elimination}
+\subsubsection*{Identity elimination}
 
 \begin{multicols}{2}
 \begin{proof}
@@ -380,6 +393,8 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \end{proof}
 \end{multicols}
 
+
+\bigskip 
 \section{Derived rules for FOL}
 \begin{multicols}{2}
 \begin{proof}

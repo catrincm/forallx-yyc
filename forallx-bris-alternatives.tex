@@ -8,17 +8,19 @@ In formulating our natural deduction system, we treated certain rules of natural
 Some systems take DS as their basic rule for disjunction elimination. Such systems can then treat the $\eor$E rule as a derived rule. For they might offer the following proof scheme: 
 	\begin{proof}
 		\have[m]{ab}{\meta{A}\eor\meta{B}}
-		\have[o]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
 		\open
 			\hypo[i]{a}{\meta{A}} {}
+			\ellipsesline
 			\have[j]{c1}{\meta{C}}
 		\close
 		\open
 			\hypo[k]{b}{\meta{B}}{}
+			\ellipsesline
 			\have[l]{c2}{\meta{C}}
 		\close
 		\have[n]{aic}{\meta{A} \eif \meta{C}}\ci{a-c1}
 		\have{bic}{\meta{B} \eif \meta{C}}\ci{b-c2}
+		\have{lem}{\meta{C}\eor\enot\meta{C}}\LEM
 		\open
 			\hypo{c}{\meta{C}}
 			\have{c1}{\meta{C}}\by{R}{c}
@@ -37,6 +39,7 @@ Some systems take DS as their basic rule for disjunction elimination. Such syste
 	\have{con}{\meta{C}}\orE{lem,c-c1, nc-c3}
 \end{proof}
 So why did we choose to take $\eor$E as basic, rather than DS?\footnote{P.D.\ Magnus's original version of this book went the other way.} Our reasoning is that DS involves the use of `$\enot$' in the statement of the rule. It is in some sense `cleaner' for our disjunction elimination rule to avoid mentioning \emph{other} connectives. 
+The rule $\eor$E we use is also closely connected to the rule $\exists$E. Whereas there is no such analogy with DS. 
 
 
 \section{Alternative negation rules}
