@@ -309,6 +309,9 @@ We now have all of the pieces of FOL. Symbolizing more complicated sentences wil
 %Similar examples abound. All politicians are people, but some good politicians are (arguably) bad people. Someone might be an incompetent statesman, but a competent individual. And so it goes. The moral is: when you see two adjectives in a row, you need to ask yourself carefully whether they can be treated as a conjunction or not.
 
 
+
+
+
 \section{Common quantifier phrases}
 Consider these sentences:
 	\begin{earg}
@@ -748,6 +751,31 @@ Sentence \ref{dog6} is the trickiest yet. First we paraphrase it as `For any x t
 \\And a bit more: 
 $$\forall x\bigl[\exists y(Fxy \eand \exists z(Dz \eand Oyz)) \eif \exists y(Dy \eand Oxy \eand \exists z(Fzx \eand Ozy))\bigr]$$
 And we are done!
+
+
+%Let's just give one more worked-example for symbolisation:
+%Suppose we are given the English sentence ``Everyone likes someone who has no pet dog'' to symbolise. This is rather a complicated sentence. But just work through it in stages.
+%
+%First we look at what kinds of objects are talked about to fix our domain. Here we have people and dogs, so we will use the domain: people and dogs. The rest of the symbolisation key we will leave to work out as we go. But we need to do the domain first as it'll effect how we symbolise the quantifiers: whether we symbolise `everyone' as `for all' or we need to restrict the domain and say `for all people'.
+%
+%
+%\begin{itemize}
+%\item Everyone likes someone who has no pet dog.
+%\item \textcolor{leadbeater}{For all x}, if x is a person, then x likes someone who has no pet dog.
+%\item $\textcolor{leadbeater}{\forall x }(\text{if $x$ is a person, then $x$ likes someone who has no pet dog})$
+%\item $\forall x(Px\eif \text{\textcolor{leadbeater}{there is some $y$}, where $y$ is a person and $x$ likes $y$ and $y$ has no pet dog})$
+%\item $\forall x\textcolor{leadbeater}{\exists y }(\text{$x$ likes $y$ and $y$ has no pet dog})$
+%\item $\forall x\exists y (\,\text{$x$ likes $y$}\,\textcolor{leadbeater}{\eand}\,\text{$y$ has no pet dog}\,)$
+%\item $\forall x\exists y (\textcolor{leadbeater}{Lxy}\,\eand\,\text{$y$ has no pet dog}\,)$
+%\item $\forall x\exists y (Lxy\,\eand\,\text{\textcolor{leadbeater}{it is not the case that} $y$ has a pet dog}\,)$
+%\item $\forall x\exists y (Lxy\,\eand\textcolor{leadbeater}{\enot}(\text{$y$ has a pet dog}))$
+%\item $\forall x\exists y (Lxy\,\eand\enot(\text{\textcolor{leadbeater}{there is some $z$}, where $z$ is $y$'s pet dog}))$
+%\item $\forall x\exists y (Lxy\,\eand\enot\textcolor{leadbeater}{\exists z}(\text{$z$ is $y$'s pet dog}))$
+%\item $\forall x\exists y (Lxy\,\eand\enot\exists z(\text{$z$ is $y$'s pet \textcolor{leadbeater}{and} $z$ is a dog}))$
+%\item $\forall x\exists y (Lxy\,\eand\enot\exists z(\text{$z$ is $y$'s pet $\textcolor{leadbeater}{\eand}$ $z$ is a dog}))$
+%\item $\forall x\exists y (Lxy\,\eand\enot\exists z(\textcolor{leadbeater}{Pzy}\eand \textcolor{leadbeater}{Dz}))$
+%\end{itemize}
+
 
 \section{Supressed quantifiers}
 
