@@ -32,7 +32,7 @@ We will then be able symbolise
 \begin{earg}
 \item[\ex{superman}] Clark Kent is Superman.
 \end{earg}
-as $k=s$, using the symbolisation key
+as $k\eid s$, using the symbolisation key
 \begin{ekey}
 \item[k] Clark Kent
 \item[s] Superman
@@ -43,7 +43,7 @@ This will also be a symbolisations of paraphrases of \ref{superman}:
 \item[\ex{superman1c}] Clark Kent is identical to Superman. 
 \end{earg}
 
-Using `$=$' we will now be able to symbolise sentences \ref{else1b}--\ref{else1d}. All of these sentences can be  paraphrased as `Everyone who is not Pavel is owed money by Pavel'. Paraphrasing some more, we get: `For all x, if x is not Pavel, then x is owed money by Pavel'. Now that we are armed with our new identity symbol, we can symbolize this as `$\forall x (\enot\, x\eid p \eif Opx)$'.
+Using `$\eid $' we will now be able to symbolise sentences \ref{else1b}--\ref{else1d}. All of these sentences can be  paraphrased as `Everyone who is not Pavel is owed money by Pavel'. Paraphrasing some more, we get: `For all x, if x is not Pavel, then x is owed money by Pavel'. Now that we are armed with our new identity symbol, we can symbolize this as `$\forall x (\enot\, x\eid p \eif Opx)$'.
 
 In addition to sentences that use the word `else', `other than' and `except', identity will be helpful when symbolizing some sentences that contain the words `besides' and `only.' Consider these examples:
 
@@ -92,13 +92,13 @@ Now consider these sentences:
 Sentence \ref{atmost1} can be paraphrased as, `It is not the case that there are at least \emph{two} apples'. This is just the negation of sentence \ref{atleast2}: 
 $$\enot \exists x \exists y[(Ax \eand Ay) \eand \enot\, x\eid y]$$
 But sentence \ref{atmost1} can also be approached in another way. It means that if you pick out an object and it's an apple, and then you pick out an object and it's also an apple, you must have picked out the same object both times. With this in mind, it can be symbolized by
-$$\forall x\forall y\bigl[(Ax \eand Ay) \eif x=y\bigr]$$
+$$\forall x\forall y\bigl[(Ax \eand Ay) \eif x\eid y\bigr]$$
 The two sentences will turn out to be logically equivalent.
 
 In a similar way, sentence \ref{atmost2} can be approached in two equivalent ways. It can be paraphrased as, `It is not the case that there are \emph{three} or more distinct apples', so we can offer:
 $$\enot \exists x \exists y\exists z(Ax \eand Ay \eand Az \eand \enot\, x\eid y \eand \enot\, y\eid z \eand \enot\, x\eid z)$$
 Alternatively we can read it as saying that if you pick out an apple, and an apple, and an apple, then you will have picked out (at least) one of these objects more than once. Thus:
-$$\forall x\forall y\forall z\bigl[(Ax \eand Ay \eand Az) \eif (x=y \eor x=z \eor y=z)\bigr]$$
+$$\forall x\forall y\forall z\bigl[(Ax \eand Ay \eand Az) \eif (x\eid y \eor x\eid z \eor y\eid z)\bigr]$$
 
 
 \section{There are exactly\ldots}
@@ -109,16 +109,16 @@ We can now consider precise statements, like:
 \item[\ex{exactly3}] There are exactly three apples.
 \end{earg}
 Sentence \ref{exactly1} can be paraphrased as, `There is \emph{at least} one apple and there is \emph{at most} one apple'. This is just the conjunction of sentence \ref{atleast1} and sentence \ref{atmost1}. So we can offer:
-$$\exists x Ax \eand \forall x\forall y\bigl[(Ax \eand Ay) \eif x=y\bigr]$$
+$$\exists x Ax \eand \forall x\forall y\bigl[(Ax \eand Ay) \eif x\eid y\bigr]$$
 But it is perhaps more straightforward to paraphrase sentence \ref{exactly1} as, `There is a thing x which is an apple, and everything which is an apple is just x itself'. Thought of in this way, we offer: 
-$$\exists x\bigl[Ax \eand \forall y(Ay \eif x= y)\bigr]$$
+$$\exists x\bigl[Ax \eand \forall y(Ay \eif x\eid  y)\bigr]$$
 Similarly, sentence \ref{exactly2} may be paraphrased as, `There are \emph{at least} two apples, and there are \emph{at most} two apples'. Thus we could offer 
 \begin{multline*}
   \exists x \exists y((Ax \eand Ay) \eand \enot\, x\eid y) \eand {}\\
-  \forall x\forall y\forall z\bigl[((Ax \eand Ay) \eand Az) \eif ((x=y \eor x=z) \eor y=z)\bigr]
+  \forall x\forall y\forall z\bigl[((Ax \eand Ay) \eand Az) \eif ((x\eid y \eor x\eid z) \eor y\eid z)\bigr]
 \end{multline*}
 More efficiently, though, we can paraphrase it as `There are at least two different apples, and every apple is one of those two apples'. Then we offer:
-$$\exists x\exists y\bigl[((Ax \eand Ay) \eand \enot\, x\eid y) \eand \forall z(Az \eif ( x= z \eor y \eid z)\bigr]$$
+$$\exists x\exists y\bigl[((Ax \eand Ay) \eand \enot\, x\eid y) \eand \forall z(Az \eif ( x\eid  z \eor y \eid z)\bigr]$$
 Finally, consider these sentence:
 \begin{earg}
 \item[\ex{exactly2things}] There are exactly two things
@@ -128,7 +128,7 @@ It might be tempting to add a predicate to our symbolization key, to symbolize t
 	\begin{center}
 		$\exists x \exists y \enot\, x\eid y \eand \enot \exists x \exists y \exists z ((\enot\, x\eid y \eand \enot\, y\eid z) \eand \enot\, x\eid z)$\\
 		
-		$\exists x \exists y \bigl[\enot\, x\eid y \eand \forall z(x=z \eor y \eid z)\bigr]$
+		$\exists x \exists y \bigl[\enot\, x\eid y \eand \forall z(x\eid z \eor y \eid z)\bigr]$
 	\end{center}
 
 \practiceproblems
@@ -163,8 +163,8 @@ It might be tempting to add a predicate to our symbolization key, to symbolize t
 
 \problempart Explain why:
 	\begin{ebullet}
-		\item   `$\exists x \forall y(Ay \eiff x= y)$' is a good symbolization of `there is exactly one apple'.
-		\item `$\exists x \exists y \bigl[\enot\, x\eid y \eand \forall z(Az \eiff (x= z \eor y \eid z))\bigr]$' is a good symbolization of `there are exactly two apples'.
+		\item   `$\exists x \forall y(Ay \eiff x\eid  y)$' is a good symbolization of `there is exactly one apple'.
+		\item `$\exists x \exists y \bigl[\enot\, x\eid y \eand \forall z(Az \eiff (x\eid  z \eor y \eid z))\bigr]$' is a good symbolization of `there are exactly two apples'.
 	\end{ebullet}		
 
 
@@ -189,7 +189,7 @@ A second option would be to use a \emph{new} definite description operator, such
 		\item[Cx] \gap{x} went to Cambridge
 		\item[n] Nick
 	\end{ekey}
-We could symbolize sentence \ref{traitor1} with `$\maththe x Tx = n$', sentence \ref{traitor2} with `$C\maththe xTx$', and sentence \ref{traitor3} with `$\maththe x Tx = \maththe x Dx$'. 
+We could symbolize sentence \ref{traitor1} with `$\maththe x Tx \eid  n$', sentence \ref{traitor2} with `$C\maththe xTx$', and sentence \ref{traitor3} with `$\maththe x Tx \eid  \maththe x Dx$'. 
 
 However, it would be nice if we didn't have to add a new symbol to FOL. And indeed, we might be able to make do without one.
 
@@ -214,8 +214,8 @@ Sentence \ref{traitor1} is exactly like the examples we have just considered. So
 
 Sentence \ref{traitor2} poses no problems either: `$\exists x (Tx \eand \forall y(Ty \eif x \eid y) \eand Cx)$'.
 
-Sentence \ref{traitor3} is a little trickier, because it links two definite descriptions. But, deploying  Russell's analysis, it can be paraphrased by `there is exactly one traitor, x, and there is exactly one deputy, y, and x = y'. So we can symbolize it by: 
-$$\exists x \exists y \bigl(\bigl[Tx \eand \forall z(Tz \eif x \eid z)\bigr] \eand \bigl[Dy \eand \forall z(Dz \eif y \eid z)\bigr] \eand x = y\bigr)$$
+Sentence \ref{traitor3} is a little trickier, because it links two definite descriptions. But, deploying  Russell's analysis, it can be paraphrased by `there is exactly one traitor, x, and there is exactly one deputy, y, and x \eid  y'. So we can symbolize it by: 
+$$\exists x \exists y \bigl(\bigl[Tx \eand \forall z(Tz \eif x \eid z)\bigr] \eand \bigl[Dy \eand \forall z(Dz \eif y \eid z)\bigr] \eand x \eid  y\bigr)$$
 Note that we have made sure that the formula `$x \eid y$' falls within the scope of both quantifiers!
 
 \section{Empty definite descriptions}
@@ -354,9 +354,9 @@ Explain why these would be equally good symbolizations.
 
 \chapter{Semantics for FOL with identity}
 FOL with identity extends FOL as we presented it earlier. 
-\section{Sentences of FOL with identity}When we add the identity symbol to FOL, we add a new kind of atomic sentence, for example $a=b$. 
+\section{Sentences of FOL with identity}When we add the identity symbol to FOL, we add a new kind of atomic sentence, for example $a\eid b$. 
 
-We simply do this by adding a new kind of atomic sentence: \factoidbox{If $\meta{a}$ and $\meta{b}$ are names, then $\meta{a}=\meta{b}$ is an atomic sentence.} 
+We simply do this by adding a new kind of atomic sentence: \factoidbox{If $\meta{a}$ and $\meta{b}$ are names, then $\meta{a}\eid \meta{b}$ is an atomic sentence.} 
 This is added to the other clauses of what it is to be a sentence as they were given in \S\ref{s:FOLSentences}
 
 We can now see that $\forall x (\enot\, x\eid p \eif Opx)$ is a sentence, as it could be constructed as follows:	\begin{center}
@@ -386,10 +386,10 @@ Sometimes you might come across cases where you might feel tempted to write some
 %		\item[Rxy] \gap{x} was born before \gap{y}
 %	\end{ekey} 
 %
-%$=$ will stand for identity, so in our given interpretation $a=b$ is false. If we extended this interpretation with
+%$\eid $ will stand for identity, so in our given interpretation $a\eid b$ is false. If we extended this interpretation with
 %\begin{ekey}
 %\item[c] Aristotle
-%\end{ekey} then a sentence $a=c$ is true. 
+%\end{ekey} then a sentence $a\eid c$ is true. 
 
 Now that we have added the identity symbol to FOL, we simply need to expand our notion of truth from Part \ref{ch.semantics} to also account for atomic sentences like $a\eid b$. Our clause that we add is:
 \factoidbox{
@@ -422,7 +422,7 @@ Remember, to check if $\exists x\meta{A}(\ldots x\ldots x\ldots)$ is true we fir
 \begin{ekey}
 \item[d] Alfred
 \end{ekey}
-Then $d=a$ is true on this interpretation. So there is some way of interpreting `$d$' where $d=a$ is true; and thus $\exists x \, x\eid a$ is true.
+Then $d\eid a$ is true on this interpretation. So there is some way of interpreting `$d$' where $d\eid a$ is true; and thus $\exists x \, x\eid a$ is true.
 
 On this interpretation we can also see that $\forall x(x\eid a\eor x\eid b\eor x\eid c)$ is true. Why? We add a new name `$d$'. There are three ways we can extend our original interpretation:\begin{enumerate}
 \item 
@@ -438,20 +438,20 @@ On this interpretation we can also see that $\forall x(x\eid a\eor x\eid b\eor x
 \item[d] Carys
 \end{ekey}
 \end{enumerate}
-On the first of these, $d=a$ is true, on the second $d=b$ is true, and on the third $d=c$ is true. So on each of these interpretations, $d\eid a\eor d\eid b\eor d\eid c$ is true, and thus $\forall x(x\eid a\eor x\eid b\eor x\eid c)$.
+On the first of these, $d\eid a$ is true, on the second $d\eid b$ is true, and on the third $d\eid c$ is true. So on each of these interpretations, $d\eid a\eor d\eid b\eor d\eid c$ is true, and thus $\forall x(x\eid a\eor x\eid b\eor x\eid c)$.
 
 
 
-%Identity is a special predicate of FOL. We write it a bit differently than other two-place predicates: `$x=y$' instead of `$Ixy$' (for example). More important, though, its interpretation is fixed, once and for all. 
+%Identity is a special predicate of FOL. We write it a bit differently than other two-place predicates: `$x\eid y$' instead of `$Ixy$' (for example). More important, though, its interpretation is fixed, once and for all. 
 %
 
 
 %Where \meta{a} and \meta{b} are any names, 
 %	\factoidbox{
-%		$\meta{a} = \meta{b}$ is true in an interpretation \textbf{iff}\\
+%		$\meta{a} \eid  \meta{b}$ is true in an interpretation \textbf{iff}\\
 %		 \meta{a} and \meta{b} name the very same object in that interpretation
 %	}
-%So in our go-to interpretation, `$a = b$' is false, since Aristotle is distinct from Beyonc\'e.
+%So in our go-to interpretation, `$a \eid  b$' is false, since Aristotle is distinct from Beyonc\'e.
 
 \chapter{Rules for identity}
 If two names refer to the same object, then swapping one name for another will not change the truth value of any sentence. So, in particular, if `$a$' and `$b$' name the same object, then all of the following will be valid:\label{model.nonidentity}
@@ -464,21 +464,21 @@ If two names refer to the same object, then swapping one name for another will n
 		\forall x Rxa &\therefore \forall x Rxb
 	\end{align*}
 
-We capture this idea in our elimination rule. If you have established `$a=b$', then anything that is true of the object named by `$a$' must also be true of the object named by `$b$'. For any sentence with `$a$' in it, you can replace some or all of the occurrences of `$a$' with `$b$' and produce an equivalent sentence. For example, from `$Raa$' and `$a = b$', you are justified in inferring `$Rab$', `$Rba$' or `$Rbb$'. More generally:
+We capture this idea in our elimination rule. If you have established `$a\eid b$', then anything that is true of the object named by `$a$' must also be true of the object named by `$b$'. For any sentence with `$a$' in it, you can replace some or all of the occurrences of `$a$' with `$b$' and produce an equivalent sentence. For example, from `$Raa$' and `$a \eid  b$', you are justified in inferring `$Rab$', `$Rba$' or `$Rbb$'. More generally:
 \factoidbox{\begin{proof}
-	\have[m]{e}{\meta{a}=\meta{b}}
+	\have[m]{e}{\meta{a}\eid \meta{b}}
 	\have[n]{a}{\meta{A}(\ldots \meta{a} \ldots \meta{a}\ldots)}
-	\have[\ ]{ea1}{\meta{A}(\ldots \meta{b} \ldots \meta{a}\ldots)} \by{=E}{e,a}
+	\have[\ ]{ea1}{\meta{A}(\ldots \meta{b} \ldots \meta{a}\ldots)} \by{\eid E}{e,a}
 \end{proof}}
 The notation here is as for $\exists$I. So $\meta{A}(\ldots \meta{a} \ldots \meta{a}\ldots)$ is a formula containing the name $\meta{a}$, and $\meta{A}(\ldots \meta{b} \ldots \meta{a}\ldots)$ is a formula obtained by replacing one or more instances of the name $\meta{a}$ with the name $\meta{b}$. Lines $m$ and $n$ can occur in either order, and do not need to be adjacent, but we always cite the statement of identity first. Symmetrically, we allow:
 \factoidbox{\begin{proof}
-	\have[m]{e}{\meta{a}=\meta{b}}
+	\have[m]{e}{\meta{a}\eid \meta{b}}
 	\have[n]{a}{\meta{A}(\ldots \meta{b} \ldots \meta{b}\ldots)}
-	\have[\ ]{ea2}{\meta{A}(\ldots \meta{a} \ldots \meta{b}\ldots)} \by{=E}{e,a}
+	\have[\ ]{ea2}{\meta{A}(\ldots \meta{a} \ldots \meta{b}\ldots)} \by{\eid E}{e,a}
 \end{proof}}
 This rule is sometimes called \emph{Leibniz's Law}, after Gottfried Leibniz. 	
 	
-Some philosophers have believed the reverse of this claim. That is, they have believed that when exactly the same sentences (not containing `$=$') are true of two objects, then they are really just one and the same object after all. This is a highly controversial philosophical claim (sometimes called the \emph{identity of indiscernibles}) and our logic will not subscribe to it; we allow that exactly the same things might be true of two \emph{distinct} objects.  
+Some philosophers have believed the reverse of this claim. That is, they have believed that when exactly the same sentences (not containing `$\eid $') are true of two objects, then they are really just one and the same object after all. This is a highly controversial philosophical claim (sometimes called the \emph{identity of indiscernibles}) and our logic will not subscribe to it; we allow that exactly the same things might be true of two \emph{distinct} objects.  
 
 To bring this out, consider the following interpretation:
 	\begin{ebullet}
@@ -487,70 +487,70 @@ To bring this out, consider the following interpretation:
 		\item[$b$:] Tim Button
 		\item For every primitive predicate we care to consider, that predicate is true of \emph{nothing}.
 	\end{ebullet}
-Suppose `$A$' is a one-place predicate; then `$Aa$' is false and `$Ab$' is false, so `$Aa \eiff Ab$' is true. Similarly, if `$R$' is a two-place predicate, then `$Raa$' is false and `$Rab$' is false, so that `$Raa \eiff Rab$' is true. And so it goes: every atomic sentence not involving `$=$' is false, so every biconditional linking such sentences is true. For all that, Tim Button and P.D.\ Magnus are two distinct people, not one and the same!
+Suppose `$A$' is a one-place predicate; then `$Aa$' is false and `$Ab$' is false, so `$Aa \eiff Ab$' is true. Similarly, if `$R$' is a two-place predicate, then `$Raa$' is false and `$Rab$' is false, so that `$Raa \eiff Rab$' is true. And so it goes: every atomic sentence not involving `$\eid $' is false, so every biconditional linking such sentences is true. For all that, Tim Button and P.D.\ Magnus are two distinct people, not one and the same!
 
 Since we are not subscribing to the thesis of identity of indiscernibles, no matter how much you learn about two objects, we cannot prove that they are identical. That is unless, of course, you learn that the two objects are, in fact, identical, but then the proof will hardly be very illuminating.
 
-The consequence of this, for our proof system, is that there are no sentences that do not already contain the identity predicate that could justify the conclusion `$a=b$'. This means that the identity introduction rule will not justify `$a=b$', or any other identity claim containing two different names.
+The consequence of this, for our proof system, is that there are no sentences that do not already contain the identity predicate that could justify the conclusion `$a\eid b$'. This means that the identity introduction rule will not justify `$a\eid b$', or any other identity claim containing two different names.
 
 However, every object is identical to itself. No premises, then, are required in order to conclude that something is identical to itself. So this will be the identity introduction rule:
 \factoidbox{
 \begin{proof}
-	\have[\ \,\,\,]{x}{\meta{c}=\meta{c}} \by{=I}{}
+	\have[\ \,\,\,]{x}{\meta{c}\eid \meta{c}} \by{\eid I}{}
 \end{proof}}
-Notice that like the Law of Excluded Middle, this rule does not require referring to any prior lines of the proof. For any name \meta{c}, you can write $\meta{c}=\meta{c}$ on any point, with only the {=}I rule as justification. 
+Notice that like the Law of Excluded Middle, this rule does not require referring to any prior lines of the proof. For any name \meta{c}, you can write $\meta{c}\eid \meta{c}$ on any point, with only the {\eid }I rule as justification. 
 
 
 To see the rules in action, we will prove some quick results. First, we will prove that identity is \emph{symmetric}:
 \begin{proof}
 	\open
-		\hypo{ab}{a = b}
-		\have{aa}{a = a}\by{=I}{}
-		\have{ba}{b = a}\by{=E}{ab, aa}
+		\hypo{ab}{a \eid  b}
+		\have{aa}{a \eid  a}\by{\eid I}{}
+		\have{ba}{b \eid  a}\by{\eid E}{ab, aa}
 	\close
-	\have{abba}{a = b \eif b =a}\ci{ab-ba}
+	\have{abba}{a \eid  b \eif b \eid a}\ci{ab-ba}
 	\have{ayya}{\forall y (a \eid y \eif y \eid a)}\Ai{abba}
 	\have{xyyx}{\forall x \forall y (x \eid y \eif y \eid x)}\Ai{ayya}
 \end{proof}
-We obtain line 3 by replacing one instance of `$a$' in line 2 with an instance of `$b$'; this is justified given `$a= b$'. 
+We obtain line 3 by replacing one instance of `$a$' in line 2 with an instance of `$b$'; this is justified given `$a\eid  b$'. 
 
 Second, we will prove that identity is \emph{transitive}:
 \begin{proof}
 	\open
-		\hypo{abc}{a = b \eand b = c}
-		\have{ab}{a = b}\ae{abc}
-		\have{bc}{b = c}\ae{abc}
-		\have{ac}{a = c}\by{=E}{ab, bc}
+		\hypo{abc}{a \eid  b \eand b \eid  c}
+		\have{ab}{a \eid  b}\ae{abc}
+		\have{bc}{b \eid  c}\ae{abc}
+		\have{ac}{a \eid  c}\by{\eid E}{ab, bc}
 	\close
-	\have{con}{(a \eid b \eand b =c) \eif a = c}\ci{abc-ac}
+	\have{con}{(a \eid b \eand b \eid c) \eif a \eid  c}\ci{abc-ac}
 	\have{conz}{\forall z((a \eid b \eand b \eid z) \eif a \eid z)}\Ai{con}
 	\have{cony}{\forall y\forall z((a \eid y \eand y \eid z) \eif a \eid z)}\Ai{conz}
 	\have{conx}{\forall x \forall y \forall z((x \eid y \eand y \eid z) \eif x \eid z)}\Ai{cony}
 \end{proof}
-We obtain line 4 by replacing `$b$' in line 3 with `$a$'; this is justified given `$a= b$'. 
+We obtain line 4 by replacing `$b$' in line 3 with `$a$'; this is justified given `$a\eid  b$'. 
 
 \practiceproblems
 \problempart
 \label{pr.identity}
 Provide a proof of each claim.
 \begin{earg}
-\item $Pa \eor Qb, Qb \eif b=c, \enot Pa \proves Qc$
-\item $m=n \eor n=o, An \proves Am \eor Ao$
-\item $\forall x\ x=m, Rma\proves \exists x Rxx$
-\item $\forall x\forall y(Rxy \eif x=y)\proves Rab \eif Rba$
+\item $Pa \eor Qb, Qb \eif b\eid c, \enot Pa \proves Qc$
+\item $m\eid n \eor n\eid o, An \proves Am \eor Ao$
+\item $\forall x\ x\eid m, Rma\proves \exists x Rxx$
+\item $\forall x\forall y(Rxy \eif x\eid y)\proves Rab \eif Rba$
 \item $\enot \exists x\enot\, x\eid m \proves \forall x\forall y (Px \eif Py)$
 \item $\exists x Jx, \exists x \enot Jx\proves \exists x \exists y\ \enot\, x\eid y$
-\item $\forall x(x=n \eiff Mx), \forall x(Ox \eor \enot Mx)\proves On$
-\item $\exists x Dx, \forall x(x=p \eiff Dx)\proves Dp$
-\item $\exists x\bigl[(Kx \eand \forall y(Ky \eif x=y)) \eand Bx\bigr], Kd\proves Bd$
+\item $\forall x(x\eid n \eiff Mx), \forall x(Ox \eor \enot Mx)\proves On$
+\item $\exists x Dx, \forall x(x\eid p \eiff Dx)\proves Dp$
+\item $\exists x\bigl[(Kx \eand \forall y(Ky \eif x\eid y)) \eand Bx\bigr], Kd\proves Bd$
 \item $\proves Pa \eif \forall x(Px \eor \enot\, x\eid a)$
 \end{earg}
 
 \problempart
 Show that the following are provably equivalent:
 \begin{ebullet}
-\item $\exists x \bigl([Fx \eand \forall y (Fy \eif x \eid y)] \eand x = n\bigr)$
-\item $Fn \eand \forall y (Fy \eif n= y)$
+\item $\exists x \bigl([Fx \eand \forall y (Fy \eif x \eid y)] \eand x \eid  n\bigr)$
+\item $Fn \eand \forall y (Fy \eif n\eid  y)$
 \end{ebullet}
 And hence that both have a decent claim to symbolize the English sentence `Nick is the F'.
 
@@ -559,7 +559,7 @@ And hence that both have a decent claim to symbolize the English sentence `Nick 
 \problempart
 In \S\ref{ch.identity}, we claimed that the following are logically equivalent symbolizations of the English sentence `there is exactly one F':
 \begin{ebullet}
-\item $\exists x Fx \eand \forall x \forall y \bigl[(Fx \eand Fy) \eif x = y\bigr]$
+\item $\exists x Fx \eand \forall x \forall y \bigl[(Fx \eand Fy) \eif x \eid  y\bigr]$
 \item $\exists x \bigl[Fx \eand \forall y (Fy \eif x \eid y)\bigr]$
 \item $\exists x \forall y (Fy \eiff x \eid y)$
 \end{ebullet}
