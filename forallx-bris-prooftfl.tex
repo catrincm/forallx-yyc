@@ -450,6 +450,8 @@ Notice that \meta{B} can be \emph{any} sentence whatsoever, so the following is 
 \end{proof}
 Using a truth table to show this would have taken 128 lines.
 
+The disjunction elimination rule is, though, slightly trickier. 
+
 The disjunction elimination rule is, though, slightly trickier. Suppose that  Ludwig is reactionary or he is libertarian. What can you conclude? Not that Ludwig is reactionary; it might be that he is libertarian instead. Equally, not that Ludwig is libertarian; for he might merely be reactionary. Disjunctions, just by themselves, are hard to work with. 
 
 But suppose that we could somehow show both of the following: first, that Ludwig's being reactionary entails that he is an Austrian economist: second, that Ludwig's being libertarian entails that he is an Austrian economist. Then if we know that Ludwig is reactionary or libertarian, then we know that, whichever he is, Ludwig is an Austrian economist. This insight can be expressed in the following rule, which is our disjunction elimination ($\eor$E) rule:
@@ -558,6 +560,40 @@ Here is a proof corresponding with the argument:
 	\close
 	\have{con}{(P \eand D) \eor (P \eand \enot D)}\orE{lem,b-abo, nb-anbo}
 \end{proof}
+
+Consider the following brain teaser:
+
+\begin{quote}
+Three people are standing in a row looking at eachother. 
+\begin{center}
+\begin{tikzpicture}[people/.style={minimum width=1.5cm}]
+\node[people, alice] (alice) {Alice};
+\node[people, bob, right=of alice] (bob) {Bob};
+\node[people, charlie, right=of bob] (charlie) {Charlie};
+\end{tikzpicture}
+\end{center}
+Alice is married. Charlie is not married. Is there someone who is married who is looking at someone who is not married?
+\end{quote} \ldots Think about it! \\\ldots Answer: Yes. 
+Our Law of Excluded Middle and Disjunction Elimination rules allow us to show this. They write up the following argument, which we present in a pseudo-formal style.
+\begin{proof}
+	\have{lem}{\text{Bob is either married or he's not married}}\LEM
+	\open
+	\hypo{b}{\text{Suppose Bob is married}}
+	\have{ab}{\text{Then married Bob is looking at unmarried Charlie}}
+	\have{abc}{\text{So someone who is married is looking at someone who is not married.}}
+	\close
+	\open
+	\hypo{b2}{\text{Suppose Bob is unmarried}}
+	\have{ab2}{\text{Then married Alice is looking at unmarried Bob}}
+	\have{abc2}{\text{So someone who is married is looking at someone who is not married.}}
+	\close
+	\have{con}{\text{Therefore, someone who is married is looking at someone who is not married.}}\orE{lem,b-abc,b2-abc2} 
+\end{proof}Are you convinced now that someone who is married is looking at someone who is not married? If not, find a friend and work through it together. Sometimes it can really help to try walking through the argument together. 
+
+Coming up with this sort of argument does just take that moment of inspiration to see how this argument will go. This is often the case with arguments that involve the law of excluded middle. We pick it out of nowhere and have to use our inspiration to see how it might be useful. But hopefully, with more examples you'll become familiar with cases where it might be of use. A strategy that might help is: it's a backup option if everything else fails. If it doesn't look like there's any elimination rules to use on your premises or any introduction rules that can get you to your conclusion, then perhaps LEM is the way forwards. 
+
+%Indeed, if we are going to try to create an automatic algorithm to do proofs for us, this becomes a challenge when LEM is used. Computer scientists often consider a weaker logic which doesn't accept LEM. And philosophers are interested in this, 
+
 
 \section{Contradiction}
 We have only one connective left to deal with: negation, but we will not tackle negation directly. Instead, we will first think about \emph{contradiction}. 
