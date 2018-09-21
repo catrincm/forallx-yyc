@@ -378,14 +378,48 @@ description={A sentence that must be false}
 
 %Something might \emph{always} be true and still be contingent. For instance, if there never were a time when the universe contained fewer than seven things, then the sentence `At least seven things exist' would always be true. Yet the sentence is contingent: the world could have been much, much smaller than it is, and then the sentence would have been false. 
 
-\subsection{Necessary equivalence}
 
-We can also ask about the logical relations \emph{between} two sentences. For example:
+\section{Necessary and sufficient conditions}
+We can also ask about the logical relations \emph{between} two sentences. 
+
+Consider the two sentences:
+\begin{earg}
+\item Fido is a bulldog.
+\item Fido is a dog.
+\end{earg}
+Fido being a bulldog is \define{sufficient condition} for Fido being a dog.
+%If we know that Fido is a bulldog, that's all the information we need to conclude that Fido is a dog. 
+The argument 
+\begin{earg}
+\item Fido is a bulldog.
+\item[\therefore] Fido is a dog.
+\end{earg} is a valid argument. And 
+\begin{earg}
+\item[] If Fido is a bulldog, then Fido is a dog.
+\end{earg}is necessarily true.
+
+	\factoidbox{
+		\meta{A} is \define{sufficient for} \meta{B} if it's impossible for \meta{A} to be true and \meta{B} false. 
+	}
+
+The other way around is a \define{necessary condition}. For Fido to be a bulldog it is \emph{necessary} that Fido is a dog. There's no way he could be a bulldog without being a dog. 
+
+	\factoidbox{
+		\meta{A} is \define{necessary for}  \meta{B} if it's impossible for \meta{B} to be true and \meta{A} false. 
+	}
+
+
+
+
+Sometimes a sentence is both necessary and sufficient for a second sentence. For example:
 \begin{earg}
 \item[] John went to the store after he washed the dishes.
 \item[] John washed the dishes before he went to the store.
 \end{earg}
-These two sentences are both contingent, since John might not have gone to the store or washed dishes at all. Yet they must have the same truth-value. If either of the sentences is true, then they both are; if either of the sentences is false, then they both are. When two sentences necessarily have the same truth value, we say that they are \define{necessarily equivalent}.
+The sentences must have the same truth value. 
+%These two sentences are both contingent, since John might not have gone to the store or washed dishes at all. Yet they must have the same truth-value.
+ If either of the sentences is true, then they both are; if either of the sentences is false, then they both are. We then say that they are \define{necessarily equivalent}.
+
 
 \newglossaryentry{necessary equivalence}
 {
@@ -393,6 +427,10 @@ name={necessary equivalence},
 text={necessarily equivalent},
 description={A property held by a pair of sentences that must always have the same truth value}
 }
+
+%\section{Necessary and Sufficient conditions}
+
+
 
 \section*{Summary of logical notions}
 
@@ -404,6 +442,10 @@ description={A property held by a pair of sentences that must always have the sa
 \item A \define{necessary falsehood} is a sentence that must be false, that could not possibly be true.
 
 \item A \define{contingent sentence} is neither a necessary truth nor a necessary falsehood. It may be true but could have been false, or vice versa.
+
+\item A sentence is \define{suffient for} a second sentence if it's impossible for the first to be true and the second false. 
+
+\item A sentence is \define{necessary for} a second sentence if it's impossible for the second to be true and the first false. 
 
 \item Two sentences are \define{necessarily equivalent} if they must have the same truth value.
 
