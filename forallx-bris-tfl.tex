@@ -824,7 +824,7 @@ On the left-hand-side, here, we have the name of a name. On the right hand side,
 Those are just general rules for quotation, and you should observe them carefully in all your work! To be clear, the quotation-marks here do not indicate indirect speech. They indicate that you are moving from talking about an object, to talking about the name of that object.
 
 \section{Quotation in Logic}
-Since we are introducing a formal language, we never really \emph{use} the language in the way we would use English or French. We are pretty much always mentioning it, and it's clear from the way it's written that it's not part of English. So logicians often drop the quotation marks around logic. Really we should say 
+Since we are introducing a formal language, we never really \emph{use} the language in the way we would use English or German; we are always mentioning it. And it's clear from the way it's written that it's not part of English, so logicians often drop the quotation marks around logic. Really we should say 
 	\begin{ebullet}
 		\item `$D$' is an atomic sentence of TFL.
 			\item `$(D\eand(B\eor C))$' is a sentence of TFL.
@@ -832,7 +832,7 @@ Since we are introducing a formal language, we never really \emph{use} the langu
 			\item $D$ is an atomic sentence of TFL.
 				\item $(D\eand(B\eor C))$ is a sentence of TFL.
 			\end{ebullet}
-We will follow this convention here. 
+This textbook follows this convention.
 
 %\section{Object language and metalanguage}
 %These general quotation conventions are of particular importance for us. After all, we are describing a formal language here, TFL, and so we are often \emph{mentioning} expressions from TFL. 
@@ -886,9 +886,14 @@ This talks about \emph{arbitrary} sentences. If we had instead offered:
 	\begin{ebullet}
 		\item If $A$ is a sentence, then $\enot A$ is a sentence.
 	\end{ebullet}
-this would not have allowed us to determine whether $\enot B$ is a sentence. To emphasize, then:
+this would not have allowed us to determine whether $\enot B$ is a sentence, it would only tell us about the specific case for $A$. We don't want to say something about $A$ specifically, but about all sentences. For example this should also give us that \begin{ebullet}
+\item If $(A\eor (B\eand C))$ is a sentence, then $\enot \,(A\eor (B\eand C))$ is a sentence.
+\end{ebullet} 
+We get this by using a metavariable $\metaX$. It stands in place of an arbitrary expression. 
+
+To emphasize, then:
 	\factoidbox{
-	  $\metaX$ is a symbol (called a \define{metavariable}) in augmented English, which we use to talk about any TFL expression. 	$A$ is a particular atomic sentence of TFL.}
+	  $\metaX$ is a symbol (called a \define{metavariable}) in augmented English, which we use to talk about any expression of our formal language. 	$A$ is a particular atomic sentence of TFL.}
 
         \newglossaryentry{metavariables}
 {
