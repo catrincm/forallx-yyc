@@ -142,9 +142,9 @@
 
 \newcommand*{\script}[1]{\ensuremath{\mathcal{#1}}}
 \renewcommand*{\meta}[1]{\ensuremath{\mathcal{#1}}} % TB: used for all metavariables
-\newcommand{\metaX}{X\xspace}
-\newcommand{\metaY}{Y\xspace}
-\newcommand{\metaZ}{Z\xspace}
+\newcommand{\metaX}{\ensuremath{X}\xspace}
+\newcommand{\metaY}{\ensuremath{Y}\xspace}
+\newcommand{\metaZ}{\ensuremath{Z}\xspace}
 % create a blank
 \newcommand*{\blank}{\underline{\hspace*{2.5em}}}
 \newcommand*{\gap}[1]{\blank$_{#1}$} % TB: used for keys, to avoid use/mention confusion
@@ -811,11 +811,11 @@
 % for elipses in statements of rules. E.g.:
 %\begin{proof}
 %\open
-%	\hypo[m]{a}{\meta{A}}
+%	\hypo[m]{a}{\metaX}
 %	\ellipsesline
 %	\have[n]{nb}{\ered}
 %\close
-%\have[\ ]{na}{\enot\meta{A}}\ni{a-nb}
+%\have[\ ]{na}{\enot\metaX}\ni{a-nb}
 %\end{proof}
 
 

@@ -16,20 +16,20 @@ We introduced five connectives in chapter \ref{s:TFLConnectives}, so we simply n
                    description = {One of the two logical values sentences can have: True and False}
                    }
 
-\paragraph{Negation.} For any sentence \meta{A}: If \meta{A} is true, then \enot\meta{A} is false. If \enot\meta{A} is true, then \meta{A} is false. We can summarize this in the \emph{characteristic truth table} for negation:
+\paragraph{Negation.} For any sentence \metaX: If \metaX is true, then \enot\metaX is false. If \enot\metaX is true, then \metaX is false. We can summarize this in the \emph{characteristic truth table} for negation:
 \begin{center}
 \begin{tabular}{c|c}
-\meta{A} & \enot\meta{A}\\
+\metaX & \enot\metaX\\
 \hline
 T & F\\
 F & T 
 \end{tabular}
 \end{center}
 
-\paragraph{Conjunction.} For any sentences \meta{A} and \meta{B}, $\meta{A}\eand\meta{B}$ is true if and only if both \meta{A} and \meta{B} are true. We can summarize this in the {characteristic truth table} for conjunction:
+\paragraph{Conjunction.} For any sentences \metaX and \metaY, $\metaX\eand\metaY$ is true if and only if both \metaX and \metaY are true. We can summarize this in the {characteristic truth table} for conjunction:
 \begin{center}
 \begin{tabular}{c c |c}
-\meta{A} & \meta{B} & $\meta{A}\eand\meta{B}$\\
+\metaX & \metaY & $\metaX\eand\metaY$\\
 \hline
 T & T & T\\
 T & F & F\\
@@ -37,12 +37,12 @@ F & T & F\\
 F & F & F
 \end{tabular}
 \end{center}
-Note that conjunction is \emph{symmetrical}. The truth value for $\meta{A} \eand \meta{B}$ is always the same as the truth value for $\meta{B} \eand \meta{A}$.  
+Note that conjunction is \emph{symmetrical}. The truth value for $\metaX \eand \metaY$ is always the same as the truth value for $\metaY \eand \metaX$.  
 
-\paragraph{Disjunction.} Recall that `$\eor$' always represents inclusive or. So, for any sentences \meta{A} and \meta{B}, $\meta{A}\eor \meta{B}$ is true if and only if \meta{A} is true or \meta{B} is true. We can summarize this in the {characteristic truth table} for disjunction:
+\paragraph{Disjunction.} Recall that `$\eor$' always represents inclusive or. So, for any sentences \metaX and \metaY, $\metaX\eor \metaY$ is true if and only if \metaX is true or \metaY is true. We can summarize this in the {characteristic truth table} for disjunction:
 \begin{center}
 \begin{tabular}{c c|c}
-\meta{A} & \meta{B} & $\meta{A}\eor\meta{B}$ \\
+\metaX & \metaY & $\metaX\eor\metaY$ \\
 \hline
 T & T & T\\
 T & F & T\\
@@ -52,10 +52,10 @@ F & F & F
 \end{center}
 Like conjunction, disjunction is symmetrical. 
 
-\paragraph{Conditional.} We're just going to come clean and admit it: Conditionals are a right old mess in TFL. Exactly how much of a mess they are is \emph{philosophically} contentious. We'll discuss a few of the subtleties  in \S\S\ref{s:IndicativeSubjunctive} and \ref{s:ParadoxesOfMaterialConditional}. For now, we are going to stipulate the following: $\meta{A}\eif\meta{B}$ is false if and only if \meta{A} is true and \meta{B} is false. We can summarize this with a characteristic truth table for the conditional.
+\paragraph{Conditional.} We're just going to come clean and admit it: Conditionals are a right old mess in TFL. Exactly how much of a mess they are is \emph{philosophically} contentious. We'll discuss a few of the subtleties  in \S\S\ref{s:IndicativeSubjunctive} and \ref{s:ParadoxesOfMaterialConditional}. For now, we are going to stipulate the following: $\metaX\eif\metaY$ is false if and only if \metaX is true and \metaY is false. We can summarize this with a characteristic truth table for the conditional.
 \begin{center}
 \begin{tabular}{c c|c}
-\meta{A} & \meta{B} & $\meta{A}\eif\meta{B}$\\
+\metaX & \metaY & $\metaX\eif\metaY$\\
 \hline
 T & T & T\\
 T & F & F\\
@@ -63,12 +63,12 @@ F & T & T\\
 F & F & T
 \end{tabular}
 \end{center}
-The conditional is \emph{asymmetrical}. You cannot swap the antecedent and consequent without changing the meaning of the sentence, because $\meta{A}\eif\meta{B}$ has a very different truth table from $\meta{B}\eif\meta{A}$.
+The conditional is \emph{asymmetrical}. You cannot swap the antecedent and consequent without changing the meaning of the sentence, because $\metaX\eif\metaY$ has a very different truth table from $\metaY\eif\metaX$.
 
 \paragraph{Biconditional.} Since a biconditional is to be the same as the conjunction of a conditional running in each direction, we will want the truth table for the biconditional to be:
 \begin{center}
 \begin{tabular}{c c|c}
-\meta{A} & \meta{B} & $\meta{A}\eiff\meta{B}$\\
+\metaX & \metaY & $\metaX\eiff\metaY$\\
 \hline
 T & T & T\\
 T & F & F\\
@@ -232,10 +232,10 @@ To know how to proceed we will want to look at the structure of the sentence, wh
 \end{forest}
 \end{center}
 
-To fill in the truth table we will be working up the tree. We have to have assigned truth values to all components lower in the tree to work out the node connecting them. So we should start with the lowest sentence that we have not yet got a truth value for: `$(H\eand I)$'. This is a conjunction, $(\meta{A}\eand\meta{B})$, with `$H$' as \meta{A} and with `$I$' as \meta{B}. The characteristic truth table for conjunction gives the truth conditions for \emph{any} sentence of the form $(\meta{A}\eand\meta{B})$, whatever $\meta{A}$ and $\meta{B}$ might be. It represents the point that a conjunction is true iff both conjuncts are true. In this case, our conjuncts are just `$H$' and `$I$'. They are both true on (and only on) the first line of the truth table. Accordingly, we can calculate the truth value of the conjunction on all four rows.
+To fill in the truth table we will be working up the tree. We have to have assigned truth values to all components lower in the tree to work out the node connecting them. So we should start with the lowest sentence that we have not yet got a truth value for: `$(H\eand I)$'. This is a conjunction, $(\metaX\eand\metaY)$, with `$H$' as \metaX and with `$I$' as \metaY. The characteristic truth table for conjunction gives the truth conditions for \emph{any} sentence of the form $(\metaX\eand\metaY)$, whatever $\metaX$ and $\metaY$ might be. It represents the point that a conjunction is true iff both conjuncts are true. In this case, our conjuncts are just `$H$' and `$I$'. They are both true on (and only on) the first line of the truth table. Accordingly, we can calculate the truth value of the conjunction on all four rows.
 \begin{center}
 \begin{tabular}{c c|d e e e f}
- & & \meta{A} & \eand & \meta{B} & & \\
+ & & \metaX & \eand & \metaY & & \\
 $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
 \hline
  T & T & T & {T} & T & & T\\
@@ -244,10 +244,10 @@ $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
  F & F & F & {F} & F & & F
 \end{tabular}
 \end{center}
-Now, the entire sentence that we are dealing with is a conditional, $\meta{A}\eif\meta{B}$, with `$(H \eand I)$' as \meta{A} and with `$H$' as \meta{B}. On the second row, for example, `$(H\eand I)$' is false and `$H$' is true. Since a conditional is true when the antecedent is false, we write a `T' in the second row underneath the conditional symbol. We continue for the other three rows and get this:
+Now, the entire sentence that we are dealing with is a conditional, $\metaX\eif\metaY$, with `$(H \eand I)$' as \metaX and with `$H$' as \metaY. On the second row, for example, `$(H\eand I)$' is false and `$H$' is true. Since a conditional is true when the antecedent is false, we write a `T' in the second row underneath the conditional symbol. We continue for the other three rows and get this:
 \begin{center}
 \begin{tabular}{c c| d e e e f}
- & &  & \meta{A} &  &\eif &\meta{B} \\
+ & &  & \metaX &  &\eif &\metaY \\
 $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
 \hline
  T & T &  & {T} &  &{T} & T\\
@@ -569,7 +569,7 @@ Logic is particularly useful for evaluating arguments, in particular to help us 
 
 In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if it's impossible for all the premises to be true and the conclusion false. We investigated validity as it applies to English language arguments, but we also have TFL arguments. The logical substitute notion of validity replaces `impossible' by `\emph{logically} impossible', where logical impossibility is characterised by there being no valuations with the property of interest. 
 \factoidbox{
-	The TFL argument `$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n\therefore \meta{B}$' is \define{valid} iff there are no valuations where the premises are true and the conclusion false. 
+	The TFL argument `$\metaX_1, \metaX_2, \ldots, \metaX_n\therefore \metaY$' is \define{valid} iff there are no valuations where the premises are true and the conclusion false. 
 }
 \newglossaryentry{logically valid in TFL}
 {
@@ -579,7 +579,7 @@ In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if 
 }
 We will be using validity a lot in this course, and we have a corresponding notion that makes the claim that an argument is valid: that is the notion of \emph{entailment}. 
 \factoidbox{
-	The TFL sentences $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ \define{entail} the sentence $\meta{C}$ iff there are no valuations where all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true and $\meta{C}$ false.
+	The TFL sentences $\metaX_1, \metaX_2, \ldots, \metaX_n$ \define{entail} the sentence $\meta{C}$ iff there are no valuations where all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true and $\meta{C}$ false.
 }
 \newglossaryentry{entailment in TFL}
 {
@@ -590,7 +590,7 @@ We will be using validity a lot in this course, and we have a corresponding noti
 
 We can see that entailment and validity are sister-notions: 
 \factoidbox{
-		$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$ iff $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ is valid.
+		$\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\meta{C}$ iff $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \meta{C}$ is valid.
 	}
 
 It is easy to for entailment this with a truth table. Let us check whether `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$', we simply need to check whether there is any valuation which makes both `$\enot L \eif (J \eor L)$' and `$\enot L$' true whilst making `$J$' false. So we use a truth table: 
@@ -609,15 +609,15 @@ The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true i
 
 %We now make an important observation:
 %\factoidbox{
-%	$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$ iff $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \therefore \meta{C}$ is valid.
+%	$\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\meta{C}$ iff $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \meta{C}$ is valid.
 %}
-%Here's why. If $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ entail $\meta{C}$, then there is no valuation which makes all of $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ true whilst making $\meta{C}$ false. This means that it is \emph{logically impossible} for $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ all to be true whilst $\meta{C}$ is false. But this is just what it takes for an argument, with premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ and conclusion $\meta{C}$, to be valid!
+%Here's why. If $\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\meta{C}$, then there is no valuation which makes all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true whilst making $\meta{C}$ false. This means that it is \emph{logically impossible} for $\metaX_1, \metaX_2, \ldots, \metaX_n$ all to be true whilst $\meta{C}$ is false. But this is just what it takes for an argument, with premises $\metaX_1, \metaX_2, \ldots, \metaX_n$ and conclusion $\meta{C}$, to be valid!
 
-In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$, and conclusion $\meta{C}$. Then we test for entailment using truth tables. 
+In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\metaX_1, \metaX_2, \ldots, \metaX_n$, and conclusion $\meta{C}$. Then we test for entailment using truth tables. 
 
 \subsection{The double-turnstile}
-We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\meta{A}_1, \meta{A}_2, \ldots$ and $\meta{A}_n$ together entail $\meta{C}$, we will abbreviate this by:
-$$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n \entails \meta{C}$$
+We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\metaX_1, \metaX_2, \ldots$ and $\metaX_n$ together entail $\meta{C}$, we will abbreviate this by:
+$$\metaX_1, \metaX_2, \ldots, \metaX_n \entails \meta{C}$$
 The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
 
 Let me be clear. `$\entails$' is not a symbol of TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from \S\ref{s:UseMention}). So the metalanguage sentence:
@@ -631,17 +631,17 @@ is just an abbreviation for the English sentence:
 Note that there is no limit on the number of TFL sentences that can be mentioned before the symbol `$\entails$'. Indeed, we can even consider the limiting case:
 $$\entails \meta{C}$$
 This says that there is no valuation which makes all the sentences mentioned on the left hand side of `$\entails$' true whilst making $\meta{C}$ false. Since \emph{no} sentences are mentioned on the left hand side of `$\entails$' in this case, this just means that there is no valuation which makes $\meta{C}$ false. Otherwise put, it says that every valuation makes $\meta{C}$ true. Otherwise put, it says that $\meta{C}$ is a tautology. Equally:
-$$\meta{A} \entails$$
-says that $\meta{A}$ is a contradiction.
+$$\metaX \entails$$
+says that $\metaX$ is a contradiction.
 
 \subsection{`$\entails$' versus `$\eif$'}
 We now want to compare and contrast `$\entails$' and `$\eif$'. 
 
-Observe: $\meta{A} \entails \meta{C}$ iff there is no valuation of the atomic sentences that makes $\meta{A}$ true and $\meta{C}$ false. 
+Observe: $\metaX \entails \meta{C}$ iff there is no valuation of the atomic sentences that makes $\metaX$ true and $\meta{C}$ false. 
 
-Observe: $\meta{A} \eif \meta{C}$ is a tautology iff there is no valuation of the atomic sentences that makes $\meta{A} \eif \meta{C}$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\meta{A} \eif \meta{C}$ is a tautology iff there is no valuation that makes $\meta{A}$ true and $\meta{C}$ false. 
+Observe: $\metaX \eif \meta{C}$ is a tautology iff there is no valuation of the atomic sentences that makes $\metaX \eif \meta{C}$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\metaX \eif \meta{C}$ is a tautology iff there is no valuation that makes $\metaX$ true and $\meta{C}$ false. 
 
-Combining these two observations, we see that $\meta{A} \eif \meta{C}$  is a tautology iff  $\meta{A} \entails \meta{C}$. But there is a really, really important difference between `$\entails$' and `$\eif$':
+Combining these two observations, we see that $\metaX \eif \meta{C}$  is a tautology iff  $\metaX \entails \meta{C}$. But there is a really, really important difference between `$\entails$' and `$\eif$':
 \factoidbox{`$\eif$' is a sentential connective of TFL.\\ `$\entails$' is a symbol of augmented English.
 }
 Indeed, when `$\eif$' is flanked with two TFL sentences, the result is a longer TFL sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding TFL sentences. 
@@ -649,7 +649,7 @@ Indeed, when `$\eif$' is flanked with two TFL sentences, the result is a longer 
 \section{Tautologies and contradictions}\label{s:TautologiesAndContradictions}
 We have similar substitutes for the notions we introduced in \S\ref{s:BasicNotions}. There we explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have surrogates in TFL. We will start with a surrogate for necessary truth.
 	\factoidbox{
-		$\meta{A}$ is a \define{tautology} iff it is true on every valuation.
+		$\metaX$ is a \define{tautology} iff it is true on every valuation.
 	}
 
 \newglossaryentry{tautology}
@@ -675,7 +675,7 @@ This is only, though, a \emph{surrogate} for necessary truth. There are some nec
 
 We have a similar surrogate for necessary falsity:
 	\factoidbox{
-		$\meta{A}$ is a \define{contradiction} iff it is false on every valuation.
+		$\metaX$ is a \define{contradiction} iff it is false on every valuation.
 	}
 \newglossaryentry{contradiction of TFL}
 {
@@ -693,7 +693,7 @@ Our core example of a contradiction is $A\eand\enot A$. Whether $A$ is true or f
 \section{Logical equivalence}
 Here is a similar useful notion:
 	\factoidbox{
-		$\meta{A}$ and $\meta{B}$ are \define{logically equivalent} iff, for every valuation, their truth values agree, i.e.\ if there is no valuation in which they have opposite truth values.
+		$\metaX$ and $\metaY$ are \define{logically equivalent} iff, for every valuation, their truth values agree, i.e.\ if there is no valuation in which they have opposite truth values.
 	}
 \newglossaryentry{logically equivalent}
 {
@@ -719,7 +719,7 @@ Look at the columns for the main logical operators; negation for the first sente
 \section{Consistency}
 In \S\ref{s:BasicNotions}, we said that sentences are jointly possible iff it is possible for all of them to be true at once. We can offer a surrogate for this notion too:
 	\factoidbox{
-		$\meta{A}_1, \meta{A}_2, \ldots, \meta{A}_n$ are \define{jointly logically consistent} iff there is some valuation which makes them all true.
+		$\metaX_1, \metaX_2, \ldots, \metaX_n$ are \define{jointly logically consistent} iff there is some valuation which makes them all true.
 	}
 
         \newglossaryentry{logical consistency in TFL}
@@ -943,24 +943,24 @@ Determine whether each argument is valid or invalid, using a complete truth tabl
 \label{pr.TT.concepts}
 Answer each of the questions below and justify your answer.
 \begin{earg}
-\item Suppose that \meta{A} and \meta{B} are logically equivalent. What can you say about $\meta{A}\eiff\meta{B}$?
-%\meta{A} and \meta{B} have the same truth value on every line of a complete truth table, so $\meta{A}\eiff\meta{B}$ is true on every line. It is a tautology.
-\item Suppose that $(\meta{A}\eand\meta{B})\eif\meta{C}$ is neither a tautology nor a contradiction. What can you say about whether $\meta{A}, \meta{B} \therefore\meta{C}$ is valid?
-%The sentence is false on some line of a complete truth table. On that line, \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is invalid.
-\item Suppose that $\meta{A}$, $\meta{B}$ and $\meta{C}$  are jointly inconsistent. What can you say about $(\meta{A}\eand\meta{B}\eand\meta{C})$?
-\item Suppose that \meta{A} is a contradiction. What can you say about whether $\meta{A}, \meta{B} \entails \meta{C}$?
-%Since \meta{A} is false on every line of a complete truth table, there is no line on which \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is valid.
-\item Suppose that \meta{C} is a tautology. What can you say about whether $\meta{A}, \meta{B}\entails \meta{C}$?
-%Since \meta{C} is true on every line of a complete truth table, there is no line on which \meta{A} and \meta{B} are true and \meta{C} is false. So the argument is valid.
-\item Suppose that \meta{A} and \meta{B} are logically equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
-%Not much. $(\meta{A}\eor\meta{B})$ is a tautology if \meta{A} and \meta{B} are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
-\item Suppose that \meta{A} and \meta{B} are \emph{not} logically equivalent. What can you say about $(\meta{A}\eor\meta{B})$?
-%\meta{A} and \meta{B} have different truth values on at least one line of a complete truth table, and $(\meta{A}\eor\meta{B})$ will be true on that line. On other lines, it might be true or false. So $(\meta{A}\eor\meta{B})$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
+\item Suppose that \metaX and \metaY are logically equivalent. What can you say about $\metaX\eiff\metaY$?
+%\metaX and \metaY have the same truth value on every line of a complete truth table, so $\metaX\eiff\metaY$ is true on every line. It is a tautology.
+\item Suppose that $(\metaX\eand\metaY)\eif\meta{C}$ is neither a tautology nor a contradiction. What can you say about whether $\metaX, \metaY \therefore\meta{C}$ is valid?
+%The sentence is false on some line of a complete truth table. On that line, \metaX and \metaY are true and \meta{C} is false. So the argument is invalid.
+\item Suppose that $\metaX$, $\metaY$ and $\meta{C}$  are jointly inconsistent. What can you say about $(\metaX\eand\metaY\eand\meta{C})$?
+\item Suppose that \metaX is a contradiction. What can you say about whether $\metaX, \metaY \entails \meta{C}$?
+%Since \metaX is false on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \meta{C} is false. So the argument is valid.
+\item Suppose that \meta{C} is a tautology. What can you say about whether $\metaX, \metaY\entails \meta{C}$?
+%Since \meta{C} is true on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \meta{C} is false. So the argument is valid.
+\item Suppose that \metaX and \metaY are logically equivalent. What can you say about $(\metaX\eor\metaY)$?
+%Not much. $(\metaX\eor\metaY)$ is a tautology if \metaX and \metaY are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
+\item Suppose that \metaX and \metaY are \emph{not} logically equivalent. What can you say about $(\metaX\eor\metaY)$?
+%\metaX and \metaY have different truth values on at least one line of a complete truth table, and $(\metaX\eor\metaY)$ will be true on that line. On other lines, it might be true or false. So $(\metaX\eor\metaY)$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
 \end{earg}
 \problempart 
 Consider the following principle:
 	\begin{ebullet}
-		\item Suppose $\meta{A}$ and $\meta{B}$ are logically equivalent. Suppose an argument contains $\meta{A}$ (either as a premise, or as the conclusion). The validity of the argument would be unaffected, if we replaced $\meta{A}$ with $\meta{B}$.
+		\item Suppose $\metaX$ and $\metaY$ are logically equivalent. Suppose an argument contains $\metaX$ (either as a premise, or as the conclusion). The validity of the argument would be unaffected, if we replaced $\metaX$ with $\metaY$.
 	\end{ebullet}
 Is this principle correct? Explain your answer.
 

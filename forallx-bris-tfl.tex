@@ -327,7 +327,7 @@ Sentence \ref{if2} is also a conditional. Since the word `if' appears in the sec
 
 In fact, sentence \ref{if2} can be paraphrased as `If Jean is in France, then Jean is in Paris'. So we can symbolize it by $(F \eif P)$.
 	\factoidbox{
-		A sentence can be symbolized as $(\metaX \eif \metaY)$ if it can be paraphrased in English as `If A, then B' or `A only if B'.
+		A sentence can be symbolized as $(\metaX \eif \metaY)$ if it can be paraphrased in English as `If \metaX, then \metaY' or `\metaX only if \metaY'.
 	}
 \noindent In fact, many English expressions can be represented using the conditional. Consider:
 	\begin{earg}
@@ -368,7 +368,7 @@ We could treat every biconditional this way. So, just as we do not need a new TF
 
 The expression `if and only if' occurs a lot especially in philosophy, mathematics, and logic. For brevity, we can abbreviate it with the snappier word `iff'. We will follow this practice. So `if' with only \emph{one} `f' is the English conditional. But `iff' with \emph{two} `f's is the English biconditional. Armed with this we can say:
 	\factoidbox{
-		A sentence can be symbolized as $(\metaX \eiff \metaY)$ if it can be paraphrased in English as `A iff B'; that is, as `A if and only if B'.
+		A sentence can be symbolized as $(\metaX \eiff \metaY)$ if it can be paraphrased in English as `\metaX iff \metaY'; that is, as `\metaX if and only if \metaY'.
 	}
 A word of caution. Ordinary speakers of English often use `if \ldots, then\ldots' when they really mean to use something more like `\ldots if and only if \ldots'. Perhaps your parents told you, when you were a child: `if you don't eat your greens, you won't get any dessert'. Suppose you ate your greens, but that your parents refused to give you any dessert, on the grounds that they were only committed to the \emph{conditional} (roughly `if you get dessert, then you will have eaten your greens'), rather than the biconditional (roughly, `you get dessert iff you eat your greens'). Well, a tantrum would rightly ensue. So, be aware of this when interpreting people; but in your own writing, make sure you use the biconditional iff you mean to.
 
@@ -381,9 +381,9 @@ We have now introduced all of the connectives of TFL. We can use them together t
 \end{earg}
 These two sentences are equivalent. They are also equivalent to the following: 
 \begin{earg}
-\item[] If you do not wear a jacket, then you will catch a cold.
-\item[] If you do not catch a cold, then you must have worn a jacket.
-\item[] Either you will wear a jacket or you will catch a cold.
+\item[\ex{unless3}]  If you do not wear a jacket, then you will catch a cold.
+\item[\ex{unless4}]  If you do not catch a cold, then you wore a jacket.
+\item [\ex{unless5}] Either you will wear a jacket or you will catch a cold.
 \end{earg} 
 And we know how to symbolise these sentences. We will use the symbolization key:
 	\begin{ekey}
@@ -599,7 +599,7 @@ Of course, many expressions of TFL will be total gibberish. For example $$\eand)
 
 Obviously, individual atomic sentences like $A$ and $G_{13}$ should count as sentences. We can form further sentences out of these by using the various connectives. Using negation, we can get $\enot A$ and $\enot G_{13}$. Using conjunction, we can get $(A \eand G_{13})$, $(G_{13} \eand A)$, $(A \eand A)$, and $(G_{13} \eand G_{13})$. We could also apply negation repeatedly to get sentences like $\enot \enot A$ or apply negation along with conjunction to get sentences like $\enot(A \eand G_{13})$ and $\enot(G_{13} \eand \enot G_{13})$. The possible combinations are endless, even starting with just these two sentence letters, and there are infinitely many sentence letters. So there is no point in trying to list all the sentences one by one.
 
-Instead, we will describe the process by which sentences can be \emph{constructed}. Consider negation: Given any sentence \metaX of TFL, $\enot\metaX$ is a sentence of TFL. (Why the funny fonts? We return to this in \S\ref{s:UseMention}.)
+Instead, we will describe the process by which sentences can be \emph{constructed}. Consider negation: Given any sentence \metaX of TFL, $\enot\metaX$ is a sentence of TFL. 
 
 We can say similar things for each of the other connectives. For instance, if \metaX and \metaY are sentences of TFL, then $(\metaX\eand\metaY)$ is a sentence of TFL. Providing clauses like this for all of the connectives, we arrive at the following formal definition for a \define{sentence of TFL}:
 	\factoidbox{\label{TFLsentences}
@@ -656,11 +656,11 @@ To keep track of the structure of an expression we can draw it out in a tree, wh
 
 \begin{center}
 \begin{forest}
-	[$\enot (P \eand \enot (\enot Q \eor R))$
-		[$(P \eand \enot (\enot Q \eor R))$
+	[$\textcolor{leadbeater}{\enot}\,  (P \eand \enot (\enot Q \eor R))$
+		[$(P \,\textcolor{leadbeater}{\eand}\,  \enot (\enot Q \eor R))$
 			[$P$]
-			[$\enot (\enot Q\eor R)$
-				[$\enot Q$
+			[$\textcolor{leadbeater}{\enot}\,   (\enot Q\eor R)$
+				[$\textcolor{leadbeater}{\enot}\,   Q$
 					[$Q$]
 				]
 				[$R$]
@@ -670,7 +670,7 @@ To keep track of the structure of an expression we can draw it out in a tree, wh
 \end{forest}
 \end{center}
 
-This displays clearly the recursive structure of the tree. The sentences further up the tree are formed by one of the formation rules from the sentences further down the tree. Ideally we would also label the splittings with their main connectives, but unfortunately I haven't yet worked out how to do that in \LaTeX.
+This displays clearly the recursive structure of the tree. The sentences further up the tree are formed by one of the formation rules from the sentences further down the tree. The main connective of each sentence is in red. 
 
 
 
@@ -688,11 +688,11 @@ This has a formation tree:
 
 \begin{center}
 	\begin{forest}
-[$(P \eand (\enot (R \eand B) \eiff Q))$
+[$(P \,\textcolor{leadbeater}{\eand}\,  (\enot (R \eand B) \eiff Q))$
 	[$P$]
-	[$(\enot (R \eand B) \eiff Q))$
-		[$\enot (R \eand B)$
-			[$(R\eand B)$
+	[$(\enot (R \eand B) \,\textcolor{leadbeater}{\eiff}\,  Q))$
+		[$\textcolor{leadbeater}{\enot}\,   (R \eand B)$
+			[$(R\,\textcolor{leadbeater}{\eand}\,   B)$
 				[$R$]
 				[$B$]
 			]
@@ -763,7 +763,7 @@ When working with TFL, however, it will make our lives easier if we are sometime
 
 First,  we allow ourselves to omit the \emph{outermost} brackets of a sentence. Thus we allow ourselves to write $Q \eand R$ instead of the sentence $(Q \eand R)$. However, we must remember to put the brackets back in, when we want to embed the sentence into a more complicated sentence!
 
-Second, it can be a bit painful to stare at long sentences with many nested pairs of brackets. To make things a bit easier on the eyes, we will allow ourselves to use square brackets, `[' and `]', instead of rounded ones. So there is no logical difference between $(P\eor Q)$ and $[P\eor Q]$, for example. 
+Second, it can be a bit painful to stare at long sentences with many nested pairs of brackets. To make things a bit easier on the eyes, we will  allow ourselves to use square brackets, `[' and `]', instead of rounded ones. So there is no logical difference between $(P\eor Q)$ and $[P\eor Q]$, for example. 
 
 Combining these two conventions, we can rewrite the unwieldy sentence
 $$(((H \eif I) \eor (I \eif H)) \eand (J \eor K))$$
