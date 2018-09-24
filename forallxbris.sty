@@ -8,7 +8,7 @@
 \makeglossaries
 \usepackage{tabu}
 \usepackage{todonotes} %CCM
-
+\usepackage{xspace} % CCM for metavars
 
 
 
@@ -142,6 +142,9 @@
 
 \newcommand*{\script}[1]{\ensuremath{\mathcal{#1}}}
 \renewcommand*{\meta}[1]{\ensuremath{\mathcal{#1}}} % TB: used for all metavariables
+\newcommand{\metaX}{X\xspace}
+\newcommand{\metaY}{Y\xspace}
+\newcommand{\metaZ}{Z\xspace}
 % create a blank
 \newcommand*{\blank}{\underline{\hspace*{2.5em}}}
 \newcommand*{\gap}[1]{\blank$_{#1}$} % TB: used for keys, to avoid use/mention confusion
