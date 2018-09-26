@@ -219,7 +219,7 @@ Some more examples will help. Consider these further sentences:
 		\item[\ex{q.en}] There is someone who is not happy.
 		\item[\ex{q.na}] Not everyone is happy.
 	\end{earg}
-Sentence \ref{q.ne} can be paraphrased as, `It is not the case that someone is angry'. We can then symbolize it using negation and an existential quantifier: `$\enot \exists x Ax$'. Yet sentence \ref{q.ne} could also be paraphrased as, `Everyone is not angry'. With this in mind, it can be symbolized using negation and a universal quantifier: `$\forall x \enot Ax$'. Both of these are acceptable symbolizations.  Indeed, it will transpire that, in general, $\forall x \enot\meta{A}$ is logically equivalent to $\enot\exists x\meta{A}$. (Notice that we have here returned to the practice of using `$\meta{A}$' as a metavariable, from \S\ref{s:UseMention}.) Symbolizing a sentence one way, rather than the other, might seem more `natural' in some contexts, but it is not much more than a matter of taste.
+Sentence \ref{q.ne} can be paraphrased as, `It is not the case that someone is angry'. We can then symbolize it using negation and an existential quantifier: `$\enot \exists x Ax$'. Yet sentence \ref{q.ne} could also be paraphrased as, `Everyone is not angry'. With this in mind, it can be symbolized using negation and a universal quantifier: `$\forall x \enot Ax$'. Both of these are acceptable symbolizations.  Indeed, it will transpire that, in general, $\forall x \enot\metaX$ is logically equivalent to $\enot\exists x\metaX$. (Notice that we have here returned to the practice of using `$\metaX$' as a metavariable, from \S\ref{s:UseMention}.) Symbolizing a sentence one way, rather than the other, might seem more `natural' in some contexts, but it is not much more than a matter of taste.
 
 Sentence \ref{q.en} is most naturally paraphrased as, `There is some x, such that x is not happy'. This then becomes `$\exists x \enot Hx$'. Of course, we could equally have written `$\enot\forall x Hx$', which we would naturally read as `it is not the case that everyone is happy'. That too would be a perfectly adequate symbolization of sentence \ref{q.na}.
 
@@ -336,11 +336,11 @@ Since sentence \ref{quan1} is about coins that are both in my pocket \emph{and} 
 	}
 Sentence \ref{quan2} is most naturally symbolized using an existential quantifier. It can be paraphrased as `there is some coin which is both on the table and which is a dime'. So we can symbolize it as `$\exists x(Tx \eand Dx)$'.
 
-Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. Suppose we had instead written `$\exists x(Tx \eif Dx)$'. That would mean that there is some object in the domain of which `$(Tx \eif Dx)$' is true. Recall that, in TFL, $\meta{A} \eif \meta{B}$ is logically equivalent (in TFL) to $\enot\meta{A} \eor \meta{B}$. This equivalence will also hold in FOL. So `$\exists x(Tx \eif Dx)$' is true if there is some object in the domain, such that `$(\enot Tx \eor Dx)$' is true of that object. That is, `$\exists x (Tx \eif Dx)$' is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table: there are coins lots of other places. So it is \emph{very easy} for `$\exists x(Tx \eif Dx)$' to be true. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier tends to say something very weak indeed. As a general rule of thumb, do not put conditionals in the scope of existential quantifiers unless you are sure that you need one.
+Notice that we needed to use a conditional with the universal quantifier, but we used a conjunction with the existential quantifier. Suppose we had instead written `$\exists x(Tx \eif Dx)$'. That would mean that there is some object in the domain of which `$(Tx \eif Dx)$' is true. Recall that, in TFL, $\metaX \eif \metaY$ is logically equivalent (in TFL) to $\enot\metaX \eor \metaY$. This equivalence will also hold in FOL. So `$\exists x(Tx \eif Dx)$' is true if there is some object in the domain, such that `$(\enot Tx \eor Dx)$' is true of that object. That is, `$\exists x (Tx \eif Dx)$' is true if some coin is \emph{either} not on the table \emph{or} is a dime. Of course there is a coin that is not on the table: there are coins lots of other places. So it is \emph{very easy} for `$\exists x(Tx \eif Dx)$' to be true. A conditional will usually be the natural connective to use with a universal quantifier, but a conditional within the scope of an existential quantifier tends to say something very weak indeed. As a general rule of thumb, do not put conditionals in the scope of existential quantifiers unless you are sure that you need one.
 	\factoidbox{
 		A sentence can be symbolized as $\exists x (\meta{F}x \eand \meta{G}x)$ if it can be paraphrased in English as `some F is G'.
 	}		
-Sentence \ref{quan3} can be paraphrased as, `It is not the case that every coin on the table is a dime'. So we can symbolize it by `$\enot \forall x(Tx \eif Dx)$'. You might look at sentence \ref{quan3} and paraphrase it instead as, `Some coin on the table is not a dime'. You would then symbolize it by `$\exists x(Tx \eand \enot Dx)$'. Although it is probably not immediately obvious yet, these two sentences are logically equivalent. (This is due to the logical equivalence between $\enot\forall x\meta{A}$ and $\exists x\enot\meta{A}$, mentioned in \S\ref{s:FOLBuildingBlocks}, along with the equivalence between $\enot(\meta{A}\eif\meta{B})$ and $\meta{A}\eand\enot\meta{B}$.)
+Sentence \ref{quan3} can be paraphrased as, `It is not the case that every coin on the table is a dime'. So we can symbolize it by `$\enot \forall x(Tx \eif Dx)$'. You might look at sentence \ref{quan3} and paraphrase it instead as, `Some coin on the table is not a dime'. You would then symbolize it by `$\exists x(Tx \eand \enot Dx)$'. Although it is probably not immediately obvious yet, these two sentences are logically equivalent. (This is due to the logical equivalence between $\enot\forall x\metaX$ and $\exists x\enot\metaX$, mentioned in \S\ref{s:FOLBuildingBlocks}, along with the equivalence between $\enot(\metaX\eif\metaY)$ and $\metaX\eand\enot\metaY$.)
 
 Sentence \ref{quan4} can be paraphrased as, `It is not the case that there is some dime in my pocket'. This can be symbolized by `$\enot\exists x(Px \eand Dx)$'. It might also be paraphrased as, `Everything in my pocket is a non-dime', and then could be symbolized by `$\forall x(Px \eif \enot Dx)$'. Again the two symbolizations are logically equivalent; both are correct symbolizations of sentence \ref{quan4}.
 
@@ -1087,19 +1087,19 @@ We can now give the recursive definition of what it is to be a sentence of FOL:
 	\factoidbox{\label{FOLsentences}
 	\begin{enumerate}
 		\item Every atomic sentence is a sentence. 
-		\item If \meta{A} is a sentence, then $\enot\meta{A}$ is a sentence.
-		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eand\meta{B})$ is a sentence.
-		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eor\meta{B})$ is a sentence.
-		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eif\meta{B})$ is a sentence.
-		\item If \meta{A} and \meta{B} are sentences, then $(\meta{A}\eiff\meta{B})$ is a sentence.
+		\item If \metaX is a sentence, then $\enot\metaX$ is a sentence.
+		\item If \metaX and \metaY are sentences, then $(\metaX\eand\metaY)$ is a sentence.
+		\item If \metaX and \metaY are sentences, then $(\metaX\eor\metaY)$ is a sentence.
+		\item If \metaX and \metaY are sentences, then $(\metaX\eif\metaY)$ is a sentence.
+		\item If \metaX and \metaY are sentences, then $(\metaX\eiff\metaY)$ is a sentence.
 		\item\label{item:quantifiers} 
-		 If $\meta{A}(\ldots \meta{c}\ldots)$ is a sentence, where $\meta{c}$ is a name, then so is: \begin{itemize}
-		 \item $\forall \meta{x}\meta{A}(\ldots \meta{x}\ldots)$ (so long as $\meta{x}$ does not appear already in $\meta{A}$.)
-		 \item $\exists \meta{x}\meta{A}(\ldots \meta{x}\ldots)$ (so long as $\meta{x}$ does not appear already in $\meta{A}$.)
+		 If $\metaX(\ldots \meta{c}\ldots)$ is a sentence, where $\meta{c}$ is a name, then so is: \begin{itemize}
+		 \item $\forall \meta{x}\metaX(\ldots \meta{x}\ldots)$ (so long as $\meta{x}$ does not appear already in $\metaX$.)
+		 \item $\exists \meta{x}\metaX(\ldots \meta{x}\ldots)$ (so long as $\meta{x}$ does not appear already in $\metaX$.)
 		 \end{itemize}
 %		If \begin{itemize}
-%		\item \meta{A} is a sentence, 
-%		\item \meta{x} is a variable that does not appear in $\meta{A}$, 
+%		\item \metaX is a sentence, 
+%		\item \meta{x} is a variable that does not appear in $\metaX$, 
 %		\item $\meta{A'}$ is the expression that is the result of replacing any occurrences of a name, $\meta{a}$, by $\meta{x}$.
 %		\end{itemize} then $\exists \meta{x}\meta{A'}$ and $\forall \meta{x} \meta{A'}$ are sentences. 
 		\item Nothing else is a sentence.
@@ -1136,7 +1136,7 @@ We can now give the recursive definition of what it is to be a sentence of FOL:
 	
 	
 
-Why in \ref{item:quantifiers} did we have the restriction that $\meta{x}$ is not already in $\meta{A}$? This is to ensure that variables only serve one master at any one time (see \S\ref{s:MultipleGenerality}).
+Why in \ref{item:quantifiers} did we have the restriction that $\meta{x}$ is not already in $\metaX$? This is to ensure that variables only serve one master at any one time (see \S\ref{s:MultipleGenerality}).
 Otherwise we could see that $\forall x Rax$ is a sentence and then conclude that $\exists x\forall x Rxx$, which is not a good sentence.  However, note that $\exists x Ax\;\eor\;\forall x Bx$ is a sentence. Here the variable $x$ is used in both quantifiers, but there's no ambiguity because the sentence was constructed by combing the two sentences $\exists x Ax$ and $\forall xBx$ with a connective, $\eor$. The \emph{scope} of $\exists x$ is just $\exists x Ax$; it doesn't look ``over'' the connective to where $\forall x$ is used. So the two uses of $x$ are kept separate and no problems arise. However, to avoid any potential worries it is generally a good idea to use different variables when symbolising sentences; in this case one could equally well give $\exists x Ax\;\eor\;\forall y By$ as a symbolisation.
  
  The notions of scope and main logical operators that were given in \ref{S.sentsTFL} equally applies to FOL but now the main logical operator might be a quantifier. These were:

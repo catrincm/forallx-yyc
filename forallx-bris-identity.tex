@@ -181,7 +181,7 @@ These are definite descriptions: they are meant to pick out a \emph{unique} obje
 \section{Treating definite descriptions as terms}
 One option would be to introduce new names whenever we come across a definite description. This is probably not a great idea. We know that \emph{the} traitor---whoever it is---is indeed \emph{a} traitor. We want to preserve that information in our symbolization.
 
-A second option would be to use a \emph{new} definite description operator, such as `$\maththe$'. The idea would be to symbolize `the F' as `$\maththe xFx$'; or to symbolize `the G' as `$\maththe xGx$', etc. Expression of the form $\maththe \meta{x} \meta{A}\meta{x}$ would then behave like names. If we followed this path, then using the following symbolization key:
+A second option would be to use a \emph{new} definite description operator, such as `$\maththe$'. The idea would be to symbolize `the F' as `$\maththe xFx$'; or to symbolize `the G' as `$\maththe xGx$', etc. Expression of the form $\maththe \meta{x} \metaX\meta{x}$ would then behave like names. If we followed this path, then using the following symbolization key:
 	\begin{ekey}
 		\item[\text{domain}] people
 		\item[Tx] \gap{x} is a traitor
@@ -418,7 +418,7 @@ Identity becomes particularly useful when we have quantifiers. Suppose we have
 \item[b] Billy
 \item[c] Carys
 \end{ekey}
-Remember, to check if $\exists x\meta{A}(\ldots x\ldots x\ldots)$ is true we first add a new name, let's use $d$, and we see if there is some way of extending the domain so that $\meta{A}(\ldots d\ldots d\ldots)$ is true. So, let's see if $\exists x \,x\eid a$ is true: we add a new name $d$ and consider the extended interpretation with 
+Remember, to check if $\exists x\metaX(\ldots x\ldots x\ldots)$ is true we first add a new name, let's use $d$, and we see if there is some way of extending the domain so that $\metaX(\ldots d\ldots d\ldots)$ is true. So, let's see if $\exists x \,x\eid a$ is true: we add a new name $d$ and consider the extended interpretation with 
 \begin{ekey}
 \item[d] Alfred
 \end{ekey}
@@ -465,17 +465,17 @@ If two names refer to the same object, then swapping one name for another will n
 	\end{align*}
 
 We capture this idea in our elimination rule. If you have established `$a\eid b$', then anything that is true of the object named by `$a$' must also be true of the object named by `$b$'. For any sentence with `$a$' in it, you can replace some or all of the occurrences of `$a$' with `$b$' and produce an equivalent sentence. For example, from `$Raa$' and `$a \eid  b$', you are justified in inferring `$Rab$', `$Rba$' or `$Rbb$'. More generally:
-\factoidbox{\begin{proof}
+\factoidbox{\begin{pf}
 	\have[m]{e}{\meta{a}\eid \meta{b}}
-	\have[n]{a}{\meta{A}(\ldots \meta{a} \ldots \meta{a}\ldots)}
-	\have[\ ]{ea1}{\meta{A}(\ldots \meta{b} \ldots \meta{a}\ldots)} \by{\eid E}{e,a}
-\end{proof}}
-The notation here is as for $\exists$I. So $\meta{A}(\ldots \meta{a} \ldots \meta{a}\ldots)$ is a formula containing the name $\meta{a}$, and $\meta{A}(\ldots \meta{b} \ldots \meta{a}\ldots)$ is a formula obtained by replacing one or more instances of the name $\meta{a}$ with the name $\meta{b}$. Lines $m$ and $n$ can occur in either order, and do not need to be adjacent, but we always cite the statement of identity first. Symmetrically, we allow:
-\factoidbox{\begin{proof}
+	\have[n]{a}{\metaX(\ldots \meta{a} \ldots \meta{a}\ldots)}
+	\have[\ ]{ea1}{\metaX(\ldots \meta{b} \ldots \meta{a}\ldots)} \by{\eid E}{e,a}
+\end{pf}}
+The notation here is as for $\exists$I. So $\metaX(\ldots \meta{a} \ldots \meta{a}\ldots)$ is a formula containing the name $\meta{a}$, and $\metaX(\ldots \meta{b} \ldots \meta{a}\ldots)$ is a formula obtained by replacing one or more instances of the name $\meta{a}$ with the name $\meta{b}$. Lines $m$ and $n$ can occur in either order, and do not need to be adjacent, but we always cite the statement of identity first. Symmetrically, we allow:
+\factoidbox{\begin{pf}
 	\have[m]{e}{\meta{a}\eid \meta{b}}
-	\have[n]{a}{\meta{A}(\ldots \meta{b} \ldots \meta{b}\ldots)}
-	\have[\ ]{ea2}{\meta{A}(\ldots \meta{a} \ldots \meta{b}\ldots)} \by{\eid E}{e,a}
-\end{proof}}
+	\have[n]{a}{\metaX(\ldots \meta{b} \ldots \meta{b}\ldots)}
+	\have[\ ]{ea2}{\metaX(\ldots \meta{a} \ldots \meta{b}\ldots)} \by{\eid E}{e,a}
+\end{pf}}
 This rule is sometimes called \emph{Leibniz's Law}, after Gottfried Leibniz. 	
 	
 Some philosophers have believed the reverse of this claim. That is, they have believed that when exactly the same sentences (not containing `$\eid $') are true of two objects, then they are really just one and the same object after all. This is a highly controversial philosophical claim (sometimes called the \emph{identity of indiscernibles}) and our logic will not subscribe to it; we allow that exactly the same things might be true of two \emph{distinct} objects.  
@@ -495,14 +495,14 @@ The consequence of this, for our proof system, is that there are no sentences th
 
 However, every object is identical to itself. No premises, then, are required in order to conclude that something is identical to itself. So this will be the identity introduction rule:
 \factoidbox{
-\begin{proof}
+\begin{pf}
 	\have[\ \,\,\,]{x}{\meta{c}\eid \meta{c}} \by{\eid I}{}
-\end{proof}}
+\end{pf}}
 Notice that like the Law of Excluded Middle, this rule does not require referring to any prior lines of the proof. For any name \meta{c}, you can write $\meta{c}\eid \meta{c}$ on any point, with only the {\eid }I rule as justification. 
 
 
 To see the rules in action, we will prove some quick results. First, we will prove that identity is \emph{symmetric}:
-\begin{proof}
+\begin{pf}
 	\open
 		\hypo{ab}{a \eid  b}
 		\have{aa}{a \eid  a}\by{\eid I}{}
@@ -511,11 +511,11 @@ To see the rules in action, we will prove some quick results. First, we will pro
 	\have{abba}{a \eid  b \eif b \eid a}\ci{ab-ba}
 	\have{ayya}{\forall y (a \eid y \eif y \eid a)}\Ai{abba}
 	\have{xyyx}{\forall x \forall y (x \eid y \eif y \eid x)}\Ai{ayya}
-\end{proof}
+\end{pf}
 We obtain line 3 by replacing one instance of `$a$' in line 2 with an instance of `$b$'; this is justified given `$a\eid  b$'. 
 
 Second, we will prove that identity is \emph{transitive}:
-\begin{proof}
+\begin{pf}
 	\open
 		\hypo{abc}{a \eid  b \eand b \eid  c}
 		\have{ab}{a \eid  b}\ae{abc}
@@ -526,7 +526,7 @@ Second, we will prove that identity is \emph{transitive}:
 	\have{conz}{\forall z((a \eid b \eand b \eid z) \eif a \eid z)}\Ai{con}
 	\have{cony}{\forall y\forall z((a \eid y \eand y \eid z) \eif a \eid z)}\Ai{conz}
 	\have{conx}{\forall x \forall y \forall z((x \eid y \eand y \eid z) \eif x \eid z)}\Ai{cony}
-\end{proof}
+\end{pf}
 We obtain line 4 by replacing `$b$' in line 3 with `$a$'; this is justified given `$a\eid  b$'. 
 
 \practiceproblems

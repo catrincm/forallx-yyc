@@ -1,0 +1,263 @@
+%!TEX root = forallxbris.tex
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{forallxbristextbook}[Sep.~2018 support for a logic textbook]
+
+
+
+\RequirePackage{todonotes} %CCM
+\RequirePackage[numbered]{bookmark} %TB: added for speedy navigation
+%\RequirePackage{mdframed}
+\RequirePackage[nonumberlist,toc,style=index]{glossaries}
+\makeglossaries
+
+
+
+
+
+
+
+%    ****************************************
+%    *          FORMATTING TEXTBOOK          *
+%    ****************************************
+
+
+%%RZ: typefaces 
+%
+\RequirePackage{universalis}
+%\RequirePackage[osf]{Baskervaldx} % oldstyle figures
+%\RequirePackage[bigdelims,baskervaldx]{newtxmath} 
+\RequirePackage[cal=boondoxo]{mathalfa}
+\RequirePackage{mathalfa}
+
+%RZ: Include git revision info
+
+%\RequirePackage{gitinfo2}
+
+% RZ: TOC widths
+\setlength{\cftpartnumwidth}{3em}
+\setlength{\cftchapternumwidth}{2.2em}
+\setlength{\cftsectionnumwidth}{3.3em}
+\setlength{\cftbeforechapterskip}{0pt} %To leave no gap between sections (which LaTeX regards as chapters) in the TOC
+%\renewcommand{\cftchapterfont}{\textrm}
+%\renewcommand{\cftchapterpagefont}{\textrm}
+
+% Chapter style
+
+%\newlength{\barlength}
+%\makechapterstyle{leadbeater}{%
+%  \setlength{\afterchapskip}{40pt}
+%  \setlength{\beforechapskip}{50pt}
+%    \setlength{\midchapskip}{10pt}
+%  \renewcommand*{\afterchapternum}{\par\nobreak\vskip 0pt}
+%  \renewcommand*{\chapnamefont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
+%  \renewcommand*{\chapnumfont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
+%  \renewcommand*{\chaptitlefont}{\normalfont\fontsize{48pt}{48pt}\selectfont\bfseries\itshape\color{leadbeater}}
+%  \renewcommand*{\printchaptername}{%
+%    \chapnamefont\MakeUppercase{\@chapapp}}
+%  \renewcommand*{\printchaptertitle}[1]{%
+%    \chaptitlefont ##1\\[-\baselineskip]%
+%    \hspace*{-20pt}%
+%    \smash{\color{leadbeater}\rule{7pt}{400pt}}}
+%}
+
+%\renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
+%\renewcommand*{\partnumfont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
+%\renewcommand*{\parttitlefont}{\normalfont\fontsize{54pt}{54pt}\selectfont\bfseries\itshape\color{leadbeater}}
+%\renewcommand*{\printpartname}{%
+%  \partnamefont PART}
+
+%\chapterstyle{leadbeater}
+
+%\copypagestyle{leadbeater}{headings}
+%
+%\makeoddhead{leadbeater}{\small\sffamily\color{leadbeater}\rightmark}{}
+%            {\color{leadbeater}\sffamily\bfseries\thepage}
+%
+%\makeevenhead{leadbeater}{\small\sffamily\color{leadbeater}\leftmark}{}
+%            {\color{leadbeater}\sffamily\bfseries\thepage}
+
+%\RequirePackage{atbegshi}  % to kill the blank page after the titling page
+
+%\RequirePackage[font={small,it}]{caption}
+
+
+
+
+
+
+
+%    ****************************************
+%    *          LIST  ENVIRONMENTS          *
+%    ****************************************
+% The {earg} environment is used for arguments and example sentences.
+% The {ekey} environment is used for symbolization keys.
+\newcounter{eargnum}
+\newcounter{OLDeargnum}
+\newenvironment{earg}%
+{\begin{list}{\arabic{eargnum}.}{\usecounter{eargnum}\itemsep=0pt \parsep=0pt}}%
+{\setcounter{OLDeargnum}{\arabic{eargnum}}\end{list}}
+
+\newenvironment{ebullet}% TB: added to give a nice bulleted enivronment
+{\begin{list}{\textbullet}{\itemsep=0pt \parsep=0pt}}%
+{\end{list}}
+
+\newcommand{\ekeylabel}[1]{{\makebox[8ex][r]{\ensuremath{ #1}:}}}
+\newenvironment{ekey}{\begin{list}{}{\renewcommand{\makelabel}{\ekeylabel} \itemsep=0pt \parsep=0pt}}{\end{list}}
+
+% Used in conjunction with {earg}, this handles the numbering and
+% references to example sentences:
+\newcounter{Example}[chapter]
+\newcommand*{\ex}[1]{\refstepcounter{Example}\arabic{Example}.\label{#1}}
+% Used in specifying partial models, this keeps the lines justified so
+% so that the = signs all line up. For example:
+%	\begin{partialmodel}
+%		UD			& \{Duke, Miles\}\\
+%		\extension{B}	& \{Duke\}
+%	\end{partialmodel}
+\newenvironment{partialmodel}{\par\begin{tabular}{r@{~=~}l}}{\end{tabular}\par}
+% define the bullet for {itemize} lists
+\renewcommand{\labelitemi}{$\triangleright$}
+
+% \factoidbox{...} produces an inset paragraph of text with a line around it
+% Neither for lists nor an environment, but it really didn't
+% belong anywhere else.
+%\newcommand{\factoidbox}[1]{\begin{quote}\framebox{\parbox{\linewidth}{#1}}\end{quote}}
+\RequirePackage{tcolorbox}
+\newcommand{\factoidbox}[1]{
+	\begin{tcolorbox}[%width=.9\textwidth,
+		%      leftright skip=.05\textwidth,
+%		sharp corners=downhill,
+		beforeafter skip=.7em,
+		colframe={leadbeater},colback={vltleadbeater}]   
+		#1
+\end{tcolorbox}}
+
+% \tablefbox{...} is used in certain tables to put a box around the contents of specific table cells without having lines that run the whole length of the table
+\newcommand{\tablefbox}[1]{\multicolumn{1}{|p{10em}|}{#1}}
+
+
+
+
+%    ****************************************
+%    *         TABLE OF CONTENTS, ETC.      *
+%    ****************************************
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thepart}{\Roman{part}}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+
+
+
+
+%    ****************************************
+%    *            STYLE OF THE BOOK           *
+%    ****************************************
+% TB: I moved from book to memoir and then radically changed the structuring. From the point of view of LaTeX, the book consists of 9 parts, containing roughly 5 chapters each. From the point of view of the user, the book consists of 9 chapters, containing roughly 5 sections each. This means a fair bit of internal redefinition of LaTeX code.
+
+\makeatletter
+\renewcommand{\@chapapp}{ } % TB: to prevent "chapter" appearing all over the place
+\makeatother
+\renewcommand\cftchapterfont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
+\renewcommand\cftchapterpagefont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
+\renewcommand\cftbeforechapterskip{0pt} %TB: to leave no gap between sections (which LaTeX regards as chapters) in the TOC
+\renewcommand{\partname}{Chapter} %TB: to make the chapters (which LaTeX regards as parts) labelled "chapter"
+\setlength{\headwidth}{\textwidth} 
+
+\makepagestyle{forallxpage} %TB: design new page style
+\makeheadrule{forallxpage}{\textwidth}{\normalrulethickness} %TB: put rule beneath page header
+\makeevenhead{forallxpage}{\small \thepage}{}{\small\leftmark}  %TB: page header consists of section name and page
+\makeoddhead{forallxpage}{\small\rightmark}{}{\small \thepage} 
+\makeatletter
+\makepsmarks{forallxpage}{
+	\nouppercaseheads
+	\createmark {chapter} {both} {shownumber}{}{.\ }
+}
+\makeatother
+\pagestyle{forallxpage}
+
+\setcounter{tocdepth}{0} %TB: only chapters and sections to appear
+\renewcommand{\thepart}{\arabic{part}}  % TB: chapters (which LaTeX regards as parts) to be numbered
+\renewcommand{\thechapter}{\arabic{chapter}} %TB: sections (which LaTeX regards as chapters) to be numbered
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}} %TB: subsections (which LaTeX regards as sections) to be n.m
+
+\makechapterstyle{forallx}{% TB defines a nice style for section headings (which LaTeX regards as chapter headings)
+	\renewcommand{\chapnamefont}{\normalfont\Huge\bfseries} 
+	\renewcommand{\chapnumfont}{\normalfont\Huge\bfseries}
+	\renewcommand{\chaptitlefont}{\normalfont\Huge\bfseries} 
+	\renewcommand{\afterchapternum}{}
+	\renewcommand{\printchaptername}{} 
+	\setlength{\midchapskip}{0mm} 
+	\renewcommand{\chapternamenum}{} 
+	\renewcommand{\printchapternum}{%
+		\noindent\marginpar{\chapnumfont\thechapter}}
+	\renewcommand{\printchaptertitle}[1]{\chaptitlefont ##1}
+}
+\chapterstyle{forallx}
+
+\setlength{\columnsep}{2em} % Sets 2em space between columns when calling multicol 
+
+
+
+
+\newcommand{\myanswer}[1]{
+%\leavevmode\color{darkred}\ignorespaces{#1}}
+\textcolor{darkred}{#1}} % TB: puts model answers in blue
+
+
+
+
+% TB: information originally in the main body; but it is style information, so I have included it here.
+\hypersetup{pdfinfo={Title={forall x: Bristol Version}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Aaron Thomas-Bolduc, Richard Zach, Catrin Campbell-Moore}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
+  bookmarks={true}, %
+  bookmarksopen = true,
+	colorlinks={true}, %
+	allcolors={dkleadbeater},
+	pdfdisplaydoctitle={true}}
+\urlstyle{same}
+
+
+
+
+%    ****************************************
+%    *          PRACTICE PROBLEMS           *
+%    ****************************************
+\newcounter{ProbPart}
+\renewcommand{\theProbPart}{\Alph{ProbPart}}
+\renewcommand{\theHProbPart}{\thechapter.\theProbPart}
+% This inserts a heading and resets the counter:
+\newcommand*{\practiceproblems}{
+	\setcounter{ProbPart}{0}\section*{Practice exercises}%
+	\addcontentsline{toc}{section}{Practice exercises}
+}
+% This starts a new section which is automatically numbered:
+\newcommand*{\problempart}{\par\noindent\refstepcounter{ProbPart}\textbf{\Alph{ProbPart}. }}
+% This bullet is used to indicate that solutions appear at the end of
+% the book.
+\newcommand*{\solutions}{} %TB: removed, since I am not including the solutions in the book
+% When solutions are only given for selected problems, the
+% star is placed left of the problem number.
+\newcommand*{\leftsolutions}{\hspace{-2.2em}\makebox[2em][l]{\solutions}}
+
+% This is used at the beginning of a section in the solutions
+% appendix.
+\newcommand*{\solutionsection}[2]{%
+	\textbf{\textsc{Chapter {\ref{#1}} Part {\ref{#2}}}}%
+	\markright{solutions for ch.~\ref{#1}}%
+	\setcounter{countSeq}{0}
+}
+
+% This is used to enumerate things that have a given property.
+% For example: \nextSeq\nextSeq\noSeq\lastSeq are valid.
+% produces   : 1, 2, and 4 are valid.
+\newcounter{countSeq}
+\newcommand*{\nextSeq}{\stepcounter{countSeq}\arabic{countSeq}, }
+\newcommand*{\noSeq}{\stepcounter{countSeq}}
+\newcommand*{\lastSeq}{and \stepcounter{countSeq}\arabic{countSeq} }
+
+% This is used to place (eg) a partial model or proof as an item
+% in a list. Without it, the item tag will be vertically centered next
+% to the model or proof.
+%		--- doesn't actually work yet ---
+\newenvironment{solutioninlist}{}{}%{~\vspace{-1.6em}}{}
+
+
+

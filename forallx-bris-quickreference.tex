@@ -5,14 +5,14 @@
 \label{app.CharacteristicTTs}
 
 \begin{tabular}{c|c}
-\meta{A} & \enot\meta{A}\\
+\metaX & \enot\metaX\\
 \hline
 T & F\\
 F & T \\
 \end{tabular}
 \hfill
 \begin{tabular}{c c|c|c|c|c}
-\meta{A} & \meta{B} & $\meta{A}\eand\meta{B}$ & $\meta{A}\eor\meta{B}$ & $\meta{A}\eif\meta{B}$ & $\meta{A}\eiff\meta{B}$\\
+\metaX & \metaY & $\metaX\eand\metaY$ & $\metaX\eor\metaY$ & $\metaX\eif\metaY$ & $\metaX\eiff\metaY$\\
 \hline
 T & T & T & T & T & T\\
 T & F & F & T & F & F\\
@@ -116,7 +116,7 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 \label{ProofRules}
 \newpage\section{Basic deduction rules for TFL}\label{glossary:basic rules TFL}
-\renewenvironment{proof}
+\renewenvironment{pf}
 	{\noindent\par\noindent\small$\begin{nd}}
 	{\end{nd}$\noindent\normalsize\ignorespacesafterend}
 	
@@ -125,123 +125,123 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \begin{multicols}{2}
 \subsubsection*{Reiteration}
 
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{c}{\meta{A}} \by{R}{a}
-\end{proof}
+\begin{pf}
+	\have[m]{a}{\metaX}
+	\have[\ ]{c}{\metaX} \by{R}{a}
+\end{pf}
 
 
 \subsubsection*{Conjunction}
 
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[n]{b}{\meta{B}}
-	\have[\ ]{c}{\meta{A}\eand\meta{B}} \ai{a, b}
+\begin{pf}
+	\have[m]{a}{\metaX}
+	\have[n]{b}{\metaY}
+	\have[\ ]{c}{\metaX\eand\metaY} \ai{a, b}
 
-	\have[m]{ab}{\meta{A}\eand\meta{B}}
-\\	\have[\ ]{a}{\meta{A}} \ae{ab}
+	\have[m]{ab}{\metaX\eand\metaY}
+\\	\have[\ ]{a}{\metaX} \ae{ab}
 
-	\have[m]{ab}{\meta{A}\eand\meta{B}}
-\\	\have[\ ]{b}{\meta{B}} \ae{ab}
-\end{proof}
+	\have[m]{ab}{\metaX\eand\metaY}
+\\	\have[\ ]{b}{\metaY} \ae{ab}
+\end{pf}
 
 \subsubsection*{Conditional}
 
-\begin{proof}
+\begin{pf}
 	\open
-		\hypo[m]{a}{\meta{A}}
+		\hypo[m]{a}{\metaX}
 		\ellipsesline
-		\have[n]{b}{\meta{B}}
+		\have[n]{b}{\metaY}
 	\close
-	\have[\ ]{ab}{\meta{A}\eif\meta{B}}\ci{a-b}
+	\have[\ ]{ab}{\metaX\eif\metaY}\ci{a-b}
 
-	\have[m]{ab}{\meta{A}\eif\meta{B}}
-\\	\have[n]{a}{\meta{A}}
-	\have[\ ]{b}{\meta{B}} \ce{ab,a}
-\end{proof}
+	\have[m]{ab}{\metaX\eif\metaY}
+\\	\have[n]{a}{\metaX}
+	\have[\ ]{b}{\metaY} \ce{ab,a}
+\end{pf}
 
 \subsubsection*{Biconditional}
 
-\begin{proof}
-\have[m]{ab}{\meta{A}\eiff\meta{B}}
-\have[\ ]{b}{(\meta{A}\eif\meta{B})\eand(\meta{B}\eif\meta{A})}\iffE{ab}
+\begin{pf}
+\have[m]{ab}{\metaX\eiff\metaY}
+\have[\ ]{b}{(\metaX\eif\metaY)\eand(\metaY\eif\metaX)}\iffE{ab}
 
-\have[m]{b}{(\meta{A}\eif\meta{B})\eand(\meta{B}\eif\meta{A})}
-\\\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\iffI{b}
-\end{proof}
+\have[m]{b}{(\metaX\eif\metaY)\eand(\metaY\eif\metaX)}
+\\\have[\ ]{ab}{\metaX\eiff\metaY}\iffI{b}
+\end{pf}
 
-%\begin{proof}
+%\begin{pf}
 %	\open
-%		\hypo[i]{a1}{\meta{A}} 
-%		\have[j]{b1}{\meta{B}}
+%		\hypo[i]{a1}{\metaX} 
+%		\have[j]{b1}{\metaY}
 %	\close
 %	\open
-%		\hypo[k]{b2}{\meta{B}}
-%		\have[l]{a2}{\meta{A}}
+%		\hypo[k]{b2}{\metaY}
+%		\have[l]{a2}{\metaX}
 %	\close
-%	\have[\ ]{ab}{\meta{A}\eiff\meta{B}}\bi{a1-b1,b2-a2}
+%	\have[\ ]{ab}{\metaX\eiff\metaY}\bi{a1-b1,b2-a2}
 %
-%	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-%\\	\have[n]{a}{\meta{A}}
-%	\have[\ ]{b}{\meta{B}} \be{ab,a}
+%	\have[m]{ab}{\metaX\eiff\metaY}
+%\\	\have[n]{a}{\metaX}
+%	\have[\ ]{b}{\metaY} \be{ab,a}
 %
-%	\have[m]{ab}{\meta{A}\eiff\meta{B}}
-%\\	\have[n]{a}{\meta{B}}
-%	\have[\ ]{b}{\meta{A}} \be{ab,a}
-%\end{proof}
+%	\have[m]{ab}{\metaX\eiff\metaY}
+%\\	\have[n]{a}{\metaY}
+%	\have[\ ]{b}{\metaX} \be{ab,a}
+%\end{pf}
 
 
 \subsubsection*{Contradiction}
 
-\begin{proof}
-\have[m]{a}{\meta{A}}
-\have[n]{na}{\enot\meta{A}}
+\begin{pf}
+\have[m]{a}{\metaX}
+\have[n]{na}{\enot\metaX}
 \have[ ]{bot}{\ered}\ri{a, na}
 
 \have[m]{bot}{\ered}
-\\\have[ ]{}{\meta{A}}\re{bot}
-\end{proof}
+\\\have[ ]{}{\metaX}\re{bot}
+\end{pf}
 
 
 \subsubsection*{Negation}
-\begin{proof}
+\begin{pf}
 \open
-	\hypo[m]{a}{\meta{A}}
+	\hypo[m]{a}{\metaX}
 	\ellipsesline
 	\have[n]{nb}{\ered}
 \close
-\have[\ ]{na}{\enot\meta{A}}\ni{a-nb}
-\end{proof}
+\have[\ ]{na}{\enot\metaX}\ni{a-nb}
+\end{pf}
 
 
 
 \subsubsection*{Disjunction}
 
-\begin{proof}
-	\have[m]{a}{\meta{A}}
-	\have[\ ]{ab}{\meta{A}\eor\meta{B}}\oi{a}
+\begin{pf}
+	\have[m]{a}{\metaX}
+	\have[\ ]{ab}{\metaX\eor\metaY}\oi{a}
 
-	\have[m]{a}{\meta{A}}
-\\	\have[\ ]{ba}{\meta{B}\eor\meta{A}}\oi{a}
+	\have[m]{a}{\metaX}
+\\	\have[\ ]{ba}{\metaY\eor\metaX}\oi{a}
 
-	\have[m]{ab}{\meta{A}\eor\meta{B}}
+	\have[m]{ab}{\metaX\eor\metaY}
 \\	\open
-		\hypo[i]{a}{\meta{A}}
+		\hypo[i]{a}{\metaX}
 		\ellipsesline
 		\have[j]{c1}{\meta{C}}
 	\close
 	\open
-		\hypo[k]{b}{\meta{B}}
+		\hypo[k]{b}{\metaY}
 		\ellipsesline
 		\have[l]{c2}{\meta{C}}
 	\close
 	\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
-\end{proof}
+\end{pf}
 
 \subsubsection*{Law of Excluded Middle}
-\begin{proof}
-	\have[\ ]{lem}{\meta{A}\eor\enot\meta{A}}\LEM
-\end{proof}
+\begin{pf}
+	\have[\ ]{lem}{\metaX\eor\enot\metaX}\LEM
+\end{pf}
 
 
 \end{multicols}
@@ -250,73 +250,73 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \section{Derived rules for TFL}
 \begin{multicols}{2}
 \subsubsection*{Disjunctive syllogism}
-\begin{proof}
-	\have[m]{ab}{\meta{A} \eor \meta{B}}
-	\have[n]{nb}{\enot \meta{A}}
-	\have[\ ]{con}{\meta{B}}\by{DS}{ab, nb}
+\begin{pf}
+	\have[m]{ab}{\metaX \eor \metaY}
+	\have[n]{nb}{\enot \metaX}
+	\have[\ ]{con}{\metaY}\by{DS}{ab, nb}
 
-	\have[m]{ab}{\meta{A} \eor \meta{B}}
-\\	\have[n]{nb}{\enot \meta{B}}
-	\have[\ ]{con}{\meta{A}}\by{DS}{ab, nb}
-\end{proof}
+	\have[m]{ab}{\metaX \eor \metaY}
+\\	\have[n]{nb}{\enot \metaY}
+	\have[\ ]{con}{\metaX}\by{DS}{ab, nb}
+\end{pf}
 
 %\subsubsection*{Reiteration}
 %
-%\begin{proof}
-%	\have[m]{a}{\meta{A}}
-%	\have[\ ]{c}{\meta{A}} \by{R}{a}
-%\end{proof}
+%\begin{pf}
+%	\have[m]{a}{\metaX}
+%	\have[\ ]{c}{\metaX} \by{R}{a}
+%\end{pf}
 
 \subsubsection*{Modus Tollens}
 
-\begin{proof}
-	\have[m]{ab}{\meta{A}\eif\meta{B}}
-	\have[n]{a}{\enot\meta{B}}
-	\have[\ ]{b}{\enot\meta{A}} \by{MT}{ab,a}
-\end{proof}
+\begin{pf}
+	\have[m]{ab}{\metaX\eif\metaY}
+	\have[n]{a}{\enot\metaY}
+	\have[\ ]{b}{\enot\metaX} \by{MT}{ab,a}
+\end{pf}
 
 \subsubsection*{Double-negation elimination}
-	\begin{proof}
-		\have[m]{dna}{\enot \enot \meta{A}}
-		\have[ ]{a}{\meta{A}}\dne{dna}
-	\end{proof}
+	\begin{pf}
+		\have[m]{dna}{\enot \enot \metaX}
+		\have[ ]{a}{\metaX}\dne{dna}
+	\end{pf}
 
 
 \subsubsection*{Proof by Contradiction}
-	\begin{proof}
+	\begin{pf}
 		\open
-			\hypo[m]{na}{\enot\meta{A}}
+			\hypo[m]{na}{\enot\metaX}
 			\ellipsesline
 			\have[n]{red}{\ered}
 		\close
-		\have[ ]{a}{\meta{A}}\by{IP}{na-red}
-	\end{proof}
+		\have[ ]{a}{\metaX}\by{IP}{na-red}
+	\end{pf}
 
 
 
 %
 %\subsubsection*{Hypothetical Syllogism}
 %
-%\begin{proof}
-%	\have[m]{ab}{\meta{A}\eif\meta{B}}
-%	\have[n]{bc}{\meta{B}\eif\meta{C}}
-%	\have[\ ]{ac}{\meta{A}\eif\meta{C}}\by{HS}{ab,bc}
-%\end{proof}
+%\begin{pf}
+%	\have[m]{ab}{\metaX\eif\metaY}
+%	\have[n]{bc}{\metaY\eif\meta{C}}
+%	\have[\ ]{ac}{\metaX\eif\meta{C}}\by{HS}{ab,bc}
+%\end{pf}
 
 \subsubsection*{De Morgan Rules}
-\begin{proof}
-	\have[m]{ab}{\enot (\meta{A} \eor \meta{B})}
-	\have[\ ]{dm}{\enot \meta{A} \eand \enot \meta{B}}\dem{ab}
+\begin{pf}
+	\have[m]{ab}{\enot (\metaX \eor \metaY)}
+	\have[\ ]{dm}{\enot \metaX \eand \enot \metaY}\dem{ab}
 
-	\have[m]{ab}{\enot \meta{A} \eand \enot \meta{B}}
-\\	\have[\ ]{dm}{\enot (\meta{A} \eor \meta{B})}\dem{ab}
+	\have[m]{ab}{\enot \metaX \eand \enot \metaY}
+\\	\have[\ ]{dm}{\enot (\metaX \eor \metaY)}\dem{ab}
 
-	\have[m]{ab}{\enot (\meta{A} \eand \meta{B})}
-\\	\have[\ ]{dm}{\enot \meta{A} \eor \enot \meta{B}}\dem{ab}
+	\have[m]{ab}{\enot (\metaX \eand \metaY)}
+\\	\have[\ ]{dm}{\enot \metaX \eor \enot \metaY}\dem{ab}
 
-	\have[m]{ab}{\enot \meta{A} \eor \enot \meta{B}}
-\\	\have[\ ]{dm}{\enot (\meta{A} \eand \meta{B})}\dem{ab}
-\end{proof}
+	\have[m]{ab}{\enot \metaX \eor \enot \metaY}
+\\	\have[\ ]{dm}{\enot (\metaX \eand \metaY)}\dem{ab}
+\end{pf}
 \end{multicols}
 
 \newpage
@@ -326,46 +326,46 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \begin{multicols}{2}
 \subsubsection*{Universal elimination}
 
-\begin{proof}
-	\have[m]{a}{\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)}
-	\have[\ ]{c}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)} \Ae{a}
-\end{proof}
+\begin{pf}
+	\have[m]{a}{\forall \meta{x}\metaX(\ldots \meta{x} \ldots \meta{x}\ldots)}
+	\have[\ ]{c}{\metaX(\ldots \meta{c} \ldots \meta{c}\ldots)} \Ae{a}
+\end{pf}
 
 \subsubsection*{Universal introduction}
 
-\begin{proof}
-	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
-	\have[\ ]{c}{\forall \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)} \Ai{a}
-\end{proof}
+\begin{pf}
+	\have[m]{a}{\metaX(\ldots \meta{c} \ldots \meta{c}\ldots)}
+	\have[\ ]{c}{\forall \meta{x}\metaX(\ldots \meta{x} \ldots \meta{x}\ldots)} \Ai{a}
+\end{pf}
 
 \noindent 	\meta{c} must not occur in any undischarged assumption\\ 
-\meta{x} must not occur in $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$
+\meta{x} must not occur in $\metaX(\ldots \meta{c} \ldots \meta{c}\ldots)$
 
 %\vfill
 
 \subsubsection*{Existential introduction}
 
-\begin{proof}
-	\have[m]{a}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
-	\have[\ ]{c}{\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{c}\ldots)} \Ei{a}
-\end{proof}
+\begin{pf}
+	\have[m]{a}{\metaX(\ldots \meta{c} \ldots \meta{c}\ldots)}
+	\have[\ ]{c}{\exists \meta{x}\metaX(\ldots \meta{x} \ldots \meta{c}\ldots)} \Ei{a}
+\end{pf}
 
-\noindent \meta{x} must not occur in $\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)$
+\noindent \meta{x} must not occur in $\metaX(\ldots \meta{c} \ldots \meta{c}\ldots)$
 %\noindent You can replace one or more instance of \meta{c} with \meta{x}.
 
 \subsubsection*{Existential elimination}
 
-\begin{proof}
-	\have[m]{a}{\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)}
+\begin{pf}
+	\have[m]{a}{\exists \meta{x}\metaX(\ldots \meta{x} \ldots \meta{x}\ldots)}
 	\open	
-		\hypo[i]{b}{\meta{A}(\ldots \meta{c} \ldots \meta{c}\ldots)}
+		\hypo[i]{b}{\metaX(\ldots \meta{c} \ldots \meta{c}\ldots)}
 		\ellipsesline
-		\have[j]{c}{\meta{B}}
+		\have[j]{c}{\metaY}
 	\close
-	\have[\ ]{d}{\meta{B}} \Ee{a,b-c}
-\end{proof}
+	\have[\ ]{d}{\metaY} \Ee{a,b-c}
+\end{pf}
 
-\noindent \meta{c} must not occur in \\any undischarged assumption, \\in $\exists \meta{x}\meta{A}(\ldots \meta{x} \ldots \meta{x}\ldots)$, \\or in \meta{B}
+\noindent \meta{c} must not occur in \\any undischarged assumption, \\in $\exists \meta{x}\metaX(\ldots \meta{x} \ldots \meta{x}\ldots)$, \\or in \metaY
 %\vfill\columnbreak
 \end{multicols}
 
@@ -373,43 +373,43 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 \subsubsection*{Identity introduction}
 
-\begin{proof}
+\begin{pf}
 	\have[\ \,\,\,]{x}{\meta{c}\eid \meta{c}} \by{= I}{}
-\end{proof}
+\end{pf}
 
 
 \subsubsection*{Identity elimination}
 
 \begin{multicols}{2}
-\begin{proof}
+\begin{pf}
 	\have[m]{e}{\meta{a}\eid \meta{b}}
-	\have[n]{a}{\meta{A}(\ldots \meta{a} \ldots \meta{a}\ldots)}
-	\have[\ ]{ea1}{\meta{A}(\ldots \meta{b} \ldots \meta{a}\ldots)} \by{= E}{e,a}
-\end{proof}
-\begin{proof}
+	\have[n]{a}{\metaX(\ldots \meta{a} \ldots \meta{a}\ldots)}
+	\have[\ ]{ea1}{\metaX(\ldots \meta{b} \ldots \meta{a}\ldots)} \by{= E}{e,a}
+\end{pf}
+\begin{pf}
 	\have[m]{e}{\meta{a}\eid \meta{b}}
-	\have[n]{a}{\meta{A}(\ldots \meta{b} \ldots \meta{b}\ldots)}
-	\have[\ ]{ea2}{\meta{A}(\ldots \meta{a} \ldots \meta{b}\ldots)} \by{= E}{e,a}
-\end{proof}
+	\have[n]{a}{\metaX(\ldots \meta{b} \ldots \meta{b}\ldots)}
+	\have[\ ]{ea2}{\metaX(\ldots \meta{a} \ldots \meta{b}\ldots)} \by{= E}{e,a}
+\end{pf}
 \end{multicols}
 
 
 \bigskip 
 \section{Derived rules for FOL}
 \begin{multicols}{2}
-\begin{proof}
-	\have[m]{ab}{\forall \meta{x}\enot \meta{A}}
-	\have[\ ]{ac}{\enot \exists \meta{x} \meta{A}}\cq{m}
+\begin{pf}
+	\have[m]{ab}{\forall \meta{x}\enot \metaX}
+	\have[\ ]{ac}{\enot \exists \meta{x} \metaX}\cq{m}
 
-	\have[m]{ab}{\enot \exists \meta{x}  \meta{A}}
-\\	\have[\ ]{ac}{\forall \meta{x}\enot\meta{A}}\cq{m}
-\end{proof}
-\begin{proof}
-	\have[m]{ab}{\exists \meta{x}\enot\meta{A}}
-	\have[\ ]{ac}{\enot \forall \meta{x} \meta{A}}\cq{m}
+	\have[m]{ab}{\enot \exists \meta{x}  \metaX}
+\\	\have[\ ]{ac}{\forall \meta{x}\enot\metaX}\cq{m}
+\end{pf}
+\begin{pf}
+	\have[m]{ab}{\exists \meta{x}\enot\metaX}
+	\have[\ ]{ac}{\enot \forall \meta{x} \metaX}\cq{m}
 
-	\have[m]{ab}{\enot \forall \meta{x}  \meta{A}}
-\\	\have[\ ]{ac}{\exists \meta{x}\enot \meta{A}}\cq{m}
-\end{proof}
+	\have[m]{ab}{\enot \forall \meta{x}  \metaX}
+\\	\have[\ ]{ac}{\exists \meta{x}\enot \metaX}\cq{m}
+\end{pf}
 \end{multicols}
 
