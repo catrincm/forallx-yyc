@@ -23,7 +23,7 @@ One aim of a \emph{natural deduction system} is to show that particular argument
 With truth tables, we directly consider different ways to make sentences true or false. With natural deduction systems, we manipulate sentences in accordance with rules that we have set down as good rules. The latter promises to give us a better insight---or at least, a different insight---into how arguments work.
 
 The move to natural deduction might be motivated by more than the search for insight. It might also be motivated by \emph{necessity}. Consider:
-	$$A_1 \eif C_1 \therefore (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5) \eif (C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5)$$
+	$$X_1 \eif Y_1 \therefore (X_1 \eand X_2 \eand X_3 \eand X_4 \eand X_5) \eif (Y_1 \eor Y_2 \eor Y_3 \eor Y_4 \eor Y_5)$$
 To test this argument for validity, you might use a 1024-line truth table. If you do it correctly, then you will see that there is no line on which all the premises are true and on which the conclusion is false. So you will know that the argument is valid. (But, as just mentioned, there is a sense in which you will not know \emph{why} the argument is valid.) But now consider:
 	\begin{align*}
 		A_1 \eif C_1 \therefore\ & (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10}) \eif \phantom{(}\\

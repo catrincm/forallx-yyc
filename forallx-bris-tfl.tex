@@ -151,7 +151,7 @@ Since sentence \ref{not2} is obviously related to  sentence \ref{not1}, we will 
 
 Sentence \ref{not3} also contains the word `not', and it is obviously equivalent to sentence \ref{not2}. As such, we can also symbolize it with $\enot B$.
 \factoidbox{
-A sentence can be symbolized as $\enot\metaX$ if it can be paraphrased in English as `It is not the case that\ldots'.
+If a sentence can be paraphrased as `it is not the case that \metaX'\\ it can be symbolised as $\enot\metaX$.
 }
 It will help to offer a few more examples:
 	\begin{earg}
@@ -194,6 +194,13 @@ We will need separate atomic sentences of TFL to symbolize sentences \ref{and1} 
 		\item[B] Barbara is athletic.
 	\end{ekey}
 Sentence \ref{and1} can now be symbolized as $A$, and sentence \ref{and2} can be symbolized as $B$. Sentence \ref{and3} roughly says `A and B'. We need another symbol, to deal with `and'. We will use `\eand'. Thus we will symbolize it as $(A\eand B)$. This connective is called \define{conjunction}. We also say that $A$ and $B$ are the two \define{conjuncts} of the conjunction $(A \eand B)$.
+
+	\factoidbox{
+%		A sentence can be symbolized as $(\metaX\eand\metaY)$ if it can be paraphrased in English as `Both\ldots, and\ldots', or as `\ldots, but \ldots', or as `although \ldots, \ldots'.
+		If a sentence can be paraphrased as `\metaX and \metaY' \\it can be symbolised as $(\metaX\eand\metaY)$.
+	}
+	
+	
 \newglossaryentry{conjunction}
 {
 name=conjunction,
@@ -223,9 +230,17 @@ Sentence \ref{and5} says one thing about two different subjects. It says of both
 Sentence \ref{and6} is slightly more complicated. The word `although' sets up a contrast between the first part of the sentence and the second part. Nevertheless, the sentence tells us both that Barbara is energetic and that she is not athletic. In order to make each of the conjuncts an atomic sentence, we need to replace `she' with `Barbara'. So we can paraphrase sentence \ref{and6} as, `\emph{Both} Barbara is energetic, \emph{and} Barbara is not athletic'. The second conjunct contains a negation, so we paraphrase further: `\emph{Both} Barbara is energetic \emph{and} \emph{it is not the case that} Barbara is athletic'. Now we can symbolize this with the TFL sentence $(E\eand\enot B)$. Note that we have lost all sorts of nuance in this symbolization. There is a distinct difference in tone between sentence \ref{and6} and `Both Barbara is energetic and it is not the case that Barbara is athletic'. TFL does not (and cannot) preserve these nuances.
 
 Sentence \ref{and7} raises similar issues. There is a contrastive structure, but this is not something that TFL can deal with. So we can paraphrase the sentence as `\emph{Both} Adam is athletic, \emph{and} Barbara is more athletic than Adam'. (Notice that we once again replace the pronoun `him' with `Adam'.) How should we deal with the second conjunct? We already have the sentence letter $A$, which is being used to symbolize `Adam is athletic', and the sentence $B$ which is being used to symbolize `Barbara is athletic'; but neither of these concerns their relative athleticity. So, to symbolize the entire sentence, we need a new sentence letter. Let the TFL sentence $R$ symbolize the English sentence `Barbara is more athletic than Adam'. Now we can symbolize sentence \ref{and7} by $(A \eand R)$.
+
+We can add these to our toolbox for symbolisation:
 	\factoidbox{
-		A sentence can be symbolized as $(\metaX\eand\metaY)$ if it can be paraphrased in English as `Both\ldots, and\ldots', or as `\ldots, but \ldots', or as `although \ldots, \ldots'.
+		If a sentence can be paraphrased as \begin{itemize}
+		\item `\metaX and \metaY'
+		\item `\metaX but \metaY'
+		\item `Both \metaX and \metaY'
+		\item `Although \metaX, \metaY'
+		\end{itemize} it can be symbolised as $(\metaX\eand\metaY)$.
 	}
+
 You might be wondering why we put brackets around the conjunctions. The reason for this is brought out by considering how negation might interact with conjunction. Consider:
 	\begin{earg}
 		\item[\ex{negcon1}] It's not the case that you will get both soup and salad.
@@ -271,8 +286,10 @@ description={A sentence joined to another by a \gls{disjunction}}
 
 Sentence \ref{or2} is only slightly more complicated. There are two subjects, but the English sentence only gives the verb once. However, we can paraphrase sentence \ref{or2} as `Fatima will play videogames, or Omar will play videogames'. Now we can obviously symbolize it by $(F \eor O)$ again.
 	\factoidbox{
-		A sentence can be symbolized as $(\metaX\eor\metaY)$ if it can be paraphrased in English as `\ldots, or\ldots.' Each of the disjuncts must be a sentence.
+If a sentence can be paraphrased as `\metaX or \metaY' \\it can be symbolised as $\metaX\eor\metaY$.
 	}
+\metaX and \metaY need to be the sorts of things that can be whole sentences. We cannot simply take $\metaX$ to be `Fatima', instead we first need to paraphrase it as in \ref{or1}
+	
 Sometimes in English, the word `or' is used in a way that excludes the possibility that both disjuncts are true. This is called an \define{exclusive or}.  An \emph{exclusive or} is clearly intended when it says, on a restaurant menu, `Entrees come with either soup or salad': you may have soup; you may have salad; but, if you want \emph{both} soup \emph{and} salad, then you have to pay extra.
 
 At other times, the word `or' allows for the possibility that both disjuncts might be true. This is probably the case with sentence \ref{or2}, above. Fatima might play videogames alone, Omar might play videogames alone, or they might both play. Sentence \ref{or2} merely says that \emph{at least} one of them plays videogames. This is called an \define{inclusive or}. The TFL symbol `\eor' always symbolizes an \emph{inclusive or}.
@@ -292,17 +309,22 @@ Sentence \ref{or.xor} is an \emph{exclusive or}. We can break the sentence into 
 This last example shows something important. Although the TFL symbol `\eor' always symbolizes \emph{inclusive or}, we can symbolize an \emph{exclusive or} in {TFL}. We just have to use a few of our other symbols as well.
 
 \section{Conditional}
-Consider these sentences:
+Consider the sentence
 	\begin{earg}
-		\item[\ex{if1}] If Jean is in Paris, then Jean is in France.
-		\item[\ex{if2}] Jean is in France only if Jean is in Paris.
+		\item[\ex{if1}] If Jean is in Paris, then she is in France.
 	\end{earg}
 Let's use the following symbolization key:
 	\begin{ekey}
 		\item[P] Jean is in Paris.
 		\item[F] Jean is in France
 	\end{ekey}
-Sentence \ref{if1} is roughly of this form: `if P, then F'. We will use the symbol `\eif' to symbolize this `if\ldots, then\ldots' structure. So we symbolize sentence \ref{if1} by $(P\eif F)$. The connective is called \define{the conditional}. Here, $P$ is called the \define{antecedent} of the conditional $(P \eif F)$, and $F$ is called the \define{consequent}.
+Sentence \ref{if1} is roughly of this form: `if P, then F'. We will use the symbol `\eif' to symbolize this `if\ldots, then\ldots' structure. So we symbolize sentence \ref{if1} by $(P\eif F)$. 	The connective `$\eif$' is called \define{the conditional}. Here, $P$ is called the \define{antecedent} of the conditional $(P \eif F)$, and $F$ is called the \define{consequent}.
+	\factoidbox{
+	 If a sentence can be paraphrased as \\`If \metaX, then \metaY' it can be symbolised as $\metaX\eif\metaY$.
+	}
+
+
+
 
 \newglossaryentry{conditional}
 {
@@ -323,22 +345,43 @@ name=consequent,
 description={The sentence on the right side of a \gls{conditional}}
 }
 
-Sentence \ref{if2} is also a conditional. Since the word `if' appears in the second half of the sentence, it might be tempting to symbolize this in the same way as sentence \ref{if1}. That would be a mistake. Your knowledge of geography tells you that sentence \ref{if1} is unproblematically true: there is no way for Jean to be in Paris that doesn't involve Jean being in France. But sentence \ref{if2} is not so straightforward: were  Jean in Dieppe, Lyons, or Toulouse, Jean would be in France without being in Paris, thereby rendering sentence \ref{if2} false. Since geography alone dictates the truth of sentence \ref{if1}, whereas travel plans (say) are needed to know the truth of sentence \ref{if2}, they must mean different things.
+\noindent Now consider the sentences
+\begin{earg}
+		\item[\ex{if3}] If Jean is in Paris, she's in France.
+		\item[\ex{if4}] Jean is in France if she is in Paris. 
+\end{earg}
 
-In fact, sentence \ref{if2} can be paraphrased as `If Jean is in France, then Jean is in Paris'. So we can symbolize it by $(F \eif P)$.
+
+Sentence \ref{if3} and \ref{if4} are just rephrasings of \ref{if1}. So we will again symbolise them as $(P\eif F)$.
+
+Now consider
+\begin{earg}
+		\item[\ex{if2}] Jean is in France only if she is in Paris.
+\end{earg}
+
+\ref{if2} is also a conditional. In \ref{if1}--\ref{if4} we took as an antecedent the part of sentence that has the word `if' in it. It might then be tempting to do the same here and symbolize this as $(P\eif F)$. That would be a mistake. Your knowledge of geography tells you that sentence \ref{if1} is unproblematically true: there is no way for Jean to be in Paris that doesn't involve Jean being in France. But sentence \ref{if2} is not so straightforward: were  Jean in Dieppe, Lyons, or Toulouse, Jean would be in France without being in Paris, thereby rendering sentence \ref{if2} false. Since geography alone dictates the truth of sentence \ref{if1}, whereas travel plans (say) are needed to know the truth of sentence \ref{if2}, they must mean different things.
+In fact, sentence \ref{if2} can be paraphrased as `If Jean is in France, then Jean is in Paris'. So we can symbolize it by $(F \eif P)$: the other way around to \ref{if1}. 
 	\factoidbox{
-		A sentence can be symbolized as $(\metaX \eif \metaY)$ if it can be paraphrased in English as `If \metaX, then \metaY' or `\metaX only if \metaY'.
+	 If a sentence can be paraphrased as \begin{itemize}
+	 \item `If \metaX, then \metaY'
+	 \item `If \metaX, \metaY'
+	 \item `\metaY if \metaX'
+	 \item `\metaX only if \metaY'
+	 \end{itemize} it can be symbolised as $\metaX\eif\metaY$.
 	}
-\noindent In fact, many English expressions can be represented using the conditional. Consider:
+
+\noindent It is important to bear in mind that the connective `\eif' tells us only that, if the antecedent is true, then the consequent is true. It says nothing about a \emph{causal} connection between two events (for example). In fact, we lose a huge amount when we use $\eif$ to symbolize English conditionals. We will return to this in \S\S\ref{s:IndicativeSubjunctive} and \ref{s:ParadoxesOfMaterialConditional}.
+
+ The conditional is also closely related to necessary and sufficient conditions, which we introduced in \S\ref{s.Nec Sufficient Conditions}. Consider:
 	\begin{earg}
 		\item[\ex{ifnec1}] For Jean to be in Paris, it is necessary that Jean be in France.
 		\item[\ex{ifnec2}] It is a necessary condition on Jean's being in Paris that she be in France. 
 		\item[\ex{ifsuf1}] For Jean to be in France, it is sufficient that Jean be in Paris.
 		\item[\ex{ifsuf2}] It is a sufficient condition on Jean's being in France that she be in Paris.
 	\end{earg}
-If we think deeply about it, all four of these sentences mean the same as  `If Jean is in Paris, then Jean is in France'. So they can all be symbolized by $(P \eif F)$. 
+If we think deeply about it, all four of these sentences mean the same as  `Necessarily, if Jean is in Paris, then Jean is in France'. So they can all involve $(P \eif F)$. We don't actually have the tools to symbolise these sentences themselves, we'd need something for `necessarily'. Indeed we won't cover that in this textbook, but there are more powerful logics called `modal logic', which would allow us to symbolise this as $\square (P\eif F)$. But that's something to leave for a future logic course.
 
-It is important to bear in mind that the connective `\eif' tells us only that, if the antecedent is true, then the consequent is true. It says nothing about a \emph{causal} connection between two events (for example). In fact, we lose a huge amount when we use $\eif$ to symbolize English conditionals. We will return to this in \S\S\ref{s:IndicativeSubjunctive} and \ref{s:ParadoxesOfMaterialConditional}.
+
 
 \section{Biconditional}
 Consider these sentences:
@@ -368,7 +411,7 @@ We could treat every biconditional this way. So, just as we do not need a new TF
 
 The expression `if and only if' occurs a lot especially in philosophy, mathematics, and logic. For brevity, we can abbreviate it with the snappier word `iff'. We will follow this practice. So `if' with only \emph{one} `f' is the English conditional. But `iff' with \emph{two} `f's is the English biconditional. Armed with this we can say:
 	\factoidbox{
-		A sentence can be symbolized as $(\metaX \eiff \metaY)$ if it can be paraphrased in English as `\metaX iff \metaY'; that is, as `\metaX if and only if \metaY'.
+If a sentence can be paraphrased as `\metaX if and only if \metaY'\\ it can be symbolised as $\metaX\eiff\metaY$.
 	}
 A word of caution. Ordinary speakers of English often use `if \ldots, then\ldots' when they really mean to use something more like `\ldots if and only if \ldots'. Perhaps your parents told you, when you were a child: `if you don't eat your greens, you won't get any dessert'. Suppose you ate your greens, but that your parents refused to give you any dessert, on the grounds that they were only committed to the \emph{conditional} (roughly `if you get dessert, then you will have eaten your greens'), rather than the biconditional (roughly, `you get dessert iff you eat your greens'). Well, a tantrum would rightly ensue. So, be aware of this when interpreting people; but in your own writing, make sure you use the biconditional iff you mean to.
 
@@ -395,7 +438,7 @@ All three are correct symbolizations. Indeed, in chapter \ref{s:SemanticConcepts
 % TODO: it might be useful to reference exercise 11.F.3 explicitly
 % here, since the point is not discussed in the main text
 	\factoidbox{
-		If a sentence can be paraphrased as `Unless A, B,' then it can be symbolized as $(\metaX\eor\metaY)$.
+		If a sentence can be paraphrased as `Unless \metaX, \metaY', \\then it can be symbolized as $(\metaX\eor\metaY)$.
 	}
 Again, though, there is a little complication. `Unless' can be symbolized as a conditional; but as we said above, people often use the conditional (on its own) when they mean to use the biconditional. Equally, `unless' can be symbolized as a disjunction; but there are two kinds of disjunction (exclusive and inclusive). So it will not surprise you to discover that ordinary speakers of English often use `unless' to mean something more like the biconditional, or like exclusive disjunction. Suppose someone says: `I will go running unless it rains'. They probably mean something like `I will go running iff it does not rain' (i.e.\ the biconditional), or  `either I will go running or it will rain, but not both' (i.e.\ exclusive disjunction). Again: be aware of this when interpreting what other people have said, but be precise in your writing.
 

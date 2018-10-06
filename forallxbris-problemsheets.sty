@@ -27,60 +27,6 @@
 
 %RZ: Include git revision info
 
-%\RequirePackage{gitinfo2}
-
-% RZ: TOC widths
-\setlength{\cftpartnumwidth}{3em}
-\setlength{\cftchapternumwidth}{2.2em}
-\setlength{\cftsectionnumwidth}{3.3em}
-\setlength{\cftbeforechapterskip}{0pt} %To leave no gap between sections (which LaTeX regards as chapters) in the TOC
-%\renewcommand{\cftchapterfont}{\textrm}
-%\renewcommand{\cftchapterpagefont}{\textrm}
-
-% Chapter style
-
-%\newlength{\barlength}
-%\makechapterstyle{leadbeater}{%
-%  \setlength{\afterchapskip}{40pt}
-%  \setlength{\beforechapskip}{50pt}
-%    \setlength{\midchapskip}{10pt}
-%  \renewcommand*{\afterchapternum}{\par\nobreak\vskip 0pt}
-%  \renewcommand*{\chapnamefont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
-%  \renewcommand*{\chapnumfont}{\fontsize{14pt}{0pt}\selectfont\sffamily\bfseries}
-%  \renewcommand*{\chaptitlefont}{\normalfont\fontsize{48pt}{48pt}\selectfont\bfseries\itshape\color{leadbeater}}
-%  \renewcommand*{\printchaptername}{%
-%    \chapnamefont\MakeUppercase{\@chapapp}}
-%  \renewcommand*{\printchaptertitle}[1]{%
-%    \chaptitlefont ##1\\[-\baselineskip]%
-%    \hspace*{-20pt}%
-%    \smash{\color{leadbeater}\rule{7pt}{400pt}}}
-%}
-
-%\renewcommand*{\partnamefont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
-%\renewcommand*{\partnumfont}{\fontsize{24pt}{0pt}\selectfont\sffamily\bfseries}
-%\renewcommand*{\parttitlefont}{\normalfont\fontsize{54pt}{54pt}\selectfont\bfseries\itshape\color{leadbeater}}
-%\renewcommand*{\printpartname}{%
-%  \partnamefont PART}
-
-%\chapterstyle{leadbeater}
-
-%\copypagestyle{leadbeater}{headings}
-%
-%\makeoddhead{leadbeater}{\small\sffamily\color{leadbeater}\rightmark}{}
-%            {\color{leadbeater}\sffamily\bfseries\thepage}
-%
-%\makeevenhead{leadbeater}{\small\sffamily\color{leadbeater}\leftmark}{}
-%            {\color{leadbeater}\sffamily\bfseries\thepage}
-
-%\RequirePackage{atbegshi}  % to kill the blank page after the titling page
-
-%\RequirePackage[font={small,it}]{caption}
-
-
-
-
-
-
 
 %    ****************************************
 %    *          LIST  ENVIRONMENTS          *
@@ -102,7 +48,7 @@
 
 % Used in conjunction with {earg}, this handles the numbering and
 % references to example sentences:
-\newcounter{Example}[chapter]
+\newcounter{Example}
 \newcommand*{\ex}[1]{\refstepcounter{Example}\arabic{Example}.\label{#1}}
 % Used in specifying partial models, this keeps the lines justified so
 % so that the = signs all line up. For example:
@@ -134,82 +80,22 @@
 
 
 
-%    ****************************************
-%    *         TABLE OF CONTENTS, ETC.      *
-%    ****************************************
-\renewcommand{\thechapter}{\arabic{chapter}}
-\renewcommand{\thepart}{\Roman{part}}
-\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
-
-
-
-
-%    ****************************************
-%    *            STYLE OF THE BOOK           *
-%    ****************************************
-% TB: I moved from book to memoir and then radically changed the structuring. From the point of view of LaTeX, the book consists of 9 parts, containing roughly 5 chapters each. From the point of view of the user, the book consists of 9 chapters, containing roughly 5 sections each. This means a fair bit of internal redefinition of LaTeX code.
-
-\makeatletter
-\renewcommand{\@chapapp}{ } % TB: to prevent "chapter" appearing all over the place
-\makeatother
-\renewcommand\cftchapterfont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
-\renewcommand\cftchapterpagefont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
-\renewcommand\cftbeforechapterskip{0pt} %TB: to leave no gap between sections (which LaTeX regards as chapters) in the TOC
-\renewcommand{\partname}{Chapter} %TB: to make the chapters (which LaTeX regards as parts) labelled "chapter"
-\setlength{\headwidth}{\textwidth} 
-
-\makepagestyle{forallxpage} %TB: design new page style
-\makeheadrule{forallxpage}{\textwidth}{\normalrulethickness} %TB: put rule beneath page header
-\makeevenhead{forallxpage}{\small \thepage}{}{\small\leftmark}  %TB: page header consists of section name and page
-\makeoddhead{forallxpage}{\small\rightmark}{}{\small \thepage} 
-\makeatletter
-\makepsmarks{forallxpage}{
-	\nouppercaseheads
-	\createmark {chapter} {both} {shownumber}{}{.\ }
-}
-\makeatother
-\pagestyle{forallxpage}
-
-\setcounter{tocdepth}{0} %TB: only chapters and sections to appear
-\renewcommand{\thepart}{\arabic{part}}  % TB: chapters (which LaTeX regards as parts) to be numbered
-\renewcommand{\thechapter}{\arabic{chapter}} %TB: sections (which LaTeX regards as chapters) to be numbered
-\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}} %TB: subsections (which LaTeX regards as sections) to be n.m
-
-\makechapterstyle{forallx}{% TB defines a nice style for section headings (which LaTeX regards as chapter headings)
-	\renewcommand{\chapnamefont}{\normalfont\Huge\bfseries} 
-	\renewcommand{\chapnumfont}{\normalfont\Huge\bfseries}
-	\renewcommand{\chaptitlefont}{\normalfont\Huge\bfseries} 
-	\renewcommand{\afterchapternum}{}
-	\renewcommand{\printchaptername}{} 
-	\setlength{\midchapskip}{0mm} 
-	\renewcommand{\chapternamenum}{} 
-	\renewcommand{\printchapternum}{%
-		\noindent\marginpar{\chapnumfont\thechapter}}
-	\renewcommand{\printchaptertitle}[1]{\chaptitlefont ##1}
-}
-\chapterstyle{forallx}
 
 \setlength{\columnsep}{2em} % Sets 2em space between columns when calling multicol 
 
 
 
 
-\newcommand{\myanswer}[1]{
-%\leavevmode\color{darkred}\ignorespaces{#1}}
-\textcolor{darkred}{#1}} % TB: puts model answers in blue
 
 
-
-
-% TB: information originally in the main body; but it is style information, so I have included it here.
-\hypersetup{pdfinfo={Title={forall x: Bristol Version}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Aaron Thomas-Bolduc, Richard Zach, Catrin Campbell-Moore}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
-  bookmarks={true}, %
-  bookmarksopen = true,
-	colorlinks={true}, %
-	allcolors={dkleadbeater},
-	pdfdisplaydoctitle={true}}
-\urlstyle{same}
-
+%% TB: information originally in the main body; but it is style information, so I have included it here.
+%\hypersetup{pdfinfo={Title={forall x: Bristol Version}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Aaron Thomas-Bolduc, Richard Zach, Catrin Campbell-Moore}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
+%  bookmarksopen = true,
+%	colorlinks={true}, %
+%	allcolors={dkleadbeater},
+%	pdfdisplaydoctitle={true}}
+%\urlstyle{same}
+%
 
 
 
@@ -267,7 +153,7 @@
 %\renewcommand{\theProbPart}{\Alph{ProbPart}}
 %\renewcommand{\theHProbPart}{\thechapter.\theProbPart}
 % This starts a new section which is automatically numbered:
-\newcommand*{\problempart}{\par\smallskip\noindent\refstepcounter{ProbPart}\textbf{\Alph{ProbPart}. }}
+\newcommand*{\problempart}{\par\smallskip\noindent\refstepcounter{ProbPart}\textbf{\arabic{ProbPart}. }}
 % This bullet is used to indicate that solutions appear at the end of
 % the book.
 %\newcommand*{\solutions}{} %TB: removed, since I am not including the solutions in the book
@@ -284,3 +170,49 @@
 %}
 
 
+\newenvironment{problem}{
+\section{}
+}{
+}
+
+
+
+
+
+  \usepackage{enumitem}
+\setlist[enumerate,1]{label=\Alph*., ref=\Alph*}
+\setlist[enumerate,2]{label={\alph*}),
+ref=\theenumi.{\alph*}}
+
+
+
+
+
+\newcommand{\myanswer}[1]{
+%\leavevmode\color{darkred}\ignorespaces{#1}}
+\textcolor{darkred}{#1}} % 
+\newcommand{\noanswers}[1]{\renewcommand{\myanswer}[1]{}}
+
+
+
+
+
+
+  \usepackage[noindentafter]{titlesec}
+  \titlespacing{\section}{0pt}{5ex plus 30ex minus 3ex}{1.5ex}
+
+\usepackage{fancyhdr} 
+\usepackage{lastpage}
+\pagestyle{fancyplain} %header
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt} % your new footer definitions here
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+%\lfoot{ \emph{Exam continues on next page}}
+%\AtEndDocument{\lfoot{}}
+
+
+
+
+\newcommand{\makemytitle}[1]{\begin{center}
+{\Huge #1}
+\end{center}}

@@ -1,0 +1,250 @@
+%!TEX root = forallxbris.tex
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{forallxbris-problemsheets}[Sep.~2018 support for a logic textbook]
+
+
+
+
+
+
+
+%    ****************************************
+%    *          LIST  ENVIRONMENTS          *
+%    ****************************************
+% The {earg} environment is used for arguments and example sentences.
+% The {ekey} environment is used for symbolization keys.
+\newcounter{eargnum}
+\newcounter{OLDeargnum}
+\newenvironment{earg}%
+{\begin{list}{\arabic{eargnum}.}{\usecounter{eargnum}\itemsep=0pt \parsep=0pt}}%
+{\setcounter{OLDeargnum}{\arabic{eargnum}}\end{list}}
+
+\newenvironment{ebullet}% TB: added to give a nice bulleted enivronment
+{\begin{list}{\textbullet}{\itemsep=0pt \parsep=0pt}}%
+{\end{list}}
+
+\newcommand{\ekeylabel}[1]{{\makebox[8ex][r]{\ensuremath{ #1}:}}}
+\newenvironment{ekey}{\begin{list}{}{\renewcommand{\makelabel}{\ekeylabel} \itemsep=0pt \parsep=0pt}}{\end{list}}
+
+% Used in conjunction with {earg}, this handles the numbering and
+% references to example sentences:
+\newcounter{Example}
+\newcommand*{\ex}[1]{\refstepcounter{Example}\arabic{Example}.\label{#1}}
+% Used in specifying partial models, this keeps the lines justified so
+% so that the = signs all line up. For example:
+%	\begin{partialmodel}
+%		UD			& \{Duke, Miles\}\\
+%		\extension{B}	& \{Duke\}
+%	\end{partialmodel}
+\newenvironment{partialmodel}{\par\begin{tabular}{r@{~=~}l}}{\end{tabular}\par}
+% define the bullet for {itemize} lists
+\renewcommand{\labelitemi}{$\triangleright$}
+
+% \factoidbox{...} produces an inset paragraph of text with a line around it
+% Neither for lists nor an environment, but it really didn't
+% belong anywhere else.
+%\newcommand{\factoidbox}[1]{\begin{quote}\framebox{\parbox{\linewidth}{#1}}\end{quote}}
+\RequirePackage{tcolorbox}
+\newcommand{\factoidbox}[1]{
+	\begin{tcolorbox}[%width=.9\textwidth,
+		%      leftright skip=.05\textwidth,
+%		sharp corners=downhill,
+		beforeafter skip=.7em,
+		colframe={leadbeater},colback={vltleadbeater}]   
+		#1
+\end{tcolorbox}}
+
+% \tablefbox{...} is used in certain tables to put a box around the contents of specific table cells without having lines that run the whole length of the table
+\newcommand{\tablefbox}[1]{\multicolumn{1}{|p{10em}|}{#1}}
+
+
+
+
+%
+%% TB: information originally in the main body; but it is style information, so I have included it here.
+%\hypersetup{pdfinfo={Title={forall x: Bristol Version}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Aaron Thomas-Bolduc, Richard Zach, Catrin Campbell-Moore}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, fitch}}, %
+%  bookmarksopen = true,
+%	colorlinks={true}, %
+%	allcolors={dkleadbeater},
+%	pdfdisplaydoctitle={true}}
+%\urlstyle{same}
+%
+
+
+
+%    ****************************************
+%    *         FONTS ETC           *
+%    ****************************************
+  
+  %%RZ: typefaces 
+  %
+  \usepackage{universalis}
+  %\usepackage[osf]{Baskervaldx} % oldstyle figures
+  %\usepackage[bigdelims,baskervaldx]{newtxmath} 
+  \usepackage[cal=boondoxo]{mathalfa}
+  \usepackage{mathalfa}
+
+
+%    ****************************************
+%    *         EXAM FORMATTING           *
+%    ****************************************
+
+
+  \usepackage[noindentafter]{titlesec}
+  \titlespacing{\section}{0pt}{5ex plus 30ex minus 3ex}{1.5ex}
+
+\usepackage{fancyhdr} 
+\usepackage{lastpage}
+\pagestyle{fancyplain} %header
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt} % your new footer definitions here
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+%\lfoot{ \emph{Exam continues on next page}}
+%\AtEndDocument{\lfoot{}}
+
+
+
+
+
+  
+  \RequirePackage{enumitem}
+\setlist[enumerate,1]{label=\Alph*., ref=\Alph*}
+\setlist[enumerate,2]{label={\alph*}),
+ref=\theenumi.{\alph*}}
+\setlist[enumerate,3]{label=\roman*), ref=\theenumii.\roman*}
+
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcounter{ProbPart}
+\newcounter{TotalCount}
+
+\newenvironment{problem}[1]{
+\section{\normalsize [#1 points]}\addtocounter{TotalCount}{#1}
+%\par
+}{\par
+\smallskip 
+\hfill \textbf{Total points available to end of this qu: \arabic{TotalCount}}
+%\par\medskip 
+}
+
+
+%\let\oldsection\section
+%\renewcommand\section{\vfill\emph{The exam continues on the next page}\setcounter{TotalCount}{0}\setcounter{ProbPart}{0}\vfill\clearpage\oldsection}
+
+%\raggedbottom
+
+
+
+\newcommand{\myanswer}[1]{\textcolor{darkred}{#1}} % 
+\renewcommand{\myanswer}[1]{}
+%\newcommand{\comment}[1]{\textcolor{blue}{#1}} % 
+%\renewcommand{\comment}[1]{}
+
+
+
+
+
+\usepackage{eso-pic,picture,graphicx} % For draftversion command
+% Draft version command
+\makeatletter
+\newcommand{\draftversion}{
+	\AddToShipoutPicture{%
+		\setlength{\@tempdimb}{.5\paperwidth}%
+		\setlength{\@tempdimc}{.5\paperheight}%
+		\setlength{\unitlength}{1pt}%
+		\protect{\put(\strip@pt\@tempdimb,\strip@pt\@tempdimc){%
+				\makebox(-515,0){\rotatebox{90}{\textcolor[gray]{0.6}%
+						{Pre-corrected version}}}
+				\makebox(515,0){\rotatebox{270}{\textcolor[gray]{0.6}%
+						{{\Huge  Draft} \today}  }}}}}
+}
+\makeatother
+
+
+
+
+
+%Titlepage
+
+
+\newcommand{\mytitlepage}{  \begin{titlepage}
+  \begin{center}
+  \large
+  
+{\large  \textbf{University of Bristol}}
+  
+  \bigskip  
+  
+{\sc{Sample} for 2017-18}
+  
+  \bigskip
+  School of Arts\\
+  Department of Philosophy
+  
+%  \medskip 
+%  First Year Examination for the Degree of BA in
+%  Philosophy
+  
+  \bigskip
+  Exam Paper Code PHIL10014J
+  
+  \bigskip 
+{  \bfseries \scshape{ Introduction to Formal Logic} }
+ \bigskip
+  
+  
+  
+\textsc{Time Allowed: Three Hours}
+  
+\bigskip
+  
+  
+ Candidates should attempt \textbf{\emph{all}} questions.
+  
+  \vfill
+  
+  This paper contains \ref{finalsec} questions. 
+  
+  \medskip 
+  Questions are marked with the number of points available. 
+  
+  \bigskip 
+  
+  Total number of points available: 180. So \textbf{\emph{1 point $\approx$ 1 min.} }
+  
+  \medskip
+  Summaries of total number of points available up to that point are recorded to assist time-organisation if you decide to attempt the questions in the given order. 
+  \end{center}
+  
+%\begin{center}
+%\textbf{UNIVERSITY OF BRISTOL}\bigskip
+%
+%Level 1 Examination in the faculties of Arts, Social Sciences, and Science \bigskip
+%
+%January 2018 \bigskip
+%
+%{PHIL10014} \bigskip
+%
+%\textbf{INTRODUCTION TO FORMAL LOGIC} \bigskip
+%\end{center}
+%
+%\noindent Time: THREE HOURS	\bigskip
+%
+%\noindent Candidates should attempt \emph{all} questions. 
+%
+%\medskip\noindent Total points available: 180 (1 min per point). \\Timings for if you work through it beginning to end are included. 
+\vfill
+
+
+\begin{center}
+\textbf{TURN OVER ONLY WHEN INSTRUCTED TO}
+\end{center}
+
+\vfill
+
+  \end{titlepage}}
+
