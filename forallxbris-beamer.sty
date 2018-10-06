@@ -22,31 +22,62 @@
 \setbeamertemplate{navigation symbols}{}
 \usepackage{appendixnumberbeamer} 
 %\setbeamercovered{transparent}
-%\setbeamertemplate{headline}{\vspace{1em}}
+%\setbeamertemplate{headline}{\vspace{1em}} % If want no shading
 \setbeamertemplate{blocks}[rounded][shadow=true]
+%\setbeamertemplate{headline}{\pgfuseshading{beamer@headfade}}
 
 
 
 \newcommand{\mytitlepage}{\begin{frame}[noframenumbering]	
 		\thispagestyle{empty}
 		\titlepage 
-	\end{frame}}
-	\newcommand{\mydrafttitlepage}{\begin{frame}[noframenumbering]	
-			\thispagestyle{empty}{\centering\textcolor{red}{
-					DRAFT VERSION! Do not cite without permission.}}
-			\titlepage 
-%			\begin{center}
-%				{\footnotesize{Supported by}\\
-%					\includegraphics[scale=1]{/Users/CCMoore/Dropbox/research/projects/humboldt_logo.png}}
-%			\end{center}
-		\end{frame}}
-		\newcommand{\myoutlinepage}{\begin{frame}[noframenumbering]{Outline}
-				\tableofcontents
-			\end{frame}
-			\AtBeginSection[]{\frame[noframenumbering]{\frametitle{Outline}%
-					\tableofcontents[current
-					]
-				}}}
+	\end{frame}\pdfbookmark{Introduction}{Introduction}}
+	
+%		\newcommand{\myoutlinepage}{\begin{frame}[noframenumbering]{Outline}
+%				\tableofcontents
+%			\end{frame}
+%			\AtBeginSection[]{\frame[noframenumbering]{\frametitle{Outline}%
+%					\tableofcontents[current
+%					]
+%				}}}
+%
+%		\newcommand{\myoutlinepage}{\begin{frame}[noframenumbering]{Outline}
+%				\tableofcontents
+%			\end{frame}
+			
+%\AtBeginSection[]{
+%  \begin{frame}
+%  \vfill
+%  \centering
+%  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+%    \usebeamerfont{title}\insertsectionhead\par%
+%  \end{beamercolorbox}
+%  \vfill
+%  \end{frame}
+%}
+%  \newcommand*{\sectionbookmark}[1][]{%
+%    \bookmark[%
+%      level=section,%
+%      dest=\@currentHref,%
+%      #1%
+%    ]%
+%  }
+  
+\newcommand{\sectionframe}[1]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{structure}
+    \usebeamerfont{title}#1\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+\pdfbookmark{#1}{#1}
+  }
+
+  
+
+
 	\newcommand{\bibcommand}{\appendix
 		\begin{frame}[allowframebreaks]{References}
 			\def\newblock{}
