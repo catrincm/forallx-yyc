@@ -84,39 +84,10 @@
   \usepackage[cal=boondoxo]{mathalfa}
   \usepackage{mathalfa}
 
-
 %    ****************************************
-%    *         EXAM FORMATTING           *
+%    *         Questions and answers           *
 %    ****************************************
 
-
-  \usepackage[noindentafter]{titlesec}
-  \titlespacing{\section}{0pt}{5ex plus 30ex minus 3ex}{1.5ex}
-
-\usepackage{fancyhdr} 
-\usepackage{lastpage}
-\pagestyle{fancyplain} %header
-\fancyhf{} % sets both header and footer to nothing
-\renewcommand{\headrulewidth}{0pt} % your new footer definitions here
-\cfoot{Page \thepage\ of \pageref{LastPage}}
-%\lfoot{ \emph{Exam continues on next page}}
-%\AtEndDocument{\lfoot{}}
-
-
-
-
-
-  
-  \RequirePackage{enumitem}
-\setlist[enumerate,1]{label=\Alph*., ref=\Alph*}
-\setlist[enumerate,2]{label={\alph*}),
-ref=\theenumi.{\alph*}}
-\setlist[enumerate,3]{label=\roman*), ref=\theenumii.\roman*}
-
-
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \newcounter{ProbPart}
@@ -145,12 +116,37 @@ ref=\theenumi.{\alph*}}
 %\renewcommand{\comment}[1]{}
 
 
+  
+  \RequirePackage{enumitem}
+\setlist[enumerate,1]{label=\Alph*., ref=\Alph*}
+\setlist[enumerate,2]{label={\alph*}),
+ref=\theenumi.{\alph*}}
+\setlist[enumerate,3]{label=\roman*), ref=\theenumii.\roman*}
+
+
+
+%    ****************************************
+%    *         EXAM FORMATTING           *
+%    ****************************************
+
+
+  \usepackage[noindentafter]{titlesec} %% to modify spacing sections making sure that no problems are broken over pages
+  \titlespacing{\section}{0pt}{5ex plus 30ex minus 3ex}{1.5ex}
+
+\usepackage{fancyhdr} 
+\usepackage{lastpage}
+\pagestyle{fancyplain} %header
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt} % your new footer definitions here
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+%\lfoot{ \emph{Exam continues on next page}}
+%\AtEndDocument{\lfoot{}}
+
 
 
 
 \usepackage{eso-pic,picture,graphicx} % For draftversion command
 % Draft version command
-\makeatletter
 \newcommand{\draftversion}{
 	\AddToShipoutPicture{%
 		\setlength{\@tempdimb}{.5\paperwidth}%
@@ -162,7 +158,7 @@ ref=\theenumi.{\alph*}}
 				\makebox(515,0){\rotatebox{270}{\textcolor[gray]{0.6}%
 						{{\Huge  Draft} \today}  }}}}}
 }
-\makeatother
+
 
 
 
@@ -170,81 +166,52 @@ ref=\theenumi.{\alph*}}
 
 %Titlepage
 
+%% Options to set: exampapercode, exampapertitle, examperiod
 
-\newcommand{\mytitlepage}{  \begin{titlepage}
-  \begin{center}
-  \large
-  
-{\large  \textbf{University of Bristol}}
-  
-  \bigskip  
-  
-{\sc{Sample} for 2017-18}
-  
-  \bigskip
-  School of Arts\\
-  Department of Philosophy
-  
-%  \medskip 
-%  First Year Examination for the Degree of BA in
-%  Philosophy
-  
-  \bigskip
-  Exam Paper Code PHIL10014J
-  
-  \bigskip 
-{  \bfseries \scshape{ Introduction to Formal Logic} }
- \bigskip
-  
-  
-  
-\textsc{Time Allowed: Three Hours}
-  
-\bigskip
-  
-  
- Candidates should attempt \textbf{\emph{all}} questions.
-  
-  \vfill
-  
-  This paper contains \ref{finalsec} questions. 
-  
-  \medskip 
-  Questions are marked with the number of points available. 
-  
-  \bigskip 
-  
-  Total number of points available: 180. So \textbf{\emph{1 point $\approx$ 1 min.} }
-  
-  \medskip
-  Summaries of total number of points available up to that point are recorded to assist time-organisation if you decide to attempt the questions in the given order. 
-  \end{center}
-  
-%\begin{center}
-%\textbf{UNIVERSITY OF BRISTOL}\bigskip
-%
-%Level 1 Examination in the faculties of Arts, Social Sciences, and Science \bigskip
-%
-%January 2018 \bigskip
-%
-%{PHIL10014} \bigskip
-%
-%\textbf{INTRODUCTION TO FORMAL LOGIC} \bigskip
-%\end{center}
-%
-%\noindent Time: THREE HOURS	\bigskip
-%
-%\noindent Candidates should attempt \emph{all} questions. 
-%
-%\medskip\noindent Total points available: 180 (1 min per point). \\Timings for if you work through it beginning to end are included. 
-\vfill
+\newcommand*{\exampapercode}[1]{\gdef\@exampapercode{#1}%
+}
+\newcommand*{\@exampapercode}{PHIL 10032}
+
+\newcommand*{\exampapertitle}[1]{\gdef\@exampapertitle{#1}%
+}
+\newcommand*{\@exampapertitle}{Logic and Critical Thinking}
+\newcommand*{\examperiod}[1]{\gdef\@examperiod{#1}%
+}
+\newcommand*{\@examperiod}{\texttt{\string\examperiod} currently
+not set. Please fix this. E.g.~`January 2018 Examination Period'}
 
 
-\begin{center}
-\textbf{TURN OVER ONLY WHEN INSTRUCTED TO}
-\end{center}
+\renewcommand{\maketitle}{ 
+\begin{titlepage}
+\centering
+	{ \textbf{University of Bristol}\unskip\strut\par}
+    \bigskip  
+  	{\@examperiod \unskip\strut\par}
+    \bigskip
+  	{School of Arts\unskip\strut\par}
+  	{Department of Philosophy \unskip\strut\par}
+  	 \bigskip
+  	 {Exam Paper Code \@exampapercode \unskip\strut\par}
+  	 \bigskip 
+  	 {  \bfseries  \@exampapertitle  \unskip\strut\par} 
+  	 \bigskip
+  	 {\scshape Time Allowed: Three Hours \unskip\strut\par}
+	\bigskip
+	{Candidates should attempt \textbf{\emph{all}} questions. \unskip\strut\par}
+	\vfill
+	{This paper contains \ref{finalsec} questions.  \unskip\strut\par}
+  	\medskip 
+  	{Questions are marked with the number of points available.  \unskip\strut\par}
+  	\bigskip 
+  	{Total number of points available: 180. So \textbf{\emph{1 point $\approx$ 1 min.} } \unskip\strut\par}
+  	\medskip
+  	{Summaries of total number of points available up to that point are recorded to assist time-organisation if you decide to attempt the questions in the given order.  \unskip\strut\par}
+  	\vfill
+  	{\bfseries  Only turn over when instructed to \unskip\strut\par}
+  	\vfill
+\end{titlepage}}
 
-\vfill
 
-  \end{titlepage}}
+\newenvironment{addnlinfo}{\itshape }{}
 
+\endinput

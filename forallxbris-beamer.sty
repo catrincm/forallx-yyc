@@ -18,15 +18,27 @@
 
 \usetheme{Singapore}
 %\useoutertheme[compact]{smoothbars}
-\setbeamertemplate{footline}{}
+%\setbeamertemplate{footline}{}
 \setbeamertemplate{navigation symbols}{}
 \usepackage{appendixnumberbeamer} 
 %\setbeamercovered{transparent}
-%\setbeamertemplate{headline}{\vspace{1em}} % If want no shading
+\setbeamertemplate{headline}{\vspace{1em}} % If want no shading in Singapore
 \setbeamertemplate{blocks}[rounded][shadow=true]
+
+%Was fiddling:
 %\setbeamertemplate{headline}{\pgfuseshading{beamer@headfade}}
-
-
+%\AtBeginDocument{%
+%  {
+%    \usebeamercolor{section in head/foot}
+%  }
+%\pgfdeclareverticalshading{beamer@headfade}{\paperwidth}
+%  {%
+%    color(0cm)=(bg);
+%    color(1.25cm)=(section in head/foot.bg)%
+%  }
+%  \setbeamercolor{section in head/foot}{bg=}
+%}
+%\addtoheadtemplate{\pgfuseshading{beamer@headfade}\vskip-1.25cm}{}
 
 \newcommand{\mytitlepage}{\begin{frame}[noframenumbering]	
 		\thispagestyle{empty}
@@ -45,16 +57,16 @@
 %				\tableofcontents
 %			\end{frame}
 			
-%\AtBeginSection[]{
-%  \begin{frame}
-%  \vfill
-%  \centering
-%  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-%    \usebeamerfont{title}\insertsectionhead\par%
-%  \end{beamercolorbox}
-%  \vfill
-%  \end{frame}
-%}
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
 %  \newcommand*{\sectionbookmark}[1][]{%
 %    \bookmark[%
 %      level=section,%
@@ -63,17 +75,17 @@
 %    ]%
 %  }
   
-\newcommand{\sectionframe}[1]{
-  \begin{frame}
-  \vfill
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{structure}
-    \usebeamerfont{title}#1\par%
-  \end{beamercolorbox}
-  \vfill
-  \end{frame}
-\pdfbookmark{#1}{#1}
-  }
+%\newcommand{\sectionframe}[1]{
+%  \begin{frame}
+%  \vfill
+%  \centering
+%  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{structure}
+%    \usebeamerfont{title}#1\par%
+%  \end{beamercolorbox}
+%  \vfill
+%  \end{frame}
+%\pdfbookmark{#1}{#1}
+%  }
 
   
 
