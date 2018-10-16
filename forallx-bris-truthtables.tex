@@ -197,15 +197,15 @@ The power of truth tables lies in the following. Each row of a truth table repre
 
 \section{A worked example}
 
-Consider the sentence `$(I\eif H)\eif H$'. 
-Truth functionality gives us that the truth value of the whole sentence $(I\eif H)\eif H$ depends just on the truth values of the component sentences $(I\eif H)$ and $H$. And furthermore, that $I\eif H$ depends on $H$ and $I$. So we will be able to work out the truth value of the whole sentence based on the truth values of $H$ and $I$, which are given by the valuation. 
+Consider the sentence `$(I\eif H)\eand H$'. 
+Truth functionality gives us that the truth value of the whole sentence $(I\eif H)\eand H$ depends just on the truth values of the component sentences $(I\eif H)$ and $H$. And furthermore, that $I\eif H$ depends on $H$ and $I$. So we will be able to work out the truth value of the whole sentence based on the truth values of $H$ and $I$, which are given by the valuation. 
 
 We summarised how the connectives give truth values from the component sentences in a \emph{characteristic truth table}. We will now give truth tables which allow us to record what the truth value of these complicated sentences depending on the truth values of the atomic sentences (something which logic itself won't be able to determine).
 
 There are four possible ways to assign True and False to the atomic sentence `$H$' and `$I$'---four possible valuations---which we can represent as lines in a ``truth table'':
 \begin{center}
 \begin{tabular}{c c|d e e e f}
-$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
+$H$&$I$&$(H$&\eif&$I)$&\eand&$H$\\
 \hline
  T & T\\
  T & F\\
@@ -219,7 +219,7 @@ To know how to proceed we will want to look at the structure of the sentence, wh
 
 \begin{center}
 \begin{forest}
-[$(I\eif H)\eif H$
+[$(I\eif H)\eand H$
 	[$(I\eif H)$
 		[$I$]
 		[$H$]
