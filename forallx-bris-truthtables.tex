@@ -84,7 +84,7 @@ Unsurprisingly, the biconditional is symmetrical.
 \section{The idea of truth-functionality}
 Let's introduce an important idea. 
 	\factoidbox{
-		A connective is \define{truth-functional} iff the truth value of a sentence with that connective as its main logical operator is uniquely determined by the truth value(s) of the constituent sentence(s).
+		A connective is \define{truth-functional} iff the truth value of a sentence with that connective as its main operator is uniquely determined by the truth value(s) of the constituent sentence(s).
 	}
 \newglossaryentry{truth-functional connective}
 {
@@ -196,7 +196,13 @@ description={An assignment of \glspl{truth value} to particular atomic \glspl{se
 The power of truth tables lies in the following. Each row of a truth table represents a possible valuation. The entire truth table represents all possible valuations; thus the truth table provides us with a means to calculate the truth values of complex sentences, on each possible valuation. This is easiest to explain by example.
 
 \section{A worked example}
-Consider the sentence `$(H\eand I)\eif H$'. There are four possible ways to assign True and False to the atomic sentence `$H$' and `$I$'---four possible valuations---which we can represent as follows:
+
+Consider the sentence `$(I\eif H)\eif H$'. 
+Truth functionality gives us that the truth value of the whole sentence $(I\eif H)\eif H$ depends just on the truth values of the component sentences $(I\eif H)$ and $H$. And furthermore, that $I\eif H$ depends on $H$ and $I$. So we will be able to work out the truth value of the whole sentence based on the truth values of $H$ and $I$, which are given by the valuation. 
+
+We summarised how the connectives give truth values from the component sentences in a \emph{characteristic truth table}. We will now give truth tables which allow us to record what the truth value of these complicated sentences depending on the truth values of the atomic sentences (something which logic itself won't be able to determine).
+
+There are four possible ways to assign True and False to the atomic sentence `$H$' and `$I$'---four possible valuations---which we can represent as lines in a ``truth table'':
 \begin{center}
 \begin{tabular}{c c|d e e e f}
 $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
@@ -207,69 +213,100 @@ $H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
  F & F
 \end{tabular}
 \end{center}
-To calculate the truth value of the entire sentence `$(H \eand I) \eif H$', we first copy the truth values for the atomic sentences and write them underneath the letters in the sentence:
-\begin{center}
-\begin{tabular}{c c|d e e e f}
-$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
-\hline
- T & T & {T} & & {T} & & {T}\\
- T & F & {T} & & {F} & & {T}\\
- F & T & {F} & & {T} & & {F}\\
- F & F & {F} & & {F} & & {F}
-\end{tabular}
-\end{center}
+
+Here the formation tree will help us know what to do. 
 To know how to proceed we will want to look at the structure of the sentence, which we can do by producing a formation tree as in \S\ref{TFLsentences}: 
 
 \begin{center}
 \begin{forest}
-[$(H\eand I)\eif H$
-	[$(H\eand I)$
-		[$H$]
+[$(I\eif H)\eif H$
+	[$(I\eif H)$
 		[$I$]
+		[$H$]
 	]
 	[$H$]
 ]
 \end{forest}
 \end{center}
 
-To fill in the truth table we will be working up the tree. We have to have assigned truth values to all components lower in the tree to work out the node connecting them. So we should start with the lowest sentence that we have not yet got a truth value for: `$(H\eand I)$'. This is a conjunction, $(\metaX\eand\metaY)$, with `$H$' as \metaX and with `$I$' as \metaY. The characteristic truth table for conjunction gives the truth conditions for \emph{any} sentence of the form $(\metaX\eand\metaY)$, whatever $\metaX$ and $\metaY$ might be. It represents the point that a conjunction is true iff both conjuncts are true. In this case, our conjuncts are just `$H$' and `$I$'. They are both true on (and only on) the first line of the truth table. Accordingly, we can calculate the truth value of the conjunction on all four rows.
-\begin{center}
-\begin{tabular}{c c|d e e e f}
- & & \metaX & \eand & \metaY & & \\
-$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
-\hline
- T & T & T & {T} & T & & T\\
- T & F & T & {F} & F & & T\\
- F & T & F & {F} & T & & F\\
- F & F & F & {F} & F & & F
-\end{tabular}
-\end{center}
-Now, the entire sentence that we are dealing with is a conditional, $\metaX\eif\metaY$, with `$(H \eand I)$' as \metaX and with `$H$' as \metaY. On the second row, for example, `$(H\eand I)$' is false and `$H$' is true. Since a conditional is true when the antecedent is false, we write a `T' in the second row underneath the conditional symbol. We continue for the other three rows and get this:
-\begin{center}
-\begin{tabular}{c c| d e e e f}
- & &  & \metaX &  &\eif &\metaY \\
-$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
-\hline
- T & T &  & {T} &  &{T} & T\\
- T & F &  & {F} &  &{T} & T\\
- F & T &  & {F} &  &{T} & F\\
- F & F &  & {F} &  &{T} & F
-\end{tabular}
-\end{center}
-The conditional is the main logical operator of the sentence, so the column of `T's underneath the conditional tells us that the sentence `$(H \eand I)\eif H$' is true regardless of the truth values of `$H$' and `$I$'. They can be true or false in any combination, and the compound sentence still comes out true. Since we have considered all four possible assignments of truth and falsity to `$H$' and `$I$'---since, that is, we have considered all the different \emph{valuations}---we can say that `$(H \eand I)\eif H$' is true on every valuation.
+The valuation tells us whether one of the ``leaves'' of the tree is true or false. The characteristic truth table tells us how the sentence further up the tree depend on the sentences further down the tree. To determine the truth value of $(I\eif H)\eif H$ we first need to know the truth values of the sentences lower down. In this case the only new sentence that we need to deal with is $I\eif H$. So we expand our table to include a working line for $I\eif H$: 
 
-In this example, we have not repeated all of the entries in every column in every successive table. When actually writing truth tables on paper, however, it is impractical to erase whole columns or rewrite the whole table for every step. Although it is more crowded, the truth table can be written in this way:
 \begin{center}
-\begin{tabular}{c c| d e e e f}
-$H$&$I$&$(H$&\eand&$I)$&\eif&$H$\\
-\hline
- T & T & T & {T} & T & \TTbf{T} & T\\
- T & F & T & {F} & F & \TTbf{T} & T\\
- F & T & F & {F} & T & \TTbf{T} & F\\
- F & F & F & {F} & F & \TTbf{T} & F
+\begin{tabular}{cc|c|c}
+$H$&$I$&$I\eif H$&$(I\eif H)\eand H$\\\hline
+T&T&a&\\
+T&F&b&\\
+F&T&c&\\
+F&F&d&
 \end{tabular}
 \end{center}
-Most of the columns underneath the sentence are only there for bookkeeping purposes. The column that matters most is the column underneath the \emph{main logical operator} for the sentence, since this tells you the truth value of the entire sentence. We have emphasized this, by putting this column in bold. When you work through truth tables yourself, you should similarly emphasize it (perhaps by underlining).
+To fill this in, we consult our characteristic truth table. We let $X$ be $I$ and $Y$ be $H$: \begin{center}
+\begin{tabular}{lc c|c}
+&\metaX & \metaY & $\metaX\eif\metaY$\\
+\hline
+line 1&T & T & T\\
+line 2&T & F & F\\
+line 3&F & T & T\\
+line 4&F & F & T
+\end{tabular}
+\end{center}
+
+So in space `a' of our table, we look at line 1 of the characteristic truth table, and we see that we should replace `a' with `T'. What about space `b'. \metaX is $I$, which is false, and \metaY is $H$ which is true. So we look at the 3rd line of the characteristic truth table and we see we should put `T'. In space `c' we consult line 2; and space `d' we consult line 4. 
+
+So we result in: 
+\begin{center}
+\begin{tabular}{cc|c|c}
+$H$&$I$&$I\eif H$&$(I\eif H)\eand H$\\\hline
+T&T&T&a\\
+T&F&T&b\\
+F&T&F&c\\
+F&F&T&d
+\end{tabular}
+\end{center}
+And we can move on to looking at $(I\eif H)\eand H$; I've replaced the gaps in the truth table with letters so I can refer to them in my description here. 
+
+We then consult the truth table for $\eand$ because that is the main connective of $(I\eif H)\eand H$.
+
+\begin{center}
+\begin{tabular}{lc c|c}
+&$(I\eif H)$&$H$&$(I\eif H)\eand H$\\
+&\metaX & \metaY & $\metaX\eand\metaY$\\
+\hline
+line 1&T & T & T\\
+line 2&T & F & F\\
+line 3&F & T & F\\
+line 4&F & F & F
+\end{tabular}
+\end{center}
+
+So in gap `a', we are considering the T,T line, i.e.~line 1. So we replace `a' with `T'. 
+In gap `b' we consider the T,T line again: $(I\eif H)$ is true, and so is $H$. So we replace `b' with `T' as well.
+For gap `c', we are considering a F,F line: line 4 (because we've seen that both $(I\eif H)$ and $H$ are false in this valuation). So we replace `c' with `F'.
+Finally, we look at gap `d'. Here we have $(I\eif H)$ is true and $H$ is false. So we consult line 2 of the characteristic truth table and we replace `d' with `F'. 
+
+When we do these in practice, our sentences can have many subsentences, consider, e.g.~$$\enot\enot(A\eor (B\eand(\enot B\eiff \enot A)))$$ A tool for keeping our truth tables easier to do is not to put all the subsentences out as separate entire columns to calculate, but to simply list the values underneath the main connective of the sentence. This is simply to keep the truth table more concise. 
+
+So instead of writing 
+\begin{center}
+\begin{tabular}{cc|cccc|c}
+$A$&$B$&$\enot B$&$\enot A$&$\enot B\eiff \enot A$&$(B\eand(\enot B\eiff \enot A)))$&$\enot (B\eand(\enot B\eiff \enot A)))$\\\hline
+T&T&F&F&T&T&F\\
+T&F&T&F&F&F&T\\
+F&T&F&T&F&F&T\\
+F&F&T&T&T&F&T
+\end{tabular}
+\end{center}
+I can write:\begin{center}
+\begin{tabular}{cc|deeeef}
+$A$&$B$&\textbf{$\enot$}&$(B$&$\eand$&$(\enot B$&$\eiff$&$ \enot A)))$\\\hline
+T&T&\textbf{F}&&T&F&T&F\\
+T&F&\textbf{T}&&F&T&F&F\\
+F&T&\textbf{T}&&F&F&F&T\\
+F&F&\textbf{T}&&F&T&T&T
+\end{tabular}
+\end{center}and highlight the column under the main connective, which provides our final answer. This is more concise and is more useful when we want to apply tricks to miss out some of the gaps by using strategies such as knowing that $\metaX$ is false is already enough to see that $\metaX\eand\metaY$ is false, we don't need to continue to work out the truth value of $\metaY$. 
+
+You should feel free to use whichever method you find easier. 
 
 \section{Building complete truth tables}
 A \define{complete truth table} has a line for every possible assignment of True and False to the relevant atomic sentences. Each line represents a \emph{valuation}, and a complete truth table has a line for all the different valuations. 
