@@ -1,6 +1,21 @@
 %!TEX root = forallxbris.tex
 \chapter{Quick reference}\label{glossary:quick ref}
 %\pagestyle{plain}
+\section{Sentences of TFL}
+Definition of being a sentence of TFL:
+	\begin{earg}
+		\item Every atomic sentence is a sentence.
+		\begin{itemize}
+		\item $A,B,C\ldots,W$, or with subscripts $A_1, B_3, A_{100}, J_{375}$
+		\end{itemize}
+		\item If \metaX is a sentence, then $\enot\metaX$ is a sentence.
+		\item If \metaX and \metaY are sentences, then $(\metaX\eand\metaY)$ is a sentence.
+		\item If \metaX and \metaY are sentences, then $(\metaX\eor\metaY)$ is a sentence.
+		\item If \metaX and \metaY are sentences, then $(\metaX\eif\metaY)$ is a sentence.
+		\item If \metaX and \metaY are sentences, then $(\metaX\eiff\metaY)$ is a sentence.
+		\item Nothing else is a sentence.
+	\end{earg}
+	
 \section{Characteristic Truth Tables}
 \label{app.CharacteristicTTs}
 
@@ -24,19 +39,33 @@ F & F & F & F & T & T
 \vfill
 
 \section{Symbolization}
+\subsubsection*{Rough Meaning of the TFL Connectives}
+		\begin{tabular}{cll}
+		\textbf{symbol}&\textbf{name}&\textbf{rough meaning}\\
+		\hline
+		\enot&negation&`It is not the case that$\ldots$'\\
+		\eand&conjunction&`$\ldots$\ and $\ldots$'\\
+		\eor&disjunction&`$\ldots$\ or $\ldots$'\\
+		\eif&conditional&`If $\ldots$\ then $\ldots$'\\
+		\eiff&biconditional&`$\ldots$ if and only if $\ldots$'\\
+		\end{tabular}
+		
+		
 
 \label{app.symbolization}
 \subsubsection*{Sentential Connectives}
-\begin{center}
-\begin{tabular*}{\textwidth}{ll}
+\begin{center}\begin{tabular*}{\textwidth}{ll}
 It is not the case that P & $\enot P$\\
 P or Q & $(P \eor Q)$\\
-Neither P nor Q & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
-Both P and Q & $(P \eand Q)$\\
+P and Q & $(P \eand Q)$\\
 If P, then Q & $(P \eif Q)$\\
-P only if Q & $(P \eif Q)$\\
 P if and only if Q & $(P \eiff Q)$\\
+\end{tabular*}\end{center}Further rules:\begin{center}
+\begin{tabular*}{\textwidth}{ll}
+Neither P nor Q & $\enot(P \eor Q)$\ or \ $(\enot P \eand \enot Q)$\\
+P but Q & $(P \eand Q)$\\
 P unless Q & $(P \eor Q)$\\
+P only if Q & $(P \eif Q)$
 \end{tabular*}
 \end{center}
 \subsubsection*{Predicates}

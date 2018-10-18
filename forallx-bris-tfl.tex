@@ -681,7 +681,9 @@ Next, consider the example $\enot (P \eand \enot (\enot Q \eor R))$. Looking at 
 
 
 
-Ultimately, every sentence is constructed nicely out of atomic sentences. When we are dealing with a \emph{sentence} other than an atomic sentence, we can see that there must be some sentential connective that was introduced \emph{last}, when constructing the sentence. We call that connective the \define{main logical operator} of the sentence. In the case of $\enot\enot\enot D$, the main logical operator is the very first $\enot$ sign. In the case of $(P \eand \enot (\enot Q \eor R))$, the main logical operator is $\eand$. In the case of $((\enot E \eor F) \eif \enot\enot G)$, the main logical operator is $\eif$.
+Ultimately, every sentence is constructed nicely out of atomic sentences. When we are dealing with a \emph{sentence} other than an atomic sentence, we can see that there must be some sentential connective that was introduced \emph{last}, when constructing the sentence. We call that connective the \define{main connective} of the sentence.
+\factoidbox{The \define{main connective} of sentence is the last connective that was introduced in the construction of the sentence.} In the case of $((\enot E \eor F) \eif \enot\enot G)$, the main logical operator is $\eif$. Here we can see that the whole sentence can be described in the form $(\metaX\eif\metaY)$ with both $\metaX$ and $\metaY$ being complete sentences. That's enough to see that $\eif$ is the main operator. 
+ In the case of $\enot\enot\enot D$, the main logical operator is the very first $\enot$ sign. This is because we can see the sentence as having the form $\enot\metaX$ with $\metaX$ being a complete sentence: $\enot\enot D$. In the case of $(P \eand \enot (\enot Q \eor R))$, the main logical operator is $\eand$: it's an $(\metaX\eand\metaY)$ with $\metaX$ as $P$ and $\metaY$ as $\enot (\enot Q \eor R)$. 
 
 \newglossaryentry{main logical operator}
 {
