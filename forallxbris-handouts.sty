@@ -76,6 +76,16 @@
 		#1
 \end{tcolorbox}}
 
+\newenvironment{highlighted}{
+	\begin{tcolorbox}[%width=.9\textwidth,
+		%      leftright skip=.05\textwidth,
+%		sharp corners=downhill,
+		beforeafter skip=.7em,
+		colframe={black}]   }
+		{
+		\end{tcolorbox}}
+
+
 % \tablefbox{...} is used in certain tables to put a box around the contents of specific table cells without having lines that run the whole length of the table
 \newcommand{\tablefbox}[1]{\multicolumn{1}{|p{10em}|}{#1}}
 
@@ -110,4 +120,6 @@
 \rfoot{\thepage\ of \pageref{LastPage}}
 
 \setlength{\parskip}{.5ex plus1mm minus1mm}
+
+\newcommand{\alert}[1]{\textbf{#1}}
 

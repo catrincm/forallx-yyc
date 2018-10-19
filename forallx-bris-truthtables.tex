@@ -284,6 +284,16 @@ In gap `b' we consider the T,T line again: $(I\eif H)$ is true, and so is $H$. S
 For gap `c', we are considering a F,F line: line 4 (because we've seen that both $(I\eif H)$ and $H$ are false in this valuation). So we replace `c' with `F'.
 Finally, we look at gap `d'. Here we have $(I\eif H)$ is true and $H$ is false. So we consult line 2 of the characteristic truth table and we replace `d' with `F'. 
 
+Our final truth table is \begin{center}
+\begin{tabular}{cc|c|c}
+$H$&$I$&$I\eif H$&$(I\eif H)\eand H$\\\hline
+T&T&T&T\\
+T&F&T&T\\
+F&T&F&F\\
+F&F&T&F
+\end{tabular}
+\end{center}
+
 When we do these in practice, our sentences can have many subsentences, consider, e.g.~$$\enot\enot(A\eor (B\eand(\enot B\eiff \enot A)))$$ A tool for keeping our truth tables easier to do is not to put all the subsentences out as separate entire columns to calculate, but to simply list the values underneath the main connective of the sentence. This is simply to keep the truth table more concise. 
 
 So instead of writing 
