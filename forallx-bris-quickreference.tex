@@ -18,22 +18,53 @@ Definition of being a sentence of TFL:
 	
 \section{Characteristic Truth Tables}
 \label{app.CharacteristicTTs}
-
-\begin{tabular}{c|c}
-\metaX & \enot\metaX\\
-\hline
-T & F\\
-F & T \\
-\end{tabular}
-\hfill
-\begin{tabular}{c c|c|c|c|c}
-\metaX & \metaY & $\metaX\eand\metaY$ & $\metaX\eor\metaY$ & $\metaX\eif\metaY$ & $\metaX\eiff\metaY$\\
-\hline
-T & T & T & T & T & T\\
-T & F & F & T & F & F\\
-F & T & F & T & T & F\\
-F & F & F & F & T & T
-\end{tabular}
+\begin{center}
+			\begin{minipage}{.25\textwidth}
+				\begin{tabular}{c|c}
+				$\metaX$&$\enot\metaX$\\\hline
+				T&F\\
+				F&T
+				\end{tabular}
+			\end{minipage}
+			\begin{minipage}{.35\textwidth}
+				\begin{tabular}{cc|c}
+				$\metaX$&$\metaY$&$\metaX\eand\metaY$\\\hline
+				T&T&T\\
+				T&F&F\\
+				F&T&F\\
+				F&F&F
+				\end{tabular}
+			\end{minipage}
+			\begin{minipage}{.35\textwidth}
+				\begin{tabular}{cc|c}
+				$\metaX$&$\metaY$&$\metaX\eor\metaY$\\\hline
+				T&T&T\\
+				T&F&T\\
+				F&T&T\\
+				F&F&F
+				\end{tabular}
+			\end{minipage}
+			
+			\medskip 
+			\begin{minipage}{.35\textwidth}
+				\begin{tabular}{cc|c}
+				$\metaX$&$\metaY$&$\metaX\eif\metaY$\\\hline
+				T&T&T\\
+				T&F&F\\
+				F&T&T\\
+				F&F&T
+				\end{tabular}
+			\end{minipage}
+			\begin{minipage}{.35\textwidth}
+				\begin{tabular}{cc|c}
+				$\metaX$&$\metaY$&$\metaX\eiff\metaY$\\\hline
+				T&T&T\\
+				T&F&F\\
+				F&T&F\\
+				F&F&T
+				\end{tabular}
+			\end{minipage}
+	\end{center}
 
 
 \vfill
