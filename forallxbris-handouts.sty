@@ -67,21 +67,16 @@
 % belong anywhere else.
 %\newcommand{\factoidbox}[1]{\begin{quote}\framebox{\parbox{\linewidth}{#1}}\end{quote}}
 \RequirePackage{tcolorbox}
-\newcommand{\factoidbox}[1]{
-	\begin{tcolorbox}[%width=.9\textwidth,
-		%      leftright skip=.05\textwidth,
-%		sharp corners=downhill,
-		beforeafter skip=.7em,
-		colframe={black}]   
-		#1
-\end{tcolorbox}}
+\newcommand{\factoidbox}[1]{\begin{highlighted}
+#1
+\end{highlighted}}
 
 \newenvironment{highlighted}{
 	\begin{tcolorbox}[%width=.9\textwidth,
 		%      leftright skip=.05\textwidth,
 %		sharp corners=downhill,
 		beforeafter skip=.7em,
-		colframe={black}]   }
+		colframe={black}, colback={black!5!white}]   }
 		{
 		\end{tcolorbox}}
 
@@ -111,15 +106,51 @@
 
 
 \usepackage{fancyhdr}
+\usepackage{lastpage}
 
 \pagestyle{fancy}
 %\lhead{{\footnotesize Probability and Rationality}} \chead{}
-\lfoot{\today}\chead{}
-\rhead{{\large{\bf Catrin Campbell-Moore}}} 
-\lhead{} \cfoot{}
-\rfoot{\thepage\ of \pageref{LastPage}}
+\lfoot{Catrin Campbell-Moore}\chead{}
+\rhead{} 
+\lhead{} \rfoot{\today}
+\cfoot{\thepage\ of \pageref{LastPage}}
 
-\setlength{\parskip}{.5ex plus1mm minus1mm}
 
-\newcommand{\alert}[1]{\textbf{#1}}
+  \usepackage[noindentafter]{titlesec}
+\titlespacing*{\section} {0pt}{3ex plus 50ex minus 2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsection} {0pt}{3ex plus 40ex minus 2ex}{1.5ex plus .2ex}
 
+
+%\setlist[itemize]{parsep=.2ex,itemsep=0em}
+%\setlist[enumerate]{parsep=.2ex}
+
+\setlength{\parskip}{.5em}
+\setlength{\parindent}{0pt}
+
+ \renewcommand{\headrulewidth}{0pt}%
+ 
+ \newenvironment{block}[2][.7cm]{\begin{center}\begin{adjustwidth}{#1}{#1}\textbf{#2: }}{\end{adjustwidth}\end{center}}
+ \newcommand{\pause}{}
+ \newcommand{\alert}{\textbf}
+ 
+ 
+ \definecolor{darkred}{rgb}{0.5,0,0} % TB: used to color links in red
+
+
+
+\newcommand*{\topic}[1]{\gdef\@topic{#1}%
+}
+\newcommand*{\@topic}{}
+
+\newcommand*{\coursename}[1]{\gdef\@coursename{#1}%
+}
+\newcommand*{\@coursename}{\texttt{\string\coursename} currently
+not set. }
+\renewcommand{\maketitle}{
+\begin{center}
+	{\huge\textbf{\@coursename}}
+	
+	\smallskip	
+	{\Large{\@topic}}
+\end{center}	
+}

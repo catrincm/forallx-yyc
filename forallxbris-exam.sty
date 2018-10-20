@@ -156,7 +156,7 @@ ref=\theenumi.{\roman*}}
 				\makebox(-515,0){\rotatebox{90}{\textcolor[gray]{0.6}%
 						{Pre-corrected version}}}
 				\makebox(515,0){\rotatebox{270}{\textcolor[gray]{0.6}%
-						{{\Huge  Draft} \today}  }}}}}
+						{{\Huge  Draft} }  }}}}}
 }
 
 
@@ -180,7 +180,10 @@ ref=\theenumi.{\roman*}}
 \newcommand*{\@examperiod}{\texttt{\string\examperiod} currently
 not set. Please fix this. E.g.~`January 2018 Examination Period'}
 
-
+\newcommand*{\examperiodcode}[1]{\gdef\@examperiodcode{#1}%
+}
+\newcommand*{\@examperiodcode}{\texttt{\string\examperiodcode} currently
+not set. Choose `R' (resit) or `J' (Jan)}
 \renewcommand{\maketitle}{ 
 \begin{titlepage}
 \centering
@@ -191,7 +194,7 @@ not set. Please fix this. E.g.~`January 2018 Examination Period'}
   	{School of Arts\unskip\strut\par}
   	{Department of Philosophy \unskip\strut\par}
   	 \bigskip
-  	 {Exam Paper Code \@exampapercode \unskip\strut\par}
+  	 {Exam Paper Code \@exampapercode\, \@examperiodcode \unskip\strut\par}
   	 \bigskip 
   	 {  \bfseries  \@exampapertitle  \unskip\strut\par} 
   	 \bigskip
