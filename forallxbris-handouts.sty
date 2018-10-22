@@ -110,15 +110,15 @@
 
 \pagestyle{fancy}
 %\lhead{{\footnotesize Probability and Rationality}} \chead{}
-\lfoot{Catrin Campbell-Moore}\chead{}
+\lfoot{\footnotesize {Catrin Campbell-Moore}}\chead{}
 \rhead{} 
-\lhead{} \rfoot{\today}
-\cfoot{\thepage\ of \pageref{LastPage}}
+\lhead{} \rfoot{\footnotesize \today}
+\cfoot{\footnotesize \thepage\ of \pageref{LastPage}}
 
-
-  \usepackage[noindentafter]{titlesec}
-\titlespacing*{\section} {0pt}{3ex plus 50ex minus 2ex}{1.5ex plus .2ex}
-\titlespacing*{\subsection} {0pt}{3ex plus 40ex minus 2ex}{1.5ex plus .2ex}
+%
+%  \usepackage[noindentafter]{titlesec}
+%\titlespacing*{\section} {0pt}{3ex plus 50ex minus 2ex}{1.5ex plus .2ex}
+%\titlespacing*{\subsection} {0pt}{3ex plus 40ex minus 2ex}{1.5ex plus .2ex}
 
 
 %\setlist[itemize]{parsep=.2ex,itemsep=0em}
@@ -135,7 +135,7 @@
  
  
  \definecolor{darkred}{rgb}{0.5,0,0} % TB: used to color links in red
-
+\newcommand*{\define}[1]{\textbf{#1}}
 
 
 \newcommand*{\topic}[1]{\gdef\@topic{#1}%
@@ -148,9 +148,9 @@
 not set. }
 \renewcommand{\maketitle}{
 \begin{center}
-	{\huge\textbf{\@coursename}}
+	{\LARGE{\@coursename}}
 	
-	\smallskip	
-	{\Large{\@topic}}
-\end{center}	
+		
+	{{\@topic}}
+\end{center}	\medskip  
 }
