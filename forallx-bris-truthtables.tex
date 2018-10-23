@@ -626,7 +626,7 @@ In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if 
 }
 We will be using validity a lot in this course, and we have a corresponding notion that makes the claim that an argument is valid: that is the notion of \emph{entailment}. 
 \factoidbox{
-	The TFL sentences $\metaX_1, \metaX_2, \ldots, \metaX_n$ \define{entail} the sentence $\meta{C}$ iff there are no valuations where all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true and $\meta{C}$ false.
+	The TFL sentences $\metaX_1, \metaX_2, \ldots, \metaX_n$ \define{entail} the sentence $\metaY$ iff there are no valuations where all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true and $\metaY$ false.
 }
 \newglossaryentry{entailment in TFL}
 {
@@ -637,7 +637,7 @@ We will be using validity a lot in this course, and we have a corresponding noti
 
 We can see that entailment and validity are sister-notions: 
 \factoidbox{
-		$\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\meta{C}$ iff $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \meta{C}$ is valid.
+		$\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\metaY$ iff $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \metaY$ is valid.
 	}
 
 It is easy to for entailment this with a truth table. Let us check whether `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$', we simply need to check whether there is any valuation which makes both `$\enot L \eif (J \eor L)$' and `$\enot L$' true whilst making `$J$' false. So we use a truth table: 
@@ -656,15 +656,15 @@ The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true i
 
 %We now make an important observation:
 %\factoidbox{
-%	$\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\meta{C}$ iff $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \meta{C}$ is valid.
+%	$\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\metaY$ iff $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \metaY$ is valid.
 %}
-%Here's why. If $\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\meta{C}$, then there is no valuation which makes all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true whilst making $\meta{C}$ false. This means that it is \emph{logically impossible} for $\metaX_1, \metaX_2, \ldots, \metaX_n$ all to be true whilst $\meta{C}$ is false. But this is just what it takes for an argument, with premises $\metaX_1, \metaX_2, \ldots, \metaX_n$ and conclusion $\meta{C}$, to be valid!
+%Here's why. If $\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\metaY$, then there is no valuation which makes all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true whilst making $\metaY$ false. This means that it is \emph{logically impossible} for $\metaX_1, \metaX_2, \ldots, \metaX_n$ all to be true whilst $\metaY$ is false. But this is just what it takes for an argument, with premises $\metaX_1, \metaX_2, \ldots, \metaX_n$ and conclusion $\metaY$, to be valid!
 
-In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\metaX_1, \metaX_2, \ldots, \metaX_n$, and conclusion $\meta{C}$. Then we test for entailment using truth tables. 
+In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\metaX_1, \metaX_2, \ldots, \metaX_n$, and conclusion $\metaY$. Then we test for entailment using truth tables. 
 
 \subsection{The double-turnstile}
-We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\metaX_1, \metaX_2, \ldots$ and $\metaX_n$ together entail $\meta{C}$, we will abbreviate this by:
-$$\metaX_1, \metaX_2, \ldots, \metaX_n \entails \meta{C}$$
+We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\metaX_1, \metaX_2, \ldots$ and $\metaX_n$ together entail $\metaY$, we will abbreviate this by:
+$$\metaX_1, \metaX_2, \ldots, \metaX_n \entails \metaY$$
 The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
 
 Let me be clear. `$\entails$' is not a symbol of TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from \S\ref{s:UseMention}). So the metalanguage sentence:
@@ -676,19 +676,19 @@ is just an abbreviation for the English sentence:
 	\item The TFL sentences `$P$' and `$P \eif Q$' entail `$Q$'
 \end{ebullet}
 Note that there is no limit on the number of TFL sentences that can be mentioned before the symbol `$\entails$'. Indeed, we can even consider the limiting case:
-$$\entails \meta{C}$$
-This says that there is no valuation which makes all the sentences mentioned on the left hand side of `$\entails$' true whilst making $\meta{C}$ false. Since \emph{no} sentences are mentioned on the left hand side of `$\entails$' in this case, this just means that there is no valuation which makes $\meta{C}$ false. Otherwise put, it says that every valuation makes $\meta{C}$ true. Otherwise put, it says that $\meta{C}$ is a tautology. Equally:
+$$\entails \metaY$$
+This says that there is no valuation which makes all the sentences mentioned on the left hand side of `$\entails$' true whilst making $\metaY$ false. Since \emph{no} sentences are mentioned on the left hand side of `$\entails$' in this case, this just means that there is no valuation which makes $\metaY$ false. Otherwise put, it says that every valuation makes $\metaY$ true. Otherwise put, it says that $\metaY$ is a tautology. Equally:
 $$\metaX \entails$$
 says that $\metaX$ is a contradiction.
 
 \subsection{`$\entails$' versus `$\eif$'}
 We now want to compare and contrast `$\entails$' and `$\eif$'. 
 
-Observe: $\metaX \entails \meta{C}$ iff there is no valuation of the atomic sentences that makes $\metaX$ true and $\meta{C}$ false. 
+Observe: $\metaX \entails \metaY$ iff there is no valuation of the atomic sentences that makes $\metaX$ true and $\metaY$ false. 
 
-Observe: $\metaX \eif \meta{C}$ is a tautology iff there is no valuation of the atomic sentences that makes $\metaX \eif \meta{C}$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\metaX \eif \meta{C}$ is a tautology iff there is no valuation that makes $\metaX$ true and $\meta{C}$ false. 
+Observe: $\metaX \eif \metaY$ is a tautology iff there is no valuation of the atomic sentences that makes $\metaX \eif \metaY$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\metaX \eif \metaY$ is a tautology iff there is no valuation that makes $\metaX$ true and $\metaY$ false. 
 
-Combining these two observations, we see that $\metaX \eif \meta{C}$  is a tautology iff  $\metaX \entails \meta{C}$. But there is a really, really important difference between `$\entails$' and `$\eif$':
+Combining these two observations, we see that $\metaX \eif \metaY$  is a tautology iff  $\metaX \entails \metaY$. But there is a really, really important difference between `$\entails$' and `$\eif$':
 \factoidbox{`$\eif$' is a sentential connective of TFL.\\ `$\entails$' is a symbol of augmented English.
 }
 Indeed, when `$\eif$' is flanked with two TFL sentences, the result is a longer TFL sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding TFL sentences. 
@@ -992,13 +992,13 @@ Answer each of the questions below and justify your answer.
 \begin{earg}
 \item Suppose that \metaX and \metaY are logically equivalent. What can you say about $\metaX\eiff\metaY$?
 %\metaX and \metaY have the same truth value on every line of a complete truth table, so $\metaX\eiff\metaY$ is true on every line. It is a tautology.
-\item Suppose that $(\metaX\eand\metaY)\eif\meta{C}$ is neither a tautology nor a contradiction. What can you say about whether $\metaX, \metaY \therefore\meta{C}$ is valid?
-%The sentence is false on some line of a complete truth table. On that line, \metaX and \metaY are true and \meta{C} is false. So the argument is invalid.
-\item Suppose that $\metaX$, $\metaY$ and $\meta{C}$  are jointly inconsistent. What can you say about $(\metaX\eand\metaY\eand\meta{C})$?
-\item Suppose that \metaX is a contradiction. What can you say about whether $\metaX, \metaY \entails \meta{C}$?
-%Since \metaX is false on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \meta{C} is false. So the argument is valid.
-\item Suppose that \meta{C} is a tautology. What can you say about whether $\metaX, \metaY\entails \meta{C}$?
-%Since \meta{C} is true on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \meta{C} is false. So the argument is valid.
+\item Suppose that $(\metaX\eand\metaY)\eif\metaY$ is neither a tautology nor a contradiction. What can you say about whether $\metaX, \metaY \therefore\metaY$ is valid?
+%The sentence is false on some line of a complete truth table. On that line, \metaX and \metaY are true and \metaY is false. So the argument is invalid.
+\item Suppose that $\metaX$, $\metaY$ and $\metaY$  are jointly inconsistent. What can you say about $(\metaX\eand\metaY\eand\metaY)$?
+\item Suppose that \metaX is a contradiction. What can you say about whether $\metaX, \metaY \entails \metaY$?
+%Since \metaX is false on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \metaY is false. So the argument is valid.
+\item Suppose that \metaY is a tautology. What can you say about whether $\metaX, \metaY\entails \metaY$?
+%Since \metaY is true on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \metaY is false. So the argument is valid.
 \item Suppose that \metaX and \metaY are logically equivalent. What can you say about $(\metaX\eor\metaY)$?
 %Not much. $(\metaX\eor\metaY)$ is a tautology if \metaX and \metaY are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
 \item Suppose that \metaX and \metaY are \emph{not} logically equivalent. What can you say about $(\metaX\eor\metaY)$?

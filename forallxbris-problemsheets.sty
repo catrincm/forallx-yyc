@@ -198,8 +198,8 @@ ref=\theenumi.{\roman*}}
 
 
 
-  \usepackage[noindentafter]{titlesec}
-  \titlespacing{\section}{0pt}{5ex plus 30ex minus 3ex}{1.5ex}
+%  \usepackage[noindentafter]{titlesec}
+%  \titlespacing{\section}{0pt}{5ex plus 30ex minus 3ex}{1.5ex}
 
 \usepackage{fancyhdr} 
 \usepackage{lastpage}
@@ -212,7 +212,12 @@ ref=\theenumi.{\roman*}}
 
 
 
+\newcommand*{\coursename}[1]{\gdef\@coursename{#1}%
+}
+\newcommand*{\@coursename}{Logic and Critical Thinking}
 
-\newcommand{\makemytitle}[1]{\begin{center}
-{\Huge #1}\\\today
-\end{center}}
+\renewcommand{\maketitle}{
+\begin{center}
+	{\LARGE{\@title}}\\\@coursename
+\end{center}	\medskip  
+}
