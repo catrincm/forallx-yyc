@@ -854,16 +854,16 @@ The murder weapon was the dagger or the rope. So Mrs.~Peacock is guilty. After a
 
 First we find the argument structure:
 \begin{earg}
-\item []The murder weapon was the dagger or the rope.
-\item []If the murder weapon was the dagger then she is guilty.
-\item[] If the murder weapon was the rope then she is guilty.
+\item The murder weapon was the dagger or the rope.
+\item If the murder weapon was the dagger then she is guilty.
+\item If the murder weapon was the rope then she is guilty.
 \item [\therefore] Mrs.~Peacock is guilty.
 \end{earg}
 We then symbolise each constituent sentence into TFL:
 \begin{earg}
-\item []$D\eor R$
-\item[] $D\eif G$
-\item[] $R\eif G$
+\item $D\eor R$
+\item $D\eif G$
+\item$R\eif G$
 \item[\therefore] $G$
 \end{earg}
 
@@ -931,27 +931,50 @@ Denying the antecedent:
 \end{minipage}
 \end{tabular}\end{highlighted}
 
-We can check these with truth tables. But we can see
+We can check these with truth tables.
+
+
+Each fallacy has a very closely connected valid argument. From an invalid argument, e.g.~\begin{earg}
+\item $R\eif M$\item $\enot R$\item[\therefore]$\enot M$
+\end{earg} we can construct a valid argument by reversing the ``if then''\begin{earg}
+\item $M\eif R$\item $\enot R$\item[\therefore]$\enot M$
+\end{earg}Sometimes we see people who are plausibly providing the fallacious argument. We should help them by directing them towards the premise that would actually help them in their argument.
+
+Consider the following: \begin{itemize}
+\item []If each man had a definite set of rules of conduct by which he regulated his
+life he would be a machine. But there are no such rules, so men
+cannot be machines.\footnote{Close to an argument discussed in Alan Turing ``Computing Machinery and Intelligence''. Turing points out that the argument is invalid. }
+\end{itemize}
+We might symbolise this argument as:
+\begin{earg}
+\item $R\eif M$\item $\enot R$\item[\therefore]$\enot M$
+\end{earg}This is denying the antecedent; and is invalid. 
+%We walked through an example of denying the antecedent at the beginning of this chapter.
+The situation showing its invalidity is a case where $M$ is true but $R$ false. This is a situation where men are machines but do not have a definite set of rules of conduct. 
+
+
+The argument would be valid if the first premise ``If each man had a definite set of rules of conduct by which he regulated his life he would be a machine.'' was symbolised not as $R\eif M$, but as $M\eif R$ (or $R\eiff M$). It would then be an instance of Modus Tollens: a valid argument form. So it can be interpreted as a valid argument, but we then should make sure that if we are trying to use this as an argument we have the premise explicitly stated the way that we need it for the argument: $M\eif R$ instead of $R\eif M$; and we can direct our discussion towards the correct premise and think about whether it is true that if man is a machine then man is governed by a definite set of rules of conduct. 
+
 
 
   
-Some more fallacies:
+Here we list just a few more fallacies. Though there are many more!
 \begin{itemize}
-\item Begging the question.  Conclusion implicit in premises. Valid.\begin{quote}
+\item Begging the question.  An argument begs the question when the conclusion is implicit in premises. This is actually a valid argument: draw truth tables for $A\therefore A$ and you see there is no valuation where the premise is true but conclusion false: the premise just \emph{is} the conclusion. But it is a fallacious argument because it gives us no reason to believe the conclusion. Noone will accept the premises unless they already accept the conclusion. \begin{quote}
 You should believe in God because He loves
 you. He spoke to me and asked me to talk to
 you about His love for you. 
 \end{quote}
 %[Does induction beg the question?]
-\item False dilemma (/false dichotomy).  Ignores other options.\\Implicitly uses premise $A\eor B$. \begin{quote}
+\item False dilemma (of false dichotomy).  This implicitly assumes that these are the only two options. \begin{quote}
 we can't
 stand by and do nothing, therefore we have to
 carry out my preferred policy
-\end{quote}
+\end{quote}We can make this a valid argument by making the implicit premise $A\eor B$ (``my way or no way'') explicit. But this valid argument has a premise that we don't want to accept, so doesn't lead us to accepting the conclusion. 
 \item Irrelevant conclusion.\begin{quote}The prosecution will show that the defendant in the dock was
 indeed the murderer. The crime was heinous,
 committed by a callous killer who is a danger to society, and
-such a crime cannot be allowed to go unpunished.\end{quote}
+such a crime cannot be allowed to go unpunished.\end{quote}This is an argument of the form $A\therefore B$. The premise and conclusion are unconnected and the premise provides no support for the conclusion. 
 %\item Equivocation. 
 %\item Lots more
 %%\item ambiguity in the conclusion
