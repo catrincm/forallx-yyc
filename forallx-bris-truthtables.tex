@@ -780,6 +780,189 @@ Derivatively, sentences are jointly logically inconsistent if there is no valuat
 
 
 
+\chapter{English and TFL validity}
+We have now seen two notions of validity. Arguments are valid if there are no ``counter-examples'', where a counter example is a situation where the premises are true and the conclusion is false. The difference between English and TFL validity is that TFL cashes the notion of `situation' out in a clear and careful way: a possible situation is given by a \emph{valuation}. The English notion, however relies on ``possibility'', which we didn't \emph{define} and there's no clear way of checking what is possible or not. 
+
+We are often interested in validity in English, but TFL is a tool that we can use to see if an English argument is valid or not. 
+
+Consider an argument like:
+\begin{itemize}
+\item[]If Jones signed the contract under duress, then the contract is voidable. But since it was not signed under duress, the contract is not voidable.\footnote{
+This sort of example is discussed in \url{https://lawpublications.barry.edu/cgi/viewcontent.cgi?article=1026&context=barrylrev}.}
+\end{itemize}
+
+We are interested in determining if this is valid or not. Here's a general strategy to help us:
+\begin{highlighted}\begin{enumerate}
+\item Find the structure of the argument. \\Identify the premises and conclusion. 
+\item \label{itm:validity-symbolise}Symbolise the argument in TFL.
+\item \label{itm:validity-TTs} Check if the TFL argument is valid.\begin{itemize}\item Using truth tables to look for a valuation providing a counter example.
+\item Or, use natural deduction to show that it is valid.
+\end{itemize}
+%\item Use the insight you've now got from TFL to consider the original English argument and if that is valid. 
+\end{enumerate}\end{highlighted}
+
+Following this procedure, then, we need to first find the structure of the argument. It has two premises and a conclusion: 
+\begin{earg}
+\item If Jones signed the contract under duress, then the
+contract is voidable. 
+\item Jones did not sign the contract under duress.
+\item[\therefore] The contract is not voidable.
+\end{earg}
+
+We are interested in whether it is valid. I.e.~is there a situation where the premises are true and the conclusion is false. Perhaps in this case you can work it out, but if not TFL provides us a tool for thinking through all the possibilities. We therefore move to stage \ref{itm:validity-symbolise} and symbolise the sentences of the argument in TFL as well as we can. 
+
+\begin{earg}
+\item $D\eif V$
+\item $\enot D$
+\item[\therefore] $\enot V$
+\end{earg}
+
+And moving to stage \ref{itm:validity-TTs}, we check whether the TFL argument is valid. We do this with truth tables. Later in the course we'll see Natural Deduction which will provide an alternative method for checking validity. 
+
+So we need to fill in truth table with all the sentences involved in the argument. In this case each sentence has a simple structure, if we draw out the formation trees they just have one step, e.g.~\begin{center}
+\begin{forest}
+[$D\eif V$
+	[$D$]
+	[$V$]
+]
+\end{forest}
+\end{center}So our truth table doesn't need any additional ``calculation'' lines. We can directly fill it in, following our characteristic truth tables to know whether we go from T,F to T or F, etc. 
+\begin{center}
+\begin{tabular}{cc|ccc}
+&&Premise&Premise&Concln\\
+$D$&$V$&$D\eif V$&$\enot D$&$\enot V$\\\hline
+T&T&T&F&F\\
+T&F&F&F&T\\
+F&T&T&T&F\\
+F&F&T&T&T
+\end{tabular}
+\end{center}
+
+And we can see that this argument is invalid. The valuation providing the counter example is line 3: \begin{tabular}{cc}
+$D$&$V$\\\hline
+F&T
+\end{tabular}
+
+And this allows us to read of a possibility where the premises are true but the conclusion false:  It might be that the contract is voidable without having been made under duress. E.g.~mental illness, misrepresentation,\ldots. 
+
+This has then allowed us to see that the original English argument is invalid. In fact, the argument followed an invalid pattern that is commonly found. It is a common fallacy called ``denying the consequent''. We will see some more common fallacies soon, but first let's work through another example where the strategy of moving to TFL will help us check if the original English argument is valid. 
+		
+\subsubsection*{Another example: disjunctive reasoning}
+\begin{quote}
+The murder weapon was the dagger or the rope. So Mrs.~Peacock is guilty. After all, if the murder weapon was the dagger then she's guilty. And if it was the rope, she's guilty. 
+\end{quote}
+
+First we find the argument structure:
+\begin{earg}
+\item []The murder weapon was the dagger or the rope.
+\item []If the murder weapon was the dagger then she is guilty.
+\item[] If the murder weapon was the rope then she is guilty.
+\item [\therefore] Mrs.~Peacock is guilty.
+\end{earg}
+We then symbolise each constituent sentence into TFL:
+\begin{earg}
+\item []$D\eor R$
+\item[] $D\eif G$
+\item[] $R\eif G$
+\item[\therefore] $G$
+\end{earg}
+
+Now, we check if the TFL argument is valid using truth tables: 
+\begin{center}
+\begin{tabular}{ccc|cccc}
+&&&Premise&Premise&Premise&Concln\\
+$D$&$G$&$R$&$D\eor G$&$D\eif G$&$R\eif G$&$G$\\\hline
+T&T&T&T&T&T&T\\
+T&T&F&T&T&T&T\\
+T&F&T&T&F&F&F\\
+T&F&F&T&F&T&F\\
+F&T&T&T&T&T&T\\
+F&T&F&T&T&T&T\\
+F&F&T&F&T&F&F\\
+F&F&F&F&T&T&F
+\end{tabular}
+\end{center}
+And we see that this argument is valid.
+
+This allows us to conclude that the original English argument is valid.
+
+
+\section*{Fallacies}
+
+
+There are a number of arguments that are commonly used which are fallacies that provide no support for the conclusion. They have a mistaken logical form. Let's see a few arguments: 
+\begin{highlighted}
+
+\begin{tabular}{ll}
+\textbf{Valid}&\textbf{Invalid. Fallacies}\\[1em]
+\begin{minipage}{4cm}
+Modus Ponens:
+% $\metaX\eif\metaZ,\;\metaX\;\therefore\;\metaZ$
+\begin{earg}
+\item[] $\metaX\eif\metaZ$
+\item[] $\metaX$
+\item[\therefore]$\metaZ$
+\end{earg}
+\end{minipage}&
+\begin{minipage}{5cm}
+Affirming the consequent:
+\begin{earg}
+\item[] $\metaX\eif\metaZ$
+\item[] $\metaZ$
+\item[\therefore]$\metaX$
+\end{earg}
+\end{minipage}\\[4em]
+
+\begin{minipage}{3cm}
+Modus Tollens:
+\begin{earg}
+\item[] $\metaX\eif\metaZ$
+\item[] $\enot\metaZ$
+\item[\therefore]$\enot\metaX$
+\end{earg}
+\end{minipage}&
+\begin{minipage}{5cm}
+Denying the antecedent:
+\begin{earg}
+\item[] $\metaX\eif\metaZ$
+\item[] $\enot\metaX$
+\item[\therefore]$\enot\metaZ$
+\end{earg}
+\end{minipage}
+\end{tabular}\end{highlighted}
+
+We can check these with truth tables. But we can see
+
+
+  
+Some more fallacies:
+\begin{itemize}
+\item Begging the question.  Conclusion implicit in premises. Valid.\begin{quote}
+You should believe in God because He loves
+you. He spoke to me and asked me to talk to
+you about His love for you. 
+\end{quote}
+%[Does induction beg the question?]
+\item False dilemma (/false dichotomy).  Ignores other options.\\Implicitly uses premise $A\eor B$. \begin{quote}
+we can't
+stand by and do nothing, therefore we have to
+carry out my preferred policy
+\end{quote}
+\item Irrelevant conclusion.\begin{quote}The prosecution will show that the defendant in the dock was
+indeed the murderer. The crime was heinous,
+committed by a callous killer who is a danger to society, and
+such a crime cannot be allowed to go unpunished.\end{quote}
+%\item Equivocation. 
+%\item Lots more
+%%\item ambiguity in the conclusion
+\end{itemize}
+A fallacy is an argument that fails to provide a reason to
+believe the conclusion. 
+\begin{itemize}\item usually because the relationship between premises and
+conclusion is poor
+\item sometimes because the premises are not an independent
+reason to believe the conclusion\end{itemize}
+
 
 \section{The limits of these tests}\label{s:ParadoxesOfMaterialConditional}
 We have reached an important milestone: a test for the validity of arguments! However, we should not get carried away just yet. It is important to understand the \emph{limits} of our achievement. We will illustrate these limits with three examples.
