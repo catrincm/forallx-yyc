@@ -785,9 +785,11 @@ We have now seen two notions of validity. Arguments are valid if there are no ``
 
 We are often interested in validity in English, but TFL is a tool that we can use to see if an English argument is valid or not. 
 
+\section{Using TFL to investigate validity in English}
+
 Consider an argument like:
 \begin{itemize}
-\item[]If Jones signed the contract under duress, then the contract is voidable. But since it was not signed under duress, the contract is not voidable.\footnote{
+\item[]If Jones signed the contract under duress, then the contract is void. But since it was not signed under duress, the contract is not void.\footnote{
 This sort of example is discussed in \url{https://lawpublications.barry.edu/cgi/viewcontent.cgi?article=1026&context=barrylrev}.}
 \end{itemize}
 
@@ -795,7 +797,7 @@ We are interested in determining if this is valid or not. Here's a general strat
 \begin{highlighted}\begin{enumerate}
 \item Find the structure of the argument. \\Identify the premises and conclusion. 
 \item \label{itm:validity-symbolise}Symbolise the argument in TFL.
-\item \label{itm:validity-TTs} Check if the TFL argument is valid.\begin{itemize}\item Using truth tables to look for a valuation providing a counter example.
+\item \label{itm:validity-TTs} Check if the TFL argument is valid.\begin{itemize}\item Using truth tables to look for a valuation providing a counter example. If there is no such valuation, then it is valid. 
 \item Or, use natural deduction to show that it is valid.
 \end{itemize}
 %\item Use the insight you've now got from TFL to consider the original English argument and if that is valid. 
@@ -804,9 +806,9 @@ We are interested in determining if this is valid or not. Here's a general strat
 Following this procedure, then, we need to first find the structure of the argument. It has two premises and a conclusion: 
 \begin{earg}
 \item If Jones signed the contract under duress, then the
-contract is voidable. 
+contract is void. 
 \item Jones did not sign the contract under duress.
-\item[\therefore] The contract is not voidable.
+\item[\therefore] The contract is not void.
 \end{earg}
 
 We are interested in whether it is valid. I.e.~is there a situation where the premises are true and the conclusion is false. Perhaps in this case you can work it out, but if not TFL provides us a tool for thinking through all the possibilities. We therefore move to stage \ref{itm:validity-symbolise} and symbolise the sentences of the argument in TFL as well as we can. 
@@ -843,9 +845,14 @@ $D$&$V$\\\hline
 F&T
 \end{tabular}
 
-And this allows us to read of a possibility where the premises are true but the conclusion false:  It might be that the contract is voidable without having been made under duress. E.g.~mental illness, misrepresentation,\ldots. 
+This allows us to read of a possibility where the premises are true but the conclusion false:  It might be that the contract is void without having been made under duress. E.g.~mental illness, misrepresentation,\ldots. 
 
-This has then allowed us to see that the original English argument is invalid. In fact, the argument followed an invalid pattern that is commonly found. It is a common fallacy called ``denying the consequent''. We will see some more common fallacies soon, but first let's work through another example where the strategy of moving to TFL will help us check if the original English argument is valid. 
+This has then allowed us to see that the original English argument is invalid. In fact, the argument followed an invalid pattern that is commonly found. It is a common fallacy called ``denying the consequent''. We will see some more common fallacies soon, but first let's work through another example where the strategy of moving to TFL will help us check if the original English argument is valid.
+
+This argument is invalid. So we can accept the premises and still reject the conclusion. If we have a valid argument, then the conclusion can only be rejected if the premises are rejected. In a valid argument our discussion needs to be focused on the premises.
+
+ In fact in this case we can give a fixed-up, related, valid argument \begin{earg}\item $V\eif D$\item $\enot D$\item[\therefore]$\enot V$\end{earg} This uses the $\eif$ the other way around and is valid. It is an an argument form called Modus Tollens. However, presenting this argument and showing it's valid isn't enough to convince me of the conclusion that the contract is void: the argument uses a false premise: $V\eif D$. Or at least, this is a premise that I won't accept without further justification: look, if there was misrepresentation in the trial then $V\eif D$ is false. Give me a way of ruling out misrepresentation if you want to get to the conclusion that the contract is not void.
+ 
 		
 \subsubsection*{Another example: disjunctive reasoning}
 \begin{quote}
@@ -887,7 +894,7 @@ And we see that this argument is valid.
 This allows us to conclude that the original English argument is valid.
 
 
-\section*{Fallacies}
+\section{Fallacies}
 
 
 There are a number of arguments that are commonly used which are fallacies that provide no support for the conclusion. They have a mistaken logical form. Let's see a few arguments: 
@@ -907,9 +914,9 @@ Modus Ponens:
 \begin{minipage}{5cm}
 Affirming the consequent:
 \begin{earg}
-\item[] $\metaX\eif\metaZ$
-\item[] $\metaZ$
-\item[\therefore]$\metaX$
+\item[] $\metaZ\eif\metaX$
+\item[] $\metaX$
+\item[\therefore]$\metaZ$
 \end{earg}
 \end{minipage}\\[4em]
 
@@ -924,23 +931,37 @@ Modus Tollens:
 \begin{minipage}{5cm}
 Denying the antecedent:
 \begin{earg}
-\item[] $\metaX\eif\metaZ$
-\item[] $\enot\metaX$
-\item[\therefore]$\enot\metaZ$
+\item[] $\metaZ\eif\metaX$
+\item[] $\metaX$
+\item[\therefore]$\metaZ$
 \end{earg}
 \end{minipage}
 \end{tabular}\end{highlighted}
 
-We can check these with truth tables.
+We can check these with truth tables. We have already shown that Denying the Antecedent is invalid, that was our example of duress and the void contract. 
+
+Consider Affirming the Consequent:
+\begin{center}
+\begin{tabular}{cc|cccc}
+&&Premise&Premise&Concln\\
+$\metaX$&\metaZ&$\metaX\eif\metaZ$&\metaZ&\metaX\\\cline{1-5}
+\Tstrut
+T&T&T&T&T\\
+T&F&F&F&T\\
+F&T&T&T&F& $\leadsto$ This valuation shows invalid.\\
+F&F&T&F&F
+\end{tabular}
+\end{center}
+An example of an English argument with this structure is:\begin{itemize}
+\item [] If the contract was signed under duress then it is void. It is void. Therefore it was signed under duress.
+\end{itemize}Again we have the same sort of scenario showing it is invalid: it might be void because of misrepresentation.
 
 
-Each fallacy has a very closely connected valid argument. From an invalid argument, e.g.~\begin{earg}
-\item $R\eif M$\item $\enot R$\item[\therefore]$\enot M$
-\end{earg} we can construct a valid argument by reversing the ``if then''\begin{earg}
-\item $M\eif R$\item $\enot R$\item[\therefore]$\enot M$
-\end{earg}Sometimes we see people who are plausibly providing the fallacious argument. We should help them by directing them towards the premise that would actually help them in their argument.
+Sometimes we see people who are plausibly providing the fallacious argument. We should think of counter examples such as misrepresentation case, and see if they can add further plausible premises that will allow us to rule out such cases or if they can fix up their argument.
 
-Consider the following: \begin{itemize}
+%We should help them by directing them towards the premise that would actually help them in their argument. 
+
+Consider the following argument: \begin{itemize}
 \item []If each man had a definite set of rules of conduct by which he regulated his
 life he would be a machine. But there are no such rules, so men
 cannot be machines.\footnote{Close to an argument discussed in Alan Turing ``Computing Machinery and Intelligence''. Turing points out that the argument is invalid. }
@@ -951,6 +972,14 @@ We might symbolise this argument as:
 \end{earg}This is denying the antecedent; and is invalid. 
 %We walked through an example of denying the antecedent at the beginning of this chapter.
 The situation showing its invalidity is a case where $M$ is true but $R$ false. This is a situation where men are machines but do not have a definite set of rules of conduct. 
+
+
+
+Each fallacy has a very closely connected valid argument. From the invalid argument \begin{earg}
+\item $R\eif M$\item $\enot R$\item[\therefore]$\enot M$
+\end{earg} we can construct a valid argument by reversing the ``if then''\begin{earg}
+\item $M\eif R$\item $\enot R$\item[\therefore]$\enot M$
+\end{earg}
 
 
 The argument would be valid if the first premise ``If each man had a definite set of rules of conduct by which he regulated his life he would be a machine.'' was symbolised not as $R\eif M$, but as $M\eif R$ (or $R\eiff M$). It would then be an instance of Modus Tollens: a valid argument form. So it can be interpreted as a valid argument, but we then should make sure that if we are trying to use this as an argument we have the premise explicitly stated the way that we need it for the argument: $M\eif R$ instead of $R\eif M$; and we can direct our discussion towards the correct premise and think about whether it is true that if man is a machine then man is governed by a definite set of rules of conduct. 
