@@ -23,7 +23,7 @@ One aim of a \emph{natural deduction system} is to show that particular argument
 With truth tables, we directly consider different ways to make sentences true or false. With natural deduction systems, we manipulate sentences in accordance with rules that we have set down as good rules. The latter promises to give us a better insight---or at least, a different insight---into how arguments work.
 
 The move to natural deduction might be motivated by more than the search for insight. It might also be motivated by \emph{necessity}. Consider:
-	$$X_1 \eif Y_1 \therefore (X_1 \eand X_2 \eand X_3 \eand X_4 \eand X_5) \eif (Y_1 \eor Y_2 \eor Y_3 \eor Y_4 \eor Y_5)$$
+	$$A_1 \eif C_1 \therefore (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5) \eif (C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5)$$
 To test this argument for validity, you might use a 1024-line truth table. If you do it correctly, then you will see that there is no line on which all the premises are true and on which the conclusion is false. So you will know that the argument is valid. (But, as just mentioned, there is a sense in which you will not know \emph{why} the argument is valid.) But now consider:
 	\begin{align*}
 		A_1 \eif C_1 \therefore\ & (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10}) \eif \phantom{(}\\
@@ -31,10 +31,8 @@ To test this argument for validity, you might use a 1024-line truth table. If yo
 	\end{align*}
 This argument is also valid---as you can probably tell---but to test it requires a truth table with $2^{20} = 1048576$ lines. In principle, we can set a machine to grind through truth tables and report back when it is finished. In practice, complicated arguments in TFL can become \emph{intractable} if we use truth tables.
 
-When we get to first-order logic (FOL) (beginning in chapter \ref{s:FOLBuildingBlocks}), though, the problem gets dramatically worse. There is nothing like the truth table test for FOL. To assess whether or not an argument is valid, we have to reason about \emph{all} interpretations, but, as we will see, there are infinitely many possible interpretations. We cannot even in principle set a machine to grind through infinitely many possible interpretations and report back when it is finished: it will \emph{never} finish. We either need to come up with some more efficient way of reasoning about all interpretations, or we need to look for something different. 
 
-There are, indeed, systems that codify ways to reason about all possible interpretations. They were developed in the 1950s by Evert Beth and Jaakko Hintikka, but we will not follow this path. We will, instead, look to natural deduction. 
-%And that is where we will look. 
+When we get to first-order logic (FOL) (beginning in chapter \ref{s:FOLBuildingBlocks}) the problem gets dramatically worse. There is nothing like the truth table test for FOL. To assess whether or not an argument is valid, we have to reason about \emph{all} interpretations, but, as we will see, there are infinitely many possible interpretations. We cannot even in principle set a machine to grind through infinitely many possible interpretations and report back when it is finished: it will \emph{never} finish. We either need to come up with some more efficient way of reasoning about all interpretations, or we need to look for something different. We will be looking for something different; and we will develop natural deduction.\footnote{There are, in fact, systems that codify ways to reason about all possible interpretations which can be used for FOL in a similar way to the way we use truth tables for TFL. They were developed in the 1950s by Evert Beth and Jaakko Hintikka, but we will not follow this path.} 
 %
 %There is something philosophically desirable about Consider an argument like:
 %	\begin{earg}
@@ -49,12 +47,28 @@ There are, indeed, systems that codify ways to reason about all possible interpr
 %\section{A roadmap}
 %So here is our plan. 
 
-Rather than reasoning directly about all valuations (in the case of TFL), we will try to select a few basic rules of inference. Some of these will govern the behaviour of the sentential connectives. Others will govern the behaviour of the quantifiers and identity that are the hallmarks of FOL. The resulting system of rules will give us a new way to think about the validity of arguments. 
+
+
+%Rather than reasoning directly about all valuations (in the case of TFL), we will try to select a few basic rules of inference. Some of these will govern the behaviour of the sentential connectives. Others will govern the behaviour of the quantifiers and identity that are the hallmarks of FOL. The resulting system of rules will give us a new way to think about the validity of arguments. 
 The modern development of natural deduction dates from simultaneous and unrelated papers by Gerhard Gentzen and Stanis\l{}aw Ja\'{s}kowski (both in 1934). However, the natural deduction system that we will consider is based largely around work by Frederic Fitch (first published in 1952). 
 
 
 
+Natural deduction selects a few basic rules of inference and natural forms of reasoning and encodes these into a proof system. We will now see natural deduction for TFL. This system will form the basis also for natural deduction for FOL, which will also add rules for the quantifiers. 
+
 \chapter{Basic rules for TFL}\label{s:BasicTFL}
+
+
+
+The idea is that we walk through stages of our reasoning process, with certain easy steps being encoded in the system. For example we have seen a few times that Modus Ponens gives us a valid argument. This will be one of our basic rules of the system. This will for example allow us to see: $A\eif(B\eand C),\; A\therefore\; B$ is valid. This first uses Modus Ponens: $A\eif(B\eand C),\; A\therefore\; B\eand C$ and then uses another valid argument step: $B\eand C\;\therefore\; B$. The result of piecing these together is that we can see the whole argument $A\eif(B\eand C),\; A\therefore\; B$ is valid. To keep track of what assumptions have been made and steps of the argument we will give precise forms that this argument should be written:
+\begin{pf}
+\hypo{abc}{A\eif (B\eand C)}
+\hypo{a}{A}
+\have{bc}{B\eand C}\by{Modus Ponens (which will be called $\eif$E)}{abc, a}
+\have{b}{B}\andE{bc}
+\end{pf}
+
+
 We will develop a \define{natural deduction} system. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main logical operator, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main logical operator.
 
 \section{The idea of a formal proof}
@@ -452,7 +466,7 @@ Using a truth table to show this would have taken 128 lines.
 
 The disjunction elimination rule is, though, slightly trickier. 
 
-The disjunction elimination rule is, though, slightly trickier. Suppose that  Ludwig is reactionary or he is libertarian. What can you conclude? Not that Ludwig is reactionary; it might be that he is libertarian instead. Equally, not that Ludwig is libertarian; for he might merely be reactionary. Disjunctions, just by themselves, are hard to work with. 
+Suppose that  Ludwig is reactionary or he is libertarian. What can you conclude? Not that Ludwig is reactionary; it might be that he is libertarian instead. Equally, not that Ludwig is libertarian; for he might merely be reactionary. Disjunctions, just by themselves, are hard to work with. 
 
 But suppose that we could somehow show both of the following: first, that Ludwig's being reactionary entails that he is an Austrian economist: second, that Ludwig's being libertarian entails that he is an Austrian economist. Then if we know that Ludwig is reactionary or libertarian, then we know that, whichever he is, Ludwig is an Austrian economist. This insight can be expressed in the following rule, which is our disjunction elimination ($\eor$E) rule:
 \factoidbox{
@@ -461,16 +475,16 @@ But suppose that we could somehow show both of the following: first, that Ludwig
 	\\	\open
 			\hypo[i]{a}{\metaX}
 			\ellipsesline
-			\have[j]{c1}{\meta{C}}
+			\have[j]{c1}{\metaZ}
 		\close
 		\open
 			\hypo[k]{b}{\metaY}
 			\ellipsesline
-			\have[l]{c2}{\meta{C}}
+			\have[l]{c2}{\metaZ}
 		\close
-		\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
+		\have[\ ]{c}{\metaZ} \oe{ab,a-c1, b-c2}
 	\end{pf}}
-This is obviously a bit clunkier to write down than our previous rules, but the point is fairly simple. Suppose we have some disjunction, $\metaX \eor \metaY$. Suppose we have two subproofs, showing us that $\meta{C}$ follows from the assumption that $\metaX$, and that $\meta{C}$ follows from the assumption that $\metaY$. Then we can infer $\meta{C}$ itself. As usual, there can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs and the disjunction can come in any order, and do not have to be adjacent.
+This is obviously a bit clunkier to write down than our previous rules, but the point is fairly simple. Suppose we have some disjunction, $\metaX \eor \metaY$. Suppose we have two subproofs, showing us that $\metaZ$ follows from the assumption that $\metaX$, and that $\metaZ$ follows from the assumption that $\metaY$. Then we can infer $\metaZ$ itself. As usual, there can be as many lines as you like between $i$ and $j$, and as many lines as you like between $k$ and $l$. Moreover, the subproofs and the disjunction can come in any order, and do not have to be adjacent.
 
 Some examples might help illustrate this. Consider this argument:
 $$(P \eand Q) \eor (P \eand R) \therefore P$$
@@ -924,8 +938,8 @@ Give a proof for each of these arguments:
 \chapter{Proof-theoretic concepts}\label{s:ProofTheoreticConcepts}
 
 In this chapter we will introduce some new vocabulary. The following expression:
-$$\metaX_1, \metaX_2, \ldots, \metaX_n \proves \meta{C}$$
-means that there is some proof which starts with assumptions among $\metaX_1, \metaX_2, \ldots, \metaX_n$ and ends with $\meta{C}$ (and contains no undischarged assumptions other than those we started with). Derivatively, we will write:
+$$\metaX_1, \metaX_2, \ldots, \metaX_n \proves \metaZ$$
+means that there is some proof which starts with assumptions among $\metaX_1, \metaX_2, \ldots, \metaX_n$ and ends with $\metaZ$ (and contains no undischarged assumptions other than those we started with). Derivatively, we will write:
 $$\proves \metaX$$
 to mean that there is a proof of $\metaX$ with no assumptions. 
 
@@ -1032,7 +1046,7 @@ Show that each of the following pairs of sentences are provably equivalent:
 \end{earg}
 
 \problempart
-If you know that $\metaX\proves\metaY$, what can you say about $(\metaX\eand\meta{C})\proves\metaY$? What about $(\metaX\eor\meta{C})\proves\metaY$? Explain your answers.
+If you know that $\metaX\proves\metaY$, what can you say about $(\metaX\eand\metaZ)\proves\metaY$? What about $(\metaX\eor\metaZ)\proves\metaY$? Explain your answers.
 
 \
 
@@ -1261,7 +1275,7 @@ Even though we don't have a recursive definition of a proof in TFL, we can sketc
 
 You can use truth tables to prove to yourself that each of these one-line proofs in this base class is valid$_{\entails}$. For instance the proof $\metaX, \metaY \proves \metaX \eand \metaY$ corresponds to a truth table that shows $\metaX, \metaY \entails  \metaX \eand \metaY$ This establishes the first part of our recursive proof. 
 
-The next step is to show that adding lines to any proof will never change a valid$_{\entails}$ proof into an invalid$_{\entails}$ one. We would need to do this for each of our eleven basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\metaX_{1}$, \dots, $\metaX_{n} \proves  \meta {B}$ adding a line where we use \eand{I} to infer $\meta{C} \eand \meta{D}$, where $\meta{C} \eand \meta{D}$ can be legitimately inferred from $\metaX_{1}$, \dots, $\metaX_{n}$,~$\metaY$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\meta{C} \eand \meta{D}$ from these premises, then $\meta{C}$ and $\meta{D}$ must be already available in the proof. They are either already among $\metaX_{1}$, \dots, $\metaX_{n}$,~$\meta {B}$, or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \meta{C} and \meta{D} are true. According to the characteristic truth table for \eand, this means that $\meta{C} \eand \meta{D}$ is also true on that line. Therefore, $\meta{C} \eand \meta{D}$ validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
+The next step is to show that adding lines to any proof will never change a valid$_{\entails}$ proof into an invalid$_{\entails}$ one. We would need to do this for each of our eleven basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\metaX_{1}$, \dots, $\metaX_{n} \proves  \meta {B}$ adding a line where we use \eand{I} to infer $\metaZ \eand \meta{D}$, where $\metaZ \eand \meta{D}$ can be legitimately inferred from $\metaX_{1}$, \dots, $\metaX_{n}$,~$\metaY$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\metaZ \eand \meta{D}$ from these premises, then $\metaZ$ and $\meta{D}$ must be already available in the proof. They are either already among $\metaX_{1}$, \dots, $\metaX_{n}$,~$\meta {B}$, or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \metaZ and \meta{D} are true. According to the characteristic truth table for \eand, this means that $\metaZ \eand \meta{D}$ is also true on that line. Therefore, $\metaZ \eand \meta{D}$ validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
 
 In order to show that the proof system is sound, we would need to show this for the other inference rules. Since the derived rules are consequences of the basic rules, it would suffice to provide similar arguments for the 11 other basic rules. This tedious exercise falls beyond the scope of this book.
 
