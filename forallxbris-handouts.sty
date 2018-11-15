@@ -138,13 +138,17 @@
 }
 \newcommand*{\@topic}{}
 
+\newcommand*{\week}[1]{\gdef\@week{#1}%
+}
+\newcommand*{\@week}{}
+
 \newcommand*{\coursename}[1]{\gdef\@coursename{#1}%
 }
 \newcommand*{\@coursename}{\texttt{\string\coursename} currently
 not set. }
 \renewcommand{\maketitle}{
 \begin{center}
-	{\LARGE{\@coursename}}
+	{\LARGE{\@coursename}}\quad\@week
 	
 		
 	{{\@topic}}

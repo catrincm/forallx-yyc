@@ -22,14 +22,33 @@ One aim of a \emph{natural deduction system} is to show that particular argument
 
 With truth tables, we directly consider different ways to make sentences true or false. With natural deduction systems, we manipulate sentences in accordance with rules that we have set down as good rules. The latter promises to give us a better insight---or at least, a different insight---into how arguments work.
 
-The move to natural deduction might be motivated by more than the search for insight. It might also be motivated by \emph{necessity}. Consider:
-	$$A_1 \eif C_1 \therefore (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5) \eif (C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5)$$
-To test this argument for validity, you might use a 1024-line truth table. If you do it correctly, then you will see that there is no line on which all the premises are true and on which the conclusion is false. So you will know that the argument is valid. (But, as just mentioned, there is a sense in which you will not know \emph{why} the argument is valid.) But now consider:
-	\begin{align*}
-		A_1 \eif C_1 \therefore\ & (A_1 \eand A_2 \eand A_3 \eand A_4 \eand A_5 \eand A_6 \eand A_7 \eand A_8 \eand A_9 \eand A_{10}) \eif \phantom{(}\\
-				&(C_1 \eor C_2 \eor C_3 \eor C_4 \eor C_5 \eor C_6 \eor C_7 \eor C_8 \eor C_9 \eor C_{10})
-	\end{align*}
-This argument is also valid---as you can probably tell---but to test it requires a truth table with $2^{20} = 1048576$ lines. In principle, we can set a machine to grind through truth tables and report back when it is finished. In practice, complicated arguments in TFL can become \emph{intractable} if we use truth tables.
+The move to natural deduction might be motivated by more than the search for insight. It might also be motivated by \emph{necessity}. Once our arguments involve 5 atomic sentences,  a truth table test for validity will require 32 lines of truth table. That's quite a lot to check. But sometimes we might want to check such arguments. 
+\begin{center}
+\begin{earg}
+\item[] Alice, or Betty, or Carys, or Dan, or Ella stole the teacher's pen.
+\item[] It wasn't Alice.
+\item[] It wasn't Betty,
+\item[] It wasn't Carys,
+\item[] It wasn't Dan
+\item [\therefore] It was Ella. 
+\end{earg}
+\end{center}
+$$A\eor(B\eor (C\eor (D\eor E))),\;\enot A,\;\enot B,\;\enot C,\;\enot D\;\therefore\;E$$
+% \begin{center}
+%$A\eif B$,\;$B\eif C$,\;$\enot C$,\;$A\eor (D\eor E)$\;$\enot D$\;$\therefore$\;$E$
+%\end{center}That's quite a lot to check. 
+And that will increase exponentially as more atomic sentences get added. Once an argument involves 20 atomic sentences, 
+\begin{center}
+\begin{earg}
+\item[] Alice, or Betty, or Carys, \ldots, or Uli or Volker stole the teacher's pen.
+\item[] It wasn't Alice.
+\item[] It wasn't Betty,
+\item[]\,$\vdots$
+\item [] It wasn't Uli,
+\item [\therefore] It was Volker. 
+\end{earg}
+\end{center}
+This argument is also valid---as you might be able to tell---but to test it requires a truth table with $2^{20} = 1048576$ lines. In principle, we can set a machine to grind through truth tables and report back when it is finished. In practice, complicated arguments in TFL can become \emph{intractable} if we use truth tables.
 
 
 When we get to first-order logic (FOL) (beginning in chapter \ref{s:FOLBuildingBlocks}) the problem gets dramatically worse. There is nothing like the truth table test for FOL. To assess whether or not an argument is valid, we have to reason about \emph{all} interpretations, but, as we will see, there are infinitely many possible interpretations. We cannot even in principle set a machine to grind through infinitely many possible interpretations and report back when it is finished: it will \emph{never} finish. We either need to come up with some more efficient way of reasoning about all interpretations, or we need to look for something different. We will be looking for something different; and we will develop natural deduction.\footnote{There are, in fact, systems that codify ways to reason about all possible interpretations which can be used for FOL in a similar way to the way we use truth tables for TFL. They were developed in the 1950s by Evert Beth and Jaakko Hintikka, but we will not follow this path.} 
@@ -57,10 +76,13 @@ The modern development of natural deduction dates from simultaneous and unrelate
 Natural deduction selects a few basic rules of inference and natural forms of reasoning and encodes these into a proof system. We will now see natural deduction for TFL. This system will form the basis also for natural deduction for FOL, which will also add rules for the quantifiers. 
 
 \chapter{Basic rules for TFL}\label{s:BasicTFL}
+The idea of natural deduction is how you might go about trying to convince an interlocutor that your argument is valid. You would generally do this by breaking your argument into smaller steps that are obviously valid and piecing these together. 
 
+Suppose you're trying to convince someone that $A\eif(B\eand C),A\therefore B$ is valid, and they don't see it. You can help them by breaking it up into two steps: first use Modus Ponens to get $B\eand C$ and then note that $B$ follows from $B\eand C$. In more detail: 
 
+Grant me that $A\eif (B\eand C)$ and $A$ are true. Then what else do we know to be true? Here's something: $B\eand C$. Why? Because in general Modus Ponens is an excellent argument pattern: any argument of the form $X,\;X\eif Y\;\therefore\;Y$ is valid: there are no valuations where $X$ and $X\eif Y$ are true but $Y$ is false. So if our premises  $A\eif (B\eand C)$ and $A$ are true, then $B\eand C$ must also be true: that's just Modus Ponens. So now from our supposition of $A\eif(B\eand C)$ and $A$, we now also know $B\eand C$. What else follows from these three statements? Here's something: $B$. Why? Well, $B\eand C$ is true; so certainly $B$ must be true. So we know that from $A\eif(B\eand C)$ and $A$ we can conclude $B$ by walking someone through these two steps. This will be enough to show that $A\eif(B\eand C),A\therefore B$ is valid. 
 
-The idea is that we walk through stages of our reasoning process, with certain easy steps being encoded in the system. For example we have seen a few times that Modus Ponens gives us a valid argument. This will be one of our basic rules of the system. This will for example allow us to see: $A\eif(B\eand C),\; A\therefore\; B$ is valid. This first uses Modus Ponens: $A\eif(B\eand C),\; A\therefore\; B\eand C$ and then uses another valid argument step: $B\eand C\;\therefore\; B$. The result of piecing these together is that we can see the whole argument $A\eif(B\eand C),\; A\therefore\; B$ is valid. To keep track of what assumptions have been made and steps of the argument we will give precise forms that this argument should be written:
+To keep track of what assumptions have been made and steps of the argument we will give precise forms that this argument should be written:
 \begin{pf}
 \hypo{abc}{A\eif (B\eand C)}
 \hypo{a}{A}
@@ -68,8 +90,10 @@ The idea is that we walk through stages of our reasoning process, with certain e
 \have{b}{B}\andE{bc}
 \end{pf}
 
+Each new line follows from the previous lines by an application of one of our simple steps of inference, e.g.~Modus Ponens. We will always justify what allowed us to conclude the next line by adding a citation next to the line, e.g.~``$\eand$E 3''. We are allowed to write $B$ on line 4 because it follows from line 3 by an application of the rule $\eand$E. 
 
-We will develop a \define{natural deduction} system. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main logical operator, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main logical operator.
+
+We will develop this \define{natural deduction} system by specifying some basic rules of the system. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main logical operator, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main logical operator.
 
 \section{The idea of a formal proof}
 A \emph{formal proof} is a sequence of sentences, some of which are marked as being initial assumptions (or premises). The last line of the formal proof is the conclusion. (Henceforth, we will simply call these `proofs', but you should be aware that there are \emph{informal proofs} too.)
