@@ -153,9 +153,9 @@
 %    ****************************************
 % TB: I moved from book to memoir and then radically changed the structuring. From the point of view of LaTeX, the book consists of 9 parts, containing roughly 5 chapters each. From the point of view of the user, the book consists of 9 chapters, containing roughly 5 sections each. This means a fair bit of internal redefinition of LaTeX code.
 
-\makeatletter
+
 \renewcommand{\@chapapp}{ } % TB: to prevent "chapter" appearing all over the place
-\makeatother
+
 \renewcommand\cftchapterfont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
 \renewcommand\cftchapterpagefont{\normalfont} %TB: to make the sections (which LaTeX regards as chapters) small in the ToC
 \renewcommand\cftbeforechapterskip{0pt} %TB: to leave no gap between sections (which LaTeX regards as chapters) in the TOC
@@ -166,12 +166,12 @@
 \makeheadrule{forallxpage}{\textwidth}{\normalrulethickness} %TB: put rule beneath page header
 \makeevenhead{forallxpage}{\small \thepage}{}{\small\leftmark}  %TB: page header consists of section name and page
 \makeoddhead{forallxpage}{\small\rightmark}{}{\small \thepage} 
-\makeatletter
+
 \makepsmarks{forallxpage}{
 	\nouppercaseheads
 	\createmark {chapter} {both} {shownumber}{}{.\ }
 }
-\makeatother
+
 \pagestyle{forallxpage}
 
 \setcounter{tocdepth}{0} %TB: only chapters and sections to appear
