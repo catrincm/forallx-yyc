@@ -599,8 +599,7 @@ Here is a proof corresponding with the argument:
 	\have{con}{(P \eand D) \eor (P \eand \enot D)}\orE{lem,b-abo, nb-anbo}
 \end{pf}
 
-Consider the following brain teaser:
-
+Consider the following brain teaser:\footnote{Originally by Hector Levesque.}
 \begin{quote}
 Three people are standing in a row looking at eachother. 
 \begin{center}
@@ -612,7 +611,7 @@ Three people are standing in a row looking at eachother.
 \end{center}
 Alice is married. Charlie is not married. Is there someone who is married who is looking at someone who is not married?
 \end{quote} \ldots Think about it! \\\ldots Answer: Yes. 
-Our Law of Excluded Middle and Disjunction Elimination rules allow us to show this. They write up the following argument, which we present in a pseudo-formal style.
+Our Law of Excluded Middle and Disjunction Elimination rules allow us to show this. They write up the following argument, which we present in a pseudo-formal style. Though, actually, this is most naturally formulated as a validity claim of First Order Logic. We'll walk through the formal proof as formulated in First Order Logic in  \S\ref{s:ExistsE}.
 \begin{pf}
 	\have{lem}{\text{Bob is either married or he's not married}}\LEM
 	\open
@@ -626,9 +625,10 @@ Our Law of Excluded Middle and Disjunction Elimination rules allow us to show th
 	\have{abc2}{\text{So someone who is married is looking at someone who is not married.}}
 	\close
 	\have{con}{\text{Therefore, someone who is married is looking at someone who is not married.}}\orE{lem,b-abc,b2-abc2} 
-\end{pf}Are you convinced now that someone who is married is looking at someone who is not married? If not, find a friend and work through it together. Sometimes it can really help to try walking through the argument together. 
+\end{pf}Are you convinced now that someone who is married is looking at someone who is not married? If not, find a friend and work through it together. Sometimes it can really help to try walking through the argument together.
+\label{s:orE}
 
-Coming up with this sort of argument does just take that moment of inspiration to see how this argument will go. This is often the case with arguments that involve the law of excluded middle. We pick it out of nowhere and have to use our inspiration to see how it might be useful. But hopefully, with more examples you'll become familiar with cases where it might be of use. A strategy that might help is: it's a backup option if everything else fails. If it doesn't look like there's any elimination rules to use on your premises or any introduction rules that can get you to your conclusion, then perhaps LEM is the way forwards. 
+Coming up with this sort of argument does just take that moment of inspiration to see how this argument will go (that's why it's a brain teaser). This is often the case with arguments that involve the law of excluded middle. We pick it out of nowhere and have to use our inspiration to see how it might be useful. But hopefully, with more examples you'll become familiar with cases where it might be of use. A strategy that might help is: it's a backup option if everything else fails. If it doesn't look like there's any elimination rules to use on your premises or any introduction rules that can get you to your conclusion, then perhaps LEM is the way forwards. 
 
 %Indeed, if we are going to try to create an automatic algorithm to do proofs for us, this becomes a challenge when LEM is used. Computer scientists often consider a weaker logic which doesn't accept LEM. And philosophers are interested in this, 
 
@@ -847,7 +847,10 @@ This inference pattern is called \emph{modus tollens}. The corresponding rule is
 \end{pf}}
 As usual, the premises may occur in either order, but we always cite the conditional first. 
 
-\section{Double-negation elimination}
+\section{Other derivable rules?}\nonexaminable
+There are many other derivable rules we could add to our system. I'll leave a few more here, but won't discuss them in much detail, and they won't be required for the exam. 
+
+\subsection{Double-negation elimination}
 Another useful rule is \emph{double-negation elimination}. This rule does exactly what it says on the tin:
 \factoidbox{\begin{pf}
 		\have[m]{dna}{\enot \enot \metaX}
@@ -858,7 +861,7 @@ The justification for this is that, in natural language, double-negations tend t
 
 That said, you should be aware that context and emphasis can prevent them from doing so. Consider: `Jane is not \emph{not} happy'. Arguably, one cannot infer `Jane is happy', since the first sentence should be understood as meaning the same as  `Jane is not \emph{un}happy'. This is compatible with `Jane is in a state of profound indifference'. As usual, moving to TFL forces us to sacrifice certain nuances of English expressions.
 
-\section{Proof by contradiction}
+\subsection{Proof by contradiction}
 A further rule is very closely related to $\enot$I. This is \emph{proof by contradiction}, also sometimes called \emph{indirect proof}. It allows us to prove something by assuming its negation and showing that it leads to contradiction. This technique is incredibly common in mathematics, for example it is used to show that $\sqrt{2}$ is irrational. 
 
 \factoidbox{\begin{pf}
@@ -870,7 +873,7 @@ A further rule is very closely related to $\enot$I. This is \emph{proof by contr
 \end{pf}
 }
 
-\section{De Morgan Rules}
+\subsection{De Morgan Rules}
 Our final additional rules are called De Morgan's Laws. (These are named after Augustus De Morgan.) The shape of the rules should be familiar from truth tables.
 
 The first De Morgan rule is:
@@ -960,6 +963,7 @@ Give a proof for each of these arguments:
 
 
 \chapter{Proof-theoretic concepts}\label{s:ProofTheoreticConcepts}
+\nonexaminable
 
 In this chapter we will introduce some new vocabulary. The following expression:
 $$\metaX_1, \metaX_2, \ldots, \metaX_n \proves \metaZ$$
@@ -1093,14 +1097,18 @@ When you are starting a proof, look at the premises; later, look at the sentence
 
 For a short proof, you might be able to eliminate the premises and introduce the conclusion. A long proof is formally just a number of short proofs linked together, so you can fill the gap by alternately working back from the conclusion and forward from the premises.
 
-\paragraph{Try proceeding indirectly.}
-If you cannot find a way to show $\metaX$ directly, try starting by assuming $\enot \metaX$. If a contradiction follows, then you will be able to obtain $\enot \enot \metaX$ by $\enot$I, and then $\metaX$ by DNE.  
+%\paragraph{Try proceeding indirectly.}
+%If you cannot find a way to show $\metaX$ directly, try starting by assuming $\enot \metaX$. If a contradiction follows, then you will be able to obtain $\enot \enot \metaX$ by $\enot$I, and then $\metaX$ by DNE.  
+
+\paragraph{Law of Excluded Middle.}
+If you're hitting a blank, try seeing if there's some instance of LEM that might help you. These arguments do just need some inspiration to see the instance of LEM that'll be helpful. 
 
 \paragraph{Persist.}
 Try different things. If one approach fails, then try something else.
 
 
 \chapter{Derived rules}\label{s:Derived}
+
 In this section, we will see why we introduced the rules of our proof system in two separate batches. In particular, we want to show that the additional rules of \S\ref{s:Further} are not strictly speaking necessary, but can be derived from the basic rules of \S\ref{s:BasicTFL}.
 
 \section{Derivation of Reiteration}
@@ -1243,7 +1251,7 @@ Provide proof schemes that justify the addition of the third and fourth De Morga
 The proofs you offered in response to the practice exercises of \S\S\ref{s:Further}--\ref{s:ProofTheoreticConcepts} used derived rules. Replace the use of derived rules, in such proofs, with only basic rules. You will find some `repetition' in the resulting proofs; in such cases, offer a streamlined proof using only basic rules.  (This will give you a sense, both of the power of derived rules, and of how all the rules interact.)
 
 \chapter{Soundness and completeness}
-\label{sec:soundness_and_completeness}
+\label{sec:soundness_and_completeness}\nonexaminable
 
 In \S\ref{s:ProofTheoreticConcepts}, we saw that we could use derivations to test for the same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a sentence is a tautology or a pair of sentences are equivalent. We also started using the single turnstile the same way we used the double turnstile. If we could prove that \metaX was a tautology with a truth table, we wrote $\entails \metaX$, and if we could prove it using a derivation, we wrote $\proves \metaX.$ 
 

@@ -1,7 +1,8 @@
 %!TEX root = forallxbris.tex
-\part{Natural deduction for FOL}
+\part{Natural deduction for FOL (Non-examinable)}
 \label{ch.NDFOL}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
+
 
 \chapter{Basic rules for FOL}\label{s:BasicFOL}
 
@@ -108,6 +109,62 @@ Or even
 \end{pf}We replaced the name, `$c$' with the variable `$z$' and added $\exists z$ at the beginning of the sentence. 
 
 
+This rule will now allow us to carefully work through our brain teaser from \S\ref{s:orE}
+\label{s:ExistsE}
+
+\begin{quote}
+Three people are standing in a row looking at eachother. 
+\begin{center}
+\begin{tikzpicture}[people/.style={minimum width=1.5cm}]
+\node[people, alice] (alice) {Alice};
+\node[people, bob, right=of alice] (bob) {Bob};
+\node[people, charlie, right=of bob] (charlie) {Charlie};
+\end{tikzpicture}
+\end{center}
+Alice is married. Charlie is not married. Is there someone who is married who is looking at someone who is not married?
+\end{quote}  Answer: Yes. 
+
+We can formalise this argument as: $$Lab,\;Lbc,\;Ma,\;\enot Mc\;\therefore\;\exists x\exists y(Mx\eand (Lxy\eand\enot Mx)).$$ And we can show it is valid. In \S\ref{s:orE} we wrote this in a pseudo-formal style.
+\begin{pf}
+	\have{lem}{\text{Bob is either married or he's not married}}\LEM
+	\open
+	\hypo{b}{\text{Suppose Bob is married}}
+	\have{ab}{\text{Then married Bob is looking at unmarried Charlie}}
+	\have{abc}{\text{So someone who is married is looking at someone who is not married.}}
+	\close
+	\open
+	\hypo{b2}{\text{Suppose Bob is unmarried}}
+	\have{ab2}{\text{Then married Alice is looking at unmarried Bob}}
+	\have{abc2}{\text{So someone who is married is looking at someone who is not married.}}
+	\close
+	\have{con}{\text{Therefore, someone who is married is looking at someone who is not married.}}\orE{lem,b-abc,b2-abc2} 
+\end{pf}
+
+We can now fill out the details of this to see that it's a formal proof:
+\begin{pf}
+\hypo{1}{Lab}
+\hypo{2}{Lbc}
+\hypo{3}{Ma}
+\hypo{4}{\enot Mc}
+	\have{lem}{Mb\eor\enot Mb}\LEM
+	\open
+	\hypo{b}{Mb}
+	\have{a}{Lbc\eand\enot Mc}\andI{2,b}
+	\have{ab}{Mb\eand (Lbc\eand\enot Mc)}\andI{a,b}
+		\have{ab2}{\exists y(Mb\eand (Lby\eand\enot My))}\existsI{ab}
+		\have{abc}{\exists x\exists y(Mx\eand (Lxy\eand\enot Mx))}\existsI{ab2}
+	\close
+	\open
+	\hypo{b2}{\enot Mb}
+		\have{a}{Lab\eand\enot Mb}\andI{b2,1}
+	\have{ab2}{Ma\eand (Lab\eand\enot Mb)}\andI{3,a}
+		\have{ab22}{\exists y(Ma\eand (Lay\eand\enot My))}\existsI{ab2}
+		\have{abc2}{\exists x\exists y(Mx\eand (Lxy\eand\enot Mx))}\existsI{ab22}
+	\close
+			\have{con}{\exists x\exists y(Mx\eand Lxy\eand\enot Mx)}\orE{lem,b-abc,b2-abc2} 
+\end{pf}
+
+\bigskip 
 Consider the following example:
 \begin{earg}
 \item[] Narcissus loves himeself.
