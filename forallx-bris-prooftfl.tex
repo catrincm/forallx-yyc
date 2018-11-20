@@ -303,7 +303,7 @@ So we have now shown that, on the additional assumption, `$L$', we can obtain `$
 	\end{pf}
 Observe that we have dropped back to using one vertical line.  We have \emph{discharged} the additional assumption, `$L$', since the conditional itself follows just from our original assumption, `$R$'.
 
-The general pattern at work here is the following. We first make an additional assumption, A; and from that additional assumption, we prove B. In that case, we know the following: If A, then B. This is wrapped up in the rule for conditional introduction:
+The general pattern at work here is the following. We first make an additional assumption, \metaX; and from that additional assumption, we prove \metaY. In that case, we know the following: If \metaX, then \metaY. This is wrapped up in the rule for conditional introduction:
 \factoidbox{
 	\begin{pf}
 	\open
@@ -313,7 +313,7 @@ The general pattern at work here is the following. We first make an additional a
 	\close
 	\have[\ ]{ab}{\metaX\eif\metaY}\ci{a-b}
 	\end{pf}}
-There can be as many or as few lines as you like between lines $i$ and $j$. 
+There can be as many or as few lines as you like between lines $m$ and $n$. 
 
 It will help to offer a second  illustration of $\eif$I in action. Suppose we want to consider the following:
 	$$P \eif Q, Q \eif R \therefore P \eif R$$
@@ -418,7 +418,7 @@ Equally, it is always permissible to close a subproof and discharge its assumpti
 
 
 \section{Biconditional}
-\emph{Will not be required in exam.}
+\nonexaminable
 
 The rules for the biconditional will just encode the fact that we didn't need to introduce the symbol and could have always written `$(\metaX\eif\metaY)\wedge(\metaY\eif\metaX)$' instead of $\metaX\eiff\metaY$. We thus introduce the rules allowing you to move between these formulations: 
 \factoidbox{
@@ -1111,20 +1111,20 @@ Try different things. If one approach fails, then try something else.
 
 In this section, we will see why we introduced the rules of our proof system in two separate batches. In particular, we want to show that the additional rules of \S\ref{s:Further} are not strictly speaking necessary, but can be derived from the basic rules of \S\ref{s:BasicTFL}.
 
-\section{Derivation of Reiteration}
-Suppose you have some sentence on some line of your deduction:
-\begin{pf}
-	\have[m]{a}{\metaX}
-\end{pf}
-You now want to repeat yourself, on some line $k$. You could just invoke the rule R, introduced in \S\ref{s:Further}. But equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
-\begin{pf}
-	\have[m]{a}{\metaX}
-	\have[k]{aa}{\metaX \eand \metaX}\ai{a, a}
-	\have{a2}{\metaX}\ae{aa}
-\end{pf}
-To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, `$\metaX$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\metaX$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
-
-Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the other rules of \S\ref{s:BasicTFL}. So we did not actually need to introduce it as a \emph{basic} rule in our system; we could have introduced it as a \emph{derived} rule. However, for ease, we have allowed it in as a basic rule. 
+%\section{Derivation of Reiteration}
+%Suppose you have some sentence on some line of your deduction:
+%\begin{pf}
+%	\have[m]{a}{\metaX}
+%\end{pf}
+%You now want to repeat yourself, on some line $k$. You could just invoke the rule R, introduced in \S\ref{s:Further}. But equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
+%\begin{pf}
+%	\have[m]{a}{\metaX}
+%	\have[k]{aa}{\metaX \eand \metaX}\ai{a, a}
+%	\have{a2}{\metaX}\ae{aa}
+%\end{pf}
+%To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, `$\metaX$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\metaX$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
+%
+%Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the other rules of \S\ref{s:BasicTFL}. So we did not actually need to introduce it as a \emph{basic} rule in our system; we could have introduced it as a \emph{derived} rule. However, for ease, we have allowed it in as a basic rule. 
 
 
 \section{Derivation of Disjunctive syllogism}
@@ -1148,7 +1148,14 @@ You now want, on line $k$, to prove $\metaY$. You can do this with the rule of D
 		\close
 	\have{con}{\metaY}\oe{ab, a-b1, b-b2}
 \end{pf}
-So the DS rule, again, can be derived from our more basic rules. Adding it to our system did not make any new proofs possible. Anytime you use the DS rule, you could always take a few extra lines and prove the same thing using only our basic rules. It is a \emph{derived} rule.
+
+To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses variables, `$\metaX$' and `$\metaY$', which are not, strictly speaking, sentences of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\metaX$' or `$\metaY$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
+
+Indeed, it is a recipe which shows us that, anything we can prove using the rule DS, we can prove (with a few more lines) using just the other rules of \S\ref{s:BasicTFL}. 
+%So we did not actually need to introduce it as a \emph{basic} rule in our system; we could have introduced it as a \emph{derived} rule. However, for ease, we have allowed it in as a basic rule. 
+%
+%So the DS rule, again, can be derived from our more basic rules.
+% Adding it to our system does not make any new proofs possible. Any time you use the DS rule, you could always take a few extra lines and prove the same thing using only our basic rules. It is a \emph{derived} rule.
 
 \section{Derivation of Modus tollens}
 Suppose you have the following in your proof:
