@@ -6,8 +6,10 @@
 
 
 
-
-
+\usepackage[textsize=footnotesize,obeyFinal]{todonotes} % use "\PassOptionsToPackage{disable}{todonotes}" to disable in a document
+\newcommand{\hidetodo}{\renewcommand{\todo}[1]{}}
+\newcommand{\lecturecomment}[1]{\todo{#1}}
+\newcommand{\hideall}{\PassOptionsToPackage{disable}{todonotes}}
 
 
 
@@ -35,9 +37,13 @@
 % The {ekey} environment is used for symbolization keys.
 \newcounter{eargnum}
 \newcounter{OLDeargnum}
-\newenvironment{earg}%
+\newenvironment{eargnumbered}%
 {\begin{list}{\arabic{eargnum}.}{\usecounter{eargnum}\itemsep=0pt \parsep=0pt}}%
 {\setcounter{OLDeargnum}{\arabic{eargnum}}\end{list}}
+
+\newenvironment{earg}%
+{\begin{list}{}{\itemsep=0pt \parsep=0pt}}%
+{\end{list}}
 
 \newenvironment{ebullet}% TB: added to give a nice bulleted enivronment
 {\begin{list}{\textbullet}{\itemsep=0pt \parsep=0pt}}%
@@ -85,6 +91,7 @@
 \newcommand{\tablefbox}[1]{\multicolumn{1}{|p{10em}|}{#1}}
 
 
+\newenvironment{symexamples}[1][2em]{\begin{itemize}\setlength\itemsep{#1}}{\vspace{2em}\end{itemize}}
 
 
 
@@ -110,14 +117,14 @@
 
 \pagestyle{fancy}
 %\lhead{{\footnotesize Probability and Rationality}} \chead{}
-\lfoot{\footnotesize {Catrin Campbell-Moore}}\chead{}
-\rhead{} 
-\lhead{} \rfoot{\footnotesize \today}
-\cfoot{\footnotesize \thepage\ of \pageref{LastPage}}
+\rhead{\footnotesize {Catrin Campbell-Moore}}\chead{}
+\cfoot{} 
+\lhead{} \lfoot{\footnotesize \today}
+\rfoot{\footnotesize \thepage\ of \pageref{LastPage}}
 
 
 \usepackage{enumitem}
-\setlist[itemize]{parsep=0ex,itemsep=0em}
+\setlist[itemize]{parsep=0ex,itemsep=0em,topsep=0pt}
 %\setlist[enumerate]{parsep=.2ex}
 
 \setlength{\parskip}{.5em}
