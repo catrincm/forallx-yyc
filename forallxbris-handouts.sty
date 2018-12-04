@@ -92,8 +92,11 @@
 
 
 \newenvironment{symexamples}[1][2em]{\begin{itemize}\setlength\itemsep{#1}}{\vspace{2em}\end{itemize}}
-
-
+\newcommand{\answer}[1]{\quad#1}
+%\newcommand{\showanswers}{
+%%	\renewenvironment{symexamples}[1][1em]{\begin{itemize}\setlength\itemsep{#1}}{\vspace{2em}\end{itemize}}
+%	\renewcommand{\answer}[1]{\par #1}
+%}
 
 \setlength{\columnsep}{2em} % Sets 2em space between columns when calling multicol 
 
