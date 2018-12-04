@@ -262,15 +262,15 @@ $Sx$ is: &T&T&F&F
 
 What about $\forall x(Sx\eif (Hx\eor Cx))$
 \begin{center}
-\begin{tabular}{ccccc}
-&$x\mapsto \text{Alice}$&$x\mapsto \text{Bob}$&$x\mapsto \text{Cathy}$&$x\mapsto \text{Denny}$\Bstrut\\\hline\Tstrut
-$Sx$ is: &T&T&F&F\\
-$Hx$ is: &T&T&F&F\\
-$Cx$ is: &F&T&T&F\\
-$Hx\eor Cx$ is: &T&T&T&F\\
-$Sx\eif (Hx\eor Cx)$ is: &T&T&T&T
+\begin{tabular}{l|ccccc}
+&$Sx$&$Hx$&$Cx$&$Hx\eor Cx$&$Sx\eif (Hx\eor Cx)$\Bstrut\\\hline\Tstrut
+$x\mapsto\text{Alice}$&T&T&F&T&T\\
+$x\mapsto \text{Bob}$&T&T&T&T&T\\
+$x\mapsto \text{Cathy}$&F&F&T&T&T\\
+$x\mapsto \text{Denny}$&F&F&F&F&T
 \end{tabular}
-\end{center}So $Sx\eif (Hx\eor Cx)$  is true under every assignment of an object to the variable $x$. And so $\forall x(Sx\eif (Hx\eor Cx))$ is true. 
+\end{center}
+So $Sx\eif (Hx\eor Cx)$  is true under every assignment of an object to the variable $x$. And so $\forall x(Sx\eif (Hx\eor Cx))$ is true. 
 
 
 
@@ -296,42 +296,49 @@ Consider a new interpretation: \begin{center}
 \end{ekey}
 \end{center}
  
- Is $\exists x\forall y Rxy$ true? We need to find some choice of an object for $x$ where $\forall y Rxy$ is true under that choice (``variable assignment''). Let's (with foresight) chose the number 3 for $x$ ($x\mapsto 3$). Is $\forall y Rxy$ true under this assignment of the number 3 to $x$? For this we need to do more with our variable assignment: we need to extend it with a choice of an object for $y$. Moreover, we need to think about all ways of picking an object for $y$, while we've fixed $x$ as the number 3. Let's work through them: 
+ Is $\exists x\forall y Rxy$ true? We need to find some choice of an object for $x$ where $\forall y Rxy$ is true under that choice (``variable assignment''). Let's (with foresight) chose the number 3 for $x$ ($x\mapsto 3$). Is $\forall y Rxy$ true under this variable assignment? To check this we need to do something more with our variable assignment: we need to extend it with a choice of an object for $y$. Moreover, we need to think about all ways of picking an object for $y$, while we've fixed $x$ as the number 3. Let's work through them: 
 \begin{center}
- \begin{tabular}{ccccc}
-	 &$x\mapsto 3$& $x\mapsto 3$& $x\mapsto 3$& $x\mapsto 3$\\
-	 &$y\mapsto 1$& $y\mapsto 2$& $y\mapsto 3$& $y\mapsto 4$\Bstrut\\\hline\Tstrut
-	 $Rxy$ is:&T&T&T&T
+ \begin{tabular}{cc|c}
+&&$Rxy$\Bstrut\\\hline\Tstrut
+$x\mapsto 3$&$y\mapsto 1$&T\\
+$x\mapsto 3$&$y\mapsto 2$&T\\
+$x\mapsto 3$&$y\mapsto 3$&T\\
+$x\mapsto 3$&$y\mapsto 4$&T\\
  \end{tabular}
-\end{center}So under any way of extending our variable assignment of $x\mapsto 3$ by choosing an object for $y$ makes $Rxy$ true. This tells us that $\forall y Rxy$ is true under the variable assignment $x\mapsto 3$. And \emph{that} tells us that $\exists x\forall y Rxy$ is true: there's an assignment of the variable $x$ under which the constituent formula $\forall y Rxy$ is true. 
+\end{center}So under any way of extending our variable assignment of $x\mapsto 3$ by choosing an object for $y$ results in a variable assignment on which $Rxy$ true. This tells us that $\forall y Rxy$ is true under the variable assignment $x\mapsto 3$. And \emph{that} tells us that $\exists x\forall y Rxy$ is true: there's an assignment of the variable $x$ under which the constituent formula $\forall y Rxy$ is true. 
 
-What about $\exists x \exists y(Rxy \eand Ryx)$? To show that it is true we will want to choose an object that we can assign to $x$ under which $\exists y (Rxy\eand Ryx)$ is true. Let's consider $x\mapsto 3$ (again I'm using my forsight of what will come to choose carefully). Now is $\exists y (Rxy\eand Ryx)$  true under the variable assignment $x\mapsto 3$? We need to find an extension of this which chooses an object for $y$ under which $Rxy\eand Ryx$ is true. Consider $y\mapsto 3$. We now have a variable assignment $x\mapsto 3, y\mapsto 3$. They are different variables but there's nothing stopping them denoting the same object. And we can then consider whether $Rxy\eand Ryx$ is true under this interpretation. Well, $Rxy$ is true: 3 does have an arrow to 3. And $Ryx$ is also true: 3 does have an arrow to 3. So by our clause for $\eand$, $Rxy\eand Ryx$ is true under this variable assignment $x\mapsto 3, y\mapsto 3$. And so $\exists y(Rxy\eand Ryx)$ is true under the variable assignment $x\mapsto 3$. And so $\exists x\exists y(Rxy\eand Ryx)$ is true tout court in this interpretation. 
+What about $\exists x \exists y(Rxy \eand Ryx)$? To show that it is true we will want to choose an object that we can assign to $x$ under which $\exists y (Rxy\eand Ryx)$ is true. Let's consider $x\mapsto 3$ (again I'm using my forsight of what will come to choose carefully). Now is $\exists y (Rxy\eand Ryx)$  true under the variable assignment $x\mapsto 3$? We need to find an extension of this which chooses an object for $y$ under which $Rxy\eand Ryx$ is true. Consider $y\mapsto 3$. We now have a variable assignment $x\mapsto 3, y\mapsto 3$. They are different variables but there's nothing stopping them denoting the same object. And we can then consider whether $Rxy\eand Ryx$ is true under this interpretation. Well, $Rxy$ is true: 3 does have an arrow to 3. And $Ryx$ is also true: 3 does have an arrow to 3. So by our clause for $\eand$, $Rxy\eand Ryx$ is true under this variable assignment $x\mapsto 3, y\mapsto 3$. And so $\exists y(Rxy\eand Ryx)$ is true under the variable assignment $x\mapsto 3$. And so $\exists x\exists y(Rxy\eand Ryx)$ is true in this interpretation. 
 
 One more example: $\forall x(Sx\eif \exists y Rxy)$? To check this is true we will need to go through each of our objects for $x$ and see that $Sx\eif \exists y Rxy$ is true under that interpretation. That'll already give us $Sx$. 
 
 \begin{center}
- \begin{tabular}{ccccc}
- &$x\mapsto 1$& $x\mapsto 2$& $x\mapsto 3$& $x\mapsto 4$\Bstrut\\\hline\Tstrut
-$Sx$ is: &F&T&F&T\\
-$\exists yRxy$ is:&?&?&?&?
+\begin{tabular}{c|cc}
+&$Sx$&$\exists x Rxy$\Bstrut\\\hline\Tstrut
+$x\mapsto 1$&F&?\\
+$x\mapsto 2$&T&?\\
+$x\mapsto 3$&F&?\\
+$x\mapsto 4$&T&?
 \end{tabular}
 \end{center}
 
 For each variable assignment we can find some way of exending it with an assignment to $y$ under which $Rxy$ is true:
 \begin{center}
- \begin{tabular}{ccccc}
-	 &$x\mapsto 1$& $x\mapsto 2$& $x\mapsto 3$& $x\mapsto 4$\\
-	 &$y\mapsto 2$& $y\mapsto 3$& $y\mapsto 3$& $y\mapsto 3$\Bstrut\\\hline\Tstrut
-	 $Rxy$ is:&T&T&T&T
+\begin{tabular}{cc|c}
+&&$Rxy$\Bstrut\\\hline\Tstrut
+$x\mapsto 1$&$y\mapsto 2$&T\\
+$x\mapsto 2$&$y\mapsto 3$&T\\
+$x\mapsto 3$&$y\mapsto 3$&T\\
+$x\mapsto 4$&$y\mapsto 3$&T
  \end{tabular}
 \end{center}So we now have
 \begin{center}
- \begin{tabular}{ccccc}
- &$x\mapsto 1$& $x\mapsto 2$& $x\mapsto 3$& $x\mapsto 4$\Bstrut\\\hline\Tstrut
-$Sx$ is: &F&T&F&T\\
-$\exists y Rxy$ is:&T&T&T&T\\
-$Sx\eif \exists y Rxy$ is: &T&T&T&T
-\end{tabular}
+ \begin{tabular}{c|ccc}
+ &$Sx$&$\exists x Rxy$&$Sx\eif\exists y Rxy$\Bstrut\\\hline\Tstrut
+ $x\mapsto 1$&F&T&T\\
+ $x\mapsto 2$&T&T&T\\
+ $x\mapsto 3$&F&T&T\\
+ $x\mapsto 4$&T&T&T
+ \end{tabular}
 \end{center}So $\forall x(Sx\eif \exists y Rxy)$ is true. Informally we might say this as: for every number that has a square around it has an arrow going out of it. 
 
 One final example: $\forall x\forall y Rxy$. To check this we will need to consider all choices for $x$ and all choices for $y$ and check $Rxy$ is true on all of them. There are 16 such choices. But we won't have to go through them all: it'll be false. Consider $x\mapsto 2$ and $y\mapsto 4$. $Rxy$ is false under this variable assignment. Thus $\forall yRxy$ is false on the variable assignment $x\mapsto 2$. And so $\forall x\forall y Rxy$ is false in the interpretation. 
