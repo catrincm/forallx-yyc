@@ -254,9 +254,12 @@ Consider
 Is $\exists x Sx$ true? To check this we see if there is a choice of an object for $x$ which gives us a variable assignment under which $Sx$ is true. Consider assigning Alice to $x$, which we can as shorthand write by $x\mapsto \text{Alice}$. Under this variable assignment, $Sx$ is true: Alice does have a sword. So $\exists x Sx$ is true. There is a choice of an object in our domain for $x$ under which $Sx$ is true.
 
 What about $\forall x Sx$? This means that $Sx$ is true under any choice of a person for $x$. Let's go through them. \begin{center}
-\begin{tabular}{ccccc}
-&$x\mapsto \text{Alice}$&$x\mapsto \text{Bob}$&$x\mapsto \text{Cathy}$&$x\mapsto \text{Denny}$\Bstrut\\\hline\Tstrut
-$Sx$ is: &T&T&F&F
+\begin{tabular}{l|c}
+&$Sx$\Bstrut\\\hline\Tstrut
+$x\mapsto\text{Alice}$&T\\
+$x\mapsto \text{Bob}$&T\\
+$x\mapsto \text{Cathy}$&F\\
+$x\mapsto \text{Denny}$&F
 \end{tabular}
 \end{center}So $\forall x Sx$ is false: it is not the case that $Sx$ is true under any choice of an object for $x$: when we have an assignment of Cathy to $x$, $Sx$ is false. 
 
