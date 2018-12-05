@@ -234,13 +234,13 @@ We can also carry variable assignments around with us. Consider a variable assig
 \section{When the main logical operator is a quantifier}
 The exciting innovation in FOL, though, is the use of \emph{quantifiers}.
 
-Consider 
+Consider the following interpretation:
 \begin{center}
 \begin{tikzpicture}
 \node (A) [alice,evil,sword,minimum size=1cm] {Alice};
 \node (B)[bob,monitor,evil,sword,minimum size=1cm,right=1cm of A] {Bob};
 \node[charlie,monitor,female, minimum size=1cm,below=.8cm of A] {Cathy};
-\node[businessman,minimum size=1cm,below=.8cm of B] {Denny};
+\node[businessman,minimum size=1cm,skin=brown,below=.8cm of B] {Denny};
 \end{tikzpicture}
 
 \begin{ekey}\item[\text{domain}] People in above picture (Alice, Bob, Cathy and Denny)
@@ -253,7 +253,7 @@ Consider
 
 Is $\exists x Sx$ true? To check this we see if there is a choice of an object for $x$ which gives us a variable assignment under which $Sx$ is true. Consider assigning Alice to $x$, which we can as shorthand write by $x\mapsto \text{Alice}$. Under this variable assignment, $Sx$ is true: Alice does have a sword. So $\exists x Sx$ is true. There is a choice of an object in our domain for $x$ under which $Sx$ is true.
 
-What about $\forall x Sx$? This means that $Sx$ is true under any choice of a person for $x$. Let's go through them. \begin{center}
+What about $\forall x Sx$? This is true iff $Sx$ is true under any choice of a person for $x$. Let's go through them. \begin{center}
 \begin{tabular}{l|c}
 &$Sx$\Bstrut\\\hline\Tstrut
 $x\mapsto\text{Alice}$&T\\
@@ -277,19 +277,20 @@ So $Sx\eif (Hx\eor Cx)$  is true under every assignment of an object to the vari
 
 
 
-We have to tread more carefully once we start having multiple quantifiers. But let's just talk through some cases to start.
+We have to tread more carefully once we start having multiple quantifiers. Let's walk through some cases.
 
 Consider a new interpretation: \begin{center}
 \begin{tikzpicture}
-\node (atom1) at (0,2) {1};
-\node (atom2)[draw] at (2,2) {2};
-\node (atom3) at (0,0) {3};
-\node (atom4)  [draw] at (2,0) {4};
+\node (atom1) [draw] at (0,2) {1};
+\node (atom2) at (2,2) {2};
+\node (atom3) [draw] at (0,0) {3};
+\node (atom4)  at (2,0) {4};
 \draw[->, thick] (atom3)+(-0.15,0.15) arc (-330:-30:.3); 
-\draw[->, thick] (atom2) -- (atom3);
-\draw[->,thick] (atom1)--(atom3);
-\draw[->, thick] (atom4)--(atom3);
+\draw[<-, thick] (atom2) -- (atom3);
+\draw[<-,thick] (atom1)--(atom3);
+\draw[<-, thick] (atom4)--(atom3);
 \draw[->, thick] (atom1)--(atom2);
+\draw[->, thick] (atom2)--(atom4);
 \end{tikzpicture}
 
  \begin{ekey}
@@ -299,7 +300,7 @@ Consider a new interpretation: \begin{center}
 \end{ekey}
 \end{center}
  
- Is $\exists x\forall y Rxy$ true? We need to find some choice of an object for $x$ where $\forall y Rxy$ is true under that choice (``variable assignment''). Let's (with foresight) chose the number 3 for $x$ ($x\mapsto 3$). Is $\forall y Rxy$ true under this variable assignment? To check this we need to do something more with our variable assignment: we need to extend it with a choice of an object for $y$. Moreover, we need to think about all ways of picking an object for $y$, while we've fixed $x$ as the number 3. Let's work through them: 
+ Is $\exists x\forall y Rxy$ true? We need to find some choice of an object for $x$ where $\forall y Rxy$ is true under that choice (``variable assignment''). Let's (with foresight) chose the number 3 for $x$ ($x\mapsto 3$). Is $\forall y Rxy$ true under this variable assignment $x\mapsto 3$? To check this we need to do something more with our variable assignment: we need to extend it with a choice of an object for $y$. Moreover, we need to think about all ways of picking an object for $y$, while we've fixed $x$ as the number 3. Consider, e.g.~$y\mapsto 1$. Then we have to evaluate whether $Rxy$ is true with $x\mapsto 3,\, y\mapsto 1$. This is true iff there is an arrow from 3 ($x$) to 1 ($y$), and there is such an arrow.  We can work through all the cases an see that all of them have an arrow from $3$, so $Rxy$ is true for any choice of object for $y$:
 \begin{center}
  \begin{tabular}{cc|c}
 &&$Rxy$\Bstrut\\\hline\Tstrut
@@ -312,41 +313,44 @@ $x\mapsto 3$&$y\mapsto 4$&T\\
 
 What about $\exists x \exists y(Rxy \eand Ryx)$? To show that it is true we will want to choose an object that we can assign to $x$ under which $\exists y (Rxy\eand Ryx)$ is true. Let's consider $x\mapsto 3$ (again I'm using my forsight of what will come to choose carefully). Now is $\exists y (Rxy\eand Ryx)$  true under the variable assignment $x\mapsto 3$? We need to find an extension of this which chooses an object for $y$ under which $Rxy\eand Ryx$ is true. Consider $y\mapsto 3$. We now have a variable assignment $x\mapsto 3, y\mapsto 3$. They are different variables but there's nothing stopping them denoting the same object. And we can then consider whether $Rxy\eand Ryx$ is true under this interpretation. Well, $Rxy$ is true: 3 does have an arrow to 3. And $Ryx$ is also true: 3 does have an arrow to 3. So by our clause for $\eand$, $Rxy\eand Ryx$ is true under this variable assignment $x\mapsto 3, y\mapsto 3$. And so $\exists y(Rxy\eand Ryx)$ is true under the variable assignment $x\mapsto 3$. And so $\exists x\exists y(Rxy\eand Ryx)$ is true in this interpretation. 
 
-One more example: $\forall x(Sx\eif \exists y Rxy)$? To check this is true we will need to go through each of our objects for $x$ and see that $Sx\eif \exists y Rxy$ is true under that interpretation. That'll already give us $Sx$. 
-
+One more example: $\forall x(Sx\eif \exists y Rxy)$? To check this is true we will need to go through each of our objects for $x$ and see that $Sx\eif \exists y Rxy$ is true under that interpretation. We can already see if $Sx$ is true under each variable assignment, and if we find that $Sx$ is false that's enough information to determine that $Sx\eif \exists y Rxy$ is true (check the definition of truth for $\eif$ to see this):
 \begin{center}
-\begin{tabular}{c|cc}
-&$Sx$&$\exists x Rxy$\Bstrut\\\hline\Tstrut
-$x\mapsto 1$&F&?\\
-$x\mapsto 2$&T&?\\
-$x\mapsto 3$&F&?\\
-$x\mapsto 4$&T&?
+\begin{tabular}{c|ccc}
+&$Sx$&$\exists y Rxy$&$Sx\eif\exists y Rxy$\Bstrut\\\hline\Tstrut
+$x\mapsto 1$&T&?&?\\
+$x\mapsto 2$&F&?&T\\
+$x\mapsto 3$&T&?&?\\
+$x\mapsto 4$&F&?&T
 \end{tabular}
 \end{center}
 
-For each variable assignment we can find some way of exending it with an assignment to $y$ under which $Rxy$ is true:
+So we need to check  whether $\exists y Rxy$ is true under the variable assignments $x\mapsto 1$ and $x\mapsto 3$. 
+
+Consider $x\mapsto 1$. We can find an object for $y$ where $Rxy$ is true under that variable assignment: consider $y\mapsto 2$. Since there is an arrow from 1 to 2, $Rxy$ is true in the variable assignment $x\mapsto 1$ and $y\mapsto 2$. Thus $\exists y Rxy$ is true on the variable assignment $x\mapsto 1$. We're also able to do something similar for $x\mapsto 3$: 
 \begin{center}
 \begin{tabular}{cc|c}
 &&$Rxy$\Bstrut\\\hline\Tstrut
 $x\mapsto 1$&$y\mapsto 2$&T\\
-$x\mapsto 2$&$y\mapsto 3$&T\\
-$x\mapsto 3$&$y\mapsto 3$&T\\
-$x\mapsto 4$&$y\mapsto 3$&T
+$x\mapsto 3$&$y\mapsto 3$&T
  \end{tabular}
 \end{center}So we now have
 \begin{center}
- \begin{tabular}{c|ccc}
- &$Sx$&$\exists x Rxy$&$Sx\eif\exists y Rxy$\Bstrut\\\hline\Tstrut
- $x\mapsto 1$&F&T&T\\
- $x\mapsto 2$&T&T&T\\
- $x\mapsto 3$&F&T&T\\
- $x\mapsto 4$&T&T&T
- \end{tabular}
+\begin{tabular}{c|ccc}
+&$Sx$&$\exists y Rxy$&$Sx\eif\exists y Rxy$\Bstrut\\\hline\Tstrut
+$x\mapsto 1$&T&T&T\\
+$x\mapsto 2$&F&?&T\\
+$x\mapsto 3$&T&T&T\\
+$x\mapsto 4$&F&?&T
+\end{tabular}
 \end{center}So $\forall x(Sx\eif \exists y Rxy)$ is true. Informally we might say this as: for every number that has a square around it has an arrow going out of it. 
 
-One final example: $\forall x\forall y Rxy$. To check this we will need to consider all choices for $x$ and all choices for $y$ and check $Rxy$ is true on all of them. There are 16 such choices. But we won't have to go through them all: it'll be false. Consider $x\mapsto 2$ and $y\mapsto 4$. $Rxy$ is false under this variable assignment. Thus $\forall yRxy$ is false on the variable assignment $x\mapsto 2$. And so $\forall x\forall y Rxy$ is false in the interpretation. 
+One final example: $\forall x\forall y Rxy$. To check this we will need to consider all choices for $x$ and all choices for $y$ and check $Rxy$ is true on all of them. There are 16 such choices. But we won't have to go through them all: it'll be false. Consider $x\mapsto 1$ and $y\mapsto 4$. $Rxy$ is false under this variable assignment: there is no arrow from 1 to 4. Thus $\forall yRxy$ is false on the variable assignment $x\mapsto 1$. And so $\forall x\forall y Rxy$ is false in the interpretation. 
  
- Let's now give a formal definition of the idea we've been using here. Quantified formulas like $\forall y Rxy$ still need to be given truth conditions \emph{relative to a variable assignment}, because we'll need to specify an assignment of an object for the free variable $x$. So we define when $\forall \metav\metaX$ is true under a variable assignment $\alpha$, which might be, e.g.~$x\mapsto 1$. To give a general definition, though we might also consider whether $\forall y Rxy$ is true under a variable assignment $x\mapsto 1, y\mapsto 2$. This is slightly odd: we're considering $\forall y Rxy$ but have been told who $y$ refers to already. However when we evaluate it we simply ignore whatever our given variable assignment tells us about $y$: we consider variable assignments that modify the assignment by changing what is assigned to $y$. So, e.g.~$\exists x Sx$ is true under variable assignment $x\mapsto 1$: there's a modification of this variable assignment which gives us $x\mapsto 2$ under which $Sx$ is true.  Sentences which have all variables bound, don't have their truth value dependent on any variable assignment anymore, they're simply true or false in the interpretation.
+ Let's now give a formal definition of the idea we've been using here. Quantified formulas like $\exists y Rxy$ still need to be given truth conditions \emph{relative to a variable assignment}, because we'll need to specify an assignment of an object for the free variable $x$. So we define when $\exists \metav\metaX$ is true under a variable assignment $\alpha$, which might be, e.g.~$x\mapsto 1$. To give a general definition, though we might also consider whether $\forall y Rxy$ is true under a variable assignment $x\mapsto 1, y\mapsto 4$. This is slightly odd: we're considering $\exists y Rxy$ but have been told who $y$ refers to already. However when we evaluate it we simply ignore whatever our given variable assignment tells us about $y$: we consider variable assignments that modify the assignment by changing what is assigned to $y$. And by modifying it to $x\mapsto 1, y\mapsto2$ we have a variable assignment under which $Rxy$ is true, so $\exists y Rxy$ is true under the original variable assignment $x\mapsto 1, y\mapsto 4$.
+ 
+ Similarly consider $\exists x Sx$ under the variable assignment $x\mapsto 1$. To evaluate this we consider modification of this variable assignment which assign other objects to $x$. Under the variable assignment $x\mapsto 2$, $Sx$ is true.  So under our original variable assignment $\exists x Sx$ is true: it didn't matter what our original variable assignment was, we ignored this and considered variants to evaluate its truth.
+ 
+ This is a general feature: Sentences, which have all variables bound, have truth values independent of any variable assignment they're evaluated with: when we have a quantifier like $\exists x$ or $\forall x$ we ignore whatever our original variable assignment told us about $x$. So when all our variables are bound by quantifiers, all the original components of our variable assignment are ignored. To summarise: Sentences are simply true or false in interpretations, variable assignments don't matter. 
  
  Now for our formal definition:
 \factoidbox{
