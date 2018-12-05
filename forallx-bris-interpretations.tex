@@ -237,16 +237,16 @@ The exciting innovation in FOL, though, is the use of \emph{quantifiers}.
 Consider the following interpretation:
 \begin{center}
 \begin{tikzpicture}
-\node (A) [alice,evil,sword,minimum size=1cm] {Alice};
-\node (B)[bob,monitor,evil,sword,minimum size=1cm,right=1cm of A] {Bob};
+\node (A) [alice,monitor,sword,minimum size=1cm] {Alice};
+\node (B)[bob,evil,sword,minimum size=1cm,right=1cm of A] {Bob};
 \node[charlie,monitor,female, minimum size=1cm,below=.8cm of A] {Cathy};
 \node[businessman,minimum size=1cm,skin=brown,below=.8cm of B] {Denny};
 \end{tikzpicture}
 
 \begin{ekey}\item[\text{domain}] People in above picture (Alice, Bob, Cathy and Denny)
-\item[Hx] \gap{x} has horns (Alice and Bob)
+\item[Hx] \gap{x} has horns (Bob)
 \item[Sx] \gap{x} carrying a sword (Alice and Bob)
-\item[Cx]\gap{x} is looking at a computer (Bob and Cathy)
+\item[Cx]\gap{x} is looking at a computer (Alice and Cathy)
 %\item[Gx] nothing
 \end{ekey}
 \end{center}
@@ -267,8 +267,8 @@ What about $\forall x(Sx\eif (Hx\eor Cx))$
 \begin{center}
 \begin{tabular}{l|ccccc}
 &$Sx$&$Hx$&$Cx$&$Hx\eor Cx$&$Sx\eif (Hx\eor Cx)$\Bstrut\\\hline\Tstrut
-$x\mapsto\text{Alice}$&T&T&F&T&T\\
-$x\mapsto \text{Bob}$&T&T&T&T&T\\
+$x\mapsto\text{Alice}$&T&F&T&T&T\\
+$x\mapsto \text{Bob}$&T&T&F&T&T\\
 $x\mapsto \text{Cathy}$&F&F&T&T&T\\
 $x\mapsto \text{Denny}$&F&F&F&F&T
 \end{tabular}
