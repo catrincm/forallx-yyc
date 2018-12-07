@@ -355,10 +355,10 @@ One final example: $\forall x\forall y Rxy$. To check this we will need to consi
  Now for our formal definition:
 \factoidbox{
 $\forall \metav\metaX$ is true under a variable assignment $\alpha$\\
-\textbf{iff} $\metaX$ is true under \emph{every} variable assignment that is the result of modifying/extending $\alpha$ with a choice of an object in our domain for $x$. \\
+\textbf{iff} $\metaX$ is true under \emph{every} variable assignment that is the result of modifying/extending $\alpha$ with a choice of an object in our domain for $\metav$. \\
 
 $\exists \metav\metaX$ is true under a variable assignment $\alpha$\\
-\textbf{iff} $\metaX$ is true under \emph{some} variable assignment that is the result of modifying/extending $\alpha$ with a choice of an object in our domain for $x$. 
+\textbf{iff} $\metaX$ is true under \emph{some} variable assignment that is the result of modifying/extending $\alpha$ with a choice of an object in our domain for $\metav$. 
 }
 To be clear: all this is doing is formalizing the intuitive idea expressed in our examples. The result is a bit ugly, and the final definition might look a bit opaque. Hopefully, though, the \emph{spirit} of the idea is clear. 
 
@@ -510,13 +510,15 @@ Determine whether each of the following sentences is true or false in that inter
 Offering a precise definition of truth in FOL was more than a little fiddly, but now that we are done, we can define various central logical notions. These will look very similar to the definitions we offered for TFL. However, remember that they concern \emph{interpretations}, rather than valuations. 
 
 We will use the symbol $\entails$ for FOL much as we did for TFL. So:
-	$$\metaX_1, \metaX_2, \ldots, \metaX_n \entails\meta{C}$$
-means that there is no interpretation in which all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ are true and in which \meta{C} is false. Derivatively,
+\factoidbox{
+	$$\metaX_1, \metaX_2, \ldots, \metaX_n \entails\metaZ$$
+iff there is no interpretation in which all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ are true and in which \metaZ is false. }
+Derivatively,
 	$$\entails\metaX$$
 means that \metaX is true in every interpretation.
 
 The other logical notions also have corresponding definitions in FOL:
-
+\factoidbox{
 \begin{itemize}
 \item An FOL sentence $\metaX$ is a \define{logical truth} iff $\metaX$ is true in every interpretation; i.e.,  $\entails\metaX$.
 \newglossaryentry{logical truth}
@@ -533,7 +535,7 @@ description={A \gls{sentence of FOL} that is true in every \gls{interpretation}.
 description={A \gls{sentence of FOL} that is false in every \gls{interpretation}}
 }
   
-\item $\metaX_1, \metaX_2, \ldots \metaX_n \therefore \meta{C}$ is \define{valid in FOL} iff there is no interpretation in which all of the premises are true and the conclusion is false; i.e., $\metaX_1,\metaX_2,\ldots \metaX_n \entails\meta{C}$. It is \define{invalid in FOL} otherwise.
+\item $\metaX_1, \metaX_2, \ldots \metaX_n \therefore \metaZ$ is \define{valid in FOL} iff there is no interpretation in which all of the premises are true and the conclusion is false; i.e., $\metaX_1,\metaX_2,\ldots \metaX_n \entails\metaZ$. It is \define{invalid in FOL} otherwise.
 \newglossaryentry{logically valid in FOL}
 {
   name=logical validity (in FOL),
@@ -550,7 +552,7 @@ description={A property held by arguments if and only if no \gls{interpretation}
 description={A property held by pairs of \glspl{sentence of FOL} if and only if the sentences have the same truth value in every \gls{interpretation}.}
 }
 
-\item The FOL sentences $\metaX_1,\metaX_2,\ldots, \metaX_n$ are \define{jointly consistent} iff there is some interpretation in which all of the sentences are true. They are \define{jointly inconsistent} iff there is no such interpretation.
+\item The FOL sentences $\metaX_1,\metaX_2,\ldots, \metaX_n$ are \define{jointly logically consistent} iff there is some interpretation in which all of the sentences are true. They are \define{jointly logically inconsistent} iff there is no such interpretation.
 \newglossaryentry{logically consistent in FOL}
 {
   name=logical consistency (in FOL),
@@ -558,6 +560,7 @@ description={A property held by pairs of \glspl{sentence of FOL} if and only if 
 description={A property held by \glspl{sentence of FOL} if and only if some \gls{interpretation} makes all the sentences true}
 }
 \end{itemize}
+}
 
 \chapter{Using interpretations}
 \label{sec.UsingModels}
@@ -665,11 +668,11 @@ This immediately shows that all of the preceding six sentences are jointly consi
 and many more besides.
 
 	\factoidbox{
-	To show that $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \meta{C}$ is invalid, it suffices to find an interpretation where all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ are true and where $\meta{C}$ is false.
+	To show that $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \metaZ$ is invalid, it suffices to find an interpretation where all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ are true and where $\metaZ$ is false.
 	
-	That same interpretation will show that $\metaX_1, \metaX_2, \ldots, \metaX_n$ do not entail $\meta{C}$.
+	That same interpretation will show that $\metaX_1, \metaX_2, \ldots, \metaX_n$ do not entail $\metaZ$.
 	
-	It will also show that $\metaX_1, \metaX_2, \ldots, \metaX_n, \enot \meta{C}$ are jointly consistent.}
+	It will also show that $\metaX_1, \metaX_2, \ldots, \metaX_n, \enot \metaZ$ are jointly consistent.}
 When you provide an interpretation to refute a claim---to logical truth, say, or to entailment---this is sometimes called providing a \emph{counter-interpretation} (or providing a \emph{counter-model}).
 
 \practiceproblems
