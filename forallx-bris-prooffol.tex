@@ -121,47 +121,47 @@ Three people are standing in a row looking at eachother.
 \node[people, charlie, right=of bob] (charlie) {Charlie};
 \end{tikzpicture}
 \end{center}
-Alice is married. Charlie is not married. Is there someone who is married who is looking at someone who is not married?
+Alice is happy. Charlie is not happy. Is there someone who is happy who is looking at someone who is not happy?
 \end{quote}  Answer: Yes. 
 
-We can formalise this argument as: $$Lab,\;Lbc,\;Ma,\;\enot Mc\;\therefore\;\exists x\exists y(Mx\eand (Lxy\eand\enot Mx)).$$ And we can show it is valid. In \S\ref{s:orE} we wrote this in a pseudo-formal style.
+We can formalise this argument as: $$Lab,\;Lbc,\;Ha,\;\enot Hc\;\therefore\;\exists x\exists y(Hx\eand (Lxy\eand\enot Hx)).$$ And we can show it is valid. In \S\ref{s:orE} we wrote this in a pseudo-formal style.
 \begin{pf}
-	\have{lem}{\text{Bob is either married or he's not married}}\LEM
+	\have{lem}{\text{Bob is either happy or he's not happy}}\LEM
 	\open
-	\hypo{b}{\text{Suppose Bob is married}}
-	\have{ab}{\text{Then married Bob is looking at unmarried Charlie}}
-	\have{abc}{\text{So someone who is married is looking at someone who is not married.}}
+	\hypo{b}{\text{Suppose Bob is happy}}
+	\have{ab}{\text{Then happy Bob is looking at unhappy Charlie}}
+	\have{abc}{\text{So someone who is happy is looking at someone who is not happy.}}
 	\close
 	\open
-	\hypo{b2}{\text{Suppose Bob is unmarried}}
-	\have{ab2}{\text{Then married Alice is looking at unmarried Bob}}
-	\have{abc2}{\text{So someone who is married is looking at someone who is not married.}}
+	\hypo{b2}{\text{Suppose Bob is unhappy}}
+	\have{ab2}{\text{Then happy Alice is looking at unhappy Bob}}
+	\have{abc2}{\text{So someone who is happy is looking at someone who is not happy.}}
 	\close
-	\have{con}{\text{Therefore, someone who is married is looking at someone who is not married.}}\orE{lem,b-abc,b2-abc2} 
+	\have{con}{\text{Therefore, someone who is happy is looking at someone who is not happy.}}\orE{lem,b-abc,b2-abc2} 
 \end{pf}
 
 We can now fill out the details of this to see that it's a formal proof:
 \begin{pf}
 \hypo{1}{Lab}
 \hypo{2}{Lbc}
-\hypo{3}{Ma}
-\hypo{4}{\enot Mc}
-	\have{lem}{Mb\eor\enot Mb}\LEM
+\hypo{3}{Ha}
+\hypo{4}{\enot Hc}
+	\have{lem}{Hb\eor\enot Hb}\LEM
 	\open
-	\hypo{b}{Mb}
-	\have{a}{Lbc\eand\enot Mc}\andI{2,b}
-	\have{ab}{Mb\eand (Lbc\eand\enot Mc)}\andI{a,b}
-		\have{ab2}{\exists y(Mb\eand (Lby\eand\enot My))}\existsI{ab}
-		\have{abc}{\exists x\exists y(Mx\eand (Lxy\eand\enot Mx))}\existsI{ab2}
+	\hypo{b}{Hb}
+	\have{a}{Lbc\eand\enot Hc}\andI{2,b}
+	\have{ab}{Hb\eand (Lbc\eand\enot Hc)}\andI{a,b}
+		\have{ab2}{\exists y(Hb\eand (Lby\eand\enot Hy))}\existsI{ab}
+		\have{abc}{\exists x\exists y(Hx\eand (Lxy\eand\enot Hx))}\existsI{ab2}
 	\close
 	\open
-	\hypo{b2}{\enot Mb}
-		\have{a}{Lab\eand\enot Mb}\andI{b2,1}
-	\have{ab2}{Ma\eand (Lab\eand\enot Mb)}\andI{3,a}
-		\have{ab22}{\exists y(Ma\eand (Lay\eand\enot My))}\existsI{ab2}
-		\have{abc2}{\exists x\exists y(Mx\eand (Lxy\eand\enot Mx))}\existsI{ab22}
+	\hypo{b2}{\enot Hb}
+		\have{a}{Lab\eand\enot Hb}\andI{b2,1}
+	\have{ab2}{Ha\eand (Lab\eand\enot Hb)}\andI{3,a}
+		\have{ab22}{\exists y(Ha\eand (Lay\eand\enot Hy))}\existsI{ab2}
+		\have{abc2}{\exists x\exists y(Hx\eand (Lxy\eand\enot Hx))}\existsI{ab22}
 	\close
-			\have{con}{\exists x\exists y(Mx\eand Lxy\eand\enot Mx)}\orE{lem,b-abc,b2-abc2} 
+			\have{con}{\exists x\exists y(Hx\eand Lxy\eand\enot Hx)}\orE{lem,b-abc,b2-abc2} 
 \end{pf}
 
 \bigskip 
@@ -294,6 +294,7 @@ Putting this together, we obtain the existential elimination rule ($\exists$E):
 	\have[m]{a}{\exists \meta{x}\metaX(\ldots \meta{x} \ldots \meta{x}\ldots)}
 	\open	
 		\hypo[i]{b}{\metaX(\ldots \meta{c} \ldots \meta{c}\ldots)}
+		\ellipsesline
 		\have[j]{c}{\metaY}
 	\close
 	\have[\ ]{d}{\metaY} \Ee{a,b-c}

@@ -611,23 +611,23 @@ Three people are standing in a row looking at eachother.
 \node[people, charlie, right=of bob] (charlie) {Charlie};
 \end{tikzpicture}
 \end{center}
-Alice is married. Charlie is not married. Is there someone who is married who is looking at someone who is not married?
+Alice is happy. Charlie is not happy. Is there someone who is happy who is looking at someone who is not happy?
 \end{quote} \ldots Think about it! \\\ldots Answer: Yes. 
 Our Law of Excluded Middle and Disjunction Elimination rules allow us to show this. They write up the following argument, which we present in a pseudo-formal style. Though, actually, this is most naturally formulated as a validity claim of First Order Logic. We'll walk through the formal proof as formulated in First Order Logic in  \S\ref{s:ExistsE}.
 \begin{pf}
-	\have{lem}{\text{Bob is either married or he's not married}}\LEM
+	\have{lem}{\text{Bob is either happy or he's not happy}}\LEM
 	\open
-	\hypo{b}{\text{Suppose Bob is married}}
-	\have{ab}{\text{Then married Bob is looking at unmarried Charlie}}
-	\have{abc}{\text{So someone who is married is looking at someone who is not married.}}
+	\hypo{b}{\text{Suppose Bob is happy}}
+	\have{ab}{\text{Then happy Bob is looking at not-happy Charlie}}
+	\have{abc}{\text{So someone who is happy is looking at someone who is not happy.}}
 	\close
 	\open
-	\hypo{b2}{\text{Suppose Bob is unmarried}}
-	\have{ab2}{\text{Then married Alice is looking at unmarried Bob}}
-	\have{abc2}{\text{So someone who is married is looking at someone who is not married.}}
+	\hypo{b2}{\text{Suppose Bob is unhappy}}
+	\have{ab2}{\text{Then happy Alice is looking at not-happy Bob}}
+	\have{abc2}{\text{So someone who is happy is looking at someone who is not happy.}}
 	\close
-	\have{con}{\text{Therefore, someone who is married is looking at someone who is not married.}}\orE{lem,b-abc,b2-abc2} 
-\end{pf}Are you convinced now that someone who is married is looking at someone who is not married? If not, find a friend and work through it together. Sometimes it can really help to try walking through the argument together.
+	\have{con}{\text{Therefore, someone who is happy is looking at someone who is not happy.}}\orE{lem,b-abc,b2-abc2} 
+\end{pf}Are you convinced now that someone who is happy is looking at someone who is not happy? If not, find a friend and work through it together. Sometimes it can really help to try walking through the argument together.
 \label{s:orE}
 
 Coming up with this sort of argument does just take that moment of inspiration to see how this argument will go (that's why it's a brain teaser). This is often the case with arguments that involve the law of excluded middle. We pick it out of nowhere and have to use our inspiration to see how it might be useful. But hopefully, with more examples you'll become familiar with cases where it might be of use. A strategy that might help is: it's a backup option if everything else fails. If it doesn't look like there's any elimination rules to use on your premises or any introduction rules that can get you to your conclusion, then perhaps LEM is the way forwards. 
