@@ -19,6 +19,7 @@
 \RequirePackage{rotating} 
 \RequirePackage{xcolor}
 \RequirePackage{tabu}
+\RequirePackage{mathtools}
 \RequirePackage{xspace} % CCM for metavars
 %\RequirePackage[l2tabu, orthodox]{nag}
 
@@ -114,9 +115,10 @@
 \newcommand*{\openntuple}{\langle}
 \newcommand*{\closentuple}{\rangle}
 \newcommand*{\ntuple}[1]{\ensuremath{\mathopen{\openntuple}}#1\ensuremath{\mathclose{\closentuple}}} 
-% definitions
 
 \newcommand{\NumberConnective}[3][black]{\stackrel{\textcolor{#1}{\hbox{#3}}}{\hbox{$#2$}}} %CCM added for the additional section. 
+
+\DeclarePairedDelimiter\sequence{\langle}{\rangle}
 
 
 
@@ -671,6 +673,7 @@
 
 
 \newcommand*{\ellipsesline}{\have[\ ]{dots}{\;\raise-.65ex\hbox{\vdots}}} 
+\newcommand*{\hypoellipsesline}{\hypo[\ ]{dots}{\;\raise-.65ex\hbox{\vdots}}} 
 % for elipses in statements of rules. E.g.:
 %\begin{pf}
 %\open

@@ -219,35 +219,6 @@ not set. Please fix this. E.g.~`January 2018 Examination Period'}
 }
 \newcommand*{\@examperiodcode}{\texttt{\string\examperiodcode} currently
 not set. Choose `R' (resit) or `J' (Jan)}
-%\renewcommand{\maketitle}{ 
-%\begin{titlepage}
-%\centering
-%	{ \textbf{University of Bristol}\unskip\strut\par}
-%    \bigskip  
-%  	{\@examperiod \unskip\strut\par}
-%    \bigskip
-%  	{School of Arts\unskip\strut\par}
-%  	{Department of Philosophy \unskip\strut\par}
-%  	 \bigskip
-%  	 {Exam Paper Code \@exampapercode\, \@examperiodcode \unskip\strut\par}
-%  	 \bigskip 
-%  	 {  \bfseries  \@exampapertitle  \unskip\strut\par} 
-%  	 \bigskip
-%  	 {\scshape Time Allowed: Three Hours \unskip\strut\par}
-%	\bigskip
-%	{Candidates should attempt \textbf{\emph{all}} questions. \unskip\strut\par}
-%	\vfill
-%	{This paper contains \ref{finalsec} questions.  \unskip\strut\par}
-%  	\medskip 
-%  	{Questions are marked with the number of points available.  \unskip\strut\par}
-%  	\bigskip 
-%  	{Total number of points available: 180. So \textbf{\emph{1 point $\approx$ 1 min.} } \unskip\strut\par}
-%  	\medskip
-%  	{Summaries of total number of points available up to that point are recorded to assist time-organisation if you decide to attempt the questions in the given order.  \unskip\strut\par}
-%  	\vfill
-%  	{\bfseries  Turn over only when instructed to. \unskip\strut\par}
-%  	\vfill
-%\end{titlepage}}
 \newcommand{\hugeskip}{\vspace{4em}}
 \newcommand{\numberofquestions}{\ref{finalsec}}
 \renewcommand{\maketitle}{ 
@@ -283,6 +254,37 @@ not set. Choose `R' (resit) or `J' (Jan)}
 \end{titlepage}}
 
 
+\newcommand{\takehomeexamtitlepage}{ 
+\begin{titlepage}
+\centering
+	{\textbf{University of Bristol}\unskip\strut\par}
+    \medskip   
+  	{\@examperiod \unskip\strut\par}
+    \vspace{4em}
+  	{School of Arts\unskip\strut\par}
+  	{Department of Philosophy \unskip\strut\par}
+  	 \hugeskip
+  	 {Exam Paper Code \@exampapercode\, \@examperiodcode \unskip\strut\par}
+  	 \hugeskip 
+  	   {\Large  \bfseries  \@exampapercode  \unskip\strut\par} 
+  	   	 \medskip 
+  	 {\Large  \bfseries  \@exampapertitle  \unskip\strut\par} 
+%	\vfill
+%	{This paper contains \ref{finalsec} questions.  \unskip\strut\par}
+	\hugeskip 
+	{\large Candidates should attempt \textbf{\emph{all} \numberofquestions} questions. \unskip\strut\par}
+	\bigskip  
+  	{Each of the \numberofquestions\ questions is weighted equally. \unskip\strut\par}
+	\hugeskip 
+  	{ Submit your answers in a single pdf document via Blackboard.\unskip\strut\par}
+  	 { Do not submit a word document (doc or docx) because special symbols can get messed up.\unskip\strut\par}
+  	\hugeskip  
+  	{\begin{itemize}
+  	 \item You may \textbf{not} collaborate or otherwise work with anyone else either physically or virtually. The work submitted must be your understanding.
+  	  \item  You may use your notes, your course text, and any other textbooks or online resources that do not  engage with the specific question asked. 
+  	\end{itemize}}
+  	\vfill
+\end{titlepage}}
 
 
 

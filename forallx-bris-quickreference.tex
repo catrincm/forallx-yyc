@@ -288,14 +288,14 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \\	\open
 		\hypo[i]{a}{\metaX}
 		\ellipsesline
-		\have[j]{c1}{\meta{C}}
+		\have[j]{c1}{\metaZ}
 	\close
 	\open
 		\hypo[k]{b}{\metaY}
 		\ellipsesline
-		\have[l]{c2}{\meta{C}}
+		\have[l]{c2}{\metaZ}
 	\close
-	\have[\ ]{c}{\meta{C}} \oe{ab,a-c1, b-c2}
+	\have[\ ]{c}{\metaZ} \oe{ab,a-c1, b-c2}
 \end{pf}
 
 \subsubsection*{Law of Excluded Middle}
@@ -359,8 +359,8 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 %
 %\begin{pf}
 %	\have[m]{ab}{\metaX\eif\metaY}
-%	\have[n]{bc}{\metaY\eif\meta{C}}
-%	\have[\ ]{ac}{\metaX\eif\meta{C}}\by{HS}{ab,bc}
+%	\have[n]{bc}{\metaY\eif\metaZ}
+%	\have[\ ]{ac}{\metaX\eif\metaZ}\by{HS}{ab,bc}
 %\end{pf}
 
 \subsubsection*{De Morgan Rules}
