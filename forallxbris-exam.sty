@@ -111,8 +111,8 @@
 
 %\raggedbottom
 
-
-
+\newcommand{\points}[1]{}
+\newcommand{\showpoints}{\renewcommand{\points}[1]{\textcolor{darkred}{##1}}}
 \newcommand{\myanswer}[1]{\textcolor{darkred}{#1}} % 
 \renewcommand{\myanswer}[1]{}
 %\newcommand{\comment}[1]{\textcolor{blue}{#1}} % 
@@ -158,7 +158,7 @@ ref=\theenumi.{\roman*}}
 
   \usepackage[noindentafter]{titlesec} %% to modify spacing sections making sure that no problems are broken over pages
 %  \titlespacing{\section}{0pt}{10ex plus 30ex minus 10ex}{1ex plus 30ex minus 10ex}
-\titlespacing{\section}{-3ex}{10ex plus 40ex minus 10ex}{1ex plus 10ex minus 1ex}
+\titlespacing{\section}{-3ex}{10ex plus 40ex minus 10ex}{1ex plus 20ex minus 1ex}
 
 
 \usepackage{fancyhdr} 
