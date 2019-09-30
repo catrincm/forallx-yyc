@@ -1,11 +1,11 @@
 %!TEX root = forallxbris.tex
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{forallxbris}[Sep.~2018 support for a logic textbook]
+\ProvidesPackage{forallxbris}[2019/09/20 support for a logic textbook]
 
 
 
 
-\newcommand{\yearofcourse}{TB1 2018}
+\newcommand{\yearofcourse}{TB1 2019}
 
 
 
@@ -49,7 +49,8 @@
 \def\eor{\ensuremath{\vee}}
 % conjunction: 
 % {\,^{_{_{_{_{\mbox{\footnotesize\textbullet}}}}}}} gives the dot
-\def\eand{\ensuremath{\wedge}}
+% \def\eand{\ensuremath{\wedge}}
+\def\eand{\ensuremath{\mathbin{\&}}}
 % conditional: \supset gives the horseshoe
 \def\eif{\ensuremath{\rightarrow}}
 % biconditional: \equiv gives the triple bar
@@ -683,7 +684,7 @@
 
 
 
-%Modal lotic
+%Modal logic
   \def\boxI{\by{{\ebox}I}}%
   \def\boxE{\by{{\ebox}E}}%
   \def\mc{\by{MC}}%
