@@ -175,36 +175,83 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 
 
 \label{ProofRules}
-\newpage\section{Basic deduction rules for TFL}\label{glossary:basic rules TFL}
+\newpage
+\section{Basic deduction rules for TFL}\label{glossary:basic rules TFL}
 \renewenvironment{pf}
 	{\noindent\par\noindent\small$\begin{nd}}
 	{\end{nd}$\noindent\normalsize\ignorespacesafterend}
 	
 
 %{\LARGE \textbf{Basic Rules of Proof}}
+
+%\hrulefill
 \begin{multicols}{2}
-\subsubsection*{Reiteration}
-
-\begin{pf}
-	\have[m]{a}{\metaX}
-	\have[\ ]{c}{\metaX} \by{R}{a}
-\end{pf}
-
-
 \subsubsection*{Conjunction}
 
 \begin{pf}
 	\have[m]{a}{\metaX}
 	\have[n]{b}{\metaY}
 	\have[\ ]{c}{\metaX\eand\metaY} \ai{a, b}
+\end{pf}
 
+\vfill\null
+\columnbreak
+
+\begin{pf}
 	\have[m]{ab}{\metaX\eand\metaY}
 \\	\have[\ ]{a}{\metaX} \ae{ab}
 
 	\have[m]{ab}{\metaX\eand\metaY}
 \\	\have[\ ]{b}{\metaY} \ae{ab}
 \end{pf}
+\end{multicols} % Conjunction
 
+\vspace{-10pt}
+\hrulefill
+\vspace{-10pt}
+\begin{multicols}{2}
+\subsubsection*{Disjunction}
+
+\begin{pf}
+	\have[m]{a}{\metaX}
+	\have[\ ]{ab}{\metaX\eor\metaY}\oi{a}
+
+	\have[m]{a}{\metaX}
+\\	\have[\ ]{ba}{\metaY\eor\metaX}\oi{a}
+\end{pf}
+
+\vfill\null
+\columnbreak
+
+%\begin{pf}
+%	\have[m]{ab}{\metaX\eor\metaY}
+%\\	\open
+%		\hypo[i]{a}{\metaX}
+%		\ellipsesline
+%		\have[j]{c1}{\metaZ}
+%	\close
+%	\open
+%		\hypo[k]{b}{\metaY}
+%		\ellipsesline
+%		\have[l]{c2}{\metaZ}
+%	\close
+%	\have[\ ]{c}{\metaZ} \oe{ab,a-c1, b-c2}
+%\end{pf}
+
+\begin{pf}
+	\have[m]{ab}{\metaX\eor\metaY}
+	\have[i]{xz}{\metaX\eif\metaZ}
+	\have[j]{yz}{\metaX\eif\metaZ}
+	\have[\ ]{c}{\metaZ} \oe{ab,xz,yz}
+\end{pf}
+
+\end{multicols} % Disjunction
+
+
+\vspace{-10pt}
+\hrulefill
+\vspace{-10pt}
+\begin{multicols}{2}
 \subsubsection*{Conditional}
 
 \begin{pf}
@@ -214,97 +261,140 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 		\have[n]{b}{\metaY}
 	\close
 	\have[\ ]{ab}{\metaX\eif\metaY}\ci{a-b}
+\end{pf}
 
+\vfill\null
+\columnbreak
+
+\begin{pf}
 	\have[m]{ab}{\metaX\eif\metaY}
 \\	\have[n]{a}{\metaX}
 	\have[\ ]{b}{\metaY} \ce{ab,a}
 \end{pf}
+\end{multicols} % Conditional
 
-\subsubsection*{Biconditional}
-
-\begin{pf}
-\have[m]{ab}{\metaX\eiff\metaY}
-\have[\ ]{b}{(\metaX\eif\metaY)\eand(\metaY\eif\metaX)}\iffE{ab}
-
-\have[m]{b}{(\metaX\eif\metaY)\eand(\metaY\eif\metaX)}
-\\\have[\ ]{ab}{\metaX\eiff\metaY}\iffI{b}
-\end{pf}
-
-%\begin{pf}
-%	\open
-%		\hypo[i]{a1}{\metaX} 
-%		\have[j]{b1}{\metaY}
-%	\close
-%	\open
-%		\hypo[k]{b2}{\metaY}
-%		\have[l]{a2}{\metaX}
-%	\close
-%	\have[\ ]{ab}{\metaX\eiff\metaY}\bi{a1-b1,b2-a2}
-%
-%	\have[m]{ab}{\metaX\eiff\metaY}
-%\\	\have[n]{a}{\metaX}
-%	\have[\ ]{b}{\metaY} \be{ab,a}
-%
-%	\have[m]{ab}{\metaX\eiff\metaY}
-%\\	\have[n]{a}{\metaY}
-%	\have[\ ]{b}{\metaX} \be{ab,a}
-%\end{pf}
-
-
+\vspace{-10pt}
+\hrulefill
+\vspace{-10pt}
+\begin{multicols}{2}
 \subsubsection*{Contradiction}
 
 \begin{pf}
 \have[m]{a}{\metaX}
 \have[n]{na}{\enot\metaX}
 \have[ ]{bot}{\ered}\ri{a, na}
+\end{pf}
+
+\vfill\null
+\columnbreak
+
+\begin{pf}
 
 \have[m]{bot}{\ered}
 \\\have[ ]{}{\metaX}\re{bot}
 \end{pf}
+\end{multicols} % Contradiction
 
-
+\vspace{-10pt}
+\hrulefill
+\vspace{-10pt}
+\begin{multicols}{2}
 \subsubsection*{Negation}
+%\begin{pf}
+%\open
+%	\hypo[m]{a}{\metaX}
+%	\ellipsesline
+%	\have[n]{nb}{\ered}
+%\close
+%\have[\ ]{na}{\enot\metaX}\ni{a-nb}
+%\end{pf}
 \begin{pf}
-\open
-	\hypo[m]{a}{\metaX}
-	\ellipsesline
-	\have[n]{nb}{\ered}
-\close
-\have[\ ]{na}{\enot\metaX}\ni{a-nb}
+\have[m]{a}{\metaX \eif \ered}
+\have[\ ]{na}{\enot\metaX}\ni{a}
+\end{pf}
+
+\vfill\null
+\columnbreak
+
+%\begin{pf}
+%\open
+%	\hypo[m]{a}{\enot\metaX}
+%	\ellipsesline
+%	\have[n]{nb}{\ered}
+%\close
+%\have[\ ]{na}{\enot\metaX}\ne{a-nb}
+%\end{pf}
+\begin{pf}
+\have[m]{a}{\enot\metaX \eif \ered}
+\have[\ ]{na}{\metaX}\ne{a}
 \end{pf}
 
 
+\end{multicols} % Negation
 
-\subsubsection*{Disjunction}
+\vspace{-10pt}
+\hrulefill
+\vspace{-10pt}
+\begin{multicols}{2}
+\subsubsection*{Reiteration}
 
 \begin{pf}
 	\have[m]{a}{\metaX}
-	\have[\ ]{ab}{\metaX\eor\metaY}\oi{a}
-
-	\have[m]{a}{\metaX}
-\\	\have[\ ]{ba}{\metaY\eor\metaX}\oi{a}
-
-	\have[m]{ab}{\metaX\eor\metaY}
-\\	\open
-		\hypo[i]{a}{\metaX}
-		\ellipsesline
-		\have[j]{c1}{\metaZ}
-	\close
-	\open
-		\hypo[k]{b}{\metaY}
-		\ellipsesline
-		\have[l]{c2}{\metaZ}
-	\close
-	\have[\ ]{c}{\metaZ} \oe{ab,a-c1, b-c2}
+	\have[\ ]{c}{\metaX} \by{R}{a}
 \end{pf}
 
 \subsubsection*{Law of Excluded Middle}
 \begin{pf}
 	\have[\ ]{lem}{\metaX\eor\enot\metaX}\LEM
 \end{pf}
+\end{multicols}  % R and LEM
 
 
-\end{multicols}
+%\hrulefill
+%\begin{multicols}{2}
+%\subsubsection*{Biconditional}
+%
+%\begin{pf}
+%\have[m]{ab}{\metaX\eiff\metaY}
+%\have[\ ]{b}{(\metaX\eif\metaY)\eand(\metaY\eif\metaX)}\iffE{ab}
+%\end{pf}
+%
+%\vfill\null
+%\columnbreak
+%
+%\begin{pf}
+%
+%\have[m]{b}{(\metaX\eif\metaY)\eand(\metaY\eif\metaX)}
+%\\\have[\ ]{ab}{\metaX\eiff\metaY}\iffI{b}
+%\end{pf}
+%
+%%\begin{pf}
+%%	\open
+%%		\hypo[i]{a1}{\metaX} 
+%%		\have[j]{b1}{\metaY}
+%%	\close
+%%	\open
+%%		\hypo[k]{b2}{\metaY}
+%%		\have[l]{a2}{\metaX}
+%%	\close
+%%	\have[\ ]{ab}{\metaX\eiff\metaY}\bi{a1-b1,b2-a2}
+%%
+%%	\have[m]{ab}{\metaX\eiff\metaY}
+%%\\	\have[n]{a}{\metaX}
+%%	\have[\ ]{b}{\metaY} \be{ab,a}
+%%
+%%	\have[m]{ab}{\metaX\eiff\metaY}
+%%\\	\have[n]{a}{\metaY}
+%%	\have[\ ]{b}{\metaX} \be{ab,a}
+%%\end{pf}
+%
+%\end{multicols} % Biconditional
+
+
+
+
+
+
 
 \newpage
 \section{Derived rules for TFL}
@@ -342,15 +432,15 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 	\end{pf}
 
 
-\subsubsection*{Proof by Contradiction}
-	\begin{pf}
-		\open
-			\hypo[m]{na}{\enot\metaX}
-			\ellipsesline
-			\have[n]{red}{\ered}
-		\close
-		\have[ ]{a}{\metaX}\by{IP}{na-red}
-	\end{pf}
+%\subsubsection*{Proof by Contradiction}
+%	\begin{pf}
+%		\open
+%			\hypo[m]{na}{\enot\metaX}
+%			\ellipsesline
+%			\have[n]{red}{\ered}
+%		\close
+%		\have[ ]{a}{\metaX}\by{IP}{na-red}
+%	\end{pf}
 
 
 
