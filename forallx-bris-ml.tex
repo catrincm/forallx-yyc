@@ -18,7 +18,7 @@ There are lots of different kinds of necessity. It is \emph{humanly impossible} 
 
 Which kind of modality does ML deal with? \emph{All of them!} ML is a very flexible tool. We start with a basic set of rules that govern $\ebox$ and $\ediamond$, and then add more rules to fit whatever kind of modality we are interested in. In fact, ML is so flexible that we do not even have to think of $\ebox$ and $\ediamond$ as expressing \emph{necessity} and \emph{possibility}. We might instead read $\ebox$ as expressing \emph{provability}, so that $\ebox\meta{A}$ means \emph{It is provable that} $\meta{A}$, and $\ediamond\meta{A}$ means \emph{It is not refutable that} $\meta{A}$. Similarly, we can interpret $\ebox$ to mean $S$ \emph{knows that $\meta{A}$} or $S$ \emph{believes that $\meta{A}$}. Or we might read $\ebox$ as expressing \emph{moral obligation}, so that $\ebox \meta{A}$ means \emph{It is morally obligatory that} $\meta{A}$, and $\ediamond \meta{A}$ means \emph{It is morally permissible that} $\meta{A}$. All we would need to do is cook up the right rules for these different readings of $\ebox$ and $\ediamond$.
 
-A modal formula is one that includes modal operators such as $\ebox$ and $\ediamond$. Depending on the interpretation we assign to $\ebox$ and $\ediamond$, different modal formulas will be provable or valid. For instance, $\ebox \meta{A} \eif \ebox{A}$ might say that ``if $\meta{A}$ is necessary, it is true,'' if $\ebox$ is interpreted as necessity. It might express ``if $\meta{A}$ is known, then it is true,'' if $\ebox$ expresses known truth. Under both these interpretations, $\ebox{A} \eif \meta{A}$ is valid: All necessary propositions are true come what may, so are true in the actual world. And if a proposition is known to be true, it must be true (one can't know something that's false). However, when $\ebox$ is interpreted as ``it is believed that'' or ``it ought to be the case that,'' $\ebox\meta{A} \eif \meta{A}$ is not valid: We can believe false propositions. Not every proposition that ought to be true is in fact true, e.g., ``Every murderer will be brought to justice.'' This \emph{ought} to be true, but it isn't. 
+A modal formula is one that includes modal operators such as $\ebox$ and $\ediamond$. Depending on the interpretation we assign to $\ebox$ and $\ediamond$, different modal formulas will be provable or valid. For instance, $\ebox \meta{A} \eif \meta{A}$ might say that ``if $\meta{A}$ is necessary, it is true,'' if $\ebox$ is interpreted as necessity. It might express ``if $\meta{A}$ is known, then it is true,'' if $\ebox$ expresses known truth. Under both these interpretations, $\ebox{A} \eif \meta{A}$ is valid: All necessary propositions are true come what may, so are true in the actual world. And if a proposition is known to be true, it must be true (one can't know something that's false). However, when $\ebox$ is interpreted as ``it is believed that'' or ``it ought to be the case that,'' $\ebox\meta{A} \eif \meta{A}$ is not valid: We can believe false propositions. Not every proposition that ought to be true is in fact true, e.g., ``Every murderer will be brought to justice.'' This \emph{ought} to be true, but it isn't. 
 
 We will consider different kinds of systems of ML. They differ in the rules of proof allowed, and in the semantics we use to define our logical notions. The different systems we'll consider are called \mlK, \mlT, \mlSfour, and \mlSfive. \mlK{} is the basic system; everything that is valid or provable in \mlK{} is also provable in the others. But there are some things that \mlK{} does not prove, such as the formula $\ebox A \eif A$. So \mlK{} is not an appropriate modal logic for necessity and possibility (where $\ebox\meta{A} \eif \meta{A}$ should be provable). This is provable in the system \mlT, so \mlT{} is more appropriate when dealing with necessity and possibiliity, but less apropriate when dealing with belief or obligation, since then $\ebox\meta{A} \eif \meta{A}$ should \emph{not} (always) be provable. The perhaps best system of ML for necessity and possibility, and in any case the most widely accepted, is the strongest of the systems we consider, \mlSfive.
 
@@ -56,7 +56,7 @@ Now that we know how to make sentences in ML, we can look at how to \emph{prove}
 
 We start with a particularly simple system called \mlK, in honour of the philosopher and logician Saul Kripke. \mlK{} includes all of the natural deduction rules from TFL, including the derived rules as well as the basic ones. \mlK{} then adds a special kind of subproof, plus two new basic rules for \ebox.
 
-The special kind of subproof looks like an ordinary subproof, except it has a~\ebox in its assumption line instead of a formula. We call them \emph{strict subproofs}---they allow as to reason and prove things about alternate possibilities. What we can prove inside a strict subproof holds in any alternate possibility, in particular, in alternate possibilities where the assumptions in force in our proof may not hold. In a strict subproofs, all assumptions are disregarded, and we are not allowed to appeal to any lines outside the strict subproof (except as allowed by the modal rules given below).
+The special kind of subproof looks like an ordinary subproof, except it has a~\ebox{} in its assumption line instead of a formula. We call them \emph{strict subproofs}---they allow as to reason and prove things about alternate possibilities. What we can prove inside a strict subproof holds in any alternate possibility: in particular, in alternate possibilities where the assumptions in force in our proof may not hold. In a strict subproofs, all assumptions are disregarded, and we are not allowed to appeal to any lines outside the strict subproof (except as allowed by the modal rules given below).
 
 The \ebox I rule allows us to derive a formula $\ebox \meta{A}$ if we can derive $\meta{A}$ inside a strict subproof.  It is our fundamental method of introducing \ebox{} into proofs. The basic idea is simple enough: if $\meta{A}$ is a theorem, then $\ebox \meta{A}$ should be a theorem too. (Remember that to call $\meta{A}$ a theorem is to say that we can prove $\meta{A}$ without relying on any undischarged assumptions.)
 
@@ -93,7 +93,7 @@ But to apply \ebox I, we need to have proven the formula inside a strict subproo
 		\end{nd}\]
 	No line above line $m$ may be cited by any rule within the strict subproof begun at line $m$ unless the rule explicitly allows it.
 }
-It is essential to emphasise that in strict subproof you cannot use any rule which appeals to anything you proved outside of the strict subproof. There are exceptions, e.g., the \ebox E rule below. These rules will explicitly state that they can be used inside strict subproofs and cite lines outside the strict subproof. This restriction is essential, otherwise we would get terrible results. For example, we could provide the following proof to vindicate $A\therefore \ebox A$:
+It is essential to emphasise that in a strict subproof you cannot use any rule which appeals to anything you proved outside of the strict subproof. There are exceptions, e.g., the \ebox E rule below. These rules will explicitly state that they can be used inside strict subproofs and cite lines outside the strict subproof. This restriction is essential, otherwise we would get terrible results. For example, we could provide the following proof to vindicate $A\therefore \ebox A$:
 \[\begin{nd}
 		\hypo{1}{A}
 		\open
@@ -140,7 +140,7 @@ Let's begin with an example.
 		\have{5}{B}\boxE{2}
 		\have{6}{A \eand B}\ai{4,5}
 		\close
-		\have{6}{\ebox(A \land B)}\boxI{3-6}
+		\have{6}{\ebox(A \eand B)}\boxI{3-6}
 	\end{nd}
 \]
 We can also mix regular subproofs and strict subproofs:
@@ -150,7 +150,7 @@ We can also mix regular subproofs and strict subproofs:
 		\hypo{2}{\ebox A}
 		\open
 		\hypo{3}{\ebox}
-		\have{4}{A}\boxE{m}
+		\have{4}{A}\boxE{2}
 		\have{5}{A \eif B}\boxE{1}
 		\have{6}{B}\ce{4,5}
 		\close
