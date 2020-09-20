@@ -1271,3 +1271,87 @@ Identify which variables are bound and which are free.
 \item $\forall x\exists y[Rxy \eif (Jz \eand Kx)] \eor Ryx$
 \item $\forall x_1(Mx_2 \eiff Lx_2x_1) \eand \exists x_2 Lx_3x_2$
 \end{earg}
+
+
+
+\chapter{Ambiguity}
+
+In chapter~\ref{s:AbmbiguityTFL} we discussed the fact that sentences of English can be ambiguous, and pointed out that sentences of TFL are not. One important application of this fact is that the structural ambiguity of English sentences can often, and usefully, be straightened out using different symbolizations.  One common source of ambiguity is \emph{scope ambiguity}, where the English sentence does not make it clear which logical word is supposed to be in the scope of which other. Multiple interpretations are possible.  In FOL, every connective and quantifier has a well-determined scope, and so whether or not one of them occurs in the scope of another in a given sentence of FOL is always determined.
+
+For instance, consider the English idiom,
+\begin{earg}
+	\item[\ex{glitters}]
+	Everything that glitters is not gold.
+\end{earg}
+If we think of this sentence as of the form `every $F$ is not~$G$' where $F{x}$ symbolizes `\gap{x} glitters' and ${G}{x}$ is `\gap{x} is not gold', we would symbolize it as:
+\begin{earg}
+	\item[] $\forall x(F{x} \eif \enot {G}{x})$,
+\end{earg}
+in other words, we symbolize it the same way as we would `Nothing that glitters is gold'. But the idiom does not mean that! It means that one should not assume that just because something glitters, it is gold; not everything that appears valuable is in fact valuable.  To capture the actual meaning of the idiom, we would have to symbolize it instead as we would `Not everything that glitters is gold', i.e., in the following way:
+\begin{earg}
+	\item[] $\enot\forall x(F{x} \eif {G}{x})$
+\end{earg}
+Compare the first of these with the previous symbolization: again we see that the difference in the two meanings of the ambiguous sentence lies in whether the `\enot' is in the scope of the `$\forall$' (in the first symbolization) or `$\forall$' is in the scope of `\enot' (in the second).
+
+Of course we can alternatively symbolize the two readings using existential quantifiers as well:
+\begin{earg}
+	\item[] $\enot\exists x(F{x} \eand {G}{x})$
+	\item[] $\exists x(F{x} \eand \enot {G}{x})$
+\end{earg}
+
+In chapter~\ref{s:MoreMonadic} we discussed how to symbolize sentences involving `only'. Consider the sentence:
+\begin{earg}
+	\item[\ex{onlyamb}] Only young cats are playful.
+\end{earg} 
+According to our schema, we would symbolize it this way:
+\begin{earg}
+	\item[] $\forall x({P}{x} \eif ({Y}{x} \eand {C}{x}))$ 
+\end{earg}
+The meaning of this sentence of FOL is something like, `If an animal is playful, it is a young cat'. (Assuming that the domain is animals, of course.) This is probably not what's intended in uttering sentence~\ref{onlyamb}, however. It's more likely that we want to say that old cats are not playful. In other words, what we mean to say is that if something is a cat and playful, it must be young. This would be symbolized as:
+\begin{earg}
+	\item[] $\forall x(({C}{x} \eand {P}{x}) \eif {Y}{x})$ 
+\end{earg}
+There is even a third reading! Suppose we're talking about young animals and their characteristics. And suppose you wanted to say that of all the young animals, only the cats are playful. You could symbolize this reading as:
+\begin{earg}
+	\item[] $\forall x(({Y}{x} \eand {P}{x}) \eif {C}{x})$ 
+\end{earg}
+Each of the last two readings can be made salient in English by placing the stress appropriately. For instance, to suggest the last reading, you would say `Only young \emph{cats} are playful', and to get the other reading you would say `Only \emph{young} cats are playful'.  The very first reading can be indicate by stressing both `young' and `cats': `Only \emph{young cats} are playful' (but not old cats, or dogs of any age).
+
+In sections \ref{ss:OrderQuant} and \ref{ss:SuppQuant} we discussed the importance of the order of quantifiers.  This is relevant here because, in English, the order of quantifiers is sometimes not completely determined.  When both universal (`all') and existential (`some', `a') quantifiers are  involved, this can result in scope ambiguities. Consider:
+\begin{earg}
+	\item[\ex{everya}] Everyone went to see a movie.
+\end{earg}
+This sentence is ambiguous.  In one interpretatation, it means that there is a single movie that everyone went to see. In the  other, it means that everyone went to see some movie or other, but not necessarily the same one. The two readings can be symbolized, respectively, by 
+\begin{earg}
+	\item[] $\exists x({M}{x} \eand \forall y({P}{y} \eif {S}{y,x}))$
+	\item[] $\forall y({P}{y} \eif \exists x({M}{x} \eand {S}{y,x}))$
+\end{earg}
+We assume here that the domain contains (at least) people and movies, and the symbolization key,
+\begin{ekey}
+	\item[{P}{y}] \gap{y}~is a person, 
+	\item[{M}{x}] \gap{x}~is a movie
+	\item[{S}{y,x}] \gap{y}~went to see~\gap{x}. 
+\end{ekey}
+In the first reading, we say that the existential quantifier has \emph{wide scope} (and its scope contains the universal quantifier, which has \emph{narrow scope}), and the other way round in the second.
+
+In chapter~\ref{subsec.defdesc}, we encountered another scope ambiguity, arising from definite descriptions interacting with negation.  Consider Russell's own example:
+\begin{earg}
+	\item[\ex{thenot}] The King of France is not bald.
+\end{earg}
+If the definite description has wide scope, and we are interpreting the `not' as an `inner' negation (as we said before), sentence~\ref{thenot} is interpreted to assert the existence of a single King of France, to whom we are ascribing non-baldness. In this reading, it is symbolized as `$\exists x\bigl[{K}{x} \eand \forall y({K}{y} \eif x=y)) \eand \enot {B}{x}\bigr]$'. In the other reading, the `not' denies the sentence `The King of France is bald', and we would symbolize it as: `$\enot\exists x\bigl[{K}{x} \eand \forall y({K}{y} \eif x=y)) \eand {B}{x}\bigr]$'. In the first case, we say that the definite description has wide scope and in the second that it has narrow scope.
+
+\practiceproblems
+\problempart
+Each of the following sentences is ambiguous. Provide a symbolization key for each, and symbolize all readings.
+\begin{earg}
+	\item Noone likes a quitter.
+	\item CSI found only red hair at the scene.
+	\item Smith's murderer hasn't been arrested.
+\end{earg}
+
+\problempart
+Russell gave the following example in his paper `On Denoting':
+\begin{quote}
+	I have heard of a touchy owner of a yacht to whom a guest, on first seeing it, remarked, `I thought your yacht was larger than it is'; and the owner replied, `No, my yacht is not larger than it is'. 
+\end{quote}
+Explain what's going on.
