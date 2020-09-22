@@ -7,28 +7,91 @@
 \chapter{Arguments}
 \label{s:Arguments}
 
-Logic is the business of evaluating arguments; sorting the good from the bad. 
+Much of philosophical practice is about argument and
+analysis. 
+Arguing in support of or against some position, or understanding someone else's argument. 
+Logic is the study of the practice of argument and
+analysis, abstracted from the specific details of a
+particular case.
+
+
 
 In everyday language, we sometimes use the word `argument' to talk about belligerent shouting matches.  If you and a friend have an argument in this sense, things are not going well between the two of you. Logic is not concerned with such teeth-gnashing and hair-pulling. They are not arguments, in our sense; they are disagreements.
 
-An argument, as we will understand it, is something more like this:
+Logic provides the ideal model of good argument:
+rational argument without rhetoric.
+The logical study of an argument can show whether it
+supports its conclusion or is flawed.
+Logic focuses only on the statements presented and the
+relationships between them.
+Extraneous factors are set aside: unspoken assumptions,
+additional connotations of words, appeal to emotions.
+
+ Logical thinking can help us to work out the intended
+interpretation of a text, and to find alternative
+unintended interpretations.
+ This can be helpful when reading someone else’s
+writing, and essential when we are trying to write
+unambiguously.
+ Logical analysis can help us to find ambiguity and
+alternative interpretations, and to write in a precise and
+unambiguous way that can only be interpreted as we
+intend.
+
+
+
+An argument, as we will understand it, is something more like this:\todo{get a better argument!}
 	\begin{earg}\label{argRaining}
 		\item[] It will rain today.
-		\item[\therefore] You should take an umbrella.
+		\item[] If it will rain today, then you should take an umbrella. 
+		\item[]Therefore: You should take an umbrella.
 	\end{earg}
-We here have a series of sentences. The three dots on the third line of the argument are read `therefore.' They indicate that the final sentence expresses the \emph{conclusion} of the argument. The two sentences before that are the \emph{premises} of the argument. The premisses are supposed to support for the conclusion. If you believe the premises then the argument should lead you to believing the conclusion.
+We here have a series of sentences which may either be true or false. The final sentence expresses the \emph{conclusion} of the argument. The two sentences before that are the \emph{premises} of the argument. In a good argument, the conclusion follows from the premises. If you believe the premises then the argument should lead you to believing the conclusion.
 
-
-
-This is the sort of thing that logicians are interested in. We will say that an argument is any collection of premises, together with a conclusion. 
+%One of the main things we will do is to give tools to understand the structure of arguments and whether it has a g
 
 This Part discusses some basic logical notions that apply to arguments in a natural language like English. It is important to begin with a clear understanding of what arguments are and of what it means for an argument to be valid. Later we will translate arguments from English into a formal language. We want formal validity, as defined in the formal language, to have at least some of the important features of natural-language validity. 
 
 
+\section{Sentences}
+\label{intro.sentences}
+
+An argument is a relationship between sentences which can either be true or false, for example `Kierkegaard was a hunchback' or `Kierkegaard liked almonds'. Sentences that are true or false are called \emph{declarative sentences}. In what follows we will focus exclusively on declarative sentences, and we will simply call them `sentences'. There are things that would count as `sentences' in a linguistics or grammar course that we will not count as sentences in logic.
+
+\begin{description}
+\item[{Questions}] In a grammar class, `Are you sleepy yet?' would count as an interrogative sentence. Although you might be sleepy or you might be alert, the question itself is neither true nor false. For this reason, questions will not count as sentences in logic. Suppose you answer the question: `I am not sleepy.' This is either true or false, and so it is a sentence in the logical sense. Generally, \emph{questions} will not count as sentences, but \emph{answers} will. 
+
+`What is this course about?' is not a sentence (in our sense). `No one knows what this course is about' is a sentence.
+
+\item[{Imperatives}] Commands are often phrased as imperatives like `Wake up!', `Sit up straight', and so on. In a grammar class, these would count as imperative sentences. Although it might be good for you to sit up straight or it might not, the command is neither true nor false. Note, however, that commands are not always phrased as imperatives. `You will respect my authority' \emph{is} either true or false--- either you will or you will not--- and so it counts as a sentence in the logical sense.
+
+\item[{Exclamations}] `Ouch!' is sometimes called an exclamatory sentence, but it is neither true nor false. We will treat `Ouch, I hurt my toe!' as meaning the same thing as `I hurt my toe.' The `ouch' does not add anything that could be true or false.
+\end{description}
+
+%Some sentences depend on context for whether they are true or false. For example the truth of `I have long hair' depends on who is uttering it. Sometimes we will use examples where the context does matter. Everything that we say, though, still holds when the context is held fixed throughout the course of the argument. 
+
+In English, sentences can be \emph{ambiguous}. There are many sources of ambiguity. One is \emph{lexical ambiguity:} a sentence can contain words which have more than one meaning.  For instance, `bank' can mean the bank of a river, or a financial institution. So I might say that `I went to the bank' when I took a stroll along the river, or when I went to deposit a check.  Depending on the situation, a different meaning of `bank' is intended, and so the sentence, when uttered in these different contexts, expresses different meanings. When we talk about sentences, we assume that all words have been disambiguated and it is settled whether `bank' is somewhere you have a picnic or where you deposit your money. 
+
+\todo{Nice philosophical argument example?}
+
+\todo{Indexicals and context dependence?}
 
 
+\section{Finding the components of an argument}
 
-When approaching an argument, we want to know whether or not the conclusion follows from the premises. So the first thing to do is to separate out the conclusion from the premises. The premises and arguments aren't always as nicely packaged up as they were in our rain argument. Sometimes a single sentence can contain a complete argument. Consider:
+
+An argument, as we understand it, is a series of sentences, the \emph{premises}, followed by a single sentence, the \emph{conclusion}. 
+
+\begin{earg}\label{argRaining}
+	\item[] It will rain today.
+	\item[] If it will rain today, then you should take an umbrella. 
+	\item[\therefore] You should take an umbrella.
+\end{earg}
+The three dots in this final line should be read ``therefore''. It is our concise way to identify the conclusion of the argument. 
+
+But arguments are often not presented in this form. 
+When approaching an argument, the first thing to do is to separate out the conclusion from the premises. What is the argument an argument for?
+The premises and arguments aren't always as nicely packaged up as they were in our example argument. Sometimes a single sentence can contain a complete argument. Consider:
 	\begin{quote}
 		 I was wearing my sunglasses; so it must have been sunny.
 	\end{quote}
@@ -63,7 +126,24 @@ Consider:
 \begin{quote}
 Virgin would then dominate the rail system. Is that something the government should worry about? Not necessarily. The industry is regulated, and one powerful company might at least offer a more coherent schedule of services than the present arrangement has produced. The reason the industry was broken up into more than 100 companies at privatisation was not operational, but political: the Conservative government thought it would thus be harder to renationalise. \emph{The Economist 16.12.2000; used on \href{https://philosophy.hku.hk/think/arg/arg.php}{critical thinking web}}
 \end{quote}
-This is an argument that we shouldn't be worried if Virgin dominates the rail system. 
+The conclusion of this argument is that we shouldn't be worried if Virgin dominates the rail system. 
+
+Another example:
+\begin{quote}
+Human beings have no free will because every event is
+determined by the way the world was at the Big Bang,
+and if humans have free will then there is an event that
+was not determined by the way the world was at the Big
+Bang.
+\end{quote}
+This argument can be stated explicitly:
+\begin{earg}
+\item Every event is determined by the way the world was at the Big
+Bang
+\item If humans have free will then there is an event that was not
+determined by the way the world was at the Big Bang
+\item Therefore: Human beings have no free will
+\end{earg}
 
 Often people aren't giving arguments but are simply presenting facts or stating their opinion.
 For example, the following do not contain arguments, they're not trying to convince us of anything. 
@@ -82,6 +162,43 @@ One particular kind of sentence can be confusing. Consider:
 \end{earg}
 
 In analysing an argument, there is no substitute for a good nose. 
+
+
+We have said arguments are just a list of premises and a conclusion. We might think of this as something like:
+\begin{center}
+ \begin{tikzpicture}
+
+        \node[propn] (concln) {Conclusion};
+
+        \coordinate (zJoin) at ([yshift=1cm]concln.north);
+        
+        \node[propn] (premise1) [above left=1.5cm and 1cm  of concln]{Premise 1};
+        \node[propn] (premise2) [above right=1.5cm and 1cm of concln]{Premise 2};  
+                \draw[joiningargout] (zJoin)--(concln);
+                \draw[joiningargin] (premise1)--(zJoin);
+                \draw[joiningargin] (premise2)--(zJoin);                
+                  \end{tikzpicture}
+
+\end{center}
+Arguments as you read them in philosophy texts may have a more complicated structure, typically by chaining together simple arguments like this, so they may have \emph{intermediate conclusions}. But we will analyse this simple structure to give us the tools to understand the more complex arguments as we will come across them throughout philosophy. They might have a structure more like:
+\begin{center}
+\begin{tikzpicture}
+        \node[propn] (premise) {Premise 1};
+          \node[propn] (premise2) [right=2cm of premise] {Premise 2};
+        \node[propn] (intconclusion) [below right=1.5cm and 0cm of premise] {Intermediate Conclusion};
+                  \coordinate (zJoin) at ([yshift=1cm]intconclusion.north);
+        \draw[joiningargin] (premise)--(zJoin);
+          \draw[joiningargin] (premise2)--(zJoin);
+                  \draw[joiningargout] (zJoin)--(intconclusion);      
+          \node[propn] (premise3) [right=1cm of intconclusion] {Premise 3};        
+               \node[propn] (concln) [below right=1.5cm and 0cm of intconclusion] {Conclusion};
+                     \coordinate (zJoin2) at ([yshift=1cm]concln.north);        
+        \draw[joiningargin] (intconclusion)--(zJoin2);
+          \draw[joiningargin] (premise3)--(zJoin2);
+                  \draw[joiningargout] (zJoin2)--(concln);   
+    \end{tikzpicture}
+\end{center}
+
 
 \newglossaryentry{premise indicator word}
 {
@@ -114,24 +231,7 @@ description={the last sentence in an \gls{argument}}
 }
 
 
-\section{Sentences}
-\label{intro.sentences}
 
-To be perfectly general, we can define an \define{argument} as a series of sentences. The sentences at the beginning of the series are premises. The final sentence in the series is the conclusion. If the premises are true and the argument is a good one, then you have a reason to accept the conclusion.
-
-In logic, we are only interested in sentences that can figure as a premise or conclusion of an argument. So we will say that a \define{sentence} is something that can be true or false.
-
-You should not confuse the idea of a sentence that can be true or false with the difference between fact and opinion. Often, sentences in logic will express things that would count as facts--- such as `Kierkegaard was a hunchback' or `Kierkegaard liked almonds.' They can also express things that you might think of as matters of opinion--- such as, `Almonds are tasty.'
-
-Also, there are things that would count as `sentences' in a linguistics or grammar course that we will not count as sentences in logic.
-
-\paragraph{Questions} In a grammar class, `Are you sleepy yet?' would count as an interrogative sentence. Although you might be sleepy or you might be alert, the question itself is neither true nor false. For this reason, questions will not count as sentences in logic. Suppose you answer the question: `I am not sleepy.' This is either true or false, and so it is a sentence in the logical sense. Generally, \emph{questions} will not count as sentences, but \emph{answers} will. 
-
-`What is this course about?' is not a sentence (in our sense). `No one knows what this course is about' is a sentence.
-
-\paragraph{Imperatives} Commands are often phrased as imperatives like `Wake up!', `Sit up straight', and so on. In a grammar class, these would count as imperative sentences. Although it might be good for you to sit up straight or it might not, the command is neither true nor false. Note, however, that commands are not always phrased as imperatives. `You will respect my authority' \emph{is} either true or false--- either you will or you will not--- and so it counts as a sentence in the logical sense.
-
-\paragraph{Exclamations} `Ouch!' is sometimes called an exclamatory sentence, but it is neither true nor false. We will treat `Ouch, I hurt my toe!' as meaning the same thing as `I hurt my toe.' The `ouch' does not add anything that could be true or false.
 
 
 \practiceproblems
@@ -153,40 +253,13 @@ Highlight the phrase which expresses the conclusion of each of these arguments:
 \chapter{Valid arguments}
 \label{s:Valid}
 
-In \S\ref{s:Arguments}, we gave a very permissive account of what an argument is. To see just how permissive it is, consider the following:
-	\begin{earg}
-		\item[] There is a bassoon-playing dragon in the \emph{Cathedra Romana}.
-		\item[\therefore] Salvador Dali was a poker player.
-	\end{earg}
-We have been given a premise and a conclusion. So we have an argument. Admittedly, it is a \emph{terrible} argument, but it is still an argument.
-
-\section{Two ways that arguments can go wrong}
-
-It is worth pausing to ask what makes the argument so weak. In fact, there are two sources of weakness. First: the argument's (only) premise is obviously false. The Pope's throne is only ever occupied by a hat-wearing man. Second: the conclusion does not follow from the premise of the argument. Even if there were a bassoon-playing dragon in the Pope's throne, we would not be able to draw any conclusion about Dali's predilection for poker.
-
-What about the main argument discussed in \S\ref{s:Arguments}? The premises of this argument might well be false. It might be sunny outside; or it might be that you can avoid getting soaked without taking an umbrella. But even if both premises were true, it does not necessarily show you that you should take an umbrella. Perhaps you enjoy walking in the rain, and you would like to get soaked. So, even if both premises were true, the conclusion might nonetheless be false.
-
-%Consider a third argument:
-%	\begin{earg}
-%		\item[] You are reading this book.
-%		\item[] This is a logic book.
-%		\item[So:] You are a logic student.
-%	\end{earg}
-%This is not a terrible argument. Both of the premises are true. And most people who read this book are logic students. Yet, it is possible for someone besides a logic student to read this book. If your roommate picked up the book and thumbed through it, they would not immediately become a logic student. So the premises of this argument, even though they are true, do not guarantee the truth of the conclusion.
-%
-
-The general point is as follows. For any argument, there are two ways that it might go wrong:
-	\begin{ebullet}
-		\item One or more of the premises might be false. 
-		\item The conclusion might not follow from the premises.
-	\end{ebullet}
-To determine whether or not the premises of an argument are true is often a very important matter. However, that is normally a task best left to experts in the field: as it might be, historians, scientists, or whomever. In our role as \emph{logicians}, we are more concerned with arguments \emph{in general}. So we are (usually) more concerned with the second way in which arguments can go wrong.
-
-So: we are interested in whether or not a conclusion \emph{follows from} some premises. Don't, though, say that the premises \emph{infer} the conclusion. Entailment is a relation between premises and conclusions; inference is something we do. (So if you want to mention inference when the conclusion follows from the premises, you could say that \emph{one may infer} the conclusion from the premises.)
-
 \section{Validity}
 
-As logicians, we want to be able to determine when the conclusion of an argument follows from the premises. One way to put this is as follows. We want to know whether, if all the premises were true, the conclusion would also have to be true. This motivates a definition:
+An argument is just a series of sentences, called the premises, followed by a single sentence, called the conclusion.
+The aim of an argument is that the premises should \emph{support} the conclusion. 
+
+There are different ways that premises can support a conclusion. In logic we are interested in the strongest possible such relation: that if the premises are true, the conclusion \emph{must} be true. That it is impossible that the premises are true and conclusion false. We call such an argument \emph{valid}:
+
 	\factoidbox{
 		An argument is \define{valid} if and only if it is impossible for all of the premises to be true and the conclusion false.
 	}
@@ -202,8 +275,24 @@ description={A property of arguments where it is impossible for the premises to 
 name=invalid,
 description={A property of arguments that holds when it is possible for the premises to be true without the conclusion being true; the opposite of \gls{valid}}
 }
-        
-The crucial thing about a valid argument is that it is impossible for the premises to be true whilst the conclusion is false. Consider this example:
+
+For example, the following is invalid:
+	\begin{earg}
+		\item[] Jenny is miserable.
+		\item[] If it is raining outside, then Jenny is miserable.
+		\item[\therefore] It is raining outside.
+	\end{earg}
+This is invalid because it is possible that Jenny is miserable for some other reason. 
+
+However, the following is valid:
+\begin{earg}
+	\item[] Professor Plum or Colonel Mustard are guilty. 
+	\item[] Professor Plum is not guilty.
+	\item[\therefore] Colonel Mustard is guilty. 
+\end{earg}
+It is impossible for the premises to be true and the conclusion false. 
+
+Consider this example:
 	\begin{earg}
 		\item[] Oranges are either fruits or musical instruments.
 		\item[] Oranges are not fruits.
@@ -219,7 +308,34 @@ This highlights that valid arguments do not need to have true premises or true c
 	\end{earg}
 The premises and conclusion of this argument are, as a matter of fact, all true, but the argument is invalid. If Paris were to declare independence from the rest of France, then the conclusion would be false, even though both of the premises would remain true. Thus, it is \emph{possible} for the premises of this argument to be true and the conclusion false. The argument is therefore invalid.
 
-The important thing to remember is that validity is not about the actual truth or falsity of the sentences in the argument. It is about whether it is \emph{possible} for all the premises to be true and the conclusion false. Nonetheless, we will say that an argument is \define{sound} if and only if it is both valid and all of its premises are true.
+The important thing to remember is that validity is not about the actual truth or falsity of the sentences in the argument. It is about whether it is \emph{possible} for all the premises to be true and the conclusion false. 
+
+To determine whether or not the premises of an argument are true is often a very important matter. However, that is normally a task best left to experts in the field: as it might be, historians, scientists, or whomever. In our role as \emph{logicians}, we are more concerned with arguments \emph{in general}. So we are (usually) more concerned with whether the argument is valid or not than whether its conclusion is true. Nonetheless, we will say that an argument is \define{sound} if and only if it is both valid and all of its premises are true. A sound argument must have a true conclusion. 
+
+\begin{center}
+
+  \begin{tikzpicture}
+
+        \node[draw,shape=ellipse] (premise) {Premise};
+        \node[draw,shape=ellipse] (conclusion) [below=2cm of premise] {Conclusion};
+        \draw[->] (premise)--(conclusion);
+        
+        \node (arg) [below=1cm of premise] {};
+        
+        \node (labelpremise) [right=1cm of premise] {true};
+        \node (labelarg) [below=1cm of labelpremise] {valid};
+        
+        \draw[->,decorate,decoration=snake] (labelpremise)--(premise);
+        \draw[->,decorate,decoration=snake] (labelarg)--(arg);  
+        
+        				\node (bracetop) [above=.01cm of labelpremise.north east] {};
+        				\node (bracebottom) [below=.01cm of labelarg.south east] {};        				
+%        	       
+        \draw [decorate,decoration={brace,amplitude=10pt}]
+        					(bracetop) -- (bracebottom) node [midway,align=center,xshift=1cm] {sound};         
+    \end{tikzpicture}
+\end{center}
+
 
 \newglossaryentry{sound}
 {
@@ -227,17 +343,86 @@ name=sound,
 description={A property of arguments that holds if the argument is valid and has all true premises}
 }
 
-Sometimes arguments that seem plausible will be invalid. Consider:
+
+
+So: we are interested in whether or not a conclusion \emph{follows from} some premises. 
+Don't, though, say that the premises \emph{infer} the conclusion. Instead we say that the premises \define{entail} the conclusion. 
+Entailment is a relation between premises and conclusions; inference is something we do. 
+It would be correct to say that \emph{one may infer} the conclusion from the premises, but not simply that the premises infer the conclusion. 
+
+
+\section{Missing premises}
+One way that an argument can fail to be valid is if one
+or more of its premises are missing, or suppressed, or
+left implicit.
+
+This is often done when the premise is thought to be
+obvious and so doesn't need to be stated explicitly.
+
+For example 
 \begin{earg}
-\item[]	If I have freshers flu, then I have a sore throat.
-\item[]	I have a sore throat.
-\item[\therefore]	I have freshers flu.
+\item It is raining.
+\item[\therefore] I should take my umbrella.
 \end{earg}
-This is invalid because it is possible that I have a sore throat without having freshers flu; I might have just been shouting too loudly yesterday. This sort of fallacy is called `Affirming the Consequent'.
+
+This argument is invalid. But, it can be made valid by addition of the premise 
+\begin{earg}
+\item[] If it is raining, then I should take my umbrella.
+\end{earg}
+Or perhaps we can break it down further:\todo{???}
+\begin{earg}
+\item[] If it is raining and I don't have my umbrella, then I will get wet.
+\item[] I don't want to get wet. 
+\item[] If I don't want to get wet and by taking an umbrella I will not get wet, then I should take my umbrella.
+\end{earg}
 
 
-\section{Inductive arguments}
-Many good arguments are invalid. Consider this one:
+If someone you disagree with makes an invalid
+argument, you might be tempted just to dismiss it as
+obviously incorrect.
+But it’s more useful (and more charitable) to consider
+whether there are missing premises that could be filled
+in that make the argument better.
+Perhaps the speaker/author was assuming that this
+premise was so obvious that it didn’t need to be stated.
+But be careful when you’re filling in ‘missing’ premises.
+The aim is to help improve the argument, to make it
+more convincing, so you can assess it fairly.
+Only add extra premises that seem reasonable, or that
+the original speaker/author would agree with.
+There’s no point in adding absurd or unreasonable
+premises, or premises that the speaker/author wouldn’t
+endorse. Then you just create a \emph{strawman} argument –
+a caricature of the original argument.
+
+
+\begin{quotation}
+“Just how charitable are you supposed to be when criticizing the views of an opponent? If there are obvious contradictions in the opponent’s case, then of course you should point them out, forcefully. If there are somewhat hidden contradictions, you should carefully expose them to view—and then dump on them. But the search for hidden contradictions often crosses the line into nitpicking, sea-lawyering, and—as we have seen—outright parody. The thrill of the chase and the conviction that your opponent has to be harboring a confusion somewhere encourages uncharitable interpretation, which gives you an easy target to attack. But such easy targets are typically irrelevant to the real issues at stake and simply waste everybody’s time and patience, even if they give amusement to your supporters. ”\\
+\emph{Daniel C. Dennett (2013). “Intuition Pumps And Other Tools for Thinking”. }
+\end{quotation}
+
+
+Dennett formulates the following four rules (named after
+Anatol Rapoport) for “how to compose a successful critical
+commentary”:
+\begin{enumerate}
+\item You should attempt to re-express your target’s position so
+clearly, vividly, and fairly that your target says, “Thanks, I
+wish I’d thought of putting it that way.”
+\item You should list any points of agreement (especially if they
+are not matters of general or widespread agreement).
+\item You should mention anything you have learned from your
+target.
+\item Only then are you permitted to say so much as a word of
+rebuttal or criticism
+\end{enumerate}
+
+\todo{I deleted the inductive arguments section...}
+
+\section{Other kinds of good arguments}
+\todo[inline]{Talk about evidential support etc.}
+
+Consider this argument:
 	\begin{earg}
 		\item[] In January 1997, it rained in London.
 		\item[] In January 1998, it rained in London.
@@ -248,6 +433,12 @@ Many good arguments are invalid. Consider this one:
 This argument generalises from observations about several cases to a conclusion about all cases. Such arguments are called \define{inductive} arguments. The argument could be made stronger by adding additional premises before drawing the conclusion: In January 2001, it rained in London; In January 2002\ldots. But, however many premises of this form we add, the argument will remain invalid. Even if it has rained in London in every January thus far, it remains \emph{possible} that London will stay dry next January.
 
 The point of all this is that inductive arguments---even good inductive arguments---are not (deductively) valid. They are not \emph{watertight}. Unlikely though it might be, it is \emph{possible} for their conclusion to be false, even when all of their premises are true. In this book, we will set aside (entirely) the question of what makes for a good inductive argument. Our interest is simply in sorting the (deductively) valid arguments from the invalid ones.  
+
+There are other cases where the premises might support the conclusion without 
+
+
+
+
 
 
 
@@ -385,7 +576,7 @@ description={A sentence that must be false}
 
 
 \section{Necessary and sufficient conditions}\label{s.Nec Sufficient Conditions}
-We can also ask about the logical relations \emph{between} two sentences. 
+We can also ask about the logical relations \emph{between} two sentences. \todo{I didn't like this last time!! I don't remember why... }
 
 Consider the two sentences:
 \begin{earg}
@@ -432,8 +623,6 @@ name={necessary equivalence},
 text={necessarily equivalent},
 description={A property held by a pair of sentences that must always have the same truth value}
 }
-
-%\section{Necessary and Sufficient conditions}
 
 
 

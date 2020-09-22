@@ -21,10 +21,31 @@ and another argument:
 Both arguments are valid, and there is a straightforward sense in which we can say that they share a common structure. We might express the structure thus:
 	\begin{earg}
 		\item[] A
-		\item[] If A, then C
-		\item[\therefore] C
+		\item[] If A, then B
+		\item[\therefore] B
 	\end{earg}
-This looks like an excellent argument \emph{structure}. Indeed, surely any argument with this \emph{structure} will be valid, and this is not the only good argument structure. Consider an argument like:
+This looks like an excellent argument \emph{structure}. Indeed, surely any argument with this \emph{structure} will be valid. 
+
+What about:
+	\begin{earg}
+		\item[] Jenny is miserable.
+		\item[] If it is raining outside, then Jenny is miserable.
+		\item[\therefore] It is raining outside.
+	\end{earg}
+The form of this argument is:
+\begin{earg}
+\item[]	$B$
+\item[]	If $A$ then $B$
+\item[\therefore]$A$
+\end{earg}
+Arguments of this form are generally invalid. 
+
+Be careful, though, not every argument of this form is sure to be invalid.
+It’s possible to have an argument of this form that’s valid – see if you can work out how!
+But most arguments of this form are invalid.
+
+
+ Consider an argument like:
 	\begin{earg}
 		\item[] Jenny is  happy or sad.
 		\item[] Jenny is not happy.
@@ -51,6 +72,11 @@ This valid argument has a structure which we might represent thus:
 These examples illustrate an important idea, which we might describe as \emph{validity in virtue of form}. The validity of the arguments just considered has nothing very much to do with the meanings of English expressions like `Jenny is miserable', `Dipan is an avid reader of Tolstoy', or `Jim acted in lots of plays'. If it has to do with meanings at all, it is with the meanings of phrases like `and', `or', `not,' and `if\ldots, then\ldots'. 
 
 In Parts \ref{ch.TFL}--\ref{ch.NDTFL},, we are going to develop a formal language which allows us to symbolize many arguments in such a way as to show that they are valid in virtue of their form. That language will be \emph{truth-functional logic}, or TFL.
+
+
+
+
+
 
 \section{Validity for special reasons}
 There are plenty of arguments that are valid, but not for reasons relating to their form. Take an example:
@@ -372,7 +398,7 @@ In fact, sentence \ref{if2} can be paraphrased as `If Jean is in France, then Je
 
 \noindent It is important to bear in mind that the connective `\eif' tells us only that, if the antecedent is true, then the consequent is true. It says nothing about a \emph{causal} connection between two events (for example). In fact, we lose a huge amount when we use $\eif$ to symbolize English conditionals. We will return to this in \S\S\ref{s:IndicativeSubjunctive} and \ref{s:ParadoxesOfMaterialConditional}.
 
- The conditional is also closely related to necessary and sufficient conditions, which we introduced in \S\ref{s.Nec Sufficient Conditions}. Consider:
+ The conditional is also closely related to necessary and sufficient conditions, which we introduced in \S\ref{s.Nec Sufficient Conditions}. \todo{not anymore!!! Should I talk about these somewhere???} Consider:
 	\begin{earg}
 		\item[\ex{ifnec1}] For Jean to be in Paris, it is necessary that Jean be in France.
 		\item[\ex{ifnec2}] It is a necessary condition on Jean's being in Paris that she be in France. 
