@@ -420,12 +420,12 @@ target.
 rebuttal or criticism
 \end{enumerate}
 
-\todo{I deleted the inductive arguments section...}
 
-\section{Other kinds of good arguments}
-\todo[inline]{Talk about evidential support etc.}
 
-Consider this argument:
+\section{Ampliative Arguments}
+
+
+Deductively valid arguments with plausible premises are good arguments, but they aren't the only good arguments there are. This is just as well, since many arguments we give in our everyday lives are not deductively valid, even after filling in plausible missing premises. Here's an example:
 	\begin{earg}
 		\item[] In January 1997, it rained in London.
 		\item[] In January 1998, it rained in London.
@@ -433,11 +433,23 @@ Consider this argument:
 		\item[] In January 2000, it rained in London.
 	\item[\therefore] It rains every January in London.
 \end{earg}
-This argument generalises from observations about several cases to a conclusion about all cases. Such arguments are called \define{inductive} arguments. The argument could be made stronger by adding additional premises before drawing the conclusion: In January 2001, it rained in London; In January 2002\ldots. But, however many premises of this form we add, the argument will remain invalid. Even if it has rained in London in every January thus far, it remains \emph{possible} that London will stay dry next January.
 
-The point of all this is that inductive arguments---even good inductive arguments---are not (deductively) valid. They are not \emph{watertight}. Unlikely though it might be, it is \emph{possible} for their conclusion to be false, even when all of their premises are true. In this book, we will set aside (entirely) the question of what makes for a good inductive argument. Our interest is simply in sorting the (deductively) valid arguments from the invalid ones.  
+This argument generalises from observations about several cases to a conclusion about all cases---in each year listed, it rained in January, so it does in every year. Such arguments are called \define{inductive} arguments. The argument could be made stronger by adding additional premises before drawing the conclusion: In January 2001, it rained in London; In January 2002\ldots. But, however many premises of this form we add, the argument will remain invalid. Even if it has rained in London in every January thus far, it remains possible that London will stay dry next January. The point of all this is that inductive arguments—even good inductive arguments—are not (deductively) valid. They are not watertight. The premises might make the conclusion very likely, but they don't absolutely guarantee its truth. Unlikely though it might be, it is possible for their conclusion to be false, even when all of their premises are true.
 
-There are other cases where the premises might support the conclusion without 
+Inductive arguments of the sort just given belong to a species of argument called \define{ampliative arguments}. This means that the conclusion goes beyond what you find in the premises. That is, the premises don't guarantee, or entail, the conclusion. They do, however, provide some support for it. These arguments are deductively invalid. They may be good and useful, however it is important to know the difference. 
+
+In this book, we will set aside the question of what makes for a good ampliative argument and focus instead on sorting the deductively valid arguments from the deductively invalid ones. 
+But we pause here to mention some further forms of ampliative argument.
+
+Inductive arguments, like the one we saw above, \todo{At end of 2.1. I said we're not allowed this terminology!}infer from a series of observed cases to a generalization that covers them: from all observed $F$s have been $G$s, we infer all $F$s are $G$s. We use these all the time. Every time I've drunk water from my tap, it's quenched my thirst; therefore, every time I ever drink water from my tap, it will quench my thirst. Every time I've stroked my neighbour's cat, it hasn't bitten me; therefore, every time I ever stroke my neighbour's cat, it won't bite me. And it's a form of arguments much beloved by scientists. Every time we've measured the acceleration of a body falling, it's matched Newton's theory, therefore, all bodies are governed by Newton's theory. The premises of these argument seem to make their conclusions likely without guaranteeing them. The areas of philosophy called inductive logic or confirmation theory try to make precise what that means and why it's true. And of course inductive arguments can go wrong. Before I visited Australia, every swan I'd every seen was white, and so I concluded that all swans were white; but when I visited Australia, I realised my conclusion was wrong, because some swans there are black.
+
+A closely related, but different form of argument, is \define{statistical}. Here, we start with an observation about the proportion of Fs that are Gs in a sample that we've observed, and we infer that the same proportion of Fs are Gs in general. So, for instance, if I poll 1,000 people in Scotland eligible to vote in a second independence referendum, and 600 say that they'll vote yes, I might infer that 60\% of all eligible voters will vote yes. Or if I test 1,000,000 people in England for an active infection, and 20,000 test positive, I might infer that 2\% of the whole population has an active infection. How good these argument are depends on a number of things, and these are studied by statisticians. For instance, suppose you picked the 1,000 Scottish voters entirely at random from an anonymised version of the electoral register. But suppose that, when you deanonymised, you learned that, by chance, all of the people you'd picked were over 65, or they all lived on the Isle of Skye. Then you might worry that your sample, though random, was unrepresentative of the population as a whole. This question is a genuine concern for randomised controlled trials in medicine.
+
+Abductive arguments provide an inference from a phenomenon you've observed to the \emph{best explanation} of that phenomenon: from $E$, and the best explanation of $E$ is $H$, you might conclude $H$. Again, this is extremely widespread. A classic sort of example would be the inferences that detectives draw during their investigations. They look at the evidence and the possible explanations of it, and they tend to conclude in favour of the best one. And similarly for doctors looking at a patient's suite of symptoms and trying to discover what ails them. Another important example comes from science. Here is Charles Darwin explaining what convinces him of his theory of natural selection: 
+\begin{quotation}
+``It can hardly be supposed that a false theory would explain, in so satisfactory a manner as does the theory of natural selection, the several large classes of facts above specified. It has recently been objected that this is an unsafe method of arguing; but it is a method used in judging of the common events of life, and has often been used by the greatest natural philosophers."\\ (Charles Darwin, On the origin of species by means of natural selection (6th ed.).
+London: John Murray)
+\end{quotation}
 
 
 
@@ -499,6 +511,9 @@ Could there be:
 In each case: if so, give an example; if not, explain why not.
 
 
+\problempart
+\label{pr.Ampliative}
+\todo[inline]{!!!!}
 \chapter{Other logical notions}\label{s:BasicNotions}
 
 In \S\ref{s:Valid}, we introduced the idea of a valid argument. We will want to introduce some more ideas that are important in logic.
