@@ -284,3 +284,185 @@ This is of course harder to prove than for the primitive connectives. For instan
 		
 
 
+\chapter{Soundness}\label{ch:Soundness}
+
+In this chapter we relate TFL's semantics to its natural deduction \emph{proof system} (as defined in Part~\ref{ch.NDTFL}). We will prove that the formal proof system is safe: you can only prove sentences from premises from which they actually follow.
+Intuitively, a formal proof system is sound iff it does not allow you to prove any invalid arguments. This is obviously a highly desirable property. It tells us that our proof system will never lead us astray. Indeed, if our proof system were not sound, then we would not be able to trust our proofs. The aim of this chapter is to prove that our proof system is sound.
+
+Let's make the idea more precise. We'll abbreviate a list of sentences using the greek letter $\Gamma$ (`gamma'). A formal proof system is \define{sound} (relative to a given semantics) \emph{iff}, whenever there is a formal proof of $\metaZ$ from assumptions among $\Gamma$, then $\Gamma$ genuinely entails $\metaZ$ (given that semantics). Otherwise put, to prove that TFL's proof system is sound, we need to prove the following
+
+\begin{highlighted}\textbf{Soundness Theorem.} For any sentences $\Gamma$ and $\metaZ$: if $\Gamma\proves\metaZ$, then $\Gamma \entails\metaZ$
+\end{highlighted}
+
+To prove this, we will check each of the rules of TFL's proof system individually. We want to show that no application of those rules ever leads us astray. Since a proof just involves repeated application of those rules, this will show that no proof ever leads us astray. Or at least, that is the general idea.
+
+To begin with, we must make the idea of `leading us astray' more precise. Say that a line of a proof is \define{shiny} iff the assumptions on which that line depends tautologically entail the sentence on that line. {The word `shiny' is not standard among logicians, but it will help us with our discussions.} To illustrate the idea, consider the following:
+	\begin{pf}
+		\hypo{fgh}{F\eif(G\eand H)}
+		\open
+			\hypo{f}{F}
+			\have{gh}{G \eand H}\ce{fgh,f}
+			\have{g}{G}\ae{gh}
+		\close
+		\have{fg}{F \eif G}\ci{f-g}
+	\end{pf}\noindent\noindent
+Line $1$ is shiny iff $F \eif (G \eand H) \entails F \eif (G \eand H)$. You should be easily convinced that line $1$ is, indeed, shiny! Similarly, line $4$ is shiny iff $F \eif (G \eand H), F \entails G$. Again, it is easy to check that line $4$ is shiny. As is every line in this TFL-proof. We want to show that this is no coincidence. That is, we want to prove:
+	\begin{highlighted}\textbf{Shininess Lemma.}
+		Every line of every TFL-proof is shiny.
+	\end{highlighted}\noindent
+Then we will know that we have never gone astray, on any line of a proof. Indeed, given the Shininess Lemma, it will be easy to prove the Soundness Theorem:
+
+\emph{Proof.} Suppose $\Gamma \proves \metaZ$. Then there is a TFL-proof, with $\metaZ$ appearing on its last line, whose only undischarged assumptions are among $\Gamma$. The Shininess Lemma tells us that every line on every TFL-proof is shiny. So this last line is shiny, i.e.\ $\Gamma \entails \metaZ$. QED
+
+It remains to prove the Shininess Lemma. 
+
+To do this, we observe that every line of any TFL-proof is obtained by applying some rule. So what we want to show is that no application of a rule of TFL's proof system will lead us astray. More precisely, say that a rule of inference is \define{rule-sound} \emph{iff} for all TFL-proofs, if we obtain a line on a TFL-proof by applying that rule, and every earlier line in the TFL-proof is shiny, then our new line is also shiny. What we need to show is that \emph{every} rule in TFL's proof system is rule-sound. 
+
+We will do this in the next section. But having demonstrated the rule-soundness of every rule, the Shininess Lemma will follow immediately:
+
+\emph{Proof.} Fix any line, line $n$, on any TFL-proof. The sentence written on line $n$ must be obtained using a formal inference rule which is rule-sound. This is to say that, if every earlier line is shiny, then line $n$ itself is shiny. Hence, by strong induction on the length of TFL-proofs, every line of every TFL-proof is shiny. QED
+
+Note that this proof appeals to a principle of strong induction on the length of TFL-proofs. This is the first time we have seen that principle, and you should pause to confirm that it is, indeed, justified.
+
+It remains to show that every rule is rule-sound. This is not difficult, but it is time-consuming, since we need to check each rule individually, and TFL's proof system has plenty of rules! To speed up the process marginally, we will introduce a convenient abbreviation: `$\Delta_i$' (`delta') will abbreviate the assumptions (if any) on which line $i$ depends in our TFL-proof (context will indicate which TFL-proof we have in mind).
+
+\begin{highlighted}Introducing an assumption is rule-sound.
+\end{highlighted}
+
+If $\metaX$ is introduced as an assumption on line $n$, then $\metaX$ is among $\Delta_n$, and so $\Delta_n \entails \metaX$.
+
+\begin{highlighted}$\eand$I is rule-sound.
+\end{highlighted}
+
+\emph{Proof.} Consider any application of $\eand$I in any TFL-proof, i.e., something like:
+\begin{pf}
+	\have[i]{a}{\metaX}
+	\have[j]{b}{\metaY}
+	\have[n]{c}{\metaX\eand\metaY} \ai{a, b}
+\end{pf}\noindent
+To show that $\eand$I is rule-sound, we assume that every line before line $n$ is shiny; and we aim to show that line $n$ is shiny, i.e.\ that $\Delta_n \entails \metaX \eand \metaY$. 
+
+So, let $v$ be any valuation that makes all of $\Delta_{n}$ true. 
+
+We first show that $v$ makes $\metaX$ true. To prove this, note that all of $\Delta_i$ are among $\Delta_{n}$. By hypothesis, line $i$ is shiny. So any valuation that makes all of $\Delta_i$ true makes $\metaX$ true. Since $v$ makes all of $\Delta_i$ true, it makes $\metaX$ true too.
+
+We can similarly see that $v$ makes $\metaY$ true. 
+
+So $v$ makes $\metaX$ true and $v$ makes $\metaY$ true. Consequently, $v$ makes $\metaX\eand\metaY$ true. So any valuation that makes all of the sentences among $\Delta_{n}$ true also makes $\metaX \eand \metaY$ true. That is: line $n$ is shiny. QED
+
+
+All of the remaining lemmas establishing rule-soundness will have, essentially, the same structure as this one did. 
+
+\begin{highlighted}$\eand$E is rule-sound.
+\end{highlighted}
+
+\emph{Proof.}
+	Assume that every line before line $n$ on some TFL-proof is shiny, and that $\eand$E is used on line $n$. So the situation is:
+		   \begin{pf}
+			   \have[i]{ab}{\metaX\eand\metaY}
+			   \have[n]{a}{\metaX} \ae{ab}
+		   \end{pf}\noindent
+(or perhaps with $\metaY$ on line $n$ instead; but similar reasoning will apply in that case). Let $v$ be any valuation that makes all of $\Delta_{n}$ true. Note that all of $\Delta_i$ are among $\Delta_{n}$. By hypothesis, line $i$ is shiny. So any valuation that makes all of $\Delta_i$ true makes $\metaX\eand\metaY$ true. So $v$ makes $\metaX\eand\metaY$ true, and hence makes $\metaX$ true. So $\Delta_{n} \entails \metaX$. QED
+
+
+\begin{highlighted}$\eor$I is rule-sound.
+\end{highlighted}
+
+We leave this as an exercise.
+
+\begin{highlighted}$\eor$E is rule-sound.
+\end{highlighted}
+
+\emph{Proof.}
+	Assume that every line before line $n$ on some TFL-proof is shiny, and that $\eand$E is used on line $n$. So the situation is:
+   \begin{pf}
+	   \have[m]{aob}{\metaX\eor\metaY}
+	   \open
+		   \hypo[i]{a}{\metaX} %\by{want \metaZ}{}
+		   \have[j]{c1}{\metaZ}
+	   \close
+	   \open
+		   \hypo[k]{b}{\metaY} %\by{want \metaZ}{}
+		   \have[l]{c2}{\metaZ}
+	   \close
+	   \have[n]{ab}{\metaZ}\oe{aob, a-c1,b-c2}
+   \end{pf}\noindent
+Let $v$ be any valuation that makes all of $\Delta_{n}$ true. Note that all of $\Delta_m$ are among $\Delta_{n}$. By hypothesis, line $m$ is shiny. So any valuation that makes $\Delta_{n}$ true makes $\metaX \eor \metaY$ true. So in particular, $v$ makes $\metaX \eor \metaY$ true, and hence either $v$ makes $\metaX$ true, or $v$ makes $\metaY$ true. We now reason through these two cases:
+   \begin{ebullet}
+	   \item[\emph{Case 1: $v$ makes $\metaX$ true.}] All of $\Delta_i$ are among $\Delta_{n}$, with the possible exception of $\metaX$. Since $v$ makes all of $\Delta_{n}$ true, and also makes $\metaX$ true,  $v$ makes all of $\Delta_i$ true. Now, by assumption, line $j$ is shiny; so $\Delta_{j} \entails \metaZ$. But the sentences $\Delta_i$ are just the sentences $\Delta_{j}$, so $\Delta_i \entails \metaZ$. So, any valuation that makes all of $\Delta_i$ true makes $\metaZ$ true. But $v$ is just such a valuation. So $v$ makes $\metaZ$ true. 
+	   \item[\emph{Case 2: $v$ makes $\metaY$ true.}] Reasoning in exactly the same way, considering lines $k$ and $l$, $v$ makes $\metaZ$ true.
+	   \end{ebullet}
+Either way, $v$ makes $\metaZ$ true. So $\Delta_n \entails \metaZ$.
+QED
+
+
+\begin{highlighted}
+	$\enot$E is rule-sound.
+\end{highlighted}
+
+\emph{Proof.}
+	Assume that every line before line $n$ on some TFL-proof is shiny, and that $\enot$E is used on line $n$. So the situation is:
+\begin{pf}
+   \have[i]{i}{\metaX} 
+   \have[j]{j}{\enot\metaX}
+   \have[n]{nb}{\ered}\ri{i, j}
+\end{pf}\noindent
+Note that all of $\Delta_i$ and all of $\Delta_j$ are among $\Delta_{n}$. By hypothesis, lines $i$ and $j$ are shiny. So any valuation which makes all of $\Delta_{n}$ true would have to make both $\metaX$ and $\enot\metaX$ true. But no valuation can do that. So no valuation makes all of $\Delta_{n}$ true. So $\Delta_{n} \entails \ered$, vacuously.
+QED
+
+\begin{highlighted}
+	$\bot$I is rule-sound.
+\end{highlighted}
+
+We leave this as an exercise.
+
+\begin{highlighted}
+	$\enot$I is rule-sound.
+\end{highlighted}
+
+\emph{Proof.}
+	Assume that every line before line $n$ on some TFL-proof is shiny, and that $\enot$I is used on line $n$. So the situation is:
+\begin{pf}
+   \open
+	   \hypo[i]{a}{\metaX}
+	   \have[j]{b}{\ered}
+   \close
+   \have[n]{na}{\enot\metaX}\ni{a-b}
+\end{pf}\noindent
+Let $v$ be any valuation that makes all of $\Delta_{n}$ true. Note that all of $\Delta_{n}$ are among $\Delta_i$, with the possible exception of $\metaX$ itself. By hypothesis, line $j$ is shiny. But no valuation can make `$\ered$' true, so no valuation can make all of $\Delta_{j}$ true. Since the sentences $\Delta_i$ are just the sentences $\Delta_{j}$, no valuation can make all of $\Delta_i$ true. Since $v$ makes all of $\Delta_{n}$ true, it must therefore make $\metaX$ false, and so make $\enot \metaX$ true. So $\Delta_n \entails \enot \metaX$.
+QED
+
+
+\begin{highlighted}\label{lem:LastRuleSound} $\neg$I, $\bot$E, $\eif$I,  $\eif$E, $\eiff$I, and $\eiff$E are all rule-sound.
+\end{highlighted}
+
+We leave these as exercises.
+
+This establishes that all the basic rules of our proof system are rule-sound. Finally, we show:
+
+\begin{highlighted}All of the derived rules of our proof system are rule-sound.
+\end{highlighted}
+
+\emph{Proof.}
+	Suppose that we used a derived rule to obtain some sentence, $\metaX$, on line $n$ of some TFL-proof, and that every earlier line is shiny. Every use of a derived rule can be replaced (at the cost of long-windedness) with multiple uses of basic rules. That is to say, we could have used basic rules to write $\metaX$ on some line $n + k$, without introducing any further assumptions. So, applying our individual results that all basic rules are rule-sound several times ($k + 1$ times, in fact), we can see that line $n+k$ is shiny. Hence the derived rule is rule-sound. 
+QED
+	
+
+And that's that! We have shown that every rule---basic or otherwise---is rule-sound, which is all that we required to establish the Shininess Lemma, and hence the Soundness Theorem.
+
+But it might help to round off this chapter if we repeat my informal explanation of what we have done. A formal proof is just a sequence---of arbitrary length---of applications of rules. We have shown that any application of any rule will not lead you astray. It follows (by induction)that no formal proof will lead you astray. That is: our proof system is sound. 
+
+\practiceproblems
+
+\problempart
+\label{pr.Soundness}
+Complete the Lemmas left as exercises in this chapter. That is, show that the remaining rules are rule-sound.
+%the following are rule-sound:
+%	\begin{earg}
+%		\item $\eor$I. (\emph{Hint}: this is  similar to the case of $\eand$E.)
+%		\item X. (\emph{Hint}: this is similar to the case of $\enot$E.)
+%		\item $\eif$I. (\emph{Hint}: this is similar to $\eor$E.)
+%		\item $\eif$E.
+%		\item IP. (\emph{Hint}: this is similar to the case of $\enot$I.)
+%	\end{earg}
+
