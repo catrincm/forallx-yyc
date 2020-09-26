@@ -1,4 +1,4 @@
-
+\PassOptionsToPackage{disable}{todonotes}
 \documentclass[openany,oneside,12pt]{memoir}
 
 \usepackage{forallxbris-style}
@@ -78,7 +78,7 @@
 %\usepackage{ragged2e} % use this to get hyphenation
 \let\RaggedRight\raggedright
 
-\includeonly{forallx-bris-what}
+
 
 \begin{document}
 
@@ -97,11 +97,12 @@
 %\end{textblock*}
 
 % make front cover
+\thispagestyle{empty}
 \begin{textblock*}{0in}(0in,0in)
   \noindent\hfill
   \begin{minipage}[b][\stockheight][s]{.9\stockwidth}
     \begin{raggedleft}
-      \vspace*{1.2cm}
+      \vspace*{5cm}
       \hfill
       \sffamily\fontsize{66pt}{0pt}\selectfont
       \color{darkred}
@@ -112,27 +113,8 @@
 
       \sffamily\fontsize{24pt}{28pt}\selectfont
       \color{black}
-      \textbf{\uppercase{Calgary}\\ (Accessible)}
+      \textbf{\uppercase{Bristol}\\ (Accessible)}
 
-      \vspace*{1cm}
-      \color{black}
-      \sffamily
-      \fontsize{20pt}{22pt}\selectfont
-      \textbf{An Introduction to\\ Formal Logic}
-
-      \vfill
-      \fontsize{11pt}{14pt}\selectfont
-      \color{white}
-      \textbf{P.~D. Magnus}\\
-      \textbf{Tim Button}\\
-      \textit{with additions by}\\
-      \textbf{J.~Robert Loftis}\\
-      \textbf{Robert Trueman}\\
-      \textit{remixed and revised by}\\
-      \textbf{Aaron Thomas-Bolduc}\\ \textbf{Richard Zach}\par
-      \vspace{1cm}
-      \forallxversion\par
-      \vspace{1cm}
     \end{raggedleft}
   \end{minipage}
   \hspace*{1cm}

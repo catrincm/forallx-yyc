@@ -1,4 +1,4 @@
-%\PassOptionsToPackage{disable}{todonotes}
+\PassOptionsToPackage{disable}{todonotes}
 \documentclass[openany,oneside]{memoir}
 
 \usepackage{forallxbris-style}
@@ -45,6 +45,35 @@
 \colorlet{vltleadbeater}{darkred!3}
 
 \begin{document}
+
+% make front cover
+\thispagestyle{empty}
+\begin{textblock*}{0in}(0in,0in)
+  \noindent\hfill
+  \begin{minipage}[b][\stockheight][s]{.9\stockwidth}
+    \begin{raggedleft}
+      \vspace*{5cm}
+      \hfill
+      \sffamily\fontsize{66pt}{0pt}\selectfont
+      \color{darkred}
+      \textbf{forall}%
+      \fontsize{80pt}{0pt}\selectfont\rmfamily\textit{\textbf{x}\/}
+
+      \vskip.5cm
+
+      \sffamily\fontsize{24pt}{28pt}\selectfont
+      \color{black}
+      \textbf{\uppercase{Bristol}}
+
+    \end{raggedleft}
+  \end{minipage}
+  \hspace*{1cm}
+\end{textblock*}
+
+
+
+
+
 
 \midsloppy
 
