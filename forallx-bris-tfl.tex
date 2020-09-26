@@ -8,35 +8,35 @@
 \section{Validity in virtue of form}\label{s:ValidityInVirtueOfForm}
 Consider this argument:
 	\begin{earg}
-		\item[] It is raining outside.
-		\item[] If it is raining outside, then Jenny is miserable.
-		\item[\therefore] Jenny is miserable.
+		\prem It is raining outside.
+		\prem If it is raining outside, then Jenny is miserable.
+		\conc Jenny is miserable.
 	\end{earg}
 and another argument:
 	\begin{earg}
-		\item[] Jenny is an anarcho-syndicalist.
-		\item[] If Jenny is an anarcho-syndicalist, then Dipan is an avid reader of Tolstoy.
-		\item[\therefore] Dipan is an avid reader of Tolstoy.
+		\prem Jenny is an anarcho-syndicalist.
+		\prem If Jenny is an anarcho-syndicalist, then Dipan is an avid reader of Tolstoy.
+		\conc Dipan is an avid reader of Tolstoy.
 	\end{earg}
 Both arguments are valid, and there is a straightforward sense in which we can say that they share a common structure. We might express the structure thus:
 	\begin{earg}
-		\item[] A
-		\item[] If A, then B
-		\item[\therefore] B
+		\prem A
+		\prem If A, then B
+		\conc B
 	\end{earg}
 This looks like an excellent argument \emph{structure}. Indeed, surely any argument with this \emph{structure} will be valid. 
 
 What about:
 	\begin{earg}
-		\item[] Jenny is miserable.
-		\item[] If it is raining outside, then Jenny is miserable.
-		\item[\therefore] It is raining outside.
+		\prem Jenny is miserable.
+		\prem If it is raining outside, then Jenny is miserable.
+		\conc It is raining outside.
 	\end{earg}
 The form of this argument is:
 \begin{earg}
-\item[]	$B$
-\item[]	If $A$ then $B$
-\item[\therefore]$A$
+\prem	$B$
+\prem	If $A$ then $B$
+\conc $A$
 \end{earg}
 Arguments of this form are generally invalid. 
 
@@ -47,27 +47,27 @@ But most arguments of this form are invalid.
 
  Consider an argument like:
 	\begin{earg}
-		\item[] Jenny is  happy or sad.
-		\item[] Jenny is not happy.
-		\item[\therefore] Jenny is sad.
+		\prem Jenny is  happy or sad.
+		\prem Jenny is not happy.
+		\conc Jenny is sad.
 	\end{earg}
 Again, this is a valid argument. The structure here is something like:
 	\begin{earg}
-		\item[] A or B
-		\item[] not-A
-		\item[\therefore] B
+		\prem A or B
+		\prem not-A
+		\conc B
 	\end{earg}
 A superb structure! Here is another example:
 	\begin{earg}
-		\item[] It's not the case that Jim both studied hard and acted in lots of plays.
-		\item[] Jim studied hard
-		\item[\therefore] Jim did not act in lots of plays.
+		\prem It's not the case that Jim both studied hard and acted in lots of plays.
+		\prem Jim studied hard
+		\conc Jim did not act in lots of plays.
 	\end{earg}
 This valid argument has a structure which we might represent thus:
 	\begin{earg}
-		\item[] not-(A and B)
-		\item[] A
-		\item[\therefore] not-B
+		\prem not-(A and B)
+		\prem A
+		\conc not-B
 	\end{earg}
 These examples illustrate an important idea, which we might describe as \emph{validity in virtue of form}. The validity of the arguments just considered has nothing very much to do with the meanings of English expressions like `Jenny is miserable', `Dipan is an avid reader of Tolstoy', or `Jim acted in lots of plays'. If it has to do with meanings at all, it is with the meanings of phrases like `and', `or', `not,' and `if\ldots, then\ldots'. 
 
@@ -81,23 +81,23 @@ In Parts \ref{ch.TFL}--\ref{ch.NDTFL},, we are going to develop a formal languag
 \section{Validity for special reasons}
 There are plenty of arguments that are valid, but not for reasons relating to their form. Take an example:
 	\begin{earg}
-		\item[] Juanita is a vixen
-		\item[\therefore] Juanita is a fox
+		\prem Juanita is a vixen
+		\conc Juanita is a fox
 	\end{earg}
 It is impossible for the premise to be true and the conclusion false. So the argument is valid. However, the validity is not related to the form of the argument. Here is an invalid argument with the same form:
 	\begin{earg}
-		\item[] Juanita is a vixen
-		\item[\therefore] Juanita is a cathedral
+		\prem Juanita is a vixen
+		\conc Juanita is a cathedral
 	\end{earg}
 This might suggest that the validity of the first argument \emph{is} keyed to the meaning of the words `vixen' and `fox'. But, whether or not that is right, it is not simply the \emph{shape} of the argument that makes it valid. Equally, consider the argument:
 	\begin{earg}
-		\item[] The sculpture is green all over.
-		\item[\therefore] The sculpture is not red all over. 
+		\prem The sculpture is green all over.
+		\conc The sculpture is not red all over. 
 	\end{earg}
 Again, it seems impossible for the premise to be true and the conclusion false, for nothing can be both green all over and red all over. So the argument is valid, but here is an invalid argument with the same form:
 	\begin{earg}
-		\item[] The sculpture is green all over.
-		\item[\therefore] The sculpture is not shiny all over.
+		\prem The sculpture is green all over.
+		\conc The sculpture is not shiny all over.
 	\end{earg}
 The argument is invalid, since it is possible to be green all over and shiny all over. (One might paint their nails with an elegant shiny green varnish.) Plausibly, the validity of the first argument is keyed to the way that colours (or colour-words) interact, but, whether or not that is right, it is not simply the \emph{shape} of the argument that makes it valid. 
 
@@ -872,14 +872,14 @@ In English, sentences can be \define{ambiguous}, i.e., they can have more than o
 
 A different kind of ambiguity is \emph{structural ambiguity}.  This arises when a sentence can be interpreted in different ways, and depending on the interpretation, a different meaning is selected.  A famous example due to Noam Chomsky is the following:
 \begin{earg}
-	\item[] Flying planes can be dangerous.
+	\prem Flying planes can be dangerous.
 \end{earg}
 There is one reading in which `flying' is used as an adjective which modifies `planes'. In this sense, what's claimed to be dangerous are airplanes which are in the process of flying.  In another reading, `flying' is a gerund: what's claimed to be dangerous is the act of flying a plane.  In the first case, you might use the sentence to warn someone who's about to launch a hot air baloon.  In the second case, you might use it to counsel someone against becoming a pilot.
 
 When the sentence is uttered, usually only one meaning is intended. Which of the possible meanings an utterance of a sentence intends is determined by context, or sometimes by how it is uttered (which parts of the sentence are stressed, for instance). Often one interpretation is much more likely to be intended, and in that case it will even be difficult to ``see'' the unintended reading.  This is often the reason why a joke works, as in this example from Groucho Marx:
 \begin{earg}
-	\item[] One morning I shot an elephant in my pajamas.
-	\item[] How he got in my pajamas, I don't know.
+	\prem One morning I shot an elephant in my pajamas.
+	\prem How he got in my pajamas, I don't know.
 \end{earg}
 
 Ambiguity is related to, but not the same as, vagueness. An adjective, for instance `rich' or `tall,' is \define{vague} when it is not always possible to determine if it applies or not.  For instance, a person who's 6~ft 4~in (1.9~m) tall is pretty clearly tall, but a building that size is tiny.  Here, context has a role to play in determining what the clear cases and clear non-cases are (`tall for a person,' `tall for a basketball player,' `tall for a building'). Even when the context is clear, however, there will still be cases that fall in a middle range.
@@ -906,11 +906,11 @@ We can use TFL to symbolize both readings of the passage, and thus to provide a 
 \end{ekey}
 The interpretation according to which Casement's behavior was not treasonous is this:
 \begin{earg}
-	\item[] $A \lor (G \lor H)$
+	\prem $A \lor (G \lor H)$
 \end{earg} 
 The interpretation which got him executed, on the other hand, can be symbolized by:
 \begin{earg}
-	\item[] $(A \lor B) \lor (G \lor H)$
+	\prem $(A \lor B) \lor (G \lor H)$
 \end{earg}
 Remember that in the case we're dealing with Casement, was adherent to the King's enemies abroad ($B$ is true), but not in the realm, and he did not give the King's enemies aid or comfort in or outside the realm ($A$, $G$, and~$H$ are false).
 
