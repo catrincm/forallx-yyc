@@ -3,8 +3,9 @@
 \ProvidesPackage{forallxbris-style-problemsheets}
 
 
-\RequirePackage{hyperref,ifthen,graphicx,xcolor,amssymb}
+\RequirePackage{ifthen,graphicx,xcolor,amssymb}
 
+\RequirePackage[breaklinks,colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref} 
 \usepackage{tabu}
 
 %RZ: typefaces
@@ -135,4 +136,7 @@ ref=\theenumi.{\roman*}}
 	{\LARGE{\@title}}\\\@coursename
 \end{center}	\medskip  
 }
+
+
+\setlength\parindent{0pt}
 

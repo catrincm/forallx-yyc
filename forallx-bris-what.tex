@@ -72,12 +72,34 @@ This Part discusses arguments in natural languages like English. Throughout this
 %The three dots in this final line should be read ``therefore''. It is our concise way to identify the conclusion of the argument. \todo{should I delete it throughout?}
 
 Arguments consist of a list of \emph{premises} along with a \emph{conclusion}. In a good argument, the conclusion will follow from the premises. 
+Our standard way to present them is:
+\begin{earg}
+\prem Premise 1
+\prem Premise 2
+\item[] \dots
+\prem Premise $n$
+\conc Conclusion
+\end{earg}
+For	example
+	\begin{earg}
+	\prem If I acted of my own free will, then I could have acted otherwise.
+	\prem I could not have acted otherwise. 
+	\conc Therefore: I did not act of my own free will. 
+	\end{earg}
+%It can often be useful to label our premises and conclusions so they can be referred back to, for example:
+%\begin{earg}
+%\item If I acted of my own free will, then I could have acted otherwise.
+%\item I could not have acted otherwise. 
+%\conc I did not act of my own free will. 
+%\end{earg}
+%Note that we don't actually need to label the conclusion because there is only one.
+
 
 Often arguments are presented simply in a paragraph of text, or in a speech or article, and we first have to work out what the premises and conclusions are. 
 Sometimes it's easy, for example:
 \begin{quote}
 	If I acted of my own free will, then I could have acted otherwise.
-	And I could not have acted otherwise. 
+	But, I could not have acted otherwise. 
 	So, I did not act of my own free will.
 \end{quote}
 But often it is a significant piece of work to work out the premises and conclusion of an argument. 
@@ -98,7 +120,7 @@ But often it is a significant piece of work to work out the premises and conclus
 %%This argument has one premise (I was wearing my sunglasses) followed by a conclusion (it was sunny). 
 
 Many arguments start with premises, and end with a conclusion, but not all of them. It might start with the conclusion:
-	\begin{quote}\underline{We should not have a second Brexit referendum}.
+	\begin{quote}\textbf{We should not have a second Brexit referendum}.
 		A second Brexit referendum would erode the very basis of
 		democracy by suggesting that rule by the majority is an insufficient
 		condition for democratic legitimacy. 
@@ -106,7 +128,7 @@ Many arguments start with premises, and end with a conclusion, but not all of th
 Or it might have been presented with the conclusion in the middle:
 	\begin{quote}
 		Since the first Brexit referendum was made under false pretences,
-		\underline{the voters deserve a further say on any final deal agreed with
+		\textbf{the voters deserve a further say on any final deal agreed with
 		Brussels}. After all, decisions as big as this need to have the public
 		support, which has to come from a referendum.
 	\end{quote}
@@ -138,7 +160,7 @@ As a guideline, there are some words you can look for which are often used to in
 		\end{center}
 	Words often used to indicate a premise:
 		\begin{center}
-			since, because, given that
+			since, because, as, given that, recalling that, after all
 		\end{center}
 	\end{highlighted}
 
@@ -249,6 +271,19 @@ Our focus is only on \emph{declarative sentences} --- those sentences which can 
 
 You should not confuse the idea of a sentence that can be true or false with the difference between fact and opinion. Often, sentences in logic will express things that would count as facts--- such as `spiders have eight legs' or `Kierkegaard liked almonds.' They can also express things that you might think of as matters of opinion---such as, `Almonds are tasty.' In other words, a sentence is not disqualified from being part of an argument because we don't know if it is true or false, or because its truth or falsity is a matter of opinion. All that matters is whether it is the sort of thing that could be true or false. If it is, it can play the role of premise or conclusion.
 
+When you are reading a text and putting it in our standard form you should make sure that your premises and conclusions are declarative sentences. 
+You should also make them as clear as possible. Each premise and the conclusion should be able to be read and understood independently. Any context from the original paragraph should be copied over to each of the premises and conclusions. 
+For example:
+\begin{quote}
+Donating to charity no strings attached is the most effective way to do so. So if you are going to donate to charity, you should do it this way.
+\end{quote}
+When presenting this we should fill out ``this way'' with the relevant way. So I'd write:
+\begin{earg}
+\prem	Donating to charity no strings attached is the most effective way to do so.
+\conc  If you are going to donate to charity, you should do so no strings attached.
+\end{earg}
+
+
 
 
 
@@ -309,10 +344,18 @@ The problem sheet you need to complete is constructed from these exercises, but 
 There is no substitute for actually working through some problems. This course isn't about memorizing facts but about developing a way of thinking.  
 
 %\bigskip
-So here’s the first exercise.  
+So here’s the first exercise.
 \problempart
-Highlight the phrase which expresses the conclusion of each of these arguments:
 
+\begin{earg}
+\item Are arguments always presented in our standard form?
+\item Do conclusions always come after the premises in arguments in texts?
+\item Might premises and conclusions be clauses within sentences?
+\item Can questions be premises?
+\end{earg}
+  
+\problempart
+Write down the conclusion of each of these arguments:
 \begin{earg}
 	\item It is sunny. So I should take my sunglasses.
 	\item It must have been sunny. I did wear my sunglasses, after all.
@@ -343,17 +386,36 @@ Highlight the phrase which expresses the conclusion of each of these arguments:
 \end{earg}
 
 \problempart
-Now see if you can also identify the premises of the arguments in the previous part. 
-%
-For example:
-\begin{earg}
-	\item 
+Write each of the following arguments in the standard form.
+\begin{enumerate}
+	\item[x.] It might surprise you, but denoting to charity no strings attached is the most effective way to do so. So if you are going to donate to charity, you should do it this way.
+	\item[] Answer:
 	\begin{earg}
-		\prem It is sunny.
-		\conc I should take my sunglasses.
+	\prem	Denoting to charity no strings attached is the most effective way to do so.
+	\conc	If you are going to donate to charity, you should do so no strings attached.
 	\end{earg}
-\end{earg}
-
+	
+	\item It is sunny. So I should take my sunglasses.
+	\myanswer{\\I should take my sunglasses}\newpage
+	\item It must have been sunny. I did wear my sunglasses, after all.\myanswer{\\It was sunny}\newpage
+	\item No one but you has had their hands in the cookie-jar. And the scene of the crime is littered with cookie-crumbs. You're the culprit! \myanswer{\\You're the culprit}\newpage
+	\item Kate didn't write it. If Kate or David wrote it, it will be reliable; and it isn’t.\newpage
+	\item  Since I do not know that I am not under the spell of a malicious demon, I do not know that this table exists. After all, if I know that this table exists, then I know that I am not under the spell of a malicious demon. \newpage
+	\item Miss Scarlett and Professor Plum were in the study at the time of the murder. And Reverend Green had the candlestick in the ballroom, and we know that there is no blood on his hands. Hence Colonel Mustard did it in the kitchen with the lead-piping. Recall, after all, that the gun had not been fired.\myanswer{\\Colonel Mustard did it in the kitchen with the lead-piping}
+%%CCM
+%	\item I'll only bring the book tomorrow if you ring me to remind me or you Billy to ring me and remind me. But you never ring me because you don't have credit on your account. I know that Billy's busy this evening, so unless Billy rings me this afternoon I won't bring the book. \myanswer{\\unless Billy rings me this afternoon I won't bring the book} %%CCM
+%	\item The Indigenous Australians travelled from New Guinea to Australia
+%	by boat. So, they arrived less then 30,000 years
+%	ago because if they arrived by boat, they must have arrived less
+%	than 30,000 years ago.\myanswer{\\they arrived less then 30,000 years
+%		ago}
+%	\item I know that this table exists. Thus, I know that I am not under the spell of a malicious demon.\newpage 	
+%	\item The idea that being vegetarian is better for the environment has, over the last forty years, become a piece of conventional wisdom. But it is simply wrong. 
+%	A paper from Carnegie Mellon University researchers published this week finds that the diets recommended by the Dietary Guidelines for Americans, which include more fruits and vegetables and less meat, exacts a greater environmental toll than the typical American diet. Shifting to the diets recommended by Dietary Guidelines for American  would increase energy use by 38 percent, water use by ten percent and greenhouse gas emissions by six percent, according to the paper. 
+%	\myanswer{\\Vegetarian is not better for the environment.}\newpage
+%\item The Crown has been cancelled early. That's awful! It must have been really expensive to make. \newpage
+%\item The idea of X is unpopular. But it what we should do. 
+\end{enumerate}
 \chapter{The scope of logic}
 \label{s:Valid}
 
@@ -390,14 +452,14 @@ This motivates a definition:
 		A sentence \metaY is a \define{consequence} of sentences $\metaX_1$, \dots, $\metaX_n$ if and only if there is no case where $\metaX_1$, \dots, $\metaX_n$ are all true and \metaY is not true. (We then also say that \metaY \define{follows from} $\metaX_1$, \dots, $\metaX_n$ or that $\metaX_1$, \dots, $\metaX_n$ \define{entail}~\metaY.)
 	}
 
-We said that arguments where the conclusion is a consequence of the premises are called valid, and those where the conclusion isn't a consequence of the premises are invalid.
+We said that arguments where the conclusion is a consequence of the premises are called valid, and those where the conclusion isn't a consequence of the premises are invalid. That is:
 
 	\factoidbox{
-		An argument is \define{valid} if and only if the conclusion is a consequence of the premises. That is, there is no case where all the premises are true but the conclusion not true. 
+		An argument is \define{valid} if and only if there is no case where all the premises are true and the conclusion false. 
 	}
 
 	\factoidbox{
-		An argument is \define{invalid} if and only if it is not valid. That is, there is some case where all the premises are true and the conclusion false.
+		An argument is \define{invalid} if and only if it is not valid. That is, there is some case where all the premises are true and the conclusion is false.
 	}
 
 \newglossaryentry{valid}
@@ -415,7 +477,7 @@ description={A property of arguments that holds when the conclusion is not a con
 \section{Cases and types of validity}
 The ``definitions'' from the previous section are incomplete: it does not tell us what a ``case'' is or what it means to be ``true in a case.''  So far we've only seen an example: a hypothetical scenario involving three people. Of the three people in the scenario---a driver, a maid, and some third person---the driver and maid didn't do it, but the third person did. In this scenario, as described, the driver didn't do it, and so it is a case in which the sentence ``the driver did it'' is not true. The premises of our second argument are true, but the conclusion is not true: the scenario is a counterexample.
 
-Logicians are in the business of making the notion of ``case'' more precise, and investigating which arguments are valid when ``case'' is made precise in one way or another. If we take ``case'' to mean ``hypothetical scenario'' like the counterexample to the second argument, it's clear that the first argument counts as valid. If we imagine a scenario in which either the butler or the gardener did it, and also the butler didn't do it, we are automatically imagining a scenario in which the gardener did it. So any hypothetical scenario in which the premises of our first argument are true automatically makes the conclusion of our first argument true. This makes the first argument valid. 
+One thing that logicians do is to make the notion of ``case'' more precise, and investigate which arguments are valid when ``case'' is made precise in one way or another. If we take ``case'' to mean ``hypothetical scenario'' like the counterexample to the second argument, it's clear that the first argument counts as valid. If we imagine a scenario in which either the butler or the gardener did it, and also the butler didn't do it, we are automatically imagining a scenario in which the gardener did it. So any hypothetical scenario in which the premises of our first argument are true automatically makes the conclusion of our first argument true. This makes the first argument valid. 
 
 Making ``case'' more specific by interpreting it as ``hypothetical scenario'' is an advance. But it is not the end of the story.  The first problem is that we don't know what to count as a hypothetical scenario. Are they limited by the laws of physics? By what is conceivable, in a very general sense?  What answers we give to these questions determine which arguments we count as valid.
 
@@ -736,6 +798,58 @@ London: John Murray)
 
 \practiceproblems
 \problempart
+\begin{enumerate}
+\item What kind of things are valid or invalid?
+\item When is an argument said to be valid?
+\item When is an argument said to be sound?
+\end{enumerate}
+
+\problempart
+Are the following valid? If it is invalid, describe a counterexample. 
+\begin{enumerate}
+\item[x.]
+\begin{earg}
+\prem Every good zoo has a giraffe.
+\prem It is a zoo.
+\conc It has a giraffe.
+\end{earg}
+\item[] Invalid. It is a zoo, but not a good one. (And has a giraffe.)
+\item 
+\begin{earg}
+\prem Everyone in group 1 handed in their homework.
+\prem Jenny is in group 1.
+\conc Jenny handed in her homework.
+\end{earg}
+\item 
+\begin{earg}
+\prem If she won the lottery then she is rich.
+\prem She is rich.
+\conc She won the lottery.
+\end{earg}
+%\item 
+%\begin{earg}
+%\prem The law is unfair.
+%\conc The law must be changed. 
+%\end{earg}
+\item 
+\begin{earg}
+\prem Most people are scared of spiders. 
+\conc Oscar is scared of spiders. 
+\end{earg}
+\item
+\begin{earg}
+\prem She is a donkey.
+\conc She does not talk.
+\end{earg}
+%\item 
+%\begin{earg}
+%\prem That was a terrible crime.
+%\conc He must be punished.
+%\end{earg}
+\end{enumerate}
+
+
+\problempart
 Which of the following arguments are conceptually valid? Which are conceptually invalid?
 
 \begin{earg}
@@ -788,8 +902,8 @@ In each case: if so, give an example; if not, explain why not.
 
 \medskip 
 
-\problempart
-\label{pr.Ampliative}
+%\problempart
+%\label{pr.Ampliative}
 \todo{!!!}
 
 
