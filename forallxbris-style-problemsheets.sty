@@ -84,11 +84,11 @@
 %	\setcounter{countSeq}{0}
 %}
 
-
-\newenvironment{problem}{
-\section{}
-}{
-}
+\newenvironment{problem}{\par\bigskip \noindent\refstepcounter{ProbPart}{\Large Problem \textbf{\arabic{ProbPart}.} \par\smallskip }}{\par }
+%\newenvironment{problem}{
+%\section{Question}
+%}{
+%}
 
 
 
