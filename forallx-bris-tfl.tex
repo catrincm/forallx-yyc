@@ -643,34 +643,123 @@ We symbolized an \emph{exclusive or} using $\eor$, $\eand$, and $\enot$. How cou
 
 
 \chapter{Sentences of TFL}\label{s:TFLSentences}
-The sentence `either apples are red, or berries are blue' is a sentence of English, and the sentence $(A\eor B)$ is a sentence of TFL. Although we can identify sentences of English when we encounter them, we do not have a formal definition of `sentence of English'. But in this chapter, we will offer a complete \emph{definition} of what counts as a sentence of TFL. This is one respect in which a formal language like TFL is more precise than a natural language like English.
+\todo{This went threough a major rewrite. Check it!!!}
 
+We have seen connectives in TFL, but there is another part of the language of TFL: brackets. These provide TFL with its grammar. 
 
-\section{Expressions}
-\nix{The concept of an expression does not actually do any work, since a formula can be defined without reference to it. Yet it is sometimes handy to be able to use the word.}
+Sentences of TFL will be things like:
 
-We have seen that there are three kinds of symbols in TFL:
-\begin{center}
-\begin{tabular}{l l}
-Atomic sentences & $A,B,C,\ldots,W$\\
-with subscripts, as needed & $A_1, B_1,A_2,A_{25},J_{375},\ldots$\\
-\\
-Connectives & $\enot,\eand,\eor,\eif,\eiff$\\
-\\
-Brackets &( , )\\
-\end{tabular}
+$$A\eor (B\eand C)$$ $$\enot (A\eand B)$$
+
+There are two purposes of grammar. 
+
+The first is to avoid nonsense. 
+Just as in English we want to avoid
+\begin{center} 
+The and dog brown or is.
 \end{center}
-We define an \define{expression of TFL} as any string of symbols of TFL. Take any of the symbols of TFL and write them down, in any order, and you have an expression of TFL.
+in TFL we want to avoid 
+$$A\eand\eor B\eif$$
+which would be nonsense. 
 
 
-\section{Sentences}\label{S.sentsTFL}
-Of course, many expressions of TFL will be total gibberish. For example $$\eand)A\neg$$ is an expression of TFL but not a sentence. We want to know when an expression of TFL amounts to a \emph{sentence}. 
+The second purpose is to avoid ambiguity. 
+Just as we wish to avoid
+\begin{center} 
+John's tired and Sue's tall or Rob's short
+\end{center}
+in English, in TFL we wish to avoid ambiguity.
+Brackets are sort of like punctuation in English, they help us know what goes with what. 
+\begin{earg}
+\item[\ex{engamb}] John's tired and Sue's tall or Rob's short
+\end{earg}
+By adding commas this can either be read as:
+\begin{earg}
+\item[\ex{engamb1}] John's tired, and Sue's tall or Rob's short.
+\item[\ex{engamb2}] John's tired and Sue's tall, or Rob's short
+\end{earg}
+In TFL we follow mathematics in using brackets to do this. 
+\begin{earg}
+\item[\ex{engamb}] John's tired and Sue's tall or Rob's short
+\end{earg}
+By adding commas this can either be read as:
+\begin{earg}
+\item[\ex{engamb1}] John's tired, and Sue's tall or Rob's short.
+\item[\ex{engamb2}] John's tired and Sue's tall, or Rob's short
+\end{earg}
+In mathematics,
+\begin{earg}
+\item[\ex{mathamb}] $9 + 3 \times 4$
+\end{earg}
+can either be read as:
+\begin{earg}
+\item[\ex{mathamb1}] $9 + (3 \times 4) \hspace*{5mm}(=48)$
+\item[\ex{mathamb2}] $(9+3) \times 4 \hspace*{5mm}(=21)$
+\end{earg}
+In TFL,
+\begin{earg}
+\item[\ex{mathamb}] $A\eand B\eor C$
+\end{earg}
+can either be read as:
+\begin{earg}
+\item[\ex{mathamb1}] $A\eand (B\eor C)$
+\item[\ex{mathamb2}] $(A\eand B)\eor C$
+\end{earg}
+In fact, we will say that $A\eand B\eor C$ is not a sentence of TFL at all. It is only expressions which have proper grammar which count as sentences. 
+	
+To make this precise, this chapter offers a formal definition of what it is to be a sentence in TFL. 
 
-Obviously, individual atomic sentences like $A$ and $G_{13}$ should count as sentences. We can form further sentences out of these by using the various connectives. Using negation, we can get $\enot A$ and $\enot G_{13}$. Using conjunction, we can get $(A \eand G_{13})$, $(G_{13} \eand A)$, $(A \eand A)$, and $(G_{13} \eand G_{13})$. We could also apply negation repeatedly to get sentences like $\enot \enot A$ or apply negation along with conjunction to get sentences like $\enot(A \eand G_{13})$ and $\enot(G_{13} \eand \enot G_{13})$. The possible combinations are endless, even starting with just these two sentence letters, and there are infinitely many sentence letters. So there is no point in trying to list all the sentences one by one.
+%The sentence `either apples are red, or berries are blue' is a sentence of English, and the sentence $(A\eor B)$ is a sentence of TFL. Although we can identify sentences of English when we encounter them, we do not have a formal definition of `sentence of English'. But in this chapter, we will offer a complete \emph{definition} of what counts as a sentence of TFL. This is one respect in which a formal language like TFL is more precise than a natural language like English.
 
-Instead, we will describe the process by which sentences can be \emph{constructed}. Consider negation: Given any sentence \metaX of TFL, $\enot\metaX$ is a sentence of TFL. 
 
-We can say similar things for each of the other connectives. For instance, if \metaX and \metaY are sentences of TFL, then $(\metaX\eand\metaY)$ is a sentence of TFL. Providing clauses like this for all of the connectives, we arrive at the following formal definition for a \define{sentence of TFL}:
+
+\section{Syntactic rules of TFL}
+We give rules for what counts as a sentence which will together give us a definition.
+
+We start with the rule: 
+\begin{enumerate}
+\item[1.]
+Any uppercase Roman letters $A$--$W$, or with subscripts, e.g., $A_1, B_3, A_{100}, J_{375}$, are sentences of TFL.\\These are called atomic sentences.
+\end{enumerate}
+We only permit use of $A$--$W$ because $X$, $Y$, and $Z$ are reserved for metavariables. 
+
+Our second rule says:
+\begin{enumerate}
+\item[2.]
+If $\metaX$ is a sentence of TFL, then so is $\enot \metaX$.
+\end{enumerate}
+By our first rule, we know that $A$ is a sentence. This second rule allows us to conclude that $\enot A$ is also a sentence. We could then apply it again and conclude that $\enot\enot A$ is also a sentence.
+
+\define{Formation trees} help us keep track of this process. For the case of $\enot\enot A$ this would be:
+\begin{center}
+\begin{forest}
+	[$\mainconnective{\enot}\, \enot A$
+		[$\enot \,\mainconnective{\enot}A$
+			[$A$]
+		]
+	]
+\end{forest}
+\end{center}
+
+Our third rule says:
+\begin{enumerate}
+\item[3.] If \metaX and \metaY are sentences, then so is $(\metaX\eand\metaY)$.
+\end{enumerate}
+By rule 1, $B_1$ and $D$ are both sentences. So this third rule allows us to conclude that $(B_1\eand D)$ is a sentence. We might then apply rule 2 to conclude that $\enot(B_1\eand D)$ is also a sentence. 
+\begin{center}
+\begin{forest}
+	[$\mainconnective{\enot}\,  (B_1 \eand D)$
+		[$(B_1\mainconnective{\eand} D)$
+			[$B_1$]
+			[$D$]
+		]
+	]
+\end{forest}
+\end{center}
+
+We then give similar rules for each of our other connectives: $\eor, \eif$ and $\eiff$.  
+
+We summarise this in a definition:
 	\factoidbox{\label{TFLsentences}
 	\begin{enumerate}
 		\item Every atomic sentence is a sentence.
@@ -688,6 +777,38 @@ name=sentence of TFL,
 description={A string of symbols in TFL that can be built up according to the recursive rules given on p.~\pageref{TFLsentences}}
 }
 
+For example, consider $(A \eand (B \eor C))$ we can check this is a sentence by drawing the following formation tree:
+\label{S:formationtree}
+\begin{center}
+\begin{forest}
+	[$(A\mainconnective{\eand} (B\eor C))$
+		[$A$]
+		[$(B\mainconnective{\eor} C)$
+			[$B$]
+			[$C$]
+		]
+	]
+\end{forest}
+\end{center}
+Each of the steps here tracks one of the rules of what it is to be a sentence. So we can conclude that this is a sentence of TFL. This also helps us see how to read it.
+It has a different formation tree from $((A\eand B)\eor C)$:
+\begin{center}
+\begin{forest}
+	[$((A{\eand} B)\mainconnective{\eor} C))$
+		[$(A\mainconnective{\eand} B)$
+			[$A$]
+			[$B$]
+		]
+		[$C$]
+	]
+\end{forest}
+\end{center}
+$$A\eand B\eor C$$ is not a sentence of TFL. It cannot be broken up into smaller sentences by any of our rules. It needs brackets to be a well-formed sentence.
+$$A\eand B\eor C$$ is not a sentence of TFL. It cannot be broken up into smaller sentences by any of our rules. It needs brackets to be a well-formed sentence.
+The different formations will be important when we describe truth-tables for these sentences. $((A\eand B)\eor C)$ and $((A\eand B)\eor C)$ will differ in when they are true. 
+
+
+
 Definitions like this are called \emph{recursive}. Recursive definitions begin with some specifiable base elements, and then present ways to generate indefinitely many more elements by compounding together previously established ones. To give you a better idea of what a recursive definition is, we can give a recursive definition of the idea of \emph{an ancestor of mine}. We specify a base clause.
 	\begin{ebullet}
 		\item My parents are ancestors of mine.
@@ -699,16 +820,42 @@ and then offer further clauses like:
 	\end{ebullet}
 Using this definition, we can easily check to see whether someone is my ancestor: just check whether she is the parent of the parent of\ldots one of my parents. And the same is true for our recursive definition of sentences of TFL. Just as the recursive definition allows complex sentences to be built up from simpler parts, the definition allows us to decompose sentences into their simpler parts. Once we get down to atomic sentences, then we know we are ok. 
 
-Let's consider some examples.
-
-Suppose we want to know whether or not $\enot \enot \enot D$ is a sentence of TFL. Looking at the second clause of the definition, we know that $\enot \enot \enot D$ is a sentence \emph{if} $\enot \enot D$ is a sentence. So now we need to ask whether or not $\enot \enot D$ is a sentence. Again looking at the second clause of the definition, $\enot \enot D$ is a sentence \emph{if} $\enot D$ is. So, $\enot D$ is a sentence \emph{if} $D$ is a sentence. Now $D$ is an atomic sentence of TFL, so we know that $D$ is a sentence by the first clause of the definition. So for a compound sentence like $\enot \enot \enot D$, we must apply the definition repeatedly. Eventually we arrive at the atomic sentences from which the sentence is built up.
-
-Next, consider the example $\enot (P \eand \enot (\enot Q \eor R))$. Looking at the second clause of the definition, this is a sentence if $(P \eand \enot (\enot Q \eor R))$ is, and this is a sentence if \emph{both} $P$ \emph{and} $\enot (\enot Q \eor R)$ are sentences. The former is an atomic sentence, and the latter is a sentence if $(\enot Q \eor R)$ is a sentence. It is. Looking at the fourth clause of the definition, this is a sentence if both $\enot Q$ and $R$ are sentences, and both are! 
 
 
+One more example: consider $\enot (P \eand \enot (\enot Q \eor R))$ we can check this is a sentence by drawing the following formation tree:
+\label{S:formationtree}
+\begin{center}
+\begin{forest}
+	[$\mainconnective{\enot}\,  (P \eand \enot (\enot Q \eor R))$
+		[$(P \,\mainconnective{\eand}\,  \enot (\enot Q \eor R))$
+			[$P$]
+			[$\mainconnective{\enot}\,   (\enot Q\eor R)$
+				[$\mainconnective{\enot}\,   Q$
+					[$Q$]
+				]
+				[$R$]
+			]
+		]
+	]
+\end{forest}
+\end{center}
+each of the steps here tracks one of the rules of what it is to be a sentence. So we can conclude that this is a sentence of TFL. This also helps us see how to read it.
+The will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence $(A\eand ())$ is true if and only if the sentence $\enot \enot D$ is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in Part~\ref{ch.TruthTables}.
 
-Ultimately, every sentence is constructed nicely out of atomic sentences. When we are dealing with a \emph{sentence} other than an atomic sentence, we can see that there must be some sentential connective that was introduced \emph{last}, when constructing the sentence. We call that connective the \define{main connective} of the sentence.
-\factoidbox{The \define{main connective} of sentence is the last connective that was introduced in the construction of the sentence.} In the case of $((\enot E \eor F) \eif \enot\enot G)$, the main logical operator is $\eif$. Here we can see that the whole sentence can be described in the form $(\metaX\eif\metaY)$ with both $\metaX$ and $\metaY$ being complete sentences. That's enough to see that $\eif$ is the main operator. 
+This displays clearly the recursive structure of the tree. The sentences further up the tree are formed by one of the formation rules from the sentences further down the tree. The main connective of each sentence is in red. 
+
+
+%
+%Let's consider some examples.
+%
+%Suppose we want to know whether or not $\enot \enot \enot D$ is a sentence of TFL. Looking at the second clause of the definition, we know that $\enot \enot \enot D$ is a sentence \emph{if} $\enot \enot D$ is a sentence. So now we need to ask whether or not $\enot \enot D$ is a sentence. Again looking at the second clause of the definition, $\enot \enot D$ is a sentence \emph{if} $\enot D$ is. So, $\enot D$ is a sentence \emph{if} $D$ is a sentence. Now $D$ is an atomic sentence of TFL, so we know that $D$ is a sentence by the first clause of the definition. So for a compound sentence like $\enot \enot \enot D$, we must apply the definition repeatedly. Eventually we arrive at the atomic sentences from which the sentence is built up.
+%
+%Next, consider the example $\enot (P \eand \enot (\enot Q \eor R))$. Looking at the second clause of the definition, this is a sentence if $(P \eand \enot (\enot Q \eor R))$ is, and this is a sentence if \emph{both} $P$ \emph{and} $\enot (\enot Q \eor R)$ are sentences. The former is an atomic sentence, and the latter is a sentence if $(\enot Q \eor R)$ is a sentence. It is. Looking at the fourth clause of the definition, this is a sentence if both $\enot Q$ and $R$ are sentences, and both are! 
+%
+
+
+When drawing these trees we have highlighted a particular connective on each of our nodes. We call that connective the \define{main connective} of the sentence.
+\factoidbox{The \define{main connective} of sentence is the last connective that was introduced in the construction of the sentence.} In the case of $((\enot E \eor F) \eif \enot\enot G)$, the main connective is $\eif$. Here we can see that the whole sentence can be described in the form $(\metaX\eif\metaY)$ with both $\metaX$ and $\metaY$ being complete sentences. That's enough to see that $\eif$ is the main operator. 
  In the case of $\enot\enot\enot D$, the main logical operator is the very first $\enot$ sign. This is because we can see the sentence as having the form $\enot\metaX$ with $\metaX$ being a complete sentence: $\enot\enot D$. In the case of $(P \eand \enot (\enot Q \eor R))$, the main logical operator is $\eand$: it's an $(\metaX\eand\metaY)$ with $\metaX$ as $P$ and $\metaY$ as $\enot (\enot Q \eor R)$. 
 
 \newglossaryentry{main logical operator}
@@ -722,35 +869,11 @@ Ultimately, every sentence is constructed nicely out of atomic sentences. When w
 	name=formation tree,
 	description={A tree showing the structure of a sentence and its subsentences.}
 }
-To keep track of the structure of an expression we can draw it out in a tree, which we will sometimes call a \define{formation tree}. For example for $\enot (P \eand \enot (\enot Q \eor R))$ the tree would be:
-\label{S:formationtree}
-
-\begin{center}
-\begin{forest}
-	[$\textcolor{leadbeater}{\enot}\,  (P \eand \enot (\enot Q \eor R))$
-		[$(P \,\textcolor{leadbeater}{\eand}\,  \enot (\enot Q \eor R))$
-			[$P$]
-			[$\textcolor{leadbeater}{\enot}\,   (\enot Q\eor R)$
-				[$\textcolor{leadbeater}{\enot}\,   Q$
-					[$Q$]
-				]
-				[$R$]
-			]
-		]
-	]
-\end{forest}
-\end{center}
-
-This displays clearly the recursive structure of the tree. The sentences further up the tree are formed by one of the formation rules from the sentences further down the tree. The main connective of each sentence is in red. 
-
-
-
-The recursive structure of sentences in TFL will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence $\enot \enot \enot D$ is true if and only if the sentence $\enot \enot D$ is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in Part~\ref{ch.TruthTables}.
 
 
 
 
-The recursive structure of sentences in TFL also allows us to give a formal definition of the \emph{scope} of a negation (mentioned in \S\ref{s:ConnectiveConjunction}). The scope of a $\enot$ is the subsentence for which $\enot$ is the main logical operator. One can use formation trees to work this out: the subsentence for which  $\enot$ is the main logical operator will be the lowest sentence in which the connective appears. 
+The recursive structure of sentences in TFL also allows us to give a formal definition of the \emph{scope} of an instance of connective. The scope of a connective instance is the subsentence(s) for which it is the main connective. One can use formation trees to work this out. 
 
 Consider a sentence like:
 $$(P \eand (\enot (R \eand B) \eiff Q))$$ 
@@ -759,11 +882,11 @@ This has a formation tree:
 
 \begin{center}
 	\begin{forest}
-[$(P \,\textcolor{leadbeater}{\eand}\,  (\enot (R \eand B) \eiff Q))$
+[$(P \,\mainconnective{\eand}\,  (\enot (R \eand B) \eiff Q))$
 	[$P$]
-	[$(\enot (R \eand B) \,\textcolor{leadbeater}{\eiff}\,  Q))$
-		[$\textcolor{leadbeater}{\enot}\,   (R \eand B)$
-			[$(R\,\textcolor{leadbeater}{\eand}\,   B)$
+	[$(\enot (R \eand B) \,\mainconnective{\eiff}\,  Q))$
+		[$\mainconnective{\enot}\,   (R \eand B)$
+			[$(R\,\mainconnective{\eand}\,   B)$
 				[$R$]
 				[$B$]
 			]
@@ -774,16 +897,16 @@ This has a formation tree:
 \end{forest}
 \end{center}
 
-The scope of $\enot$ is $\enot (R \eand B)$. It is the subsentence in which $\enot$ is the main logical operator. We have worked that out by drawing the formation tree and finding the lowest sentence in which $\enot$ appears. 
+The scope of the $\enot$ is $\enot (R \eand B)$. It is the subsentence in which $\enot$ is the main logical operator. We have worked that out by drawing the formation tree and finding the lowest sentence in which $\enot$ appears. 
 
 
 %which was constructed by conjoining $P$ with $ (\enot (R \eand B) \eiff Q)$. This last sentence was constructed by placing a biconditional between $\enot (R \eand B)$ and $Q$. The former of these sentences---a subsentence of our original sentence---is a sentence for which $\enot$ is the main logical operator. So the scope of the negation is just $\enot(R \eand B)$. 
 More generally:
-	\factoidbox{The \define{scope} of a connective (in a sentence) is the subsentence for which that connective is the main logical operator.}
+	\factoidbox{The \define{scope} of an instance of a connectiveis the subsentence for which it is the main connective.}
 \newglossaryentry{scope}
 {
 name=scope,
-description={The sentences that are joined by a connective. These are the sentences the connective was applied to when the sentence was assembled using a recursive definition.}
+description={The subsentence of which that instance of the connective is the main connective.}
 }
 
 %\section{Formation Trees}
