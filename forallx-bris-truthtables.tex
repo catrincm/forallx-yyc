@@ -779,13 +779,9 @@ description={A property held by sentences if and only if the \gls{complete truth
 Derivatively, sentences are jointly logically inconsistent if there is no valuation that makes them all true. Again, it is easy to test for joint logical consistency using truth tables. 
 
 
+\chapter{Formal validity and English arguments}
 
-\chapter{English and TFL validity}
-We have now seen two notions of validity. Arguments are valid if there are no ``counter-examples'', where a counter example is a situation where the premises are true and the conclusion is false. The difference between English and TFL validity is that TFL cashes the notion of `situation' out in a clear and careful way: a possible situation is given by a \emph{valuation}. The English notion, however relies on ``possibility'', which we didn't \emph{define} and there's no clear way of checking what is possible or not. 
-
-We are often interested in validity in English, but TFL is a tool that we can use to see if an English argument is valid or not. 
-
-\section{Using TFL to investigate validity in English}
+We can use the tool of TFL to investigate whether an argument of English is formally valid. 
 
 Consider an argument like:
 \begin{itemize}
@@ -801,7 +797,35 @@ We are interested in determining if this is valid or not. Here's a general strat
 \item Or, use natural deduction to show that it is valid.
 \end{itemize}
 %\item Use the insight you've now got from TFL to consider the original English argument and if that is valid. 
-\end{enumerate}\end{highlighted}
+\end{enumerate}
+\end{highlighted}
+
+%
+%
+%
+%
+%\chapter{English and TFL validity}
+%We have now seen two notions of validity. Arguments are valid if there are no ``counter-examples'', where a counter example is a situation where the premises are true and the conclusion is false. The difference between English and TFL validity is that TFL cashes the notion of `situation' out in a clear and careful way: a possible situation is given by a \emph{valuation}. The English notion, however relies on ``possibility'', which we didn't \emph{define} and there's no clear way of checking what is possible or not. 
+%
+%We are often interested in validity in English, but TFL is a tool that we can use to see if an English argument is valid or not. 
+%
+%\section{Using TFL to investigate validity in English}
+%
+%Consider an argument like:
+%\begin{itemize}
+%\item[]If Jones signed the contract under duress, then the contract is void. But since it was not signed under duress, the contract is not void.\footnote{
+%This sort of example is discussed in \url{https://lawpublications.barry.edu/cgi/viewcontent.cgi?article=1026&context=barrylrev}.}
+%\end{itemize}
+%
+%We are interested in determining if this is valid or not. Here's a general strategy to help us:
+%\begin{highlighted}\begin{enumerate}
+%\item Find the structure of the argument. \\Identify the premises and conclusion. 
+%\item \label{itm:validity-symbolise}Symbolise the argument in TFL.
+%\item \label{itm:validity-TTs} Check if the TFL argument is valid.\begin{itemize}\item Using truth tables to look for a valuation providing a counter example. If there is no such valuation, then it is valid. 
+%\item Or, use natural deduction to show that it is valid.
+%\end{itemize}
+%%\item Use the insight you've now got from TFL to consider the original English argument and if that is valid. 
+%\end{enumerate}\end{highlighted}
 
 Following this procedure, then, we need to first find the structure of the argument. It has two premises and a conclusion: 
 \begin{earg}
@@ -847,7 +871,8 @@ F&T
 
 This allows us to read of a possibility where the premises are true but the conclusion false:  It might be that the contract is void without having been made under duress. E.g.~mental illness, misrepresentation,\ldots. 
 
-This has then allowed us to see that the original English argument is invalid. In fact, the argument followed an invalid pattern that is commonly found. It is a common fallacy called ``denying the consequent''. We will see some more common fallacies soon, but first let's work through another example where the strategy of moving to TFL will help us check if the original English argument is valid.
+This has then allowed us to see that the original English argument is invalid. In fact, the argument followed an invalid pattern that is commonly found. It is a common fallacy called ``denying the consequent''. 
+%We will see some more common fallacies soon, but first let's work through another example where the strategy of moving to TFL will help us check if the original English argument is valid.
 
 This argument is invalid. So we can accept the premises and still reject the conclusion. If we have a valid argument, then the conclusion can only be rejected if the premises are rejected. In a valid argument our discussion needs to be focused on the premises.
 
@@ -862,8 +887,8 @@ The murder weapon was the dagger or the rope. So Mrs.~Peacock is guilty. After a
 First we find the argument structure:
 \begin{earg}
 \item The murder weapon was the dagger or the rope.
-\item If the murder weapon was the dagger then she is guilty.
-\item If the murder weapon was the rope then she is guilty.
+\item If the murder weapon was the dagger then Mrs.~Peacock  is guilty.
+\item If the murder weapon was the rope then Mrs.~Peacock  is guilty.
 \item [\therefore] Mrs.~Peacock is guilty.
 \end{earg}
 We then symbolise each constituent sentence into TFL:
@@ -889,164 +914,228 @@ F&F&T&F&T&F&F\\
 F&F&F&F&T&T&F
 \end{tabular}
 \end{center}
-And we see that this argument is valid.
+And we see that this argument is valid: there is no valuation (=line) where the premises are all true and the conclusion false.
 
-This allows us to conclude that the original English argument is valid.
-
-
-\section{Fallacies}
+%This allows us to conclude that the original English argument is valid.
 
 
-There are a number of arguments that are commonly used which are fallacies that provide no support for the conclusion. They have a mistaken logical form. Let's see a few arguments: 
+%\section{Fallacies}
+%
+%
+%There are a number of arguments that are commonly used which are fallacies that provide no support for the conclusion. They have a mistaken logical form. Let's see a few arguments: 
+%\begin{highlighted}
+%
+%\begin{tabular}{ll}
+%\textbf{Valid}&\textbf{Invalid. Fallacies}\\[1em]
+%\begin{minipage}{4cm}
+%Modus Ponens:
+%% $\metaX\eif\metaZ,\;\metaX\;\therefore\;\metaZ$
+%\begin{earg}
+%\item[] $\metaX\eif\metaZ$
+%\item[] $\metaX$
+%\item[\therefore]$\metaZ$
+%\end{earg}
+%\end{minipage}&
+%\begin{minipage}{5cm}
+%Affirming the consequent:
+%\begin{earg}
+%\item[] $\metaZ\eif\metaX$
+%\item[] $\metaX$
+%\item[\therefore]$\metaZ$
+%\end{earg}
+%\end{minipage}\\[4em]
+%
+%\begin{minipage}{3cm}
+%Modus Tollens:
+%\begin{earg}
+%\item[] $\metaX\eif\metaZ$
+%\item[] $\enot\metaZ$
+%\item[\therefore]$\enot\metaX$
+%\end{earg}
+%\end{minipage}&
+%\begin{minipage}{5cm}
+%Denying the antecedent:
+%\begin{earg}
+%\item[] $\metaZ\eif\metaX$
+%\item[] $\enot\metaZ$
+%\item[\therefore]$\enot\metaX$
+%\end{earg}
+%\end{minipage}
+%\end{tabular}\end{highlighted}
+%
+%We can check these with truth tables. We have already shown that Denying the Antecedent is invalid, that was our example of duress and the void contract. 
+%
+%Consider Affirming the Consequent:
+%\begin{center}
+%\begin{tabular}{cc|cccc}
+%&&Premise&Premise&Concln\\
+%$\metaX$&\metaZ&$\metaX\eif\metaZ$&\metaZ&\metaX\\\cline{1-5}
+%\Tstrut
+%T&T&T&T&T\\
+%T&F&F&F&T\\
+%F&T&T&T&F& $\leadsto$ This valuation shows invalid.\\
+%F&F&T&F&F
+%\end{tabular}
+%\end{center}
+%An example of an English argument with this structure is:\begin{itemize}
+%\item [] If the contract was signed under duress then it is void. It is void. Therefore it was signed under duress.
+%\end{itemize}Again we have the same sort of scenario showing it is invalid: it might be void because of misrepresentation.
+%
+%
+%Sometimes we see people who are plausibly providing the fallacious argument. We should think of counter examples such as misrepresentation case, and see if they can add further plausible premises that will allow us to rule out such cases or if they can fix up their argument.
+%
+%%We should help them by directing them towards the premise that would actually help them in their argument. 
+%
+%Consider the following argument: \begin{itemize}
+%\item []If each man had a definite set of rules of conduct by which he regulated his
+%life he would be a machine. But there are no such rules, so men
+%cannot be machines.\footnote{Close to an argument discussed in Alan Turing ``Computing Machinery and Intelligence''. Turing points out that the argument is invalid. }
+%\end{itemize}
+%We might symbolise this argument as:
+%\begin{earg}
+%\item $R\eif M$\item $\enot R$\item[\therefore]$\enot M$
+%\end{earg}This is denying the antecedent; and is invalid. 
+%%We walked through an example of denying the antecedent at the beginning of this chapter.
+%The situation showing its invalidity is a case where $M$ is true but $R$ false. This is a situation where men are machines but do not have a definite set of rules of conduct. 
+%
+%
+%
+%Each fallacy has a very closely connected valid argument. From the invalid argument \begin{earg}
+%\item $R\eif M$\item $\enot R$\item[\therefore]$\enot M$
+%\end{earg} we can construct a valid argument by reversing the ``if then''\begin{earg}
+%\item $M\eif R$\item $\enot R$\item[\therefore]$\enot M$
+%\end{earg}
+%
+%
+%The argument would be valid if the first premise ``If each man had a definite set of rules of conduct by which he regulated his life he would be a machine.'' was symbolised not as $R\eif M$, but as $M\eif R$: ``If man is a machine, then he would have a definite set of rules of conduct by which he regulated his life'' (``iff'' would do too: $R\eiff M$). It would then be an instance of Modus Tollens: a valid argument form. So it can be interpreted as a valid argument, but we then should make sure that if we are trying to use this as an argument we have the premise explicitly stated the way that we need it for the argument: $M\eif R$ instead of $R\eif M$; and we can direct our discussion towards the correct premise and think about whether it is true that if man is a machine then man is governed by a definite set of rules of conduct. 
+%
+%
+%
+%  
+%Here we list just a few more fallacies. Though there are many more!
+%\begin{itemize}
+%\item Begging the question.  An argument begs the question when the conclusion is implicit in premises. This is actually a valid argument: draw truth tables for $A\therefore A$ and you see there is no valuation where the premise is true but conclusion false: the premise just \emph{is} the conclusion. But it is a fallacious argument because it gives us no reason to believe the conclusion. Noone will accept the premises unless they already accept the conclusion. \begin{quote}
+%You should believe in God because He loves
+%you. He spoke to me and asked me to talk to
+%you about His love for you. 
+%\end{quote}
+%%[Does induction beg the question?]
+%\item False dilemma (of false dichotomy).  This implicitly assumes that these are the only two options. \begin{quote}
+%we can't
+%stand by and do nothing, therefore we have to
+%carry out my preferred policy
+%\end{quote}We can make this a valid argument by making the implicit premise $A\eor B$ (``my way or no way'') explicit. But this valid argument has a premise that we don't want to accept, so doesn't lead us to accepting the conclusion. 
+%\item Irrelevant conclusion.\begin{quote}The prosecution will show that the defendant in the dock was
+%indeed the murderer. The crime was heinous,
+%committed by a callous killer who is a danger to society, and
+%such a crime cannot be allowed to go unpunished.\end{quote}This is an argument of the form $A\therefore B$. The premise and conclusion are unconnected and the premise provides no support for the conclusion. 
+%%\item Equivocation. 
+%%\item Lots more
+%%%\item ambiguity in the conclusion
+%\end{itemize}
+%A fallacy is an argument that fails to provide a reason to
+%believe the conclusion. Usually because the relationship between premises and
+%conclusion is poor. Sometimes because the premises are not an independent
+%reason to believe the conclusion.
+%
+
+\section{Other kinds of validity}
+
+We have reached an important milestone: a test for the validity of arguments! However, we should not get carried away just yet. It is important to understand the {limits} of our achievement.
+
+This allows us to investigate the formal validity of an argument. More precisely, whether its TFL-form is a valid form.
+
+If the TFL-form of an argument is valid, then the argument is also conceputually valid, nomologically valid, and valid in any other (plausible) sense. We cannot conceive of possibilities that do not follow the laws of logic.
+
 \begin{highlighted}
+If the TFL symbolisation of an argument is valid (in TFL), then the original argument is formally valid, and valid in all the other senses. 
+\end{highlighted}
 
-\begin{tabular}{ll}
-\textbf{Valid}&\textbf{Invalid. Fallacies}\\[1em]
-\begin{minipage}{4cm}
-Modus Ponens:
-% $\metaX\eif\metaZ,\;\metaX\;\therefore\;\metaZ$
+However, some arguments may have their TFL forms being invalid but are nonetheless conceptually valid. For example: 
 \begin{earg}
-\item[] $\metaX\eif\metaZ$
-\item[] $\metaX$
-\item[\therefore]$\metaZ$
+	\prem That is a triangle.
+	\conc That has three sides.
 \end{earg}
-\end{minipage}&
-\begin{minipage}{5cm}
-Affirming the consequent:
+This argument is conceptually valid. But it would be symbolised in TFL simply as:
 \begin{earg}
-\item[] $\metaZ\eif\metaX$
-\item[] $\metaX$
-\item[\therefore]$\metaZ$
-\end{earg}
-\end{minipage}\\[4em]
-
-\begin{minipage}{3cm}
-Modus Tollens:
-\begin{earg}
-\item[] $\metaX\eif\metaZ$
-\item[] $\enot\metaZ$
-\item[\therefore]$\enot\metaX$
-\end{earg}
-\end{minipage}&
-\begin{minipage}{5cm}
-Denying the antecedent:
-\begin{earg}
-\item[] $\metaZ\eif\metaX$
-\item[] $\enot\metaZ$
-\item[\therefore]$\enot\metaX$
-\end{earg}
-\end{minipage}
-\end{tabular}\end{highlighted}
-
-We can check these with truth tables. We have already shown that Denying the Antecedent is invalid, that was our example of duress and the void contract. 
-
-Consider Affirming the Consequent:
+\prem $A$
+\conc $B$
+\end{earg}and looking at the truth tables (which are very easy to do!) we see:
 \begin{center}
-\begin{tabular}{cc|cccc}
-&&Premise&Premise&Concln\\
-$\metaX$&\metaZ&$\metaX\eif\metaZ$&\metaZ&\metaX\\\cline{1-5}
-\Tstrut
-T&T&T&T&T\\
-T&F&F&F&T\\
-F&T&T&T&F& $\leadsto$ This valuation shows invalid.\\
-F&F&T&F&F
+\begin{tabular}{cc|cc}
+&&Premise&Concln\\
+$A$&$B$&$A$&$B$\\\hline
+T&T&T&T\\
+T&F&T&F\\
+F&T&F&T\\
+F&F&F&F
 \end{tabular}
 \end{center}
-An example of an English argument with this structure is:\begin{itemize}
-\item [] If the contract was signed under duress then it is void. It is void. Therefore it was signed under duress.
-\end{itemize}Again we have the same sort of scenario showing it is invalid: it might be void because of misrepresentation.
+The valuation in line 2 gives us a counterexample: it makes the premise, $A$, true, and the conclusion, $B$, false. 
+This valuation, however, violates the conceptual connections between words in English. Triangles simply have to have three sides. The ``case'' being described by this valuation makes it true that it is a triangle but false that it has three sides. That is not a conceptual possibility.
+The argument is conceptually valid, but its TFL symbolisation is invalid. 
 
+If the TFL symbolisation is valid, the argument must be conceptually valid too. But some conceptually valid arguments have invalid TFL symbolisations. 
 
-Sometimes we see people who are plausibly providing the fallacious argument. We should think of counter examples such as misrepresentation case, and see if they can add further plausible premises that will allow us to rule out such cases or if they can fix up their argument.
-
-%We should help them by directing them towards the premise that would actually help them in their argument. 
-
-Consider the following argument: \begin{itemize}
-\item []If each man had a definite set of rules of conduct by which he regulated his
-life he would be a machine. But there are no such rules, so men
-cannot be machines.\footnote{Close to an argument discussed in Alan Turing ``Computing Machinery and Intelligence''. Turing points out that the argument is invalid. }
-\end{itemize}
-We might symbolise this argument as:
+However, it gives us a good tool. It can tell us where to look to think about our conceptual counterexample. For example in our argument:
 \begin{earg}
-\item $R\eif M$\item $\enot R$\item[\therefore]$\enot M$
-\end{earg}This is denying the antecedent; and is invalid. 
-%We walked through an example of denying the antecedent at the beginning of this chapter.
-The situation showing its invalidity is a case where $M$ is true but $R$ false. This is a situation where men are machines but do not have a definite set of rules of conduct. 
-
-
-
-Each fallacy has a very closely connected valid argument. From the invalid argument \begin{earg}
-\item $R\eif M$\item $\enot R$\item[\therefore]$\enot M$
-\end{earg} we can construct a valid argument by reversing the ``if then''\begin{earg}
-\item $M\eif R$\item $\enot R$\item[\therefore]$\enot M$
+\item If Jones signed the contract under duress, then the
+contract is void. 
+\item Jones did not sign the contract under duress.
+\item[\therefore] The contract is not void.
 \end{earg}
+We said its TFL symbolisation was invalid. This was given by the valuation 
+\begin{tabular}{cc}
+$D$&$V$\\\hline
+F&T
+\end{tabular} To see if the argument is \emph{conceptually} valid, one should then investigate whether the valuations providing counterexamples to the formal validity are conceivable possibilities. Is it conceptually possible that the contract is void but not signed under duress? Or perhaps in this case one is interested in something like legal validity; so we have to investigate whether the possibility of it being void but not signed under duress is compatible with the legal laws. 
+
+There is one loose end to tie up. In fact, TFL is in't all there is to formal validity. 
+If the TFL symbolisation of an argument is valid, then the original argument is formally valid. But consider the following argument:
+Consider 
+\begin{earg}
+\prem Socrates is a man.
+\prem All men are mortal.
+\conc Socrates is mortal. 
+\end{earg}
+When we symbolise this in TFL, each of the sentences is simply an atomic sentence, so we get:
+\begin{center}
+$A$, $B$\; \therefore \; $C$
+\end{center}
+which is invalid. 
+The problem isn't the symbolisation we gave. It is the best we could do \emph{in TFL}. The problem is that TFL is limited in the ``form'' it can see. We will improve on this when we move to First Order Logic in \S\ref{s:FOLBuildingBlocks}.
+This argument is formally valid in virtue of its FOL form rather than TFL form. 
 
 
-The argument would be valid if the first premise ``If each man had a definite set of rules of conduct by which he regulated his life he would be a machine.'' was symbolised not as $R\eif M$, but as $M\eif R$: ``If man is a machine, then he would have a definite set of rules of conduct by which he regulated his life'' (``iff'' would do too: $R\eiff M$). It would then be an instance of Modus Tollens: a valid argument form. So it can be interpreted as a valid argument, but we then should make sure that if we are trying to use this as an argument we have the premise explicitly stated the way that we need it for the argument: $M\eif R$ instead of $R\eif M$; and we can direct our discussion towards the correct premise and think about whether it is true that if man is a machine then man is governed by a definite set of rules of conduct. 
-
-
-
-  
-Here we list just a few more fallacies. Though there are many more!
-\begin{itemize}
-\item Begging the question.  An argument begs the question when the conclusion is implicit in premises. This is actually a valid argument: draw truth tables for $A\therefore A$ and you see there is no valuation where the premise is true but conclusion false: the premise just \emph{is} the conclusion. But it is a fallacious argument because it gives us no reason to believe the conclusion. Noone will accept the premises unless they already accept the conclusion. \begin{quote}
-You should believe in God because He loves
-you. He spoke to me and asked me to talk to
-you about His love for you. 
-\end{quote}
-%[Does induction beg the question?]
-\item False dilemma (of false dichotomy).  This implicitly assumes that these are the only two options. \begin{quote}
-we can't
-stand by and do nothing, therefore we have to
-carry out my preferred policy
-\end{quote}We can make this a valid argument by making the implicit premise $A\eor B$ (``my way or no way'') explicit. But this valid argument has a premise that we don't want to accept, so doesn't lead us to accepting the conclusion. 
-\item Irrelevant conclusion.\begin{quote}The prosecution will show that the defendant in the dock was
-indeed the murderer. The crime was heinous,
-committed by a callous killer who is a danger to society, and
-such a crime cannot be allowed to go unpunished.\end{quote}This is an argument of the form $A\therefore B$. The premise and conclusion are unconnected and the premise provides no support for the conclusion. 
-%\item Equivocation. 
-%\item Lots more
-%%\item ambiguity in the conclusion
-\end{itemize}
-A fallacy is an argument that fails to provide a reason to
-believe the conclusion. Usually because the relationship between premises and
-conclusion is poor. Sometimes because the premises are not an independent
-reason to believe the conclusion.
-
-
-\section{The limits of these tests}\label{s:ParadoxesOfMaterialConditional}
-We have reached an important milestone: a test for the validity of arguments! However, we should not get carried away just yet. It is important to understand the \emph{limits} of our achievement. We will illustrate these limits with three examples.
-
-First, consider the argument: 
-	\begin{earg}
-		\item Daisy has four legs. So Daisy has more than two legs.
-	\end{earg}
-To symbolize this argument in TFL, we would have to use two different atomic sentences -- perhaps `$F$'  and `$T$' -- for the premise and the conclusion respectively. Now, it is obvious that `$F$' does not entail `$T$'. The English argument surely seems valid, though!
-
-Second, consider the sentence:
-	\begin{earg}
-\setcounter{eargnum}{1}
-		\item\label{n:JanBald} Jan is neither bald nor not-bald.
-	\end{earg}
-To symbolize this sentence in TFL, we would offer something like `$\enot J \eand \enot \enot J$'. This a contradiction (check this with a truth-table), but sentence \ref{n:JanBald} does not itself seem like a contradiction; for we might have happily go on to add `Jan is on the borderline of baldness'!
-
-Third, consider the following sentence:
-	\begin{earg}
-\setcounter{eargnum}{2}	
-		\item\label{n:GodParadox}	It's not the case that, if God exists, She answers malevolent prayers.
-%	Aaliyah wants to kill Zebedee. She knows that, if she puts chemical A into Zebedee's water bottle, Zebedee will drink the contaminated water and die. Equally, Bathsehba wants to kill Zebedee. She knows that, if she puts chemical B into Zebedee's water bottle, then Zebedee will drink the contaminated water and die. But chemicals A and B neutralize each other; so that if both are added to the water bottle, then Zebedee will not die.
-	\end{earg}
-        Symbolizing this in TFL, we would offer something like `$\enot (G \eif M)$'. Now, `$\enot (G \eif M)$' entails `$G$' (again, check this with a truth table). So if we symbolize sentence \ref{n:GodParadox} in TFL, it seems to entail that God exists. But that's strange: surely even an atheist can accept sentence \ref{n:GodParadox}, without contradicting herself!
-
-        One lesson of this is that the symbolization of \ref{n:GodParadox} as `$\enot(G \eif M)$' shows that \ref{n:GodParadox} does not express what we intend. Perhaps we should rephrase it as
-        	\begin{earg}
-                  \setcounter{eargnum}{2}	
-                \item\label{n:GodParadox2} If God exists, She does not answer malevolent prayers.
-  \end{earg}
-and symbolize \ref{n:GodParadox2} as `$G \eif \enot M$'.  Now, if atheists are right, and there is no God, then `$G$' is false and so `$G \eif \enot M$' is true, and the puzzle disappears. However, if `$G$' is false, `$G \eif M$', i.e.\ `If God exists, She answers malevolent prayers', is \emph{also} true!
-                
-In different ways, these four examples highlight some of the limits of working with a language (like TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of the material conditional}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using TFL, before we can adequately discuss its limits, and consider alternatives. 
-
+\todo{note I deleted the section on paradoxes of material implication and double negation}
+%
+%\section{The limits of these tests}\label{s:ParadoxesOfMaterialConditional}
+%We have reached an important milestone: a test for the validity of arguments! However, we should not get carried away just yet. It is important to understand the \emph{limits} of our achievement. We will illustrate these limits with three examples.
+%
+%Consider the sentence:
+%	\begin{earg}
+%\setcounter{eargnum}{1}
+%		\item\label{n:JanBald} Jan is neither bald nor not-bald.
+%	\end{earg}
+%To symbolize this sentence in TFL, we would offer something like `$\enot J \eand \enot \enot J$'. This a contradiction (check this with a truth-table), but sentence \ref{n:JanBald} does not itself seem like a contradiction; for we might have happily go on to add `Jan is on the borderline of baldness'!
+%
+%Third, consider the following sentence:
+%	\begin{earg}
+%\setcounter{eargnum}{2}	
+%		\item\label{n:GodParadox}	It's not the case that, if God exists, She answers malevolent prayers.
+%%	Aaliyah wants to kill Zebedee. She knows that, if she puts chemical A into Zebedee's water bottle, Zebedee will drink the contaminated water and die. Equally, Bathsehba wants to kill Zebedee. She knows that, if she puts chemical B into Zebedee's water bottle, then Zebedee will drink the contaminated water and die. But chemicals A and B neutralize each other; so that if both are added to the water bottle, then Zebedee will not die.
+%	\end{earg}
+%        Symbolizing this in TFL, we would offer something like `$\enot (G \eif M)$'. Now, `$\enot (G \eif M)$' entails `$G$' (again, check this with a truth table). So if we symbolize sentence \ref{n:GodParadox} in TFL, it seems to entail that God exists. But that's strange: surely even an atheist can accept sentence \ref{n:GodParadox}, without contradicting herself!
+%
+%        One lesson of this is that the symbolization of \ref{n:GodParadox} as `$\enot(G \eif M)$' shows that \ref{n:GodParadox} does not express what we intend. Perhaps we should rephrase it as
+%        	\begin{earg}
+%                  \setcounter{eargnum}{2}	
+%                \item\label{n:GodParadox2} If God exists, She does not answer malevolent prayers.
+%  \end{earg}
+%and symbolize \ref{n:GodParadox2} as `$G \eif \enot M$'.  Now, if atheists are right, and there is no God, then `$G$' is false and so `$G \eif \enot M$' is true, and the puzzle disappears. However, if `$G$' is false, `$G \eif M$', i.e.\ `If God exists, She answers malevolent prayers', is \emph{also} true!
+%                
+%In different ways, these four examples highlight some of the limits of working with a language (like TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of the material conditional}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using TFL, before we can adequately discuss its limits, and consider alternatives. 
+%
 
 
 
