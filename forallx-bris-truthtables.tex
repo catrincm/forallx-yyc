@@ -52,7 +52,9 @@ F & F & F
 \end{center}
 Like conjunction, disjunction is symmetrical. 
 
-\paragraph{Conditional.} We're just going to come clean and admit it: Conditionals are a right old mess in TFL. Exactly how much of a mess they are is \emph{philosophically} contentious. We'll discuss a few of the subtleties  in \S\S\ref{s:IndicativeSubjunctive} and \ref{s:ParadoxesOfMaterialConditional}. For now, we are going to stipulate the following: $\metaX\eif\metaY$ is false if and only if \metaX is true and \metaY is false. We can summarize this with a characteristic truth table for the conditional.
+\paragraph{Conditional.} We're just going to come clean and admit it: Conditionals are a right old mess in TFL. Exactly how much of a mess they are is \emph{philosophically} contentious. We'll discuss a few of the subtleties  in \S\ref{s:IndicativeSubjunctive}.
+% and \ref{s:ParadoxesOfMaterialConditional}. 
+ For now, we are going to stipulate the following: $\metaX\eif\metaY$ is false if and only if \metaX is true and \metaY is false. We can summarize this with a characteristic truth table for the conditional.
 \begin{center}
 \begin{tabular}{c c|c}
 \metaX & \metaY & $\metaX\eif\metaY$\\
@@ -1077,18 +1079,27 @@ The argument is conceptually valid, but its TFL symbolisation is invalid.
 
 If the TFL symbolisation is valid, the argument must be conceptually valid too. But some conceptually valid arguments have invalid TFL symbolisations. 
 
-However, it gives us a good tool. It can tell us where to look to think about our conceptual counterexample. For example in our argument:
+Consider: 
+%
+%However, it gives us a good tool. It can tell us where to look to think about our conceptual counterexample. For example in our argument:
 \begin{earg}
 \item If Jones signed the contract under duress, then the
 contract is void. 
 \item Jones did not sign the contract under duress.
 \item[\therefore] The contract is not void.
-\end{earg}
-We said its TFL symbolisation was invalid. This was given by the valuation 
+\end{earg}which we symbolised in TFL as:
+\begin{center}
+$D\eif V$,\; $\enot D$\;\therefore\;$\enot V$
+\end{center}
+which is invalid. The valuation providing the counterexample is:
 \begin{tabular}{cc}
 $D$&$V$\\\hline
 F&T
-\end{tabular} To see if the argument is \emph{conceptually} valid, one should then investigate whether the valuations providing counterexamples to the formal validity are conceivable possibilities. Is it conceptually possible that the contract is void but not signed under duress? Or perhaps in this case one is interested in something like legal validity; so we have to investigate whether the possibility of it being void but not signed under duress is compatible with the legal laws. 
+\end{tabular} To see if the argument is \emph{conceptually} valid, one should then investigate whether the valuations providing counterexamples to the formal validity are conceivable possibilities. Here, we're probably interested in something like legal validity, which governs conditions under which a contract is void. We now know we should investigate whether the possibility of it being void but not signed under duress is compatible with the legal laws. 
+This will depend on what the legal laws are. 
+Actually, a contract can be void without being signed under duress, for example due to misrepresentation or mental incapacity. 
+But were the laws different, and the only way to be void was to be signed under duress, then the argument would have been legally valid despite being formally invalid. 
+
 
 There is one loose end to tie up. In fact, TFL is in't all there is to formal validity. 
 If the TFL symbolisation of an argument is valid, then the original argument is formally valid. But consider the following argument:
