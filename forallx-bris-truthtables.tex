@@ -6,84 +6,268 @@
 \chapter{Characteristic truth tables}
 \label{s:CharacteristicTruthTables}
 
-Any non-atomic sentence of TFL is composed of atomic sentences with sentential connectives. The truth value of the compound sentence depends only on the truth value of the atomic sentences that comprise it. In order to know the truth value of `$(D \eand E)$', for instance, you only need to know the truth value of `$D$' and the truth value of `$E$'. 
+We now move to looking at when sentences of TFL are true or false. We will give precise rules for determining this. The important feature of truth functional logic is that the truth value of a complex sentence, such as $A\eor(B\eand C)$ is determined just by the truths of is component parts, that is $A$, $B$ and $C$. If we're told whether $A$, $B$ and $C$ are true or false, then we will be able to say whether $A\eor(B\eand C)$ is true or false. 
 
-We introduced five connectives in chapter \ref{s:TFLConnectives}, so we simply need to explain how they map between truth values. For convenience, we will abbreviate `True' with `T' and `False' with `F'. (But just to be clear, the two truth values are True and False; the truth values are not \emph{letters}!)
+To be able to do this, we need to describe how the truth values are to be combined. We work through each of our connectives describing the rules governing it. 
 
-\newglossaryentry{truth value}
-                 {
-                   name = truth value,
-                   description = {One of the two logical values sentences can have: True and False}
-                   }
 
-\paragraph{Negation.} For any sentence \metaX: If \metaX is true, then \enot\metaX is false. If \enot\metaX is true, then \metaX is false. We can summarize this in the \emph{characteristic truth table} for negation:
-\begin{center}
-\begin{tabular}{c|c}
-\metaX & \enot\metaX\\
-\hline
+                                     
+
+\subsection{Negation} 
+
+We want to know whether a sentence of the form $\enot \metaX$ is true. This depends on whether $\metaX$ is true or not.
+
+Consider:
+\begin{earg}
+\item[\ex{neg-f}] Bristol is not in France.
+\item[\ex{neg-f}] Bristol is not in England.
+\end{earg}
+`Bristol is in France' is false, so `Bristol is not in France' is true. 
+`Bristol is in England' is true, so `Bristol is not in England' is false.
+
+The rule governing $\enot$ is:
+\begin{itemize}
+\item If $\metaX$ is true, then $\enot \metaX$ is false. 
+\item If $\metaX$ is false, then $\enot \metaX$ is true.
+\end{itemize}
+We record this in shorthand:
+\begin{highlighted}
+\begin{center}$\enot$ :
+\begin{tabular}{c@{ $\leadsto$ }c}
 T & F\\
 F & T 
 \end{tabular}
 \end{center}
+\end{highlighted}
+%
+%in an easy to read form: 
+%a \define{characteristic truth table}: 
+%\newglossaryentry{characteristic truth table}
+%                 {
+%                   name = characteristic truth table,
+%                   description = {A table describing the truth-rules for a connective}
+%                   }
+%\begin{center}
+%\begin{tabular}{c|c}
+%If \metaX is:& then \enot\metaX is:\\\hline
+%T & F\\
+%F & T 
+%\end{tabular}
+%\end{center}
+We have abbreviated `True' with `T' and `False' with `F'. (But just to be clear, the two truth values are True and False; the truth values are not \emph{letters}!)
 
-\paragraph{Conjunction.} For any sentences \metaX and \metaY, $\metaX\eand\metaY$ is true if and only if both \metaX and \metaY are true. We can summarize this in the {characteristic truth table} for conjunction:
-\begin{center}
-\begin{tabular}{c c |c}
-\metaX & \metaY & $\metaX\eand\metaY$\\
-\hline
+
+
+\subsection{Conjunction}
+Recall that $\metaX\eand\metaY$ was used to symbolise `$\metaX$ and $\metaY$'. 
+
+
+Consider:
+\begin{earg}
+\item[\ex{conj}] She can speak German and French.
+\end{earg}
+If she can speak German and she can speak French, then this is true, but otherwise it is false. 
+
+More generally, the rule governing $\eand$ is:
+\begin{itemize}
+\item If $\metaX$ and $\metaY$ are both true, then $\metaX\eand\metaY$ is true. 
+\item Otherwise, $\metaX\eand \metaY$ is false.
+\end{itemize}
+Which we summarise 
+\begin{highlighted}
+\begin{center}$\eand$ :
+\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
 T & T & T\\
 T & F & F\\
 F & T & F\\
 F & F & F
 \end{tabular}
 \end{center}
+\end{highlighted}
+%in the characteristic truth table:
+%\begin{center}
+%\begin{tabular}{c c |c}
+%\metaX & \metaY & $\metaX\eand\metaY$\\
+%\hline
+%T & T & T\\
+%T & F & F\\
+%F & T & F\\
+%F & F & F
+%\end{tabular}
+%\end{center}
 Note that conjunction is \emph{symmetrical}. The truth value for $\metaX \eand \metaY$ is always the same as the truth value for $\metaY \eand \metaX$.  
 
-\paragraph{Disjunction.} Recall that `$\eor$' always represents inclusive or. So, for any sentences \metaX and \metaY, $\metaX\eor \metaY$ is true if and only if \metaX is true or \metaY is true. We can summarize this in the {characteristic truth table} for disjunction:
-\begin{center}
-\begin{tabular}{c c|c}
-\metaX & \metaY & $\metaX\eor\metaY$ \\
-\hline
+\subsection{Disjunction}
+Disjunction is a bit more subtle. 
+Consider:
+\begin{earg}
+\item[\ex{conj}] She can speak German or French.
+\end{earg}
+If she cannot speak either German or French, then this is false. If she can speak German but not French, then it is true, and if she can speak French but not German it is also true. 
+We have the general rules:
+\begin{itemize}
+\item If $\metaX$ and $\metaY$ are both false, then $\metaX\eor\metaY$ is false. 
+\item  If $\metaX$ is true and $\metaY$ are false, then $\metaX\eor\metaY$ is true. 
+\item  If $\metaX$ is false and $\metaY$ are true, then $\metaX\eor\metaY$ is true. 
+\end{itemize}
+
+But what if she can speak both? Is it true or false? 
+We have already pointed out that in English there are two kinds of disjunctions: an \emph{inclusive} and an \emph{exclusive} one. 
+
+For the inclusive or, we might whisper a ``or both'' after it; whereas for the exclusive or, we'd want to whisper a ``but not both'':
+\begin{earg}
+\item [\ex{inclor}] She speaks German or
+French (or both). 
+\item [\ex{exclor}] She speaks German or
+French (but not both). 
+\end{earg}
+
+In logic there can be no ambiguity. We choose that $\eor$ stands for the \emph{inclusive or}. 
+That is, we give the final rule:
+\begin{itemize}
+\item If $\metaX$ and $\metaY$ are both true, then $\metaX\eor\metaY$ is true. 
+\end{itemize}
+
+So, when doing symbolisations, one should only symbolise a sentence as $\metaX\eor \metaY$ if it is to be read as the \emph{inclusive or}. To symbolise the exclusive or, you need to use the more complex sentence: $(\metaX\eor\metaY)\eand \enot(\metaX\eand\metaY)$, which essentially makes explicit the whispered ``but not both''. Sometimes the English is ambiguous, in which case one should point that out when symbolising and give the two alternative symbolisations. 
+
+Consider:
+\begin{earg}
+\item[\ex{exclor}]She either ate pizza or pasta.
+\end{earg}
+Maybe this is an exclusive or, though an alternative treatment is to take this to be an inclusive or, but note that there's a implicit, or missing, premise: that she didn't eat both. 
+
+To summarise the rules for $\eor$:
+%\begin{center}
+%\begin{tabular}{c c |c}
+%\metaX & \metaY & $\metaX\eor\metaY$\\
+%\hline
+%T & T & T\\
+%T & F & T\\
+%F & T & T\\
+%F & F & F
+%\end{tabular}
+%\end{center}
+\begin{highlighted}
+\begin{center}$\eor$ :
+\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
 T & T & T\\
 T & F & T\\
 F & T & T\\
 F & F & F
 \end{tabular}
 \end{center}
+\end{highlighted}
 Like conjunction, disjunction is symmetrical. 
 
-\paragraph{Conditional.} We're just going to come clean and admit it: Conditionals are a right old mess in TFL. Exactly how much of a mess they are is \emph{philosophically} contentious. We'll discuss a few of the subtleties  in \S\ref{s:IndicativeSubjunctive}.
-% and \ref{s:ParadoxesOfMaterialConditional}. 
- For now, we are going to stipulate the following: $\metaX\eif\metaY$ is false if and only if \metaX is true and \metaY is false. We can summarize this with a characteristic truth table for the conditional.
-\begin{center}
-\begin{tabular}{c c|c}
-\metaX & \metaY & $\metaX\eif\metaY$\\
-\hline
+
+\subsection{Conditional}\label{s:IndicativeSubjunctive}
+Suppose you are a bartender considering the conditional
+\begin{earg}
+\item[\ex{bartender}] If she is drinking a beer, then she is over eighteen. 
+\end{earg}
+The bartender finds out that this beer drinker is sixteen, and can then conclude that sentence \ref{bartender} is false. This will give us the rule:
+\begin{itemize}
+\item If $\metaX$ is true and $\metaY$ is false, then $\metaX\eif \metaY$ is false.
+\end{itemize}
+If he instead finds out that she's nineteen, then there is no conflict with the conditional, and we will say \ref{bartender} is true. This is the rule:
+\begin{itemize}
+\item If $\metaX$ is true and $\metaY$ is true, then $\metaX\eif \metaY$ is true.
+\end{itemize}
+Someone who is drinking coke doesn't need to have their age checked. Whether they're sixteen or nineteen, sentence \ref{bartender} will be true. 
+\begin{itemize}
+\item If $\metaX$ is false and $\metaY$ true, then $\metaX\eif \metaY$ is true.
+\item If $\metaX$ is false and $\metaY$ false, then $\metaX\eif \metaY$ is true.
+\end{itemize}
+
+
+%We get the characteristic truth table: 
+%\begin{center}
+%\begin{tabular}{c c|c}
+%\metaX & \metaY & $\metaX\eif\metaY$\\
+%\hline
+%T & T & T\\
+%T & F & F\\
+%F & T & T\\
+%F & F & T
+%\end{tabular}
+%\end{center}
+We summarise these rules:
+\begin{highlighted}
+\begin{center}$\eif$ :
+\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
 T & T & T\\
 T & F & F\\
 F & T & T\\
 F & F & T
 \end{tabular}
 \end{center}
-The conditional is \emph{asymmetrical}. You cannot swap the antecedent and consequent without changing the meaning of the sentence, because $\metaX\eif\metaY$ has a very different truth table from $\metaY\eif\metaX$.
-
-\paragraph{Biconditional.} Since a biconditional is to be the same as the conjunction of a conditional running in each direction, we will want the truth table for the biconditional to be:
+\end{highlighted}
+In this case, it's very important to remember which way around it goes. The TF-line is different to the FT-line. 
+Let's make it more explicit:
 \begin{center}
-\begin{tabular}{c c|c}
-\metaX & \metaY & $\metaX\eiff\metaY$\\
-\hline
+\begin{tabular}{ccc}
+If \metaX is:&and \metaY is:& then $\metaX\eif\metaY$ is:\\
+T & T & T\\
+T & F & F\\
+F & T & T\\
+F & F & T
+\end{tabular}
+\end{center}
+This is why the terms `antecedent' and `consequent' are so useful.  \begin{highlighted}
+In $\metaX\eif\metaY$, \metaX is called the \define{antecedent}, and \metaY the \define{consequent}.
+\end{highlighted}
+We can redescribe this rule:
+If the antecedent is true and the consequent false, then the conditional sentence is false, otherwise it is true. 
+\newglossaryentry{antecedent}
+{
+name=antecedent,
+description={The sentence on the left side of a \gls{conditional}}
+}
+
+
+\newglossaryentry{consequent}
+{
+name=consequent,
+description={The sentence on the right side of a \gls{conditional}}
+}
+
+\section{Biconditional}
+Consider
+\begin{earg}
+\item[\ex{bicond}] Sue is coming to the party if and only if Maya is coming. 
+\end{earg}
+If Sue and Maya are both coming, then this is true. If they're both not coming, then it is also true. If only one of them is coming, then it is false. 
+
+
+%\begin{center}
+%\begin{tabular}{c c|c}
+%\metaX & \metaY & $\metaX\eiff\metaY$\\
+%\hline
+%T & T & T\\
+%T & F & F\\
+%F & T & F\\
+%F & F & T
+%\end{tabular}
+%%\end{center}
+\begin{highlighted}
+\begin{center}$\eiff$ :
+\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
 T & T & T\\
 T & F & F\\
 F & T & F\\
 F & F & T
 \end{tabular}
 \end{center}
-Unsurprisingly, the biconditional is symmetrical. 
+
+\end{highlighted}
+
+You can see a summary of these rules for ease of reference in the `Quick Reference Appendix' \S\ref{app.CharacteristicTTs}
 
 \chapter{Truth-functional connectives}
 \label{s:TruthFunctionality}
+In this chapter, we reflect on truth-functional logic and the connectives we've used. 
+\section{Non truth-functional connectives}
 
-\section{The idea of truth-functionality}
 Let's introduce an important idea. 
 	\factoidbox{
 		A connective is \define{truth-functional} iff the truth value of a sentence with that connective as its main operator is uniquely determined by the truth value(s) of the constituent sentence(s).
@@ -93,10 +277,20 @@ Let's introduce an important idea.
 name=truth-functional connective,
 description={an operator that builds larger sentences out of smaller ones and fixes the \gls{truth value} of the resulting sentence based only on the truth value of the component sentences}
 }
-        
-Every connective in TFL is truth-functional. The truth value of a negation is uniquely determined by the truth value of the unnegated sentence. The truth value of a conjunction is uniquely determined by the truth value of both conjuncts. The truth value of a disjunction is uniquely determined by the truth value of both disjuncts, and so on. To determine the truth value of some TFL sentence, we only need to know the truth value of its components. 
+      
+Every connective in TFL is truth-functional. 
+The truth value of a negation is uniquely determined by the truth value of the unnegated sentence. The truth value of a conjunction is uniquely determined by the truth value of both conjuncts. The truth value of a disjunction is uniquely determined by the truth value of both disjuncts, and so on. To determine the truth value of some TFL sentence, we only need to know the truth value of its components. 
 
 This is what gives TFL its name: it is \emph{truth-functional logic}.
+
+The truth value of a non-atomic sentence of TFL, such as $A\eand B$ depends on the truth values of $A$ and $B$. But once the truth values of $A$, $B$ and $C$ are provided, the truth value of $A\eand B$ is fixed. Indeed, this is the characteristic feature of \emph{truth functional logic}.
+
+For each connective we need to describe how the truth value of a sentence with that as its main connective depends on the consistent parts. 
+\newglossaryentry{truth value}
+                 {
+                   name = truth value,
+                   description = {One of the two logical values sentences can have: True and False}
+                   }
 
 In plenty of languages there are connectives that are not truth-functional. In English, for example, we can form a new sentence from any simpler sentence by prefixing it with `It is necessarily the case that\ldots'. The truth value of this new sentence is not fixed solely by the truth value of the original sentence. For consider two true sentences:
 	\begin{earg}
@@ -133,43 +327,62 @@ Other textbooks will understand this as a stipulation that the TFL sentence `$L$
 
 
 \section{Indicative versus subjunctive conditionals}\label{s:IndicativeSubjunctive}
-We want to bring home the point that TFL can \emph{only} deal with truth functions by considering the case of the conditional. When we introduced the characteristic truth table for the material conditional in \S\ref{s:CharacteristicTruthTables}, we did not say anything to justify it. Let's now offer a justification, which follows Dorothy Edgington.\footnote{Dorothy Edgington, `Conditionals', 2006, in the \emph{Stanford Encyclopedia of Philosophy} (\url{http://plato.stanford.edu/entries/conditionals/}).} 
+We want to bring home the point that TFL can \emph{only} deal with truth functions by considering the case of the conditional. 
+We gave the characteristic truth table for the conditional in \S\ref{s:CharacteristicTruthTables}. 
 
-Suppose that Lara has drawn some shapes on a piece of paper, and coloured some of them in. We have not seen them, but nevertheless claim:
-	\begin{quote}
-		If any shape is grey, then that shape is also circular.
-	\end{quote}
-As it happens, Lara has drawn the following:
-\begin{center}
-\begin{tikzpicture}
-	\node[circle, grey_shape] (cat1) {A};
-	\node[right=10pt of cat1, diamond, phantom_shape] (cat2)  { } ;
-	\node[right=10pt of cat2, circle, white_shape] (cat3)  {C} ;
-	\node[right=10pt of cat3, diamond, white_shape] (cat4)  {D};
-\end{tikzpicture}
+The kind of justification we offered there made an important assumption: that what we said about the bartender sentence could form a general rule. In the bartender case, we said that if the antecedent is false and the consequent false then the conditional is true. (The nineteen year old coke drinker.) And we then concluded that whenever the antecedent and consequent are both false, then the conditional is true. This is required if we are to give a \emph{truth functional conditional}. Our conditional, `$\eif$', is stipulated to be governed by the rules:
+\begin{center}$\eif$ :
+\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
+T & T & T\\
+T & F & F\\
+F & T & T\\
+F & F & T
+\end{tabular}
 \end{center}
-In this case, our claim is surely true.  Shapes C and D are not grey, and so can hardly present \emph{counterexamples} to our claim. Shape A \emph{is} grey, but fortunately it is also circular. So my claim has no counterexamples. It must be true. That means that each of the following \emph{instances} of our claim must be true too:
-	\begin{ebullet}
-		\item If A is grey, then it is circular \hfill (true antecedent, true consequent)
-		\item If C is grey, then it is circular\hfill (false antecedent, true consequent)
-		\item If D is grey, then it is circular \hfill (false antecedent, false consequent)
-	\end{ebullet}
-However, if Lara had drawn a fourth shape, thus:
-\begin{center}
-\begin{tikzpicture}
-	\node[circle, grey_shape] (cat1) {A};
-	\node[right=10pt of cat1, diamond, grey_shape] (cat2)  {B};
-	\node[right=10pt of cat2, circle, white_shape] (cat3)  {C};
-	\node[right=10pt of cat3, diamond, white_shape] (cat4)  {D};
-\end{tikzpicture}
-\end{center}
-then our claim would be false. So it must be that this claim is false:
-	\begin{ebullet}
-		\item If B is grey, then it is circular \hfill (true antecedent, false consequent)
-	\end{ebullet}
-Now, recall that every connective of TFL has to be truth-functional. This means that merely the truth values of the antecedent and consequent must uniquely determine the truth value of the conditional as a whole. Thus, from the truth values of our four claims---which provide us with all possible combinations of truth and falsity in antecedent and consequent---we can read off the truth table for the material conditional.
+This connective is often explicitly called the \emph{material conditional}. It is stipulated to act according to these rules. 
+It is the {best} candidate for a truth-functional conditional. Otherwise put, \emph{it is the best conditional that TFL can provide}. 
 
-What this argument shows is that `$\eif$' is the \emph{best} candidate for a truth-functional conditional. Otherwise put, \emph{it is the best conditional that TFL can provide}. But is it any good, as a surrogate for the conditionals we use in everyday language? Consider two sentences:
+
+%
+%When we introduced the characteristic truth table for the material conditional in \S\ref{s:CharacteristicTruthTables}, we did not say anything to justify it. Let's now offer a justification, which follows Dorothy Edgington.\footnote{Dorothy Edgington, `Conditionals', 2006, in the \emph{Stanford Encyclopedia of Philosophy} (\url{http://plato.stanford.edu/entries/conditionals/}).} 
+%
+%Suppose that Lara has drawn some shapes on a piece of paper, and coloured some of them in. We have not seen them, but nevertheless claim:
+%	\begin{quote}
+%		If any shape is grey, then that shape is also circular.
+%	\end{quote}
+%As it happens, Lara has drawn the following:
+%\begin{center}
+%\begin{tikzpicture}
+%	\node[circle, grey_shape] (cat1) {A};
+%	\node[right=10pt of cat1, diamond, phantom_shape] (cat2)  { } ;
+%	\node[right=10pt of cat2, circle, white_shape] (cat3)  {C} ;
+%	\node[right=10pt of cat3, diamond, white_shape] (cat4)  {D};
+%\end{tikzpicture}
+%\end{center}
+%In this case, our claim is surely true.  Shapes C and D are not grey, and so can hardly present \emph{counterexamples} to our claim. Shape A \emph{is} grey, but fortunately it is also circular. So my claim has no counterexamples. It must be true. That means that each of the following \emph{instances} of our claim must be true too:
+%	\begin{ebullet}
+%		\item If A is grey, then it is circular \hfill (true antecedent, true consequent)
+%		\item If C is grey, then it is circular\hfill (false antecedent, true consequent)
+%		\item If D is grey, then it is circular \hfill (false antecedent, false consequent)
+%	\end{ebullet}
+%However, if Lara had drawn a fourth shape, thus:
+%\begin{center}
+%\begin{tikzpicture}
+%	\node[circle, grey_shape] (cat1) {A};
+%	\node[right=10pt of cat1, diamond, grey_shape] (cat2)  {B};
+%	\node[right=10pt of cat2, circle, white_shape] (cat3)  {C};
+%	\node[right=10pt of cat3, diamond, white_shape] (cat4)  {D};
+%\end{tikzpicture}
+%\end{center}
+%then our claim would be false. So it must be that this claim is false:
+%	\begin{ebullet}
+%		\item If B is grey, then it is circular \hfill (true antecedent, false consequent)
+%	\end{ebullet}
+%Now, recall that every connective of TFL has to be truth-functional. This means that merely the truth values of the antecedent and consequent must uniquely determine the truth value of the conditional as a whole. Thus, from the truth values of our four claims---which provide us with all possible combinations of truth and falsity in antecedent and consequent---we can read off the truth table for the material conditional.
+
+
+
+But is it any good, as a surrogate for the conditionals we use in everyday language? Consider two sentences:
 	\begin{earg}
 		\item[\ex{brownwins1}] If Mitt Romney had won the 2012 election, then he would have been the 45th President of the USA.
 		\item[\ex{brownwins2}] If Mitt Romney had won the 2012 election, then he would have turned into a helium-filled balloon and floated away into the night sky.
@@ -177,14 +390,30 @@ What this argument shows is that `$\eif$' is the \emph{best} candidate for a tru
 Sentence \ref{brownwins1} is true; sentence \ref{brownwins2} is false, but both have false antecedents and false consequents. So the truth value of the whole sentence is not uniquely determined by the truth value of the parts. Do not just blithely assume that you can adequately symbolize an English `if \dots, then \dots' with TFL's `$\eif$'. 
 
 The crucial point is that sentences \ref{brownwins1} and \ref{brownwins2} employ \emph{subjunctive} conditionals, rather than \emph{indicative} conditionals. They ask us to imagine something contrary to fact---Mitt Romney lost the 2012 election---and then ask us to evaluate what \emph{would} have happened in that case. Such considerations just cannot be tackled using `$\eif$'.
+So, $\eif$ is not at all good at symbolising \emph{subjunctive} conditionals, though it is the best that can be done in truth functional logic. 
 
-We will say more about the difficulties with conditionals in \S\ref{s:ParadoxesOfMaterialConditional}. For now, we will content ourselves with the observation that `$\eif$' is the only candidate for a truth-functional conditional for TFL, but that many English conditionals cannot be represented adequately using `$\eif$'. TFL is an intrinsically limited language. 
+$\eif$ is better at symbolising \emph{indicative} conditionals. 
+There is a grammatical difference between the two conditionals. Consider:
+\begin{earg}
+\item[\ex{indicative}] If Oswald didn't kill Kennedy, someone else did.
+\item[\ex{subjunctive}] If Oswald hadn't have killed Kenney, someone else would have. 
+\end{earg}
+The former is an \emph{indicative} conditional (and is true, after all, we know he was killed), the latter is \emph{subjunctive} (and is probably false, unless there was a conspiracy plot). 
 
+Exactly how well the material conditional does at representing \emph{indicative} conditionals, however, is a philosophically contentious issue, and not one we can further discuss in this course. 
+\todo{move some of the paradoxes stuff back in... ??}
+%We will say more about the difficulties with conditionals in \S\ref{s:ParadoxesOfMaterialConditional}. For now, we will content ourselves with the observation that `$\eif$' is the only candidate for a truth-functional conditional for TFL, but that many English conditionals cannot be represented adequately using `$\eif$'. TFL is an intrinsically limited language. 
+
+%In truth functional logic we work with the \emph{material conditional}, which is stipulated to given by these truth rules. How well it does at capturing the English `if\ldots, then\ldots'. 
 
 \chapter{Complete truth tables}
 \label{s:CompleteTruthTables}
 
-So far, we have considered assigning truth values to TFL sentences indirectly. We have said, for example, that a TFL sentence such as `$B$' is to take the same truth value as the English sentence `Big Ben is in London' (whatever that truth value may be), but we can also assign truth values \emph{directly}. We can simply stipulate that `$B$' is to be true, or stipulate that it is to be false.
+In \S\ref{s:CharacteristicTruthTables} we described how the truth values of sentences \metaX and \metaY should combine to determine the truth of a sentence such as $\metaX\eor\metaY$. 
+
+We will now describe how to extend this reasoning to determine the truths of more complex sentences such as $(I\eif H)\eand H$. 
+
+So far, we have considered assigning truth values to TFL sentences indirectly. We have said, for example, that a TFL sentence such as `$B$' is to take the same truth value as the English sentence `Ben is happy' (whatever that truth value may be), but we can also assign truth values \emph{directly}. We can simply stipulate that `$B$' is to be true, or stipulate that it is to be false.
 	\factoidbox{
 		A \define{valuation} is any assignment of truth values to particular atomic sentences of TFL.
 	}
@@ -195,19 +424,17 @@ name=valuation,
 description={An assignment of \glspl{truth value} to particular atomic \glspl{sentence of TFL}}
 }
 
-The power of truth tables lies in the following. Each row of a truth table represents a possible valuation. The entire truth table represents all possible valuations; thus the truth table provides us with a means to calculate the truth values of complex sentences, on each possible valuation. This is easiest to explain by example.
+We describe how to fill out \define{truth tables}. 
+Each row of a truth table is a valuation. The entire truth table represents all possible valuations; thus the truth table provides us with a means to calculate the truth values of complex sentences, on each possible valuation. This is easiest to explain by example.
 
 \section{A worked example}
 
-Consider the sentence `$(I\eif H)\eand H$'. 
-Truth functionality gives us that the truth value of the whole sentence $(I\eif H)\eand H$ depends just on the truth values of the component sentences $(I\eif H)$ and $H$. And furthermore, that $I\eif H$ depends on $H$ and $I$. So we will be able to work out the truth value of the whole sentence based on the truth values of $H$ and $I$, which are given by the valuation. 
-
-We summarised how the connectives give truth values from the component sentences in a \emph{characteristic truth table}. We will now give truth tables which allow us to record what the truth value of these complicated sentences depending on the truth values of the atomic sentences (something which logic itself won't be able to determine).
-
-There are four possible ways to assign True and False to the atomic sentence `$H$' and `$I$'---four possible valuations---which we can represent as lines in a ``truth table'':
+Consider the sentence `$A\eor B$'. 
+We will give a \emph{truth table} which lists all the valuations and says whether the sentence, `$A\eor B$' is true or false on each of them. 
+We start by listing the valuations. There are four possible ways to assign True and False to the atomic sentences $A$ and $B$:
 \begin{center}
-\begin{tabular}{c c|d e e e f}
-$H$&$I$&$(H$&\eif&$I)$&\eand&$H$\\
+\begin{tabular}{c c|d e f}
+$A$&$B$&$A$&\eif&$B$\\
 \hline
  T & T\\
  T & F\\
@@ -215,86 +442,163 @@ $H$&$I$&$(H$&\eif&$I)$&\eand&$H$\\
  F & F
 \end{tabular}
 \end{center}
+Now, we look at our rule for $\eor$:
+\begin{center}$\eor$ :
+\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
+%1& 
+T & T & T\\
+%2& 
+T & F & T\\
+%3& 
+F & T & T\\
+%4&
+ F & F & F
+\end{tabular}
+\end{center}
+And to work out what goes in each blank space in our truth table for $A\eor B$, we just follow the rules given here. In fact here, the lines nicely match up to the different rules to follow, and we can complete the truth table by simply copying it over:
+\begin{center}
+\begin{tabular}{c c|d e f}
+$A$&$B$&$A$&\eor&$B$\\
+\hline
+ T & T&&T\\
+ T & F&&T\\
+ F & T&&T\\
+ F & F&&F
+\end{tabular}
+\end{center}
+Often, though, it won't be quite so simple and we'll have to carefully go through which line of the connective-rule to follow. 
 
-Here the formation tree will help us know what to do. 
-To know how to proceed we will want to look at the structure of the sentence, which we can do by producing a formation tree as in \S\ref{TFLsentences}: 
 
+Consider the sentence `$(\enot I\eif H)\eand H$'. 
+The valuations assign either True or False to each atomic sentence. In this case we have two atomic sentences, $I$ and $H$, so we have four possible valuations, each of which is a line in the truth table:
+\begin{center}
+\begin{tabular}{cc|c}
+$I$&$H$&$(\enot I\eif H)\eand H$\\\hline
+T&T&\\
+T&F&\\
+F&T&\\
+F&F&
+\end{tabular}
+\end{center}
+Our job is to fill out the truths of $(\enot I\eif H)\eand H$. 
+
+Here the formation tree will help us know what to do (see \S\ref{TFLsentences}): 
 \begin{center}
 \begin{forest}
-[$(I\eif H)\eand H$
-	[$(I\eif H)$
-		[$I$]
+[$(\enot I\eand H)\eif H$
+	[$(\enot I\eif H)$
+		[$\enot I$
+			[$I$]
+		]
 		[$H$]
 	]
 	[$H$]
 ]
 \end{forest}
 \end{center}
+The truth rule for $\enot$ tells us how the truth value of $\enot I$ depends on the truth of $I$. Then the rule for $\eand$ tells us how the truth value of $\enot I\eand H$ depends on the truths of $\enot I$ and $H$; and finally, the rule for $\eif$ tells us how the truth value of $(\enot I\eand H)\eif H$ depends on those of $\enot I\eand H$ and $H$.
 
-The valuation tells us whether one of the ``leaves'' of the tree is true or false. The characteristic truth table tells us how the sentence further up the tree depend on the sentences further down the tree. To determine the truth value of $(I\eif H)\eif H$ we first need to know the truth values of the sentences lower down. In this case the only new sentence that we need to deal with is $I\eif H$. So we expand our table to include a working line for $I\eif H$: 
+So to work out the truth values of $(\enot I\eand H)\eif H$ we first need to work out the truth values of $\enot I$ and $\enot I\eand H$. 
+
+So, we expand our truth table with columns for each of these. 
+\begin{center}
+\begin{tabular}{cc|c|c|c}
+$I$&$H$&$\enot I$&$(\enot I\eand H)$&$(\enot I\eand H)\eif H$\\\hline
+T&T&\\
+T&F&\\
+F&T&\\
+F&F&
+\end{tabular}
+\end{center}
+The first step is $\enot I$.
+To be able to do this, we will use the truth rule we specified for $\enot$:
+\begin{center}
+\begin{tabular}{ccc}
+If \metaX is & & then $\enot X$ is\\
+T&$\leadsto$&F\\
+F&$\leadsto$&T
+\end{tabular}
+\end{center}
+Now, 
+\begin{center}
+\begin{tabular}{cc|c|c|c}
+$I$&$H$&$\enot I$&$(\enot I\eand H)$&$(\enot I\eand H)\eif H$\\\hline
+T&T&a=F&&\\
+T&F&b=F&&\\
+F&T&c=T&&\\
+F&F&d=T&&\\
+$\bigstar$
+\end{tabular}
+\end{center}
+We worked these out by:
+\begin{itemize}
+\item For `a': Look at the column for $I$, and see it's T, so by our rule (T-line), we fill out a=F.
+\item For `b': Look at the column for $I$, and see it's T, so by our rule (T-line), we fill out a=F.
+\item For `c': Look at the column for $I$, and see it's F, so by our rule (F-line), we fill out a=T.
+\item For `d': Look at the column for $I$, and see it's F, so by our rule (F-line), we fill out a=T.
+\end{itemize}
+
+The next step is to consider $\enot I\eand H$. For this we will use the truth rule we specified for $\eand$:
+\begin{center}
+\begin{tabular}{ccccc}
+If \metaX is&and \metaY is  && then $\metaX\eand \metaY$ is\\
+T&T&$\leadsto$&T\\
+T&F&$\leadsto$&F\\
+F&T&$\leadsto$&F\\
+F&F&$\leadsto$&F
+\end{tabular}
+\end{center}
+Now, we can fill out:
+\begin{center}
+\begin{tabular}{cc|c|c|c}
+$I$&$H$&$\enot I$&$(\enot I\eand H)$&$(\enot I\eand H)\eif H$\\\hline
+T&T&F&a=F&\\
+T&F&F&b=F&\\
+F&T&T&c=T&\\
+F&F&T&d=F&\\
+&$\bigstar$&$\bigstar$
+\end{tabular}
+\end{center}
+We worked these out by:
+\begin{itemize}
+\item For `a': Look at the column for $\enot I$ and the column for $H$, we have F and T; so by our rule (FT-line), we fill out a=F.
+\item For `b': Look at the column for $\enot I$ and the column for $H$, we have F and F; so by our rule (FF-line), we fill out a=F.
+\item For `c': Look at the column for $\enot I$ and the column for $H$, we have T and T; so by our rule (TT-line), we fill out a=T.
+\item For `d': Look at the column for $\enot I$ and the column for $H$, we have T and F; so by our rule (TF-line), we fill out a=F.
+\end{itemize}
+
+Now, finally, we need to look at $(\enot I\eand H)\eif H$, and will use the truth rule for $\eif$: 
 
 \begin{center}
-\begin{tabular}{cc|c|c}
-$H$&$I$&$I\eif H$&$(I\eif H)\eand H$\\\hline
-T&T&a&\\
-T&F&b&\\
-F&T&c&\\
-F&F&d&
+\begin{tabular}{cccc}
+If \metaX is&and \metaY is  && then $\metaX\eif \metaY$ is\\
+T&T&$\leadsto$&T\\
+T&F&$\leadsto$&F\\
+F&T&$\leadsto$&T\\
+F&F&$\leadsto$&T
 \end{tabular}
 \end{center}
-To fill this in, we consult our characteristic truth table. We let $X$ be $I$ and $Y$ be $H$: \begin{center}
-\begin{tabular}{lc c|c}
-&\metaX & \metaY & $\metaX\eif\metaY$\\
-\hline
-line 1&T & T & T\\
-line 2&T & F & F\\
-line 3&F & T & T\\
-line 4&F & F & T
-\end{tabular}
-\end{center}
-
-So in space `a' of our table, we look at line 1 of the characteristic truth table, and we see that we should replace `a' with `T'. What about space `b'. \metaX is $I$, which is false, and \metaY is $H$ which is true. So we look at the 3rd line of the characteristic truth table and we see we should put `T'. In space `c' we consult line 2; and space `d' we consult line 4. 
-
-So we result in: 
+Now, we can fill out:
 \begin{center}
-\begin{tabular}{cc|c|c}
-$H$&$I$&$I\eif H$&$(I\eif H)\eand H$\\\hline
-T&T&T&a\\
-T&F&T&b\\
-F&T&F&c\\
-F&F&T&d
+\begin{tabular}{cl|c|l|c}
+$I$&$H$&$\enot I$&$(\enot I\eand H)$&$(\enot I\eand H)\eif H$\\\hline
+T&T&F&F&a=T\\
+T&F&F&F&b=T\\
+F&T&T&T&c=T\\
+F&F&T&F&d=T\\
+&$\bigstar_{\text{consequent}}$&&$\bigstar_{\text{antecedent}}$
 \end{tabular}
 \end{center}
-And we can move on to looking at $(I\eif H)\eand H$; I've replaced the gaps in the truth table with letters so I can refer to them in my description here. 
+We worked these out by:
+\begin{itemize}
+\item For `a': In the column for $(\enot I\eand H)$ (which is our antecedent) we have F; and in the column for $H$ (our consequent)  we have T. For the conditional, it's very important to bear in mind which order they come in. We are looking at antecedent then consequent, so the rule line we are looking at is FT (the antecedent is False and the consequent is True rather than visa versa). And we get a=T. 
+\item For `b': In the column for $(\enot I\eand H)$ we have F; and in the column for $H$ we have F. So by our rule for $\eif$ (FF-line) we have b=T.
+\item For `c': In the column for $(\enot I\eand H)$ we have T; and in the column for $H$ we have T. So by our rule for $\eif$ (TT-line) we have b=T.
+\item For `d': In the column for $(\enot I\eand H)$ we have F; and in the column for $H$ we have F. So by our rule for $\eif$ (FF-line) we have d=T.
+\end{itemize}
 
-We then consult the truth table for $\eand$ because that is the main connective of $(I\eif H)\eand H$.
 
-\begin{center}
-\begin{tabular}{lc c|c}
-&$(I\eif H)$&$H$&$(I\eif H)\eand H$\\
-&\metaX & \metaY & $\metaX\eand\metaY$\\
-\hline
-line 1&T & T & T\\
-line 2&T & F & F\\
-line 3&F & T & F\\
-line 4&F & F & F
-\end{tabular}
-\end{center}
 
-So in gap `a', we are considering the T,T line, i.e.~line 1. So we replace `a' with `T'. 
-In gap `b' we consider the T,T line again: $(I\eif H)$ is true, and so is $H$. So we replace `b' with `T' as well.
-For gap `c', we are considering a F,F line: line 4 (because we've seen that both $(I\eif H)$ and $H$ are false in this valuation). So we replace `c' with `F'.
-Finally, we look at gap `d'. Here we have $(I\eif H)$ is true and $H$ is false. So we consult line 2 of the characteristic truth table and we replace `d' with `F'. 
-
-Our final truth table is \begin{center}
-\begin{tabular}{cc|c|c}
-$H$&$I$&$I\eif H$&$(I\eif H)\eand H$\\\hline
-T&T&T&T\\
-T&F&T&T\\
-F&T&F&F\\
-F&F&T&F
-\end{tabular}
-\end{center}
 
 When we do these in practice, our sentences can have many subsentences, consider, e.g.~$$\enot (B\eand(\enot B\eiff \enot A)))$$ A tool for fitting our truth tables on a page is not to put all the subsentences out as separate entire columns to calculate, but to simply list the values underneath the main connective of the sentence. This is simply to keep the truth table more concise. 
 

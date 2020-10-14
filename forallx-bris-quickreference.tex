@@ -16,28 +16,75 @@ Definition of being a sentence of TFL:
 		\item Nothing else is a sentence.
 	\end{enumerate}
 	
-\section{Characteristic Truth Tables}
+\section{Truth Rules for Connectives in TFL}
 \label{app.CharacteristicTTs}
+%\begin{center}
+%			\begin{minipage}{.25\textwidth}
+%				\begin{tabular}{c|c}
+%				$\metaX$&$\enot\metaX$\\\hline
+%				T&F\\
+%				F&T
+%				\end{tabular}
+%			\end{minipage}
+%			\begin{minipage}{.35\textwidth}
+%				\begin{tabular}{cc|c}
+%				$\metaX$&$\metaY$&$\metaX\eand\metaY$\\\hline
+%				T&T&T\\
+%				T&F&F\\
+%				F&T&F\\
+%				F&F&F
+%				\end{tabular}
+%			\end{minipage}
+%			\begin{minipage}{.35\textwidth}
+%				\begin{tabular}{cc|c}
+%				$\metaX$&$\metaY$&$\metaX\eor\metaY$\\\hline
+%				T&T&T\\
+%				T&F&T\\
+%				F&T&T\\
+%				F&F&F
+%				\end{tabular}
+%			\end{minipage}
+%			
+%			\medskip 
+%			\begin{minipage}{.35\textwidth}
+%				\begin{tabular}{cc|c}
+%				$\metaX$&$\metaY$&$\metaX\eif\metaY$\\\hline
+%				T&T&T\\
+%				T&F&F\\
+%				F&T&T\\
+%				F&F&T
+%				\end{tabular}
+%			\end{minipage}
+%			\begin{minipage}{.35\textwidth}
+%				\begin{tabular}{cc|c}
+%				$\metaX$&$\metaY$&$\metaX\eiff\metaY$\\\hline
+%				T&T&T\\
+%				T&F&F\\
+%				F&T&F\\
+%				F&F&T
+%				\end{tabular}
+%			\end{minipage}
+%	\end{center}
 \begin{center}
-			\begin{minipage}{.25\textwidth}
-				\begin{tabular}{c|c}
-				$\metaX$&$\enot\metaX$\\\hline
+			\begin{minipage}{.25\textwidth}$\enot$:\,
+				\begin{tabular}{c@{ $\leadsto$ }c}
+%				$\metaX$&$\enot\metaX$\\\hline
 				T&F\\
 				F&T
 				\end{tabular}
 			\end{minipage}
-			\begin{minipage}{.35\textwidth}
-				\begin{tabular}{cc|c}
-				$\metaX$&$\metaY$&$\metaX\eand\metaY$\\\hline
+			\begin{minipage}{.35\textwidth}$\eand$:\,
+				\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
+%				$\metaX$&$\metaY$&$\metaX\eand\metaY$\\\hline
 				T&T&T\\
 				T&F&F\\
 				F&T&F\\
 				F&F&F
 				\end{tabular}
 			\end{minipage}
-			\begin{minipage}{.35\textwidth}
-				\begin{tabular}{cc|c}
-				$\metaX$&$\metaY$&$\metaX\eor\metaY$\\\hline
+			\begin{minipage}{.35\textwidth}$\eor$:\,
+				\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
+%				$\metaX$&$\metaY$&$\metaX\eor\metaY$\\\hline
 				T&T&T\\
 				T&F&T\\
 				F&T&T\\
@@ -46,18 +93,18 @@ Definition of being a sentence of TFL:
 			\end{minipage}
 			
 			\medskip 
-			\begin{minipage}{.35\textwidth}
-				\begin{tabular}{cc|c}
-				$\metaX$&$\metaY$&$\metaX\eif\metaY$\\\hline
+			\begin{minipage}{.35\textwidth}$\eif$:\,
+				\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
+%				$\metaX$&$\metaY$&$\metaX\eif\metaY$\\\hline
 				T&T&T\\
 				T&F&F\\
 				F&T&T\\
 				F&F&T
 				\end{tabular}
 			\end{minipage}
-			\begin{minipage}{.35\textwidth}
-				\begin{tabular}{cc|c}
-				$\metaX$&$\metaY$&$\metaX\eiff\metaY$\\\hline
+			\begin{minipage}{.35\textwidth}$\eiff$:\,
+				\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
+%				$\metaX$&$\metaY$&$\metaX\eiff\metaY$\\\hline
 				T&T&T\\
 				T&F&F\\
 				F&T&F\\
@@ -67,8 +114,7 @@ Definition of being a sentence of TFL:
 	\end{center}
 
 
-\vfill
-
+\vspace*{2cm}
 \section{Symbolization}
 \subsubsection*{Rough Meaning of the TFL Connectives}
 		\begin{tabular}{cll}
