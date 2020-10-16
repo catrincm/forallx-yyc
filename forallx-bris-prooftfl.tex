@@ -25,11 +25,11 @@ With truth tables, we directly consider different ways to make sentences true or
 The move to natural deduction might be motivated by more than the search for insight. It might also be motivated by \emph{necessity}. Once our arguments involve 5 atomic sentences,  a truth table test for validity will require 32 lines of truth table. That's quite a lot to check. But sometimes we might want to check such arguments. 
 \begin{center}
 \begin{earg}
-\item[] Alice, or Betty, or Carys, or Dan, or Ella stole the teacher's pen.
-\item[] It wasn't Alice.
-\item[] It wasn't Betty,
-\item[] It wasn't Carys,
-\item[] It wasn't Dan
+\prem Alice, or Betty, or Carys, or Dan, or Ella stole the teacher's pen.
+\prem It wasn't Alice.
+\prem It wasn't Betty,
+\prem It wasn't Carys,
+\prem It wasn't Dan
 \item [\therefore] It was Ella. 
 \end{earg}
 \end{center}
@@ -40,10 +40,10 @@ $$A\eor(B\eor (C\eor (D\eor E))),\;\enot A,\;\enot B,\;\enot C,\;\enot D\;\there
 And that will increase exponentially as more atomic sentences get added. Once an argument involves 20 atomic sentences, 
 \begin{center}
 \begin{earg}
-\item[] Alice, or Betty, or Carys, \ldots, or Uli or Volker stole the teacher's pen.
-\item[] It wasn't Alice.
-\item[] It wasn't Betty,
-\item[]\,$\vdots$
+\prem Alice, or Betty, or Carys, \ldots, or Uli or Volker stole the teacher's pen.
+\prem It wasn't Alice.
+\prem It wasn't Betty,
+\prem\,$\vdots$
 \item [] It wasn't Uli,
 \item [\therefore] It was Volker. 
 \end{earg}
@@ -196,8 +196,8 @@ The point is simply that, when you have a conjunction on some line of a proof, y
 
 Even with just these two rules, we can start to see some of the power of our formal proof system. Consider:
 \begin{earg}
-\item[] $[(A\eor B)\eif(C\eor D)] \eand \enot(E\eor F)$
-\item[\therefore] $\enot(E\eor F) \eand [(A\eor B)\eif(C\eor D)]$
+\prem $[(A\eor B)\eif(C\eor D)] \eand \enot(E\eor F)$
+\conc $\enot(E\eor F) \eand [(A\eor B)\eif(C\eor D)]$
 \end{earg}
 The main logical operator in both the premise and conclusion of this argument is `$\eand$'. In order to provide a proof, we begin by writing down the premise, which is our assumption. We draw a line below this: everything after this line must follow from our assumptions by (repeated applications of) our rules of inference. So the beginning of the proof looks like this:
 \begin{pf}

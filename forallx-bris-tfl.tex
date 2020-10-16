@@ -310,7 +310,7 @@ At other times, the word `or' allows for the possibility that both disjuncts mig
 
 TFL can symbolise the exclusive or, it just doesn't do it with `\eor'. We will discuss this in \S\ref{S.ExclusiveOr}
 
-\section{Conditional}
+\section{Conditional}\todo{Say more about ``only if''! Students thought it was $\eiff$}
 Consider the sentence
 	\begin{earg}
 		\item[\ex{if1}] If Jean is in Paris, then she is in France.
@@ -739,25 +739,25 @@ Using this definition, we can easily check to see whether someone is my ancestor
 
 
 
-One more example: consider $\enot (P \eand \enot (\enot Q \eor R))$ we can check this is a sentence by drawing the following formation tree:
+One more example: consider $\enot (P \eand \enot (\enot Q \eor P))$ we can check this is a sentence by drawing the following formation tree:
 \label{S:formationtree}
 \begin{center}
 \begin{forest}
-	[$\mainconnective{\enot}\,  (P \eand \enot (\enot Q \eor R))$
-		[$(P \,\mainconnective{\eand}\,  \enot (\enot Q \eor R))$
+	[$\mainconnective{\enot}\,  (P \eand \enot (\enot Q \eor P))$
+		[$(P \,\mainconnective{\eand}\,  \enot (\enot Q \eor P))$
 			[$P$]
-			[$\mainconnective{\enot}\,   (\enot Q\eor R)$
+			[$\mainconnective{\enot}\,   (\enot Q\eor P)$
 				[$\mainconnective{\enot}\,   Q$
 					[$Q$]
 				]
-				[$R$]
+				[$P$]
 			]
 		]
 	]
 \end{forest}
 \end{center}
 each of the steps here tracks one of the rules of what it is to be a sentence. So we can conclude that this is a sentence of TFL. This also helps us see how to read it.
-The will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence $\enot D$ is true if and only if the sentence $ D$ is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in Part~\ref{ch.TruthTables}.
+The will be important when we consider the circumstances under which a particular sentence would be true or false. The sentence $\enot Q$ is true if and only if the sentence $Q$ is false, and so on through the structure of the sentence, until we arrive at the atomic components. We will return to this point in Part~\ref{ch.TruthTables}.
 
 This displays clearly the recursive structure of the tree. The sentences further up the tree are formed by one of the formation rules from the sentences further down the tree. The main connective of each sentence is in red. 
 
@@ -772,7 +772,10 @@ This displays clearly the recursive structure of the tree. The sentences further
 
 
 When drawing these trees we have highlighted a particular connective on each of our nodes. We call that connective the \define{main connective} of the sentence.
-\factoidbox{The \define{main connective} of sentence is the last connective that was introduced in the construction of the sentence.} In the case of $((\enot E \eor F) \eif \enot\enot G)$, the main connective is $\eif$. Here we can see that the whole sentence can be described in the form $(\metaX\eif\metaY)$ with both $\metaX$ and $\metaY$ being complete sentences. That's enough to see that $\eif$ is the main operator. 
+\factoidbox{The \define{main connective} of sentence is the last connective that was introduced in the construction of the sentence.}
+
+
+ In the case of $((\enot E \eor F) \eif \enot\enot G)$, the main connective is $\eif$. Here we can see that the whole sentence can be described in the form $(\metaX\eif\metaY)$ with both $\metaX$ and $\metaY$ being complete sentences (put $\metaX=(\enot E\eor F)$ and $\metaY=\enot\enot G$). That's enough to see that $\eif$ is the main operator. 
  In the case of $\enot\enot\enot D$, the main logical operator is the very first $\enot$ sign. This is because we can see the sentence as having the form $\enot\metaX$ with $\metaX$ being the complete sentence $\enot\enot D$. In the case of $(P \eand \enot (\enot Q \eor R))$, the main logical operator is $\eand$: it's an $(\metaX\eand\metaY)$ with $\metaX$ as $P$ and $\metaY$ as $\enot (\enot Q \eor R)$. 
 
 \newglossaryentry{main logical operator}
@@ -789,37 +792,41 @@ When drawing these trees we have highlighted a particular connective on each of 
 
 
 
+We also say: 
+\factoidbox{The \define{scope} of an instance of a connective is the subsentence for which it is the main connective.}
+\newglossaryentry{scope}
+{
+name=scope,
+description={The subsentence of which that instance of the connective is the main connective.}
+}
+For example, in: 
+$$(P \eand (\enot (R \eand Q) \eiff P))$$ 
+The scope of the $\enot$  is $\enot (R\eand Q)$.
 
-The recursive structure of sentences in TFL also allows us to give a formal definition of the \emph{scope} of an instance of connective. The scope of a connective instance is the subsentence(s) for which it is the main connective. One can use formation trees to work this out. 
-
-Consider a sentence like:
-$$(P \eand (\enot (R \eand B) \eiff Q))$$ 
-
-This has a formation tree: 
+To see this, we can draw the formation tree:
 
 \begin{center}
 	\begin{forest}
-[$(P \,\mainconnective{\eand}\,  (\enot (R \eand B) \eiff Q))$
+[$(P \,\mainconnective{\eand}\,  (\enot (R \eand Q) \eiff P))$
 	[$P$]
-	[$(\enot (R \eand B) \,\mainconnective{\eiff}\,  Q))$
-		[$\mainconnective{\enot}\,   (R \eand B)$
-			[$(R\,\mainconnective{\eand}\,   B)$
+	[$(\enot (R \eand Q) \,\mainconnective{\eiff}\,  P))$
+		[$\mainconnective{\enot}\,   (R \eand Q)$
+			[$(R\,\mainconnective{\eand}\,   Q)$
 				[$R$]
-				[$B$]
+				[$Q$]
 			]
 		]
-		[$Q$]
+		[$P$]
 	]
 ]
 \end{forest}
 \end{center}
-
-The scope of the $\enot$ is $\enot (R \eand B)$. It is the subsentence in which $\enot$ is the main logical operator. We have worked that out by drawing the formation tree and finding the lowest sentence in which $\enot$ appears. 
+$\enot (R\eand Q)$ is the subsentence in which $\enot$ is the main logical operator. We have worked that out by drawing the formation tree and finding the lowest sentence in which that connective instance appears. 
 
 
 %which was constructed by conjoining $P$ with $ (\enot (R \eand B) \eiff Q)$. This last sentence was constructed by placing a biconditional between $\enot (R \eand B)$ and $Q$. The former of these sentences---a subsentence of our original sentence---is a sentence for which $\enot$ is the main logical operator. So the scope of the negation is just $\enot(R \eand B)$. 
 More generally:
-	\factoidbox{The \define{scope} of an instance of a connectiveis the subsentence for which it is the main connective.}
+	\factoidbox{The \define{scope} of an instance of a connective is the subsentence for which it is the main connective.}
 \newglossaryentry{scope}
 {
 name=scope,

@@ -11,8 +11,8 @@ FOL makes use of all of the connectives of TFL. So proofs in FOL will use all of
 
 \section{Universal elimination}Consider:
 \begin{earg}
-\item[] Everyone is happy
-\item[\therefore] Catrin is happy.
+\prem Everyone is happy
+\conc Catrin is happy.
 \end{earg} This is a valid argument. Generally, then, from the claim that everything is F, you can infer that any particular thing is F. You name it; it's F. So the following should be fine:
 \begin{pf}
 	\hypo{a}{\forall xFx}
@@ -22,8 +22,8 @@ We obtained line 2 by dropping the universal quantifier and replacing `$x$' with
 
 This isn't restricted to simple properties. Consider the following argument:
 \begin{earg}
-\item[] Every cat is sleeping.
-\item[\therefore] If Fluffy is a cat, then she is sleeping.
+\prem Every cat is sleeping.
+\conc If Fluffy is a cat, then she is sleeping.
 \end{earg}
 This is a valid argument. And it will be allowed by our rule $\forall$E:
 \begin{pf}
@@ -32,13 +32,13 @@ This is a valid argument. And it will be allowed by our rule $\forall$E:
 \end{pf}
 Note here that we have to replace two instances of `$x$' with our name: `$f$' or Fluffy. Indeed it would have been fine to do with any name. We can even do it with names we already have. Consider the following:
 \begin{earg}
-\item[] Pavel owes everyone money.
-\item[\therefore] Pavel owes himself money.
+\prem Pavel owes everyone money.
+\conc Pavel owes himself money.
 \end{earg}
 We we symbolise this as: 
 \begin{earg}
-\item[] $\forall x Opx$
-\item[\therefore] $Opp$
+\prem $\forall x Opx$
+\conc $Opp$
 \end{earg}
 This is valid: the premise says \emph{everything} in the domain owes money to Pavel; and Pavel is something in the domain. So it implies that Pavel owes money to himself. A closely related sentence is: \begin{earg}
 \item Pavel owes money to everyone \emph{else}.
@@ -77,8 +77,8 @@ This is illegitimate, since `$\forall x$' is not the main logical operator in li
 \section{Existential introduction}
 The following argument is valid: 
 \begin{earg}
-\item[] Catrin is happy
-\item[\therefore] Someone is happy.
+\prem Catrin is happy
+\conc Someone is happy.
 \end{earg} 
 
 This is the idea of our existential introduction rule: from the claim that some particular thing is F, you can infer that something is F: 
@@ -90,8 +90,8 @@ We obtained line 2 by replacing the name `$a$' with the variable `$x$' and addin
 
 This isn't restricted to simple properties. 
 \begin{earg}
-\item[] Bob is a money and knows sign language.
-\item[\therefore] There is a monkey who knows sign language.
+\prem Bob is a money and knows sign language.
+\conc There is a monkey who knows sign language.
 \end{earg}
 \begin{pf}
 	\hypo{a}{Mb\eand Sb}
@@ -100,8 +100,8 @@ This isn't restricted to simple properties.
 
 Or even 
 \begin{earg}
-\item[] Catrin is friends with someone who is friends with everyone. 
-\item[\therefore] Someone is friends with someone who is friends with everyone. 
+\prem Catrin is friends with someone who is friends with everyone. 
+\conc Someone is friends with someone who is friends with everyone. 
 \end{earg}
 \begin{pf}
 	\hypo{a}{\exists x (Fcx\eand\forall y Fxy)}
@@ -167,8 +167,8 @@ We can now fill out the details of this to see that it's a formal proof:
 \bigskip 
 Consider the following example:
 \begin{earg}
-\item[] Narcissus loves himeself.
-\item[\therefore] There is someone who loves Narcissus. 
+\prem Narcissus loves himeself.
+\conc There is someone who loves Narcissus. 
 \end{earg}This is a valid argument. The formalised version, which will be allowed by our rule is:
 \begin{pf}
 	\hypo{a}{Lnn}

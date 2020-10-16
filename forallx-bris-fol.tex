@@ -10,7 +10,7 @@ Consider the following argument, which is obviously valid in English:
 \label{willard1}
 \item Willard is a logician.
 \item All logicians wear funny hats.
-\item[\therefore] Willard wears a funny hat.
+\conc Willard wears a funny hat.
 \end{earg}
 To symbolize it in TFL, we might offer a symbolization key:
 \begin{ekey}
@@ -499,10 +499,10 @@ We need to distinguish being a \emph{skilled surgeon} from merely being a \emph{
 Now the argument can be symbolized in this way:
 \begin{earg}
 \label{surgeon2}
-\item[] $\forall x\bigl[\enot (Rx \eand Kx) \eif \enot Hx\bigr]$
-\item[] $\forall x(Rx \eif Gx)$
-\item[] $Rb \eand \enot Kb$
-\item[\therefore] $Gb \eand \enot Hb$
+\prem $\forall x\bigl[\enot (Rx \eand Kx) \eif \enot Hx\bigr]$
+\prem $\forall x(Rx \eif Gx)$
+\prem $Rb \eand \enot Kb$
+\conc $Gb \eand \enot Hb$
 \end{earg}
 
 Next suppose that we want to symbolize this argument:
@@ -512,14 +512,14 @@ Carol is a skilled surgeon and a tennis player. Therefore, Carol is a skilled te
 \end{quote}
 If we start with the symbolization key we used for the previous argument, we could add a predicate (let $Tx$ mean `$x$ is a tennis player') and a name (let $c$ mean Carol). Then the argument becomes:
 \begin{earg}
-\item[] $(Rc \eand Kc) \eand Tc$
-\item[\therefore] $Tc \eand Kc$
+\prem $(Rc \eand Kc) \eand Tc$
+\conc $Tc \eand Kc$
 \end{earg}
 This symbolization is a disaster! It takes what in English is a terrible argument and symbolizes it as a valid argument in FOL. The problem is that there is a difference between being \emph{skilled as a surgeon} and \emph{skilled as a tennis player}. Symbolizing this argument correctly requires two separate predicates, one for each type of skill. If we let $K_1x$ mean `$x$ is skilled as a surgeon' and $K_2x$ mean `$x$ is skilled as a tennis player,' then we can symbolize the argument in this way:
 \begin{earg}
 \label{surgeon3correct}
-\item[] $(Rc \eand K_1c) \eand Tc$
-\item[\therefore] $Tc \eand K_2c$
+\prem $(Rc \eand K_1c) \eand Tc$
+\conc $Tc \eand K_2c$
 \end{earg}
 Like the English language argument it symbolizes, this is invalid. %\nix{Notice that there is no logical connection between $K_1c$ and $Rc$. As symbols of FOL, they might be any one-place predicates. In English there is a connection between being a \emph{surgeon} and being a \emph{skilled surgeon}: Every skilled surgeon is a surgeon. In order to capture this connection, we symbolize `Carol is a skilled surgeon' as $Rc \eand K_1c$. This means: `Carol is a surgeon and is skilled as a surgeon.'}
 
@@ -657,13 +657,13 @@ Sentence \ref{loveconverge} is symbolized by $\exists y \forall x Lxy$. Sentence
 
 The point of the example is to illustrate that the order of the quantifiers matters a great deal. Indeed, to switch them around is called a \emph{quantifier shift fallacy}. Here is an example, which comes up in various forms throughout the philosophical literature:
 	\begin{earg}
-		\item[] For every person, there is some truth they cannot know. \hfill ($\forall \exists$)
-		\item[\therefore] There is some truth that no person can know. \hfill ($\exists \forall$)
+		\prem For every person, there is some truth they cannot know. \hfill ($\forall \exists$)
+		\conc There is some truth that no person can know. \hfill ($\exists \forall$)
 	\end{earg}
 This argument form is obviously invalid. It's just as bad as:\footnote{Thanks to Rob Trueman for the example.}
 	\begin{earg}
-		\item[] Every dog has its day. \hfill ($\forall \exists$)
-		\item[\therefore] There is a day for all the dogs. \hfill ($\exists \forall$)
+		\prem Every dog has its day. \hfill ($\forall \exists$)
+		\conc There is a day for all the dogs. \hfill ($\exists \forall$)
 	\end{earg}
 
 
@@ -1285,18 +1285,18 @@ For instance, consider the English idiom,
 \end{earg}
 If we think of this sentence as of the form `every $F$ is not~$G$' where $F{x}$ symbolizes `\gap{x} glitters' and ${G}{x}$ is `\gap{x} is not gold', we would symbolize it as:
 \begin{earg}
-	\item[] $\forall x(F{x} \eif \enot {G}{x})$,
+	\prem $\forall x(F{x} \eif \enot {G}{x})$,
 \end{earg}
 in other words, we symbolize it the same way as we would `Nothing that glitters is gold'. But the idiom does not mean that! It means that one should not assume that just because something glitters, it is gold; not everything that appears valuable is in fact valuable.  To capture the actual meaning of the idiom, we would have to symbolize it instead as we would `Not everything that glitters is gold', i.e., in the following way:
 \begin{earg}
-	\item[] $\enot\forall x(F{x} \eif {G}{x})$
+	\prem $\enot\forall x(F{x} \eif {G}{x})$
 \end{earg}
 Compare the first of these with the previous symbolization: again we see that the difference in the two meanings of the ambiguous sentence lies in whether the `\enot' is in the scope of the `$\forall$' (in the first symbolization) or `$\forall$' is in the scope of `\enot' (in the second).
 
 Of course we can alternatively symbolize the two readings using existential quantifiers as well:
 \begin{earg}
-	\item[] $\enot\exists x(F{x} \eand {G}{x})$
-	\item[] $\exists x(F{x} \eand \enot {G}{x})$
+	\prem $\enot\exists x(F{x} \eand {G}{x})$
+	\prem $\exists x(F{x} \eand \enot {G}{x})$
 \end{earg}
 
 In chapter~\ref{s:MoreMonadic} we discussed how to symbolize sentences involving `only'. Consider the sentence:
@@ -1305,15 +1305,15 @@ In chapter~\ref{s:MoreMonadic} we discussed how to symbolize sentences involving
 \end{earg}
 According to our schema, we would symbolize it this way:
 \begin{earg}
-	\item[] $\forall x({P}{x} \eif ({Y}{x} \eand {C}{x}))$
+	\prem $\forall x({P}{x} \eif ({Y}{x} \eand {C}{x}))$
 \end{earg}
 The meaning of this sentence of FOL is something like, `If an animal is playful, it is a young cat'. (Assuming that the domain is animals, of course.) This is probably not what's intended in uttering sentence~\ref{onlyamb}, however. It's more likely that we want to say that old cats are not playful. In other words, what we mean to say is that if something is a cat and playful, it must be young. This would be symbolized as:
 \begin{earg}
-	\item[] $\forall x(({C}{x} \eand {P}{x}) \eif {Y}{x})$
+	\prem $\forall x(({C}{x} \eand {P}{x}) \eif {Y}{x})$
 \end{earg}
 There is even a third reading! Suppose we're talking about young animals and their characteristics. And suppose you wanted to say that of all the young animals, only the cats are playful. You could symbolize this reading as:
 \begin{earg}
-	\item[] $\forall x(({Y}{x} \eand {P}{x}) \eif {C}{x})$
+	\prem $\forall x(({Y}{x} \eand {P}{x}) \eif {C}{x})$
 \end{earg}
 Each of the last two readings can be made salient in English by placing the stress appropriately. For instance, to suggest the last reading, you would say `Only young \emph{cats} are playful', and to get the other reading you would say `Only \emph{young} cats are playful'.  The very first reading can be indicate by stressing both `young' and `cats': `Only \emph{young cats} are playful' (but not old cats, or dogs of any age).
 
@@ -1323,8 +1323,8 @@ In sections \ref{ss:OrderQuant} and \ref{ss:SuppQuant} we discussed the importan
 \end{earg}
 This sentence is ambiguous.  In one interpretatation, it means that there is a single movie that everyone went to see. In the  other, it means that everyone went to see some movie or other, but not necessarily the same one. The two readings can be symbolized, respectively, by
 \begin{earg}
-	\item[] $\exists x({M}{x} \eand \forall y({P}{y} \eif {S}{y,x}))$
-	\item[] $\forall y({P}{y} \eif \exists x({M}{x} \eand {S}{y,x}))$
+	\prem $\exists x({M}{x} \eand \forall y({P}{y} \eif {S}{y,x}))$
+	\prem $\forall y({P}{y} \eif \exists x({M}{x} \eand {S}{y,x}))$
 \end{earg}
 We assume here that the domain contains (at least) people and movies, and the symbolization key,
 \begin{ekey}
