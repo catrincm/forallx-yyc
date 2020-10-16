@@ -656,18 +656,22 @@ T&F&\textbf{T}&&F&T&F&F\\
 F&T&\textbf{T}&&F&F&F&T\\
 F&F&\textbf{T}&&F&T&T&T
 \end{tabular}
-\end{center}and highlight the column under the main connective, which provides our final answer. This is more concise and is more useful when we want to apply tricks to miss out some of the gaps by using strategies such as knowing that $\metaX$ is false is already enough to see that $\metaX\eand\metaY$ is false, we don't need to continue to work out the truth value of $\metaY$.
+\end{center}and highlight the column under the main connective, which provides our final answer. You should feel free to use whichever method you find easier.
 
-You should feel free to use whichever method you find easier.
+There are tricks that mean you can miss out some of the gaps by using strategies such as: knowing that $\metaX$ is false is already enough to see that $\metaX\eand\metaY$ is false, so we don't need to continue to work out the truth value of $\metaY$. These ``shortcuts'' are discussed in \S\ref{s:PartialTruthTable}, but we won't read it in this course. 
 
-\section{Building complete truth tables}
-A \define{complete truth table} has a line for every possible assignment of True and False to the relevant atomic sentences. Each line represents a \emph{valuation}, and a complete truth table has a line for all the different valuations.
 
-\newglossaryentry{complete truth table}
+
+%A \define{complete truth table} has a line for every possible assignment of True and False to the relevant atomic sentences. Each line represents a \emph{valuation}, and a complete truth table has a line for all the different valuations.
+
+\newglossaryentry{truth table}
 {
-name=complete truth table,
+name=truth table,
 description={A table that gives all the possible \glspl{truth value} for a \gls{sentence of TFL} or sentences in TFL, with a line for every possible \gls{valuation} of all atomic sentences}
 }
+
+\section{The possible valuations}
+
 
 The size of the complete truth table depends on the number of different atomic sentences in the table. A sentence that contains only one atomic sentence requires only two rows, as in the characteristic truth table for negation. This is true even if the same letter is repeated many times, as in the sentence
 `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$'.
@@ -995,7 +999,7 @@ If you want additional practice, you can construct truth tables for any of the s
 
 In the previous section, we introduced the idea of a valuation and showed how to determine the truth value of any TFL sentence, on any valuation, using a truth table. In this section, we will introduce some related ideas, and show how to use truth tables to test whether or not they apply.
 
-\section{Entailment and validity}
+\section{Validity}
 Logic is particularly useful for evaluating arguments, in particular to help us see if an argument is \emph{valid}: logic can help us see if an argument is valid in virtue of its form. \todo{replace the $\therefore$ symbol?}
 
 Now, since we are going to be talking about arguments a lot, we will introduce some abbreviation. An argument had the form:
@@ -1008,6 +1012,8 @@ Now, since we are going to be talking about arguments a lot, we will introduce s
 \end{earg}
 We can write this more concisely as: $$\metaX_1, \metaX_2, \ldots, \metaX_n\therefore \metaY$$ The $\therefore$ symbol can be read out loud as `therefore'. (When typing any answers out in word, you can replace it with `Therefore'.)
 
+This is an argument, which may be valid or not. 
+
 In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if it's impossible for all the premises to be true and the conclusion false. We investigated validity as it applies to English language arguments, but we also have TFL arguments. The logical substitute notion of validity replaces `impossible' by `\emph{logically} impossible', where logical impossibility is characterised by there being no valuations with the property of interest.
 \factoidbox{
 	The TFL argument `$\metaX_1, \metaX_2, \ldots, \metaX_n\therefore \metaY$' is \define{valid} iff there are no valuations where the premises are true and the conclusion false.
@@ -1018,7 +1024,11 @@ In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if 
 	text = logically valid,
 	description={A property held by arguments if and only if no \gls{valuation} makes all premises true and the conclusion false}
 }
-We will be using validity a lot in this course, and we have a corresponding notion that makes the claim that an argument is valid: that is the notion of \emph{entailment}.
+
+
+
+Validity is a property of an \emph{argument}. 
+If we want to talk about the conclusion being a consequence of the premises, we use the term `\emph{entails}'.
 \factoidbox{
 	The TFL sentences $\metaX_1, \metaX_2, \ldots, \metaX_n$ \define{entail} the sentence $\metaY$ iff there are no valuations where all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true and $\metaY$ false.
 }
@@ -1028,25 +1038,29 @@ We will be using validity a lot in this course, and we have a corresponding noti
 	text = entailment,
 	description={Some sentences entail another if and only if no \gls{valuation} makes all the former sentences true and the latter false, i.e.~if the corresponding argument is valid.}
 }
+%
+%We can see that entailment and validity are sister-notions:
+%\factoidbox{
+%		$\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\metaY$ iff $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \metaY$ is valid.
+%	}
+An argument is valid if and only if its premises entail its conclusion. 
 
-We can see that entailment and validity are sister-notions:
-\factoidbox{
-		$\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\metaY$ iff $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \metaY$ is valid.
-	}
-
-It is easy to for entailment this with a truth table. Let us check whether `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$', we simply need to check whether there is any valuation which makes both `$\enot L \eif (J \eor L)$' and `$\enot L$' true whilst making `$J$' false. So we use a truth table:
+It is easy to check for this with a truth table. 
+Consider the argument: 
+$$\enot L \eif (J \eor L),\enot L\therefore J$$
+We need to check whether there is any valuation which makes both $\enot L \eif (J \eor L)$ and $\enot L$ true whilst making $J$ false. So we use a truth table:
 \begin{center}
 	\begin{tabular}{c c|d e e e e f|d f| c}
 		$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
 		\hline
 		%J   L   -   L      ->     (J   v   L)
-		T & T & F & T & \TTbf{T} & T & T & T & \TTbf{F} & T & \TTbf{T}\\
-		T & F & T & F & \TTbf{T} & T & T & F & \TTbf{T} & F & \TTbf{T}\\
-		F & T & F & T & \TTbf{T} & F & T & T & \TTbf{F} & T & \TTbf{F}\\
-		F & F & T & F & \TTbf{F} & F & F & F & \TTbf{T} & F & \TTbf{F}
+		T & T & F &  & \TTbf{T} &  & T &  & \TTbf{F} &  & \TTbf{T}\\
+		T & F & T &  & \TTbf{T} &  & T &  & \TTbf{T} &  & \TTbf{T}\\
+		F & T & F &  & \TTbf{T} &  & T &  & \TTbf{F} &  & \TTbf{F}\\
+		F & F & T &  & \TTbf{F} &  & F &  & \TTbf{T} &  & \TTbf{F}
 	\end{tabular}
 \end{center}
-The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true is the second row, and that is a row on which `$J$' is also true. So `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$'.
+The only row on which both `$\enot L \eif (J \eor L)$' and `$\enot L$' are true is the second row, and that is a row on which `$J$' is also true. So `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$'.
 
 %We now make an important observation:
 %\factoidbox{
@@ -1054,26 +1068,8 @@ The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true i
 %}
 %Here's why. If $\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\metaY$, then there is no valuation which makes all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true whilst making $\metaY$ false. This means that it is \emph{logically impossible} for $\metaX_1, \metaX_2, \ldots, \metaX_n$ all to be true whilst $\metaY$ is false. But this is just what it takes for an argument, with premises $\metaX_1, \metaX_2, \ldots, \metaX_n$ and conclusion $\metaY$, to be valid!
 
-In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\metaX_1, \metaX_2, \ldots, \metaX_n$, and conclusion $\metaY$. Then we test for entailment using truth tables.
+In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\metaX_1, \metaX_2, \ldots, \metaX_n$, and conclusion $\metaY$. Then we check whether they are valid using truth tables. 
 
-\subsection{The double-turnstile}
-We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\metaX_1, \metaX_2, \ldots$ and $\metaX_n$ together entail $\metaY$, we will abbreviate this by:
-$$\metaX_1, \metaX_2, \ldots, \metaX_n \entails \metaY$$
-The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
-
-Let me be clear. `$\entails$' is not a symbol of TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from \S\ref{s:UseMention}). So the metalanguage sentence:
-\begin{ebullet}
-	\item $P, P \eif Q \entails Q$
-\end{ebullet}
-is just an abbreviation for the English sentence:
-\begin{ebullet}
-	\item The TFL sentences `$P$' and `$P \eif Q$' entail `$Q$'
-\end{ebullet}
-Note that there is no limit on the number of TFL sentences that can be mentioned before the symbol `$\entails$'. Indeed, we can even consider the limiting case:
-$$\entails \metaY$$
-This says that there is no valuation which makes all the sentences mentioned on the left hand side of `$\entails$' true whilst making $\metaY$ false. Since \emph{no} sentences are mentioned on the left hand side of `$\entails$' in this case, this just means that there is no valuation which makes $\metaY$ false. Otherwise put, it says that every valuation makes $\metaY$ true. Otherwise put, it says that $\metaY$ is a tautology. Equally:
-$$\metaX \entails$$
-says that $\metaX$ is a contradiction.
 
 \subsection{`$\entails$' versus `$\eif$'}
 We now want to compare and contrast `$\entails$' and `$\eif$'.
@@ -1096,7 +1092,7 @@ We have similar substitutes for the notions we introduced in \S\ref{s:BasicNotio
 \newglossaryentry{tautology}
 {
 name=tautology,
-description={A sentence that has only Ts in the column under the main logical operator of its \gls{complete truth table}; a sentence that is true on every \gls{valuation}}
+description={A sentence that is true on every \gls{valuation}}
 }
 
 We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every line of a complete truth table, then it is true on every valuation, so it is a tautology. In the example of \S\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology.
@@ -1122,7 +1118,7 @@ We have a similar surrogate for necessary falsity:
 {
   name=contradiction (of TFL),
   text = contradiction,
-description={A sentence that has only Fs in the column under the main logical operator of its \gls{complete truth table}; a sentence that is false on every \gls{valuation}}
+description={A sentence that is false on every \gls{valuation}}
 }
 
 We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every line of a complete truth table, then it is false on every valuation, so it is a contradiction.
@@ -1140,9 +1136,8 @@ Here is a similar useful notion:
 {
   name=logical equivalence (in TFL),
   text = logically equivalent,
-description={A property held by pairs of sentences if and only if the \gls{complete truth table} for those sentences has identical columns under the two main logical operators, i.e., if the sentences have the same truth value on every valuation}
+description={A property held by pairs of sentences if and only if the sentences have the same truth value on every valuation}
 }
-
 We have already made use of this notion, in effect, in \S\ref{s:MoreBracketingConventions}; the point was that `$(A \eand B) \eand C$' and  `$A \eand (B \eand C)$' are logically equivalent. Again, it is easy to test for logical equivalence using truth tables. Consider the sentences `$\enot(P \eor Q)$' and `$\enot P \eand \enot Q$'. Are they logically equivalent? To find out, we construct a truth table.
 \begin{center}
 \begin{tabular}{c c|d e e f |d e e e f}
@@ -1167,7 +1162,7 @@ In \S\ref{s:BasicNotions}, we said that sentences are jointly possible iff it is
 {
   name=logical consistency (in TFL),
   text=jointly logically consistent,
-description={A property held by sentences if and only if the \gls{complete truth table} for those sentences contains one line on which all the sentences are true, i.e., if some \gls{valuation} makes all the sentences true}
+description={A property held by sentences if and only if there is some \gls{valuation} that makes all the sentences true}
 }
 
 Derivatively, sentences are jointly logically inconsistent if there is no valuation that makes them all true. Again, it is easy to test for joint logical consistency using truth tables.

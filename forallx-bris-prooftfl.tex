@@ -1093,128 +1093,6 @@ Give a proof for each of these arguments:
 
 
 
-\chapter{Proof-theoretic concepts}\label{s:ProofTheoreticConcepts}
-\nonexaminable
-
-In this chapter we will introduce some new vocabulary. The following expression:
-$$\metaX_1, \metaX_2, \ldots, \metaX_n \proves \metaZ$$
-means that there is some proof which starts with assumptions among $\metaX_1, \metaX_2, \ldots, \metaX_n$ and ends with $\metaZ$ (and contains no undischarged assumptions other than those we started with). Derivatively, we will write:
-$$\proves \metaX$$
-to mean that there is a proof of $\metaX$ with no assumptions. 
-
-The symbol `$\proves$' is called the \emph{single turnstile}. We want to emphasize that this is not the {double turnstile} symbol (`$\entails$') that we introduced in chapter~\ref{s:SemanticConcepts} to symbolize entailment. The single turnstile, `$\proves$', concerns the existence of proofs; the double turnstile, `$\entails$', concerns the existence of valuations (or interpretations, when used for FOL). \emph{They are very different notions.}
-
-Armed with our `$\proves$' symbol, we can introduce some new terminology.
-	\factoidbox{\label{def:syntactic_tautology_in_sl}
-		$\metaX$ is a \define{theorem} iff $\proves \metaX$
-	}
-\newglossaryentry{theorem}
-{
-name=theorem,
-description={A sentence that can be proved without any premises}
-}
-
-        To illustrate this, suppose we want to prove that `$\enot (A \eand \enot A)$' is a theorem. So we must start our proof without \emph{any} assumptions. However, since we want to prove a sentence whose main logical operator is a negation, we will want to  immediately begin a subproof, with the additional assumption `$A \eand \enot A$', and show that this leads to contradiction. All told, then, the proof looks like this:
-	\begin{pf}
-		\open
-			\hypo{con}{A \eand \enot A}
-			\have{a}{A}\ae{con}
-			\have{na}{\enot A}\ae{con}
-			\have{red}{\ered}\ri{a, na}
-		\close
-	\have{conxx}{(A \eand \enot A) \to \ered}{\ci{con-red}}
-		\have{lnc}{\enot (A \eand \enot A)}\ni{conxx}%\ni{con-red}
-	\end{pf}
-We have therefore proved `$\enot (A \eand \enot A)$' on no (undischarged) assumptions. This particular theorem is an instance of what is sometimes called \emph{the Law of Non-Contradiction}.
-
-To show that something is a theorem, you just have to find a suitable proof. It is typically much harder to show that something is \emph{not} a theorem. To do this, you would have to demonstrate, not just that certain proof strategies fail, but that \emph{no} proof is possible. Even if you fail in trying to prove a sentence in a thousand different ways, perhaps the proof is just too long and complex for you to make out. Perhaps you just didn't try hard enough.
-
-Here is another new bit of terminology:
-	\factoidbox{
-		Two sentences \metaX and \metaY are \define{provably equivalent} iff each can be proved from the other; i.e., both $\metaX\proves\metaY$ and $\metaY\proves\metaX$.
-	}
-        
-\newglossaryentry{provably equivalent}
-{
-  name=provable equivalence,
-  text = provably equivalent,
-description={A property held by pairs of statements if and only if there is a derivation which takes you from each one to the other one}
-}
-
-
-As in the case of showing that a sentence is a theorem, it is relatively easy to show that two sentences are provably equivalent: it just requires a pair of proofs. Showing that sentences are \emph{not} provably equivalent would be much harder: it is just as hard as showing that a sentence is not a theorem. 
-
-Here is a third, related, bit of terminology:
-	\factoidbox{
-		The sentences $\metaX_1,\metaX_2,\ldots, \metaX_n$ are \define{provably inconsistent} iff a contradiction can be proved from them, i.e.\ $\metaX_1,\metaX_2,\ldots, \metaX_n \proves \ered$. If they are not \define{inconsistent}, we call them \define{provably consistent}.
-	}
-        
-\newglossaryentry{provably inconsistent}
-{    name={provable inconsistency}, 
-  description={Sentences are provably inconsistent iff a contradiction can be derived from them},
-    text={provably inconsistent}
-}
-
-        It is easy to show that some sentences are provably inconsistent: you just need to prove a contradiction from assuming all the sentences. Showing that some sentences are not provably inconsistent is much harder. It would require more than just providing a proof or two; it would require showing that no proof of a certain kind is \emph{possible}.
-
-\
-\\
-This table summarises whether one or two proofs suffice, or whether we must reason about all possible proofs.
-
-\begin{center}
-\begin{tabular}{l l l}
-%\cline{2-3}
- & \textbf{Yes} & \textbf{No}\\
- \hline
-%\cline{2-3}
-theorem? & one proof & all possible proofs\\
-inconsistent? &  one proof  & all possible proofs\\
-equivalent? & two proofs & all possible proofs\\
-consistent? & all possible proofs & one proof\\
-\end{tabular}
-\end{center}
-
-
-\practiceproblems
-\problempart
-Show that each of the following sentences is a theorem:
-\begin{earg}
-\item $O \eif O$
-\item $N \eor \enot N$
-\item $J \eiff [J\eor (L\eand\enot L)]$
-\item $((A \eif B) \eif A) \eif A$ 
-\end{earg}
-
-\problempart
-Provide proofs to show each of the following:
-\begin{earg}
-\item $C\eif(E\eand G), \enot C \eif G \proves G$
-\item $M \eand (\enot N \eif \enot M) \proves (N \eand M) \eor \enot M$
-\item $(Z\eand K)\eiff(Y\eand M), D\eand(D\eif M) \proves Y\eif Z$
-\item $(W \eor X) \eor (Y \eor Z), X\eif Y, \enot Z \proves W\eor Y$
-\end{earg}
-
-\problempart
-Show that each of the following pairs of sentences are provably equivalent:
-\begin{earg}
-\item $R \eiff E$, $E \eiff R$
-\item $G$, $\enot\enot\enot\enot G$
-\item $T\eif S$, $\enot S \eif \enot T$
-\item $U \eif I$, $\enot(U \eand \enot I)$
-\item $\enot (C \eif D), C \eand \enot D$
-\item $\enot G \eiff H$, $\enot(G \eiff H)$ 
-\end{earg}
-
-\problempart
-If you know that $\metaX\proves\metaY$, what can you say about $(\metaX\eand\metaZ)\proves\metaY$? What about $(\metaX\eor\metaZ)\proves\metaY$? Explain your answers.
-
-\
-
-\problempart In this chapter, we claimed that it is just as hard to show that two sentences are not provably equivalent, as it is to show that a sentence is not a theorem. Why did we claim this? (\emph{Hint}: think of a sentence that would be a theorem iff \metaX and \metaY were provably equivalent.)
-
-
-
-
 
 \chapter{Proof strategies}
 There is no simple recipe for proofs, and there is no substitute for practice. Here, though, are some rules of thumb and strategies to keep in mind.
@@ -1417,24 +1295,170 @@ Provide proof schemes that justify the addition of the third and fourth De Morga
 \problempart
 The proofs you offered in response to the practice exercises of \S\S\ref{s:Further}--\ref{s:ProofTheoreticConcepts} used derived rules. Replace the use of derived rules, in such proofs, with only basic rules. You will find some `repetition' in the resulting proofs; in such cases, offer a streamlined proof using only basic rules.  (This will give you a sense, both of the power of derived rules, and of how all the rules interact.)
 
+
 \chapter{Soundness and completeness}
 \label{sec:soundness_and_completeness}\nonexaminable
+\section{Entails}
+For this chapter we will make use of a further symbols: 
+%\subsection{The double-turnstile}
+%We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\metaX_1, \metaX_2, \ldots$ and $\metaX_n$ together entail $\metaY$, we will abbreviate this by:
+%$$\metaX_1, \metaX_2, \ldots, \metaX_n \entails \metaY$$
+%The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
+%
+%Let me be clear. `$\entails$' is not a symbol of TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from \S\ref{s:UseMention}). So the metalanguage sentence:
+%\begin{ebullet}
+%	\item $P, P \eif Q \entails Q$
+%\end{ebullet}
+%is just an abbreviation for the English sentence:
+%\begin{ebullet}
+%	\item The TFL sentences `$P$' and `$P \eif Q$' entail `$Q$'
+%\end{ebullet}
+%Note that there is no limit on the number of TFL sentences that can be mentioned before the symbol `$\entails$'. Indeed, we can even consider the limiting case:
+%$$\entails \metaY$$
+%This says that there is no valuation which makes all the sentences mentioned on the left hand side of `$\entails$' true whilst making $\metaY$ false. Since \emph{no} sentences are mentioned on the left hand side of `$\entails$' in this case, this just means that there is no valuation which makes $\metaY$ false. Otherwise put, it says that every valuation makes $\metaY$ true. Otherwise put, it says that $\metaY$ is a tautology. Equally:
+%$$\metaX \entails$$
+%says that $\metaX$ is a contradiction.
 
-In \S\ref{s:ProofTheoreticConcepts}, we saw that we could use derivations to test for the same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a sentence is a tautology or a pair of sentences are equivalent. We also started using the single turnstile the same way we used the double turnstile. If we could prove that \metaX was a tautology with a truth table, we wrote $\entails \metaX$, and if we could prove it using a derivation, we wrote $\proves \metaX.$ 
+\label{doubleTurnstile}
+We use the symbol $\entails$ as shorthand for `entails'. 
+Rather than saying that the TFL sentences $\metaX_1, \metaX_2, \ldots$ and $\metaX_n$ together entail $\metaY$, we will abbreviate this by:
+$$\metaX_1, \metaX_2, \ldots, \metaX_n \entails \metaY$$
+The symbol `$\entails$' is known as \emph{the double-turnstile}, since it looks like a turnstile with two horizontal beams.
 
-You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \metaX is a tautology using truth tables, can you also always show that it is true using a derivation? Is the reverse true? Are these things also true for tautologies and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, valid$_{\entails}$ and  valid$_{\proves}$ and then show that the two concepts always work the same way. 
+Let me be clear. `$\entails$' is not a symbol of TFL. Rather, it is a symbol of our metalanguage, augmented English (recall the difference between object language and metalanguage from \S\ref{s:UseMention}). So the metalanguage sentence:
+\begin{ebullet}
+	\item $P, P \eif Q \entails Q$
+\end{ebullet}
+is just an abbreviation for the English sentence:
+\begin{ebullet}
+	\item The TFL sentences `$P$' and `$P \eif Q$' entail `$Q$'
+\end{ebullet}
+Note that there is no limit on the number of TFL sentences that can be mentioned before the symbol `$\entails$'. Indeed, we can even consider the limiting case:
+$$\entails \metaY$$
 
-To begin with, we need to define all of our logical concepts separately for truth tables and derivations. A lot of this work has already been done. We handled all of the truth table definitions in \S\ref{s:SemanticConcepts}. We have also already given syntactic definitions for tautologies (theorems) and pairs of logically equivalent sentences. The other definitions follow naturally. For most logical properties we can devise a test using derivations, and those that we cannot test for directly can be defined in terms of the concepts that we can define.
+\section{Proves}
+The following expression:
+$$\metaX_1, \metaX_2, \ldots, \metaX_n \proves \metaY$$
+means that there is some proof which starts with assumptions among $\metaX_1, \metaX_2, \ldots, \metaX_n$ and ends with $\metaY$ (and contains no undischarged assumptions other than those we started with). Derivatively, we will write:
+$$\proves \metaX$$
+to mean that there is a proof of $\metaX$ with no assumptions. 
 
-For instance, we defined a theorem as a sentence that can be derived without any premises (p.~\pageref{def:syntactic_tautology_in_sl}). Since the negation of a contradiction is a tautology, we can define a \define{syntactic contradiction in TFL} \label{def:syntactic_contradiction_in_sl} as a sentence whose negation can be derived without any premises. The syntactic definition of a contingent sentence is a little different. We don't have any practical, finite method for proving that a sentence is contingent using derivations, the way we did using truth tables. So we have to content ourselves with defining ``contingent sentence'' negatively. A sentence is \define{{syntactically contingent in TFL}} \label{def:syntactically_contingent_in_sl} if it is not a theorem or a contradiction. 
- 
+The symbol `$\proves$' is called the \emph{single turnstile}. We want to emphasize that this is not the {double turnstile} symbol (`$\entails$') that we introduced in chapter~\ref{s:SemanticConcepts} to symbolize entailment. The single turnstile, `$\proves$', concerns the existence of proofs; the double turnstile, `$\entails$', concerns the existence of valuations (or interpretations, when used for FOL). \emph{They are very different notions.}
 
-A collection of sentences are \define{provably inconsistent in TFL} \label{def:syntactically_inconsistent_ in_sl} if and only if one can derive a contradiction from them. Consistency, on the other hand, is like contingency, in that we do not have a practical finite method to test for it directly. So again, we have to define a term negatively. A collection of  sentences is \define{provably consistent in TFL} \label{def:syntactically consistent in SL} if and only if they are not provably inconsistent.
+
+
+%A full proof here goes well beyond the scope of this book. However, we can sketch what it would be like. We will focus on showing the two notions of validity to be equivalent.  From that the other concepts will follow quickly. The proof will have to go in two directions. First we will have to show that things which are syntactically valid will also be semantically valid. In other words, everything that we can prove using derivations could also be proven using truth tables. Put symbolically, we want to show that valid$_{\proves}$ implies valid$_{\entails}$. Afterwards, we will need to show things in the other directions,  valid$_{\entails}$ implies valid$_{\proves}$
+
+\section{Their equivalence}
+However, it turns out that they are equivalent. 
+That is:
+\begin{center}
+$\metaX_1, \metaX_2, \ldots, \metaX_n \proves \metaY$\\if and only if\\
+$\metaX_1, \metaX_2, \ldots, \metaX_n \entails \metaY$
+\end{center}
+A full proof here goes well beyond the scope of this book. However, we can sketch what it would be like.
+
+\subsection{Soundness}
+
+\newglossaryentry{soundness}
+{
+name=soundness,
+description={A property held by logical systems if and only if $\proves $ implies $\entails $}
+}
+This argument from $\proves $ to $\entails $ is the problem of \define{\gls{soundness}}. \label{def:soundness} A proof system is \define{sound} if there are no derivations of arguments that can be shown invalid by truth tables. \label{def_Soundness} Demonstrating that the proof system is sound would require showing that \emph{any} possible proof is the proof of a valid argument. It would not be enough simply to succeed when trying to prove many valid arguments and to fail when trying to prove invalid ones.
+
+The proof that we will sketch depends on the fact that we initially defined a sentence of TFL using a recursive definition (see p.~\pageref{TFLsentences}). We could have also used recursive definitions to define a proper proof in TFL and a proper truth table. \nix{Later this will be a truth assignment}(Although we didn't.) If we had these definitions, we could then use a \emph{recursive proof} to show the soundness of TFL. A recursive proof works the same way as a recursive definition. With the recursive definition, we identified a group of base elements that were stipulated to be examples of the thing we were trying to define. In the case of a TFL sentence, the base class was the set of sentence letters $A$, $B$, $C$, \dots. We just announced that these were sentences. The second step of a recursive definition is to say that anything that is built up from your base class using certain rules also counts as an example of the thing you are defining. In the case of a definition of a sentence, the rules corresponded to the five sentential connectives (see p.~\pageref{TFLsentences}). Once you have established a recursive definition, you can use that definition to show that all the members of the class you have defined have a certain property. You simply prove that the property is true of the members of the base class, and then you prove that the rules for extending the base class don't change the property. This is what it means to give a recursive proof.
+
+Even though we don't have a recursive definition of a proof in TFL, we can sketch how a recursive proof of the soundness of TFL would go. Imagine a base class of one-line proofs, one for each of our 
+%eleven 
+basic
+rules of inference. The members of this class would look like this $\metaX, \metaY \proves  \metaX \eand \metaY$; $\metaX \eand \metaY \proves \metaX$; $\metaX \eor \metaY, \enot\metaX \proves  \metaY$ \ldots{} etc. Since some rules have a couple different forms, we would have to have add some members to this base class, for instance $\metaX \eand \metaY \proves  \metaY$ Notice that these are all statements in the metalanguage. The proof that TFL is sound is not a part of TFL, because TFL does not have the power to talk about itself. 
+
+You can use truth tables to prove to yourself that each of these one-line proofs in this base class is valid$_{\entails}$. For instance the proof $\metaX, \metaY \proves \metaX \eand \metaY$ corresponds to a truth table that shows $\metaX, \metaY \entails  \metaX \eand \metaY$ This establishes the first part of our recursive proof. 
+
+The next step is to show that adding lines to any proof will never change a valid$_{\entails}$ proof into an invalid$_{\entails}$ one. We would need to do this for each of our 
+%eleven 
+basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\metaX_{1}$, \dots, $\metaX_{n} \proves  \metaY$ adding a line where we use \eand{I} to infer $\metaZ \eand V$, where $\metaZ \eand V$ can be legitimately inferred from $\metaX_{1}$, \dots, $\metaX_{n}$,~$\metaY$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\metaZ \eand V$ from these premises, then $\metaZ$ and $V$ must be already available in the proof. They are either already among $\metaX_{1}$, \dots, $\metaX_{n}$,~$\meta {B}$, or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \metaZ and V are true. According to the characteristic truth table for \eand, this means that $\metaZ \eand V$ is also true on that line. Therefore, $\metaZ \eand V$ validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
+
+In order to show that the proof system is sound, we would need to show this for the other inference rules. Since the derived rules are consequences of the basic rules, it would suffice to provide similar arguments for the 
+%11 
+other basic rules. This tedious exercise falls beyond the scope of this book.
+
+So we have shown that $\metaX \proves  \metaY$ implies $\metaX \entails \metaY.$ What about the other direction, that is why think that \emph{every} argument that can be shown valid using truth tables can also be proven using a derivation. 
+
+\subsection{Completeness}
+\newglossaryentry{completeness}
+{
+name=completeness,
+description={A property held by logical systems if and only if $\entails $ implies $\proves $}
+}
+
+This is the problem of completeness. A proof system has the property of  \define{\gls{completeness}} \label{def:completeness} if and only if there is a derivation of every semantically valid argument. Proving that a system is complete is generally harder than proving that it is sound. Proving that a system is sound amounts to showing that all of the rules of your proof system work the way they are supposed to. Showing that a system is complete means showing that you have included \emph{all} the rules you need, that you haven't left any out. Showing this is beyond the scope of this book. The important point is that, happily, the proof system for TFL is both sound and complete. This is not the case for all proof systems or all formal languages. Because it is true of TFL, we can choose to give proofs or give truth tables---whichever is easier for the task at hand.
+
+
+\section{Other Semantic and Proof Theoretic Notions}
+
+%In \S\ref{s:ProofTheoreticConcepts}, we saw that we could use derivations to test for the same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a sentence is a tautology or a pair of sentences are equivalent. %We also started using the single turnstile the same way we used the double turnstile. If we could prove that \metaX was a tautology with a truth table, we wrote $\entails \metaX$, and if we could prove it using a derivation, we wrote $\proves \metaX.$ 
+%
+%You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \metaX is a tautology using truth tables, can you also always show that it is true using a derivation? Is the reverse true? Are these things also true for tautologies and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, valid$_{\entails}$ and  valid$_{\proves}$ and then show that the two concepts always work the same way. 
+
+
+%These were all defined with truth tables, but we can also provide proof-theoretic versions of them. 
+%
+%To begin with, we need to define all of our logical concepts separately for truth tables and derivations. A lot of this work has already been done. We handled all of the truth table definitions in \S\ref{s:SemanticConcepts}. We have also already given syntactic definitions for tautologies (theorems) and pairs of logically equivalent sentences. The other definitions follow naturally. For most logical properties we can devise a test using derivations, and those that we cannot test for directly can be defined in terms of the concepts that we can define.
+%
+%For instance, we defined a theorem as a sentence that can be derived without any premises (p.~\pageref{def:syntactic_tautology_in_sl}). Since the negation of a contradiction is a tautology, we can define a \define{syntactic contradiction in TFL} \label{def:syntactic_contradiction_in_sl} as a sentence whose negation can be derived without any premises. The syntactic definition of a contingent sentence is a little different. We don't have any practical, finite method for proving that a sentence is contingent using derivations, the way we did using truth tables. So we have to content ourselves with defining ``contingent sentence'' negatively. A sentence is \define{{syntactically contingent in TFL}} \label{def:syntactically_contingent_in_sl} if it is not a theorem or a contradiction. 
+% 
+%
+%A collection of sentences are \define{provably inconsistent in TFL} \label{def:syntactically_inconsistent_ in_sl} if and only if one can derive a contradiction from them. Consistency, on the other hand, is like contingency, in that we do not have a practical finite method to test for it directly. So again, we have to define a term negatively. A collection of  sentences is \define{provably consistent in TFL} \label{def:syntactically consistent in SL} if and only if they are not provably inconsistent.
+%    
+%
+%Finally, an argument is \define{provably valid in TFL} \label{def:syntactically_valid_in_SL} if and only if there is a derivation of its conclusion from its premises. All of these definitions are given in Table \ref{table:truth_tables_or_derivations}.
+%
+%
+%\begin{sidewaystable}
+%\tabulinesep=1ex
+%\begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
+%\textbf{Concept} 		&	\textbf{Truth table (semantic) definition} 	&	\textbf{Proof-theoretic (syntactic) definition} \\ \hline \hline
+%
+%Tautology   &	A sentence whose truth table only has Ts under the main connective & A sentence that can be derived without any premises.	 \\ \hline
+% 
+%Contradiction		&	A sentence whose truth table only has Fs under the main connective  &	A sentence whose negation can be derived without any premises\\ \hline
+%
+%Contingent sentence	&	A sentence whose truth table contains both Ts and Fs under the main connective & A sentence that is not a theorem or contradiction \\ \hline
+%
+%Equivalent sentences &	The columns under the main connectives are identical.& The sentences can be derived from each other	\\ \hline
+%
+%Inconsistent sentences	&	Sentences which do not have a single line in their truth table where they are all true.	& Sentences  from which one can derive a contradiction \\ \hline
+%
+%Consistent sentences	&	Sentences which have at least one line in their truth table where they are all true. & Sentences which are not inconsistent	\\ \hline
+%
+%Valid argument		&	An argument whose truth table has no lines where there are all Ts under main connectives for the premises and an F under the main connective for the conclusion.  & An argument where one can derive the conclusion from the premises	\\ 
+%\end{tabu}
+%\caption{Two ways to define logical concepts.}
+%\label{table:truth_tables_or_derivations}
+%\end{sidewaystable}
+%
+%Now that we know that the truth table method is interchangeable with the method of derivations, you can chose which method you want to use for any given problem. Students often prefer to use truth tables, because they can be produced  purely mechanically, and that seems `easier'. However, we have already seen that truth tables become impossibly large after just a few sentence letters. On the other hand, there are a couple situations where using proofs simply isn't possible. We syntactically defined a contingent sentence as a sentence that couldn't be proven to be a tautology or a contradiction. There is no practical way to prove this kind of negative statement. We will never know if there isn't some proof out there that a statement is a contradiction and we just haven't found it yet. We have nothing to do in this situation but resort to truth tables. Similarly, we can use derivations to prove two sentences equivalent, but what if we want to prove that they are \emph{not} equivalent? We have no way of proving that we will never find the relevant proof. So we have to fall back on truth tables again.
+
+Now we know that the proof theoretic and truth-table methods are equivalent, we can use them interchangable depending on which is more useful. 
+
+%In \S\ref{s:ProofTheoreticConcepts}, we saw that we could use derivations to test for the same concepts we used truth tables to test for. Not only could we use derivations to prove that an argument is valid, we could also use them to test if a sentence is a tautology or a pair of sentences are equivalent. %We also started using the single turnstile the same way we used the double turnstile. If we could prove that \metaX was a tautology with a truth table, we wrote $\entails \metaX$, and if we could prove it using a derivation, we wrote $\proves \metaX.$ 
+%
+%You may have wondered at that point if the two kinds of turnstiles always worked the same way. If you can show that \metaX is a tautology using truth tables, can you also always show that it is true using a derivation? Is the reverse true? Are these things also true for tautologies and pairs of equivalent sentences? As it turns out, the answer to all these questions and many more like them is yes. We can show this by defining all these concepts separately and then proving them equivalent. That is, we imagine that we actually have two notions of validity, valid$_{\entails}$ and  valid$_{\proves}$ and then show that the two concepts always work the same way. 
+%
+%To begin with, we need to define all of our logical concepts separately for truth tables and derivations. A lot of this work has already been done. We handled all of the truth table definitions in \S\ref{s:SemanticConcepts}. We have also already given syntactic definitions for tautologies (theorems) and pairs of logically equivalent sentences. The other definitions follow naturally. For most logical properties we can devise a test using derivations, and those that we cannot test for directly can be defined in terms of the concepts that we can define.
+%
+%For instance, we defined a theorem as a sentence that can be derived without any premises (p.~\pageref{def:syntactic_tautology_in_sl}). Since the negation of a contradiction is a tautology, we can define a \define{syntactic contradiction in TFL} \label{def:syntactic_contradiction_in_sl} as a sentence whose negation can be derived without any premises. The syntactic definition of a contingent sentence is a little different. We don't have any practical, finite method for proving that a sentence is contingent using derivations, the way we did using truth tables. So we have to content ourselves with defining ``contingent sentence'' negatively. A sentence is \define{{syntactically contingent in TFL}} \label{def:syntactically_contingent_in_sl} if it is not a theorem or a contradiction. 
+% 
+%
+%A collection of sentences are \define{provably inconsistent in TFL} \label{def:syntactically_inconsistent_ in_sl} if and only if one can derive a contradiction from them. Consistency, on the other hand, is like contingency, in that we do not have a practical finite method to test for it directly. So again, we have to define a term negatively. A collection of  sentences is \define{provably consistent in TFL} \label{def:syntactically consistent in SL} if and only if they are not provably inconsistent.
     
-
-Finally, an argument is \define{provably valid in TFL} \label{def:syntactically_valid_in_SL} if and only if there is a derivation of its conclusion from its premises. All of these definitions are given in Table \ref{table:truth_tables_or_derivations}.
-
-
+%
+%Finally, an argument is \define{provably valid in TFL} \label{def:syntactically_valid_in_SL} if and only if there is a derivation of its conclusion from its premises. All of these definitions are given in Table \ref{table:truth_tables_or_derivations}.
+%
+%
+We can also use proof theoretic methods for determining other logical notions, such as being consistent. We summarise how one would define them in \ref{table:truth_tables_or_derivations}
 \begin{sidewaystable}
 \tabulinesep=1ex
 \begin{tabu}{X[.5,c,m] ||X[1,l,m] |X[1,l,m]}
@@ -1458,48 +1482,10 @@ Valid argument		&	An argument whose truth table has no lines where there are all
 \label{table:truth_tables_or_derivations}
 \end{sidewaystable}
 
-All of our concepts have now been defined both semantically and syntactically. How can we prove that these definitions always work the same way? A full proof here goes well beyond the scope of this book. However, we can sketch what it would be like. We will focus on showing the two notions of validity to be equivalent.  From that the other concepts will follow quickly. The proof will have to go in two directions. First we will have to show that things which are syntactically valid will also be semantically valid. In other words, everything that we can prove using derivations could also be proven using truth tables. Put symbolically, we want to show that valid$_{\proves}$ implies valid$_{\entails}$. Afterwards, we will need to show things in the other directions,  valid$_{\entails}$ implies valid$_{\proves}$
+In fact, we can give general guidelines about when it's best to give proofs and when it is best to give truth tables. We do this in \ref{table.ProofOrModel}:
 
-\newglossaryentry{soundness}
-{
-name=soundness,
-description={A property held by logical systems if and only if $\proves $ implies $\entails $}
-}
 
-This argument from $\proves $ to $\entails $ is the problem of \define{\gls{soundness}}. \label{def:soundness} A proof system is \define{sound} if there are no derivations of arguments that can be shown invalid by truth tables. \label{def_Soundness} Demonstrating that the proof system is sound would require showing that \emph{any} possible proof is the proof of a valid argument. It would not be enough simply to succeed when trying to prove many valid arguments and to fail when trying to prove invalid ones.
-
-The proof that we will sketch depends on the fact that we initially defined a sentence of TFL using a recursive definition (see p.~\pageref{TFLsentences}). We could have also used recursive definitions to define a proper proof in TFL and a proper truth table. \nix{Later this will be a truth assignment}(Although we didn't.) If we had these definitions, we could then use a \emph{recursive proof} to show the soundness of TFL. A recursive proof works the same way as a recursive definition. With the recursive definition, we identified a group of base elements that were stipulated to be examples of the thing we were trying to define. In the case of a TFL sentence, the base class was the set of sentence letters $A$, $B$, $C$, \dots. We just announced that these were sentences. The second step of a recursive definition is to say that anything that is built up from your base class using certain rules also counts as an example of the thing you are defining. In the case of a definition of a sentence, the rules corresponded to the five sentential connectives (see p.~\pageref{TFLsentences}). Once you have established a recursive definition, you can use that definition to show that all the members of the class you have defined have a certain property. You simply prove that the property is true of the members of the base class, and then you prove that the rules for extending the base class don't change the property. This is what it means to give a recursive proof.
-
-Even though we don't have a recursive definition of a proof in TFL, we can sketch how a recursive proof of the soundness of TFL would go. Imagine a base class of one-line proofs, one for each of our 
-%eleven 
-basic
-rules of inference. The members of this class would look like this $\metaX, \metaY \proves  \metaX \eand \metaY$; $\metaX \eand \metaY \proves \metaX$; $\metaX \eor \metaY, \enot\metaX \proves  \metaY$ \ldots{} etc. Since some rules have a couple different forms, we would have to have add some members to this base class, for instance $\metaX \eand \metaY \proves  \metaY$ Notice that these are all statements in the metalanguage. The proof that TFL is sound is not a part of TFL, because TFL does not have the power to talk about itself. 
-
-You can use truth tables to prove to yourself that each of these one-line proofs in this base class is valid$_{\entails}$. For instance the proof $\metaX, \metaY \proves \metaX \eand \metaY$ corresponds to a truth table that shows $\metaX, \metaY \entails  \metaX \eand \metaY$ This establishes the first part of our recursive proof. 
-
-The next step is to show that adding lines to any proof will never change a valid$_{\entails}$ proof into an invalid$_{\entails}$ one. We would need to do this for each of our 
-%eleven 
-basic rules of inference. So, for instance, for \eand{I} we need to show that for any proof $\metaX_{1}$, \dots, $\metaX_{n} \proves  \metaY$ adding a line where we use \eand{I} to infer $\metaZ \eand V$, where $\metaZ \eand V$ can be legitimately inferred from $\metaX_{1}$, \dots, $\metaX_{n}$,~$\metaY$, would not change a valid proof into an invalid proof. But wait, if we can legitimately derive $\metaZ \eand V$ from these premises, then $\metaZ$ and $V$ must be already available in the proof. They are either already among $\metaX_{1}$, \dots, $\metaX_{n}$,~$\meta {B}$, or can be legitimately derived from them. As such, any truth table line in which the premises are true must be a truth table line in which \metaZ and V are true. According to the characteristic truth table for \eand, this means that $\metaZ \eand V$ is also true on that line. Therefore, $\metaZ \eand V$ validly follows from the premises. This means that using the {\eand}E rule to extend a valid proof produces another valid proof.
-
-In order to show that the proof system is sound, we would need to show this for the other inference rules. Since the derived rules are consequences of the basic rules, it would suffice to provide similar arguments for the 
-%11 
-other basic rules. This tedious exercise falls beyond the scope of this book.
-
-So we have shown that $\metaX \proves  \metaY$ implies $\metaX \entails \metaY.$ What about the other direction, that is why think that \emph{every} argument that can be shown valid using truth tables can also be proven using a derivation. 
-
-\newglossaryentry{completeness}
-{
-name=completeness,
-description={A property held by logical systems if and only if $\entails $ implies $\proves $}
-}
-
-This is the problem of completeness. A proof system has the property of  \define{\gls{completeness}} \label{def:completeness} if and only if there is a derivation of every semantically valid argument. Proving that a system is complete is generally harder than proving that it is sound. Proving that a system is sound amounts to showing that all of the rules of your proof system work the way they are supposed to. Showing that a system is complete means showing that you have included \emph{all} the rules you need, that you haven't left any out. Showing this is beyond the scope of this book. The important point is that, happily, the proof system for TFL is both sound and complete. This is not the case for all proof systems or all formal languages. Because it is true of TFL, we can choose to give proofs or give truth tables---whichever is easier for the task at hand.
-
-Now that we know that the truth table method is interchangeable with the method of derivations, you can chose which method you want to use for any given problem. Students often prefer to use truth tables, because they can be produced  purely mechanically, and that seems `easier'. However, we have already seen that truth tables become impossibly large after just a few sentence letters. On the other hand, there are a couple situations where using proofs simply isn't possible. We syntactically defined a contingent sentence as a sentence that couldn't be proven to be a tautology or a contradiction. There is no practical way to prove this kind of negative statement. We will never know if there isn't some proof out there that a statement is a contradiction and we just haven't found it yet. We have nothing to do in this situation but resort to truth tables. Similarly, we can use derivations to prove two sentences equivalent, but what if we want to prove that they are \emph{not} equivalent? We have no way of proving that we will never find the relevant proof. So we have to fall back on truth tables again.
-
-Table \ref{table.ProofOrModel} summarizes when it is best to give proofs and when it is best to give truth tables. 
-
-\begin{table}
+\begin{table}[h]
 \tabulinesep=1ex
 \begin{tabu}{X[.7,c,m] ||X[1,l,m] |X[1,l,m]}
 \textbf{Logical property} 	&	\textbf{To prove it present} 	&	\textbf{To prove it absent} \\ \hline \hline
@@ -1549,4 +1535,120 @@ Validity 				& Derive the conclusion from the premises & Find no line in the tru
 \item Show that $\enot \enot (C \eiff \enot C), ((G \eor C) \eor G) \therefore ((G \eif C) \eand G) $ is valid.
 \item Show that $ \enot \enot L,  (C \eif \enot L) \eif C) \therefore \enot C$ is invalid. 
 \end{enumerate}
+
+
+\chapter{Proof-theoretic concepts}\label{s:ProofTheoreticConcepts}
+\nonexaminable
+
+
+Armed with our `$\proves$' symbol, we can introduce some new terminology.
+	\factoidbox{\label{def:syntactic_tautology_in_sl}
+		$\metaX$ is a \define{theorem} iff $\proves \metaX$
+	}
+\newglossaryentry{theorem}
+{
+name=theorem,
+description={A sentence that can be proved without any premises}
+}
+
+        To illustrate this, suppose we want to prove that `$\enot (A \eand \enot A)$' is a theorem. So we must start our proof without \emph{any} assumptions. However, since we want to prove a sentence whose main logical operator is a negation, we will want to  immediately begin a subproof, with the additional assumption `$A \eand \enot A$', and show that this leads to contradiction. All told, then, the proof looks like this:
+	\begin{pf}
+		\open
+			\hypo{con}{A \eand \enot A}
+			\have{a}{A}\ae{con}
+			\have{na}{\enot A}\ae{con}
+			\have{red}{\ered}\ri{a, na}
+		\close
+	\have{conxx}{(A \eand \enot A) \to \ered}{\ci{con-red}}
+		\have{lnc}{\enot (A \eand \enot A)}\ni{conxx}%\ni{con-red}
+	\end{pf}
+We have therefore proved `$\enot (A \eand \enot A)$' on no (undischarged) assumptions. This particular theorem is an instance of what is sometimes called \emph{the Law of Non-Contradiction}.
+
+To show that something is a theorem, you just have to find a suitable proof. It is typically much harder to show that something is \emph{not} a theorem. To do this, you would have to demonstrate, not just that certain proof strategies fail, but that \emph{no} proof is possible. Even if you fail in trying to prove a sentence in a thousand different ways, perhaps the proof is just too long and complex for you to make out. Perhaps you just didn't try hard enough.
+
+Here is another new bit of terminology:
+	\factoidbox{
+		Two sentences \metaX and \metaY are \define{provably equivalent} iff each can be proved from the other; i.e., both $\metaX\proves\metaY$ and $\metaY\proves\metaX$.
+	}
+        
+\newglossaryentry{provably equivalent}
+{
+  name=provable equivalence,
+  text = provably equivalent,
+description={A property held by pairs of statements if and only if there is a derivation which takes you from each one to the other one}
+}
+
+
+As in the case of showing that a sentence is a theorem, it is relatively easy to show that two sentences are provably equivalent: it just requires a pair of proofs. Showing that sentences are \emph{not} provably equivalent would be much harder: it is just as hard as showing that a sentence is not a theorem. 
+
+Here is a third, related, bit of terminology:
+	\factoidbox{
+		The sentences $\metaX_1,\metaX_2,\ldots, \metaX_n$ are \define{provably inconsistent} iff a contradiction can be proved from them, i.e.\ $\metaX_1,\metaX_2,\ldots, \metaX_n \proves \ered$. If they are not \define{inconsistent}, we call them \define{provably consistent}.
+	}
+        
+\newglossaryentry{provably inconsistent}
+{    name={provable inconsistency}, 
+  description={Sentences are provably inconsistent iff a contradiction can be derived from them},
+    text={provably inconsistent}
+}
+
+        It is easy to show that some sentences are provably inconsistent: you just need to prove a contradiction from assuming all the sentences. Showing that some sentences are not provably inconsistent is much harder. It would require more than just providing a proof or two; it would require showing that no proof of a certain kind is \emph{possible}.
+
+\
+\\
+This table summarises whether one or two proofs suffice, or whether we must reason about all possible proofs.
+
+\begin{center}
+\begin{tabular}{l l l}
+%\cline{2-3}
+ & \textbf{Yes} & \textbf{No}\\
+ \hline
+%\cline{2-3}
+theorem? & one proof & all possible proofs\\
+inconsistent? &  one proof  & all possible proofs\\
+equivalent? & two proofs & all possible proofs\\
+consistent? & all possible proofs & one proof\\
+\end{tabular}
+\end{center}
+
+
+\practiceproblems
+\problempart
+Show that each of the following sentences is a theorem:
+\begin{earg}
+\item $O \eif O$
+\item $N \eor \enot N$
+\item $J \eiff [J\eor (L\eand\enot L)]$
+\item $((A \eif B) \eif A) \eif A$ 
+\end{earg}
+
+\problempart
+Provide proofs to show each of the following:
+\begin{earg}
+\item $C\eif(E\eand G), \enot C \eif G \proves G$
+\item $M \eand (\enot N \eif \enot M) \proves (N \eand M) \eor \enot M$
+\item $(Z\eand K)\eiff(Y\eand M), D\eand(D\eif M) \proves Y\eif Z$
+\item $(W \eor X) \eor (Y \eor Z), X\eif Y, \enot Z \proves W\eor Y$
+\end{earg}
+
+\problempart
+Show that each of the following pairs of sentences are provably equivalent:
+\begin{earg}
+\item $R \eiff E$, $E \eiff R$
+\item $G$, $\enot\enot\enot\enot G$
+\item $T\eif S$, $\enot S \eif \enot T$
+\item $U \eif I$, $\enot(U \eand \enot I)$
+\item $\enot (C \eif D), C \eand \enot D$
+\item $\enot G \eiff H$, $\enot(G \eiff H)$ 
+\end{earg}
+
+\problempart
+If you know that $\metaX\proves\metaY$, what can you say about $(\metaX\eand\metaZ)\proves\metaY$? What about $(\metaX\eor\metaZ)\proves\metaY$? Explain your answers.
+
+\
+
+\problempart In this chapter, we claimed that it is just as hard to show that two sentences are not provably equivalent, as it is to show that a sentence is not a theorem. Why did we claim this? (\emph{Hint}: think of a sentence that would be a theorem iff \metaX and \metaY were provably equivalent.)
+
+
+
 
