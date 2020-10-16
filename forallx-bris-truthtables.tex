@@ -232,14 +232,15 @@ name=consequent,
 description={The sentence on the right side of a \gls{conditional}}
 }
 
-The TFL connective $\eif$ is \emph{stipulated} to be governed by these rules. 
+The TFL connective $\eif$ is \emph{stipulated} to be governed by these rules. It is sometimes called the \define{material conditional} to highlight that it is governed by these rules. 
 
-However, some English sentences that have the form `if\ldots then\ldots' do not fit with these rules.
+\subsection{Subjunctive conditionals}
+Some English sentences that have the form `if\ldots then\ldots' do not fit with these rules.
 Consider 
 \begin{earg}
-\item[pres] If the UK had voted to remain in the EU, then I would be able to fly.
+\item[\ex{brexit}] If the UK had voted to remain in the EU, then I would be able to fly.
 \end{earg}
-This has a false antecedent (we voted to exit), and a false consequent (I certainly can't fly). But the whole sentence would be judged to be true. 
+This has a false antecedent (we voted to exit), and a false consequent (I certainly can't fly). But the whole sentence would be judged to be true. So this doesn't fit with the rule we've given for $\eif$. 
 
 There are two kinds of sentences of the form `if\ldots, then\ldots' in English: indicative and subjunctive ones. 
 Consider the two sentences:
@@ -247,11 +248,12 @@ Consider the two sentences:
 \item[\ex{indicative}] If Oswald didn't kill Kennedy, someone else did.
 \item[\ex{subjunctive}] If Oswald hadn't killed Kenney, someone else would have.
 \end{earg}
-The former uses the \define{indicative conditional} and is plausibly true. After all, we know that Kennedy was assassinated. The latter uses the \define{subjunctive (or counterfactual) conditional} and is plausibly false. Unless there was a conspiracy plot, if Oswald hadn't have killed Kenney then Kennedy wouldn't have been assassinated. 
+The former uses the \define{indicative conditional} and is plausibly true. After all, we know that Kennedy was assassinated. The latter uses the \define{subjunctive conditional} and is plausibly false. Unless there was a conspiracy plot, if Oswald hadn't have killed Kenney then Kennedy wouldn't have been assassinated. The term \define{counterfactual conditional} is also often used.\footnote{Strictly speaking, we can use subjunctive conditionals with true antecedents, whereas a counterfactual conditional has to have a false antecedent (to be ``counter to the fact'').} 
 
-Whilst we use the English `if\ldots then\ldots' for both these sentences, they are very different kinds of conditionals. The $\eif$ of TFL does a terrible job at symbolising the subjunctive conditional which aren't governed by these rules. In fact TFL just doesn't have the resources to consider subjunctive conditionals, they are not ``truth functional''. We will discuss this in the next chapter, but for now we simply not that if you have to symbolise a subjunctive conditional in TFL it is then a matter of judgement whether to do it as $\metaX\eif \metaY$, or to simply use an atomic sentence. 
+Whilst we use the English `if\ldots then\ldots' for both sentences \ref{indicative} and \ref{subjunctive}, they are very different kinds of conditionals. The conditional of TFL does a terrible job at symbolising the subjunctive conditional which aren't governed by these rules. In fact TFL just doesn't have the resources to consider subjunctive conditionals, they are not ``truth functional''. We will discuss this in the next chapter, but for now we simply not that if you have to symbolise a subjunctive conditional in TFL it is then a matter of judgement whether to do it as $\metaX\eif \metaY$, or to simply use an atomic sentence. 
 
-It does a much better job at symbolising the indicative conditionals, though there are still some 
+The material conditional does a much better job at symbolising the indicative conditionals, though it is a matter of substantial philosophical debate about exactly how well they do. 
+We briefly mention some of the worries in \S\ref{s:ParadoxesOfMaterialConditional}.
 
 
 \section{Biconditional}
@@ -315,7 +317,11 @@ This then means that to determine the truth value of any TFL sentence, we only n
 %The truth value of a non-atomic sentence of TFL, such as $A\eand B$ depends on the truth values of $A$ and $B$. But once the truth values of $A$, $B$ and $C$ are provided, the truth value of $A\eand B$ is fixed. Indeed, this is the characteristic feature of \emph{truth functional logic}.
 
 
-In plenty of languages there are connectives that are not truth-functional. In English, for example, we can form a new sentence from any simpler sentence by prefixing it with `It is necessarily the case that\ldots'. The truth value of this new sentence is not fixed solely by the truth value of the original sentence. For consider two true sentences:
+In plenty of languages there are connectives that are not truth-functional. We here describe just a few:
+
+\subsection{Necessarily}
+
+In English, for example, we can form a new sentence from any simpler sentence by prefixing it with `It is necessarily the case that\ldots'. The truth value of this new sentence is not fixed solely by the truth value of the original sentence. For consider two true sentences:
 	\begin{earg}
 		\item[\ex{nec-math}] $2 + 2 = 4$
 		\item[\ex{nec-music}] Shostakovich wrote fifteen string quartets
@@ -324,42 +330,21 @@ Whereas it is necessarily the case that $2 + 2 = 4$, it is not \emph{necessarily
 
 
 
-\section{Subjunctive conditionals}\label{s:IndicativeSubjunctive}
-Consider the two sentences:
-\begin{earg}
-\item[\ex{indicative}] If Oswald didn't kill Kennedy, someone else did.
-\item[\ex{subjunctive}] If Oswald hadn't killed Kenney, someone else would have.
-\end{earg}
-Plausibly the former is true; after all, we know that Kennedy was assassinated. The latter, however, is plausibly false. Unless there was a conspiracy plot, if Oswald hadn't have killed Kenney then Kennedy wouldn't have been assassinated. 
-
-Whilst we use the English `if\ldots then\ldots' for both these sentences, they are very different kinds of conditionals. The former is \define{indicative} and the latter is \define{subjunctive}, also often called {counterfactual}.
-
-The rules we have given don't work very well for subjunctive conditionals. 
-
-Consider:
-\begin{earg}
-\item[\ex{subj}] If . 
-\end{earg}
-
-
-
-
-
-
-We want to bring home the point that TFL can \emph{only} deal with truth functions by considering the case of the conditional.
-We gave the characteristic truth table for the conditional in \S\ref{s:CharacteristicTruthTables}.
-
-The kind of justification we offered there made an important assumption: that what we said about the bartender sentence could form a general rule. In the bartender case, we said that if the antecedent is false and the consequent false then the conditional is true. (The nineteen year old coke drinker.) And we then concluded that whenever the antecedent and consequent are both false, then the conditional is true. This is required if we are to give a \emph{truth functional conditional}. Our conditional, `$\eif$', is stipulated to be governed by the rules:
-\begin{center}$\eif$ :
-\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
-T & T & T\\
-T & F & F\\
-F & T & T\\
-F & F & T
-\end{tabular}
-\end{center}
-This connective is often more precisely called the \emph{material conditional} (we simply call it the `conditional' as it's the only one we use). It is stipulated to act according to these rules.
-It is the {best} candidate for a truth-functional conditional. Otherwise put, \emph{it is the best conditional that TFL can provide}.
+\subsection{Subjunctive conditionals}\label{s:IndicativeSubjunctive}
+%We want to bring home the point that TFL can \emph{only} deal with truth functions by considering the case of the conditional.
+%We gave the characteristic truth table for the conditional in \S\ref{s:CharacteristicTruthTables}.
+%
+%The kind of justification we offered there made an important assumption: that what we said about the bartender sentence could form a general rule. In the bartender case, we said that if the antecedent is false and the consequent false then the conditional is true. (The nineteen year old coke drinker.) And we then concluded that whenever the antecedent and consequent are both false, then the conditional is true. This is required if we are to give a \emph{truth functional conditional}. Our conditional, `$\eif$', is stipulated to be governed by the rules:
+%\begin{center}$\eif$ :
+%\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
+%T & T & T\\
+%T & F & F\\
+%F & T & T\\
+%F & F & T
+%\end{tabular}
+%\end{center}
+%This connective is often more precisely called the \emph{material conditional} (we simply call it the `conditional' as it's the only one we use). It is stipulated to act according to these rules.
+%It is the {best} candidate for a truth-functional conditional. Otherwise put, \emph{it is the best conditional that TFL can provide}.
 
 
 %
@@ -400,30 +385,35 @@ It is the {best} candidate for a truth-functional conditional. Otherwise put, \e
 %Now, recall that every connective of TFL has to be truth-functional. This means that merely the truth values of the antecedent and consequent must uniquely determine the truth value of the conditional as a whole. Thus, from the truth values of our four claims---which provide us with all possible combinations of truth and falsity in antecedent and consequent---we can read off the truth table for the material conditional.
 
 
-
-But is it any good, as a surrogate for the conditionals we use in everyday language? Consider two sentences:
+We said that $\eif$ was pretty bad at capturing \emph{subjunctive conditionals} of English. The problem is that a subjunctive conditional is not truth functional. 
+Consider the two sentences:
 	\begin{earg}
 		\item[\ex{brownwins1}] If Mitt Romney had won the 2012 election, then he would have been the 45th President of the USA.
 		\item[\ex{brownwins2}] If Mitt Romney had won the 2012 election, then he would have turned into a helium-filled balloon and floated away into the night sky.
 	\end{earg}
-Sentence \ref{brownwins1} is true; sentence \ref{brownwins2} is false, but both have false antecedents and false consequents. So the truth value of the whole sentence is not uniquely determined by the truth value of the parts. We have to be a bit more careful when symbolising. Sometimes you cannot adequately symbolize an English `if \dots, then \dots' with TFL's `$\eif$'.
+Sentence \ref{brownwins1} is true; sentence \ref{brownwins2} is false, but both have false antecedents and false consequents. So the truth value of the whole sentence is not uniquely determined by the truth value of the parts. 
 
-Sentences \ref{brownwins1} and \ref{brownwins2} employ \emph{subjunctive} conditionals, rather than \emph{indicative} conditionals. They ask us to imagine something contrary to fact---Mitt Romney lost the 2012 election---and then ask us to evaluate what \emph{would} have happened in that case. Such considerations just cannot be tackled using `$\eif$'.
-So, $\eif$ is not at all good at symbolising \emph{subjunctive} conditionals, though it is the best that can be done in truth functional logic.
+$\eif$ is the best that can be done at symbolising subjunctive conditionals of English in TFL. TFL just doesn't have the required resources as the subjunctive conditional is not truth functional. 
 
-$\eif$ is better at symbolising \emph{indicative} conditionals.
-There is a grammatical difference between the two conditionals. Consider:
-\begin{earg}
-\item[\ex{indicative}] If Oswald didn't kill Kennedy, someone else did.
-\item[\ex{subjunctive}] If Oswald hadn't have killed Kenney, someone else would have.
-\end{earg}
-The former is an \emph{indicative} conditional (and is true; after all, we know he was killed), the latter is \emph{subjunctive} (and is probably false, unless there was a conspiracy plot).
 
-Exactly how well the material conditional does at representing \emph{indicative} conditionals, however, is a philosophically contentious issue, and not one we can delve into in this course.
-\todo{move some of the paradoxes stuff back in... ??}
-%We will say more about the difficulties with conditionals in \S\ref{s:ParadoxesOfMaterialConditional}. For now, we will content ourselves with the observation that `$\eif$' is the only candidate for a truth-functional conditional for TFL, but that many English conditionals cannot be represented adequately using `$\eif$'. TFL is an intrinsically limited language.
-
-%In truth functional logic we work with the \emph{material conditional}, which is stipulated to given by these truth rules. How well it does at capturing the English `if\ldots, then\ldots'.
+%We have to be a bit more careful when symbolising. Sometimes you cannot adequately symbolize an English `if \dots, then \dots' with TFL's `$\eif$'.
+%
+%Sentences \ref{brownwins1} and \ref{brownwins2} employ \emph{subjunctive} conditionals, rather than \emph{indicative} conditionals. They ask us to imagine something contrary to fact---Mitt Romney lost the 2012 election---and then ask us to evaluate what \emph{would} have happened in that case. Such considerations just cannot be tackled using `$\eif$'.
+%So, $\eif$ is not at all good at symbolising \emph{subjunctive} conditionals, though it is the best that can be done in truth functional logic.
+%
+%$\eif$ is better at symbolising \emph{indicative} conditionals.
+%There is a grammatical difference between the two conditionals. Consider:
+%\begin{earg}
+%\item[\ex{indicative}] If Oswald didn't kill Kennedy, someone else did.
+%\item[\ex{subjunctive}] If Oswald hadn't have killed Kenney, someone else would have.
+%\end{earg}
+%The former is an \emph{indicative} conditional (and is true; after all, we know he was killed), the latter is \emph{subjunctive} (and is probably false, unless there was a conspiracy plot).
+%
+%Exactly how well the material conditional does at representing \emph{indicative} conditionals, however, is a philosophically contentious issue, and not one we can delve into in this course.
+%\todo{move some of the paradoxes stuff back in... ??}
+%%We will say more about the difficulties with conditionals in \S\ref{s:ParadoxesOfMaterialConditional}. For now, we will content ourselves with the observation that `$\eif$' is the only candidate for a truth-functional conditional for TFL, but that many English conditionals cannot be represented adequately using `$\eif$'. TFL is an intrinsically limited language.
+%
+%%In truth functional logic we work with the \emph{material conditional}, which is stipulated to given by these truth rules. How well it does at capturing the English `if\ldots, then\ldots'.
 
 \section{Symbolizing versus translating}
 All of the connectives of TFL are truth-functional, but more than that: they really do nothing \emph{but} map us between truth values.
