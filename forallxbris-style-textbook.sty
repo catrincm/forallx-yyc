@@ -191,8 +191,11 @@
 \definecolor{darkred}{rgb}{0.5,0,0} % TB: used to color links in red
 \newcommand\myanswer[1]{\textcolor{leadbeater}{#1}} % TB: puts model answers in blue
 
-% TB: information originally in the main body; but it is style information, so I have included it here.
-\hypersetup{pdfinfo={Title={forall x: Calgary}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Rob Trueman, Aaron Thomas-Bolduc, Richard Zach}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction, Fitch}}, %
+\newcommand{\noanswers}[1]{\renewcommand{\myanswer}[1]{}}
+
+
+
+\hypersetup{pdfinfo={Title={forall x: Bristol}, Author={P.D. Magnus, Tim Button, J. Rob Loftis, Rob Trueman, Aaron Thomas-Bolduc, Richard Zach, Catrin Campbell-Moore}, Subject={An open access introductory textbook in formal logic}, Keywords={truth-functional logic, propositional logic, predicate logic, first-order logic, natural deduction}}, %
   bookmarks={true}, %
   bookmarksopen = true,
 	colorlinks={true}, %

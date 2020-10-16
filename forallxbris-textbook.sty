@@ -200,8 +200,9 @@
 
 \newcommand{\myanswer}[1]{
 %\leavevmode\color{darkred}\ignorespaces{#1}}
-\textcolor{darkred}{#1}} % TB: puts model answers in blue
+\textcolor{darkred}{#1}} 
 \newcommand*{\define}[1]{\textsc{\lowercase{\color{leadbeater}#1}}}
+\newcommand{\noanswers}[1]{\renewcommand{\myanswer}[1]{}}
 
 
 
