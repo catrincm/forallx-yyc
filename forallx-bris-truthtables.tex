@@ -994,8 +994,8 @@ See 37.4 of forall$x$:Bristol for more details.
 If you want additional practice, you can construct truth tables for any of the sentences and arguments in the exercises for the previous chapter.
 
 
-\chapter{Semantic concepts}
-\label{s:SemanticConcepts}
+\chapter{Validity in TFL}
+\label{s:ValidityTFL}
 
 In the previous section, we introduced the idea of a valuation and showed how to determine the truth value of any TFL sentence, on any valuation, using a truth table. In this section, we will introduce some related ideas, and show how to use truth tables to test whether or not they apply.
 
@@ -1071,304 +1071,23 @@ The only row on which both `$\enot L \eif (J \eor L)$' and `$\enot L$' are true 
 In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\metaX_1, \metaX_2, \ldots, \metaX_n$, and conclusion $\metaY$. Then we check whether they are valid using truth tables. 
 
 
-\subsection{`$\entails$' versus `$\eif$'}
-We now want to compare and contrast `$\entails$' and `$\eif$'.
+\subsection{`Entails' versus `$\eif$'}
+We now want to compare and contrast `entails' and `$\eif$'.
 
-Observe: $\metaX \entails \metaY$ iff there is no valuation of the atomic sentences that makes $\metaX$ true and $\metaY$ false.
+Observe: $\metaX$ entails $\metaY$ iff there is no valuation of the atomic sentences that makes $\metaX$ true and $\metaY$ false.
 
 Observe: $\metaX \eif \metaY$ is a tautology iff there is no valuation of the atomic sentences that makes $\metaX \eif \metaY$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\metaX \eif \metaY$ is a tautology iff there is no valuation that makes $\metaX$ true and $\metaY$ false.
 
-Combining these two observations, we see that $\metaX \eif \metaY$  is a tautology iff  $\metaX \entails \metaY$. But there is a really, really important difference between `$\entails$' and `$\eif$':
-\factoidbox{`$\eif$' is a sentential connective of TFL.\\ `$\entails$' is a symbol of augmented English.
-}
-Indeed, when `$\eif$' is flanked with two TFL sentences, the result is a longer TFL sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding TFL sentences.
+Combining these two observations, we see that $\metaX \eif \metaY$  is a tautology iff  $\metaX$ entails $\metaY$. But there is a really, really important difference between entailment and `$\eif$': `$\eif$' is a sentential connective of TFL.\\ `entails' is a word in English. 
+%\factoidbox{`$\eif$' is a sentential connective of TFL.\\ `$\entails$' is a symbol of augmented English.
+%}
+When `$\eif$' is flanked with two TFL sentences, the result is a longer TFL sentence. By contrast, when we use `entails', we are expressing that there is a relationship between the surrounding TFL sentences.
 
-\section{Tautologies and contradictions}\label{s:TautologiesAndContradictions}
-We have similar substitutes for the notions we introduced in \S\ref{s:BasicNotions}. There we explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have surrogates in TFL. We will start with a surrogate for necessary truth.
-	\factoidbox{
-		$\metaX$ is a \define{tautology} iff it is true on every valuation.
-	}
 
-\newglossaryentry{tautology}
-{
-name=tautology,
-description={A sentence that is true on every \gls{valuation}}
-}
 
-We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every line of a complete truth table, then it is true on every valuation, so it is a tautology. In the example of \S\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology.
+\section{Formal validity and English arguments}\label{s:TFLvsEngl}
 
-Our main example of a tautology is $A\eor\enot A$. Whatever the weather is like you know it's either raining or not. Similarly here, whether or not $A$ is true, we already know $A\eor \enot A$. We can check this with a truth table.
-\begin{center}
-	\begin{tabular}{c|deef}
-	$A$&$A$&$\eor$&$\enot$&$A$\\\hline
-	T&T&\textbf{T}&F&T\\
-	F&F&\textbf{T}&T&F
-\end{tabular}
-\end{center}
-Since there is a $T$ under the main connective on every line of the truth table, $A\eor \enot A$ is true, whatever the valuation is, i.e.~whether $A$ is true or false.
-
-
-This is only, though, a \emph{surrogate} for necessary truth. There are some necessary truths that we cannot adequately symbolize in TFL. An example is `$2 + 2 = 4$'. This \emph{must} be true, but if we try to symbolize it in TFL, the best we can offer is an atomic sentence, and no atomic sentence is a tautology. Still, if we can adequately symbolize some English sentence using a TFL sentence which is a tautology, then that English sentence expresses a necessary truth.
-
-We have a similar surrogate for necessary falsity:
-	\factoidbox{
-		$\metaX$ is a \define{contradiction} iff it is false on every valuation.
-	}
-\newglossaryentry{contradiction of TFL}
-{
-  name=contradiction (of TFL),
-  text = contradiction,
-description={A sentence that is false on every \gls{valuation}}
-}
-
-We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every line of a complete truth table, then it is false on every valuation, so it is a contradiction.
-%In the example of \S\ref{s:CompleteTruthTables}, `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$' is a contradiction.
-
-Our core example of a contradiction is $A\eand\enot A$. Whether $A$ is true or false, $A\eand\enot A$ is false. This can again be checked using truth tables, observing that there is an F under the main connective in each line of the truth table.
-
-
-\section{Logical equivalence}
-Here is a similar useful notion:
-	\factoidbox{
-		$\metaX$ and $\metaY$ are \define{logically equivalent} iff, for every valuation, their truth values agree, i.e.\ if there is no valuation in which they have opposite truth values.
-	}
-\newglossaryentry{logically equivalent}
-{
-  name=logical equivalence (in TFL),
-  text = logically equivalent,
-description={A property held by pairs of sentences if and only if the sentences have the same truth value on every valuation}
-}
-We have already made use of this notion, in effect, in \S\ref{s:MoreBracketingConventions}; the point was that `$(A \eand B) \eand C$' and  `$A \eand (B \eand C)$' are logically equivalent. Again, it is easy to test for logical equivalence using truth tables. Consider the sentences `$\enot(P \eor Q)$' and `$\enot P \eand \enot Q$'. Are they logically equivalent? To find out, we construct a truth table.
-\begin{center}
-\begin{tabular}{c c|d e e f |d e e e f}
-$P$&$Q$&\enot&$(P$&\eor&$Q)$&\enot&$P$&\eand&\enot&$Q$\\
-\hline
- T & T & \TTbf{F} & T & T & T & F & T & \TTbf{F} & F & T\\
- T & F & \TTbf{F} & T & T & F & F & T & \TTbf{F} & T & F\\
- F & T & \TTbf{F} & F & T & T & T & F & \TTbf{F} & F & T\\
- F & F & \TTbf{T} & F & F & F & T & F & \TTbf{T} & T & F
-\end{tabular}
-\end{center}
-Look at the columns for the main logical operators; negation for the first sentence, conjunction for the second. On the first three rows, both are false. On the final row, both are true. Since they match on every row, the two sentences are logically equivalent.
-
-
-\section{Consistency}
-In \S\ref{s:BasicNotions}, we said that sentences are jointly possible iff it is possible for all of them to be true at once. We can offer a surrogate for this notion too:
-	\factoidbox{
-		$\metaX_1, \metaX_2, \ldots, \metaX_n$ are \define{jointly logically consistent} iff there is some valuation which makes them all true.
-	}
-
-        \newglossaryentry{logical consistency in TFL}
-{
-  name=logical consistency (in TFL),
-  text=jointly logically consistent,
-description={A property held by sentences if and only if there is some \gls{valuation} that makes all the sentences true}
-}
-
-Derivatively, sentences are jointly logically inconsistent if there is no valuation that makes them all true. Again, it is easy to test for joint logical consistency using truth tables.
-
-
-
-
-\practiceproblems
-\problempart
-Revisit your answers to \S\ref{s:CompleteTruthTables}\textbf{A}. Determine which sentences were tautologies, which were contradictions, and which were neither tautologies nor contradictions.
-\solutions
-
-\
-
-\problempart
-\label{pr.TT.consistent}
-Use truth tables to determine whether these sentences are jointly consistent, or jointly inconsistent:
-\begin{earg}
-\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %consistent
-\item $A\eor B$, $A\eif C$, $B\eif C$ %consistent
-\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$  %inconsistent
-\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$ %consistent
-\end{earg}
-
-
-\solutions
-\problempart
-\label{pr.TT.valid}
-Use truth tables to determine whether each argument is valid or invalid.
-\begin{earg}
-\item $A\eif A \therefore A$ %invalid
-\item $A\eif(A\eand\enot A) \therefore \enot A$ %valid
-\item $A\eor(B\eif A) \therefore \enot A \eif \enot B$ %valid
-\item $A\eor B, B\eor C, \enot A \therefore B \eand C$ %invalid
-\item $(B\eand A)\eif C, (C\eand A)\eif B \therefore (C\eand B)\eif A$ %invalid
-\end{earg}
-
-\problempart Determine whether each sentence is a tautology, a contradiction, or a contingent sentence, using a complete truth table.
-\begin{earg}
-\item $\enot B \eand B$ \vspace{.5ex}%contra
-
-
-\item $\enot D \eor D$ \vspace{.5ex}%taut
-
-
-\item $(A\eand B) \eor (B\eand A)$\vspace{.5ex} %contingent
-
-
-\item $\enot[A \eif (B \eif A)]$\vspace{.5ex} %contra
-
-
-\item $A \eiff [A \eif (B \eand \enot B)]$ \vspace{.5ex}%contra
-
-
-\item $[(A \eand B) \eiff B] \eif (A \eif B)$ \vspace{.5ex}% contingent.
-
-\end{earg}
-
-
-
-\noindent\problempart
-\label{pr.TT.equiv}
-Determine whether each the following sentences are logically equivalent using complete truth tables. If the two sentences really are logically equivalent, write ``equivalent.'' Otherwise write, ``Not equivalent.''
-\begin{earg}
-\item $A$ and $\enot A$
-\item $A \eand \enot A$ and $\enot B \eiff B$
-\item $[(A \eor B) \eor C]$ and $[A \eor (B \eor C)]$
-\item $A \eor (B \eand C)$ and $(A \eor B) \eand (A \eor C)$
-\item $[A \eand (A \eor B)] \eif B$ and $A \eif B$\end{earg}
-
-
-\problempart
-\label{pr.TT.equiv2}
-Determine whether each the following sentences are logically equivalent using complete truth tables. If the two sentences really are equivalent, write ``equivalent.'' Otherwise write, ``not equivalent.''
-\begin{earg}
-\item $A\eif A$ and $A \eiff A$
-\item $\enot(A \eif B)$ and $\enot A \eif \enot B$
-\item $A \eor B$ and $\enot A \eif B$
-\item$(A \eif B) \eif C$ and $A \eif (B \eif C)$
-\item $A \eiff (B \eiff C)$ and $A \eand (B \eand C)$
-\end{earg}
-
-
-\problempart
-\label{pr.TT.consistent2}
-Determine whether each collection of sentences is jointly consistent or jointly inconsistent using a complete truth table.
-\begin{earg}
-\item $A \eand \enot B$, $\enot(A \eif B)$, $B \eif A$\vspace{.5ex} %Consistent
-
-%\begin{tabular}{ccccccccccccccc}
-%1. 	&	A 					 & \eand 		&  \enot & B & & \enot  		& 	 (A	  & 	 \eif	 	 & 	 B)		 & 	 & 	 B	 	 & 	\eif 	 	 & 	A 	 	 & 	 Consistent \\
-%\cline{2-5} \cline{7-10}\cline{12-14}
-%	& 	T 					 & 	 F	 		&  F	 & T & & F	 		& 	 T	  & 	 T	 	 & 	T 	 	 & 	 & 	 T	 	 & 	 T	 	 & T	 	 	&	  \\
-%\cline{2-14}
-%	& \multicolumn{1}{|r}{T}& 	\textbf{T}	 & T	 & F & & \textbf{T}	 & 	 T	 & 	 F	 	 & 	 F	 	 & 	 & 	 F	 	 & 	 \textbf{T}	 	 & 	 \multicolumn{1}{r|}{T}	 	 & 	  \\
-%\cline{2-14}
-%	& 	 F	 				 & 	 F	 & 	 F	 & T & 	& 	 F	 & 	 F	 & 	 T	 	 & 	 T	 	 & 	  & 	 T	 	 & 	 F	 	 & 	 F	 	 & 	  \\
-%	& 	 F	  				& 	 F	 & 	 T	 & 	F&  & 	 F	 & 	 F	 & 	 T	 	 & 	 F	 	 & 	  & 	 F	 	 & 	 T	 	 & 	 F	 	 & 	  \\
-%\end{tabular}
-
-\item $A \eor B$, $A \eif \enot A$, $B \eif \enot B$ \vspace{.5ex}%inconsistent.
-
-%\begin{tabular}{ccccccccccccccc}
-%2. &A	 & \eor 	 & B 	 & 	 	 & A 	 & \eif 	 & 	\enot & A 	 & 	 	 & B 	 & \eif 	 & \enot	 & 	B 	 & 	Inconsistent \\
-%\cline{2-4}\cline{6- 9} \cline{11-14}
-%   &	T	 & 	 T	 &T  	 & 	 	 & T	 & 	 F	 & 	F 	 & T 	 & 	 	 & 	T 	 & 	F 	 & 	 F	 & 	T 	 & 	 \\
-%   &	 T	& 	 T	 & F 	 & 	 	 & 	T 	 & 	 F	 & 	 F	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	 F	 & 	 \\
-%   &	 F	& 	 T	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	F 	 & 	 	 & 	 T	 & 	 F	 & 	 F	 & 	 T	 & 	 \\
-%   &	 F	& 	 F	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 \\
-%\end{tabular}
-
-\item $\enot(\enot A \eor B) $, $A \eif \enot C$, $A \eif (B \eif C)$\vspace{.5ex} %Inconsistent
-
-%3. &\enot & (\enot & A & \eor &B) &  &A  & \eif 	 &\enot 	 &C & 	 & A &\eif 	& (B 	 &\eif 	& C)	 &Consistent \\
-%\cline{2-6}\cline{8-11} \cline{13-17}
-%   &	F 	& 	F	 & 	T & T	 & T & 	  & T & F	 & 	 F&T 	 & 	 &T & T	 & T	 &T 	 &T 	 & \\
-%   &	 F	& 	F	 & 	T & T	 & T & 	  & T & T	 & 	 T& F	 & 	 &T & F	 & T	 & F	 &F 	 & \\
-%
-%  &	 T & 	F 	& 	T & F	 & F & 	  & T & F	 & 	 F& T	 & 	 &T & T	 & F	 & T	 &T 	 & \\
-%\cline{2-17}
-%   &	 \multicolumn{1}{|r}{{\color{red}T}}		&  F	 & 	T & F	 & 	F &  & 	T & {\color{red}T}	 & 	 T&F 	& 	 &T & {\color{red}T}	 & F	 & T	 &\multicolumn{1}{r|}{F} 	 & \\
-%\cline{2-17}
-%   &	 F	& 	T	 & 	F & T	 & 	T &  & 	F & T	 & 	 F& T	 & 	 &F	 & F	 & T	 & T	 &T 	 & \\
-%   &	 F	& 	 T	& 	F & T	 & 	T &  & 	F & T	 & 	T & F 	& 	 &F	 & T	 & T	 &F 	 &F 	 & \\
-%   &	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	F & T	 & 	 &F	 & T	 & F	 & T	 &T 	 & \\
-%   &	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	T & F	 & 	 &F	 & T	 & F	 & T	 &F 	 & \\
-%\end{tabular}
-%
-
-
-\item $A \eif B$, $A \eand \enot B$\vspace{.5ex} %Inconsistent
-
-\item $A \eif (B \eif C)$, $(A \eif B) \eif C$, $A \eif C$\vspace{.5ex} % consistent.
-
-\end{earg}
-
-\noindent\problempart
-\label{pr.TT.consistent3}
-Determine whether each collection of sentences is jointly consistent or jointly inconsistent, using a complete truth table.
-\begin{earg}
-\item $\enot B$, $A \eif B$, $A$ \vspace{.5ex}%inconsistent.
-\item $\enot(A \eor B)$, $A \eiff B$, $B \eif A$\vspace{.5ex} %Consistent
-\item $A \eor B$, $\enot B$, $\enot B \eif \enot A$\vspace{.5ex} %Inconsistent
-\item $A \eiff B$, $\enot B \eor \enot A$, $A \eif B$\vspace{.5ex} %consistent.
-\item $(A \eor B) \eor C$, $\enot A \eor \enot B$, $\enot C \eor \enot B$\vspace{.5ex} %consistent
-\end{earg}
-
-
-
-
-\noindent\problempart
-\label{pr.TT.valid2}
-Determine whether each argument is valid or invalid, using a complete truth table.
-\begin{earg}
-\item $A\eif B$, $B \therefore  A$ %invalid
-
-\item $A\eiff B$, $B\eiff C \therefore A\eiff C$ %valid
-
-\item $A \eif B$, $A \eif C\therefore B \eif C$ %invalid.
-
-\item $A \eif B$, $B \eif A\therefore A \eiff B$ %valid.
-
-\end{earg}
-
-\noindent\problempart
-\label{pr.TT.valid3}
-Determine whether each argument is valid or invalid, using a complete truth table.
-\begin{earg}
-\item $A\eor\bigl[A\eif(A\eiff A)\bigr] \therefore  A $\vspace{.5ex}%invalid
-\item $A\eor B$, $B\eor C$, $\enot B \therefore A \eand C$\vspace{.5ex} %valid
-\item $A \eif B$, $\enot A\therefore \enot B$ \vspace{.5ex}%invalid
-\item $A$, $B\therefore \enot(A\eif \enot B)$ \vspace{.5ex}%valid
-\item $\enot(A \eand B)$, $A \eor B$, $A \eiff B\therefore C$ \vspace{.5ex}%valid
-\end{earg}
-
-\solutions
-\problempart
-\label{pr.TT.concepts}
-Answer each of the questions below and justify your answer.
-\begin{earg}
-\item Suppose that \metaX and \metaY are logically equivalent. What can you say about $\metaX\eiff\metaY$?
-%\metaX and \metaY have the same truth value on every line of a complete truth table, so $\metaX\eiff\metaY$ is true on every line. It is a tautology.
-\item Suppose that $(\metaX\eand\metaY)\eif\metaY$ is neither a tautology nor a contradiction. What can you say about whether $\metaX, \metaY \therefore\metaY$ is valid?
-%The sentence is false on some line of a complete truth table. On that line, \metaX and \metaY are true and \metaY is false. So the argument is invalid.
-\item Suppose that $\metaX$, $\metaY$ and $\metaY$  are jointly inconsistent. What can you say about $(\metaX\eand\metaY\eand\metaY)$?
-\item Suppose that \metaX is a contradiction. What can you say about whether $\metaX, \metaY \entails \metaY$?
-%Since \metaX is false on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \metaY is false. So the argument is valid.
-\item Suppose that \metaY is a tautology. What can you say about whether $\metaX, \metaY\entails \metaY$?
-%Since \metaY is true on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \metaY is false. So the argument is valid.
-\item Suppose that \metaX and \metaY are logically equivalent. What can you say about $(\metaX\eor\metaY)$?
-%Not much. $(\metaX\eor\metaY)$ is a tautology if \metaX and \metaY are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
-\item Suppose that \metaX and \metaY are \emph{not} logically equivalent. What can you say about $(\metaX\eor\metaY)$?
-%\metaX and \metaY have different truth values on at least one line of a complete truth table, and $(\metaX\eor\metaY)$ will be true on that line. On other lines, it might be true or false. So $(\metaX\eor\metaY)$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
-\end{earg}
-\problempart
-Consider the following principle:
-	\begin{ebullet}
-		\item Suppose $\metaX$ and $\metaY$ are logically equivalent. Suppose an argument contains $\metaX$ (either as a premise, or as the conclusion). The validity of the argument would be unaffected, if we replaced $\metaX$ with $\metaY$.
-	\end{ebullet}
-Is this principle correct? Explain your answer.
-
-
-
-\chapter{Formal validity and English arguments}
-
-We can use the tool of TFL to investigate whether an argument of English is formally valid.
+We can now use the tool of TFL to investigate whether an argument of English is formally valid.
 
 Consider an argument like:
 \begin{quote}
@@ -1702,10 +1421,295 @@ which is invalid.
 The problem isn't the symbolisation we gave. It is the best we could do \emph{in TFL}. The problem is that TFL is limited in the ``form'' it can see, after all. We will improve on this when we move to First Order Logic in \S\ref{s:FOLBuildingBlocks}.
 This argument is formally valid in virtue of its FOL form rather than TFL form.
 
+\practiceproblems
 
-\todo{note I deleted the section on paradoxes of material implication and double negation}
+\problempart
+\label{pr.TT.valid}
+Use truth tables to determine whether each argument is valid or invalid.
+\begin{earg}
+\item $A\eif A \therefore A$ %invalid
+\item $A\eif(A\eand\enot A) \therefore \enot A$ %valid
+\item $A\eor(B\eif A) \therefore \enot A \eif \enot B$ %valid
+\item $A\eor B, B\eor C, \enot A \therefore B \eand C$ %invalid
+\item $(B\eand A)\eif C, (C\eand A)\eif B \therefore (C\eand B)\eif A$ %invalid
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.valid2}
+Determine whether each argument is valid or invalid, using a complete truth table.
+\begin{earg}
+\item $A\eif B$, $B \therefore  A$ %invalid
+
+\item $A\eiff B$, $B\eiff C \therefore A\eiff C$ %valid
+
+\item $A \eif B$, $A \eif C\therefore B \eif C$ %invalid.
+
+\item $A \eif B$, $B \eif A\therefore A \eiff B$ %valid.
+
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.valid3}
+Determine whether each argument is valid or invalid, using a complete truth table.
+\begin{earg}
+\item $A\eor\bigl[A\eif(A\eiff A)\bigr] \therefore  A $\vspace{.5ex}%invalid
+\item $A\eor B$, $B\eor C$, $\enot B \therefore A \eand C$\vspace{.5ex} %valid
+\item $A \eif B$, $\enot A\therefore \enot B$ \vspace{.5ex}%invalid
+\item $A$, $B\therefore \enot(A\eif \enot B)$ \vspace{.5ex}%valid
+\item $\enot(A \eand B)$, $A \eor B$, $A \eiff B\therefore C$ \vspace{.5ex}%valid
+\end{earg}
 
 
+
+\chapter{Other logical notions}
+
+\section{Tautologies and contradictions}\label{s:TautologiesAndContradictions}
+We have similar substitutes for the notions we introduced in \S\ref{s:BasicNotions}. There we explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have surrogates in TFL. We will start with a surrogate for necessary truth.
+	\factoidbox{
+		$\metaX$ is a \define{tautology} iff it is true on every valuation.
+	}
+
+\newglossaryentry{tautology}
+{
+name=tautology,
+description={A sentence that is true on every \gls{valuation}}
+}
+
+We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every line of a complete truth table, then it is true on every valuation, so it is a tautology. In the example of \S\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology.
+
+Our main example of a tautology is $A\eor\enot A$. Whatever the weather is like you know it's either raining or not. Similarly here, whether or not $A$ is true, we already know $A\eor \enot A$. We can check this with a truth table.
+\begin{center}
+	\begin{tabular}{c|deef}
+	$A$&$A$&$\eor$&$\enot$&$A$\\\hline
+	T&T&\textbf{T}&F&T\\
+	F&F&\textbf{T}&T&F
+\end{tabular}
+\end{center}
+Since there is a $T$ under the main connective on every line of the truth table, $A\eor \enot A$ is true, whatever the valuation is, i.e.~whether $A$ is true or false.
+
+
+This is only, though, a \emph{surrogate} for necessary truth. There are some necessary truths that we cannot adequately symbolize in TFL. An example is `$2 + 2 = 4$'. This \emph{must} be true, but if we try to symbolize it in TFL, the best we can offer is an atomic sentence, and no atomic sentence is a tautology. Still, if we can adequately symbolize some English sentence using a TFL sentence which is a tautology, then that English sentence expresses a necessary truth.
+
+We have a similar surrogate for necessary falsity:
+	\factoidbox{
+		$\metaX$ is a \define{contradiction} iff it is false on every valuation.
+	}
+\newglossaryentry{contradiction of TFL}
+{
+  name=contradiction (of TFL),
+  text = contradiction,
+description={A sentence that is false on every \gls{valuation}}
+}
+
+We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every line of a complete truth table, then it is false on every valuation, so it is a contradiction.
+%In the example of \S\ref{s:CompleteTruthTables}, `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$' is a contradiction.
+
+Our core example of a contradiction is $A\eand\enot A$. Whether $A$ is true or false, $A\eand\enot A$ is false. This can again be checked using truth tables, observing that there is an F under the main connective in each line of the truth table.
+
+
+\section{Logical equivalence}
+Here is a similar useful notion:
+	\factoidbox{
+		$\metaX$ and $\metaY$ are \define{logically equivalent} iff, for every valuation, their truth values agree, i.e.\ if there is no valuation in which they have opposite truth values.
+	}
+\newglossaryentry{logically equivalent}
+{
+  name=logical equivalence (in TFL),
+  text = logically equivalent,
+description={A property held by pairs of sentences if and only if the sentences have the same truth value on every valuation}
+}
+We have already made use of this notion, in effect, in \S\ref{s:MoreBracketingConventions}; the point was that `$(A \eand B) \eand C$' and  `$A \eand (B \eand C)$' are logically equivalent. Again, it is easy to test for logical equivalence using truth tables. Consider the sentences `$\enot(P \eor Q)$' and `$\enot P \eand \enot Q$'. Are they logically equivalent? To find out, we construct a truth table.
+\begin{center}
+\begin{tabular}{c c|d e e f |d e e e f}
+$P$&$Q$&\enot&$(P$&\eor&$Q)$&\enot&$P$&\eand&\enot&$Q$\\
+\hline
+ T & T & \TTbf{F} & T & T & T & F & T & \TTbf{F} & F & T\\
+ T & F & \TTbf{F} & T & T & F & F & T & \TTbf{F} & T & F\\
+ F & T & \TTbf{F} & F & T & T & T & F & \TTbf{F} & F & T\\
+ F & F & \TTbf{T} & F & F & F & T & F & \TTbf{T} & T & F
+\end{tabular}
+\end{center}
+Look at the columns for the main logical operators; negation for the first sentence, conjunction for the second. On the first three rows, both are false. On the final row, both are true. Since they match on every row, the two sentences are logically equivalent.
+
+
+\section{Consistency}
+In \S\ref{s:BasicNotions}, we said that sentences are jointly possible iff it is possible for all of them to be true at once. We can offer a surrogate for this notion too:
+	\factoidbox{
+		$\metaX_1, \metaX_2, \ldots, \metaX_n$ are \define{jointly logically consistent} iff there is some valuation which makes them all true.
+	}
+
+        \newglossaryentry{logical consistency in TFL}
+{
+  name=logical consistency (in TFL),
+  text=jointly logically consistent,
+description={A property held by sentences if and only if there is some \gls{valuation} that makes all the sentences true}
+}
+
+Derivatively, sentences are jointly logically inconsistent if there is no valuation that makes them all true. Again, it is easy to test for joint logical consistency using truth tables.
+
+\section{These notions and the English variants}
+Just as in \S\ref{s:TFLvsEngl} we said we can use the logical notion of validity in TFL to help with various notions of validity of English, the same can  be said for these other logical notions.
+
+For example, if you show that the TFL symbolisation of an English sentence is a tautology, you can conclude that it is a necessary truth. However, there are different kinds of `necessary truths'. Some sentences like `A triangle has three sides' are necessary truths, but are not tautologies. But the tool of TFL can help.
+
+
+\practiceproblems
+\problempart
+Revisit your answers to \S\ref{s:CompleteTruthTables}\textbf{A}. Determine which sentences were tautologies, which were contradictions, and which were neither tautologies nor contradictions.
+\solutions
+
+\
+
+\problempart
+\label{pr.TT.consistent}
+Use truth tables to determine whether these sentences are jointly consistent, or jointly inconsistent:
+\begin{earg}
+\item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %consistent
+\item $A\eor B$, $A\eif C$, $B\eif C$ %consistent
+\item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$  %inconsistent
+\item $A\eiff(B\eor C)$, $C\eif \enot A$, $A\eif \enot B$ %consistent
+\end{earg}
+
+
+
+\problempart Determine whether each sentence is a tautology, a contradiction, or a contingent sentence, using a complete truth table.
+\begin{earg}
+\item $\enot B \eand B$ \vspace{.5ex}%contra
+
+
+\item $\enot D \eor D$ \vspace{.5ex}%taut
+
+
+\item $(A\eand B) \eor (B\eand A)$\vspace{.5ex} %contingent
+
+
+\item $\enot[A \eif (B \eif A)]$\vspace{.5ex} %contra
+
+
+\item $A \eiff [A \eif (B \eand \enot B)]$ \vspace{.5ex}%contra
+
+
+\item $[(A \eand B) \eiff B] \eif (A \eif B)$ \vspace{.5ex}% contingent.
+
+\end{earg}
+
+
+
+\noindent\problempart
+\label{pr.TT.equiv}
+Determine whether each the following sentences are logically equivalent using complete truth tables. If the two sentences really are logically equivalent, write ``equivalent.'' Otherwise write, ``Not equivalent.''
+\begin{earg}
+\item $A$ and $\enot A$
+\item $A \eand \enot A$ and $\enot B \eiff B$
+\item $[(A \eor B) \eor C]$ and $[A \eor (B \eor C)]$
+\item $A \eor (B \eand C)$ and $(A \eor B) \eand (A \eor C)$
+\item $[A \eand (A \eor B)] \eif B$ and $A \eif B$\end{earg}
+
+
+\problempart
+\label{pr.TT.equiv2}
+Determine whether each the following sentences are logically equivalent using complete truth tables. If the two sentences really are equivalent, write ``equivalent.'' Otherwise write, ``not equivalent.''
+\begin{earg}
+\item $A\eif A$ and $A \eiff A$
+\item $\enot(A \eif B)$ and $\enot A \eif \enot B$
+\item $A \eor B$ and $\enot A \eif B$
+\item$(A \eif B) \eif C$ and $A \eif (B \eif C)$
+\item $A \eiff (B \eiff C)$ and $A \eand (B \eand C)$
+\end{earg}
+
+
+\problempart
+\label{pr.TT.consistent2}
+Determine whether each collection of sentences is jointly consistent or jointly inconsistent using a complete truth table.
+\begin{earg}
+\item $A \eand \enot B$, $\enot(A \eif B)$, $B \eif A$\vspace{.5ex} %Consistent
+
+%\begin{tabular}{ccccccccccccccc}
+%1. 	&	A 					 & \eand 		&  \enot & B & & \enot  		& 	 (A	  & 	 \eif	 	 & 	 B)		 & 	 & 	 B	 	 & 	\eif 	 	 & 	A 	 	 & 	 Consistent \\
+%\cline{2-5} \cline{7-10}\cline{12-14}
+%	& 	T 					 & 	 F	 		&  F	 & T & & F	 		& 	 T	  & 	 T	 	 & 	T 	 	 & 	 & 	 T	 	 & 	 T	 	 & T	 	 	&	  \\
+%\cline{2-14}
+%	& \multicolumn{1}{|r}{T}& 	\textbf{T}	 & T	 & F & & \textbf{T}	 & 	 T	 & 	 F	 	 & 	 F	 	 & 	 & 	 F	 	 & 	 \textbf{T}	 	 & 	 \multicolumn{1}{r|}{T}	 	 & 	  \\
+%\cline{2-14}
+%	& 	 F	 				 & 	 F	 & 	 F	 & T & 	& 	 F	 & 	 F	 & 	 T	 	 & 	 T	 	 & 	  & 	 T	 	 & 	 F	 	 & 	 F	 	 & 	  \\
+%	& 	 F	  				& 	 F	 & 	 T	 & 	F&  & 	 F	 & 	 F	 & 	 T	 	 & 	 F	 	 & 	  & 	 F	 	 & 	 T	 	 & 	 F	 	 & 	  \\
+%\end{tabular}
+
+\item $A \eor B$, $A \eif \enot A$, $B \eif \enot B$ \vspace{.5ex}%inconsistent.
+
+%\begin{tabular}{ccccccccccccccc}
+%2. &A	 & \eor 	 & B 	 & 	 	 & A 	 & \eif 	 & 	\enot & A 	 & 	 	 & B 	 & \eif 	 & \enot	 & 	B 	 & 	Inconsistent \\
+%\cline{2-4}\cline{6- 9} \cline{11-14}
+%   &	T	 & 	 T	 &T  	 & 	 	 & T	 & 	 F	 & 	F 	 & T 	 & 	 	 & 	T 	 & 	F 	 & 	 F	 & 	T 	 & 	 \\
+%   &	 T	& 	 T	 & F 	 & 	 	 & 	T 	 & 	 F	 & 	 F	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	 F	 & 	 \\
+%   &	 F	& 	 T	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	F 	 & 	 	 & 	 T	 & 	 F	 & 	 F	 & 	 T	 & 	 \\
+%   &	 F	& 	 F	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 \\
+%\end{tabular}
+
+\item $\enot(\enot A \eor B) $, $A \eif \enot C$, $A \eif (B \eif C)$\vspace{.5ex} %Inconsistent
+
+%3. &\enot & (\enot & A & \eor &B) &  &A  & \eif 	 &\enot 	 &C & 	 & A &\eif 	& (B 	 &\eif 	& C)	 &Consistent \\
+%\cline{2-6}\cline{8-11} \cline{13-17}
+%   &	F 	& 	F	 & 	T & T	 & T & 	  & T & F	 & 	 F&T 	 & 	 &T & T	 & T	 &T 	 &T 	 & \\
+%   &	 F	& 	F	 & 	T & T	 & T & 	  & T & T	 & 	 T& F	 & 	 &T & F	 & T	 & F	 &F 	 & \\
+%
+%  &	 T & 	F 	& 	T & F	 & F & 	  & T & F	 & 	 F& T	 & 	 &T & T	 & F	 & T	 &T 	 & \\
+%\cline{2-17}
+%   &	 \multicolumn{1}{|r}{{\color{red}T}}		&  F	 & 	T & F	 & 	F &  & 	T & {\color{red}T}	 & 	 T&F 	& 	 &T & {\color{red}T}	 & F	 & T	 &\multicolumn{1}{r|}{F} 	 & \\
+%\cline{2-17}
+%   &	 F	& 	T	 & 	F & T	 & 	T &  & 	F & T	 & 	 F& T	 & 	 &F	 & F	 & T	 & T	 &T 	 & \\
+%   &	 F	& 	 T	& 	F & T	 & 	T &  & 	F & T	 & 	T & F 	& 	 &F	 & T	 & T	 &F 	 &F 	 & \\
+%   &	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	F & T	 & 	 &F	 & T	 & F	 & T	 &T 	 & \\
+%   &	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	T & F	 & 	 &F	 & T	 & F	 & T	 &F 	 & \\
+%\end{tabular}
+%
+
+
+\item $A \eif B$, $A \eand \enot B$\vspace{.5ex} %Inconsistent
+
+\item $A \eif (B \eif C)$, $(A \eif B) \eif C$, $A \eif C$\vspace{.5ex} % consistent.
+
+\end{earg}
+
+\noindent\problempart
+\label{pr.TT.consistent3}
+Determine whether each collection of sentences is jointly consistent or jointly inconsistent, using a complete truth table.
+\begin{earg}
+\item $\enot B$, $A \eif B$, $A$ \vspace{.5ex}%inconsistent.
+\item $\enot(A \eor B)$, $A \eiff B$, $B \eif A$\vspace{.5ex} %Consistent
+\item $A \eor B$, $\enot B$, $\enot B \eif \enot A$\vspace{.5ex} %Inconsistent
+\item $A \eiff B$, $\enot B \eor \enot A$, $A \eif B$\vspace{.5ex} %consistent.
+\item $(A \eor B) \eor C$, $\enot A \eor \enot B$, $\enot C \eor \enot B$\vspace{.5ex} %consistent
+\end{earg}
+
+
+
+
+\solutions
+\problempart
+\label{pr.TT.concepts}
+Answer each of the questions below and justify your answer.
+\begin{earg}
+\item Suppose that \metaX and \metaY are logically equivalent. What can you say about $\metaX\eiff\metaY$?
+%\metaX and \metaY have the same truth value on every line of a complete truth table, so $\metaX\eiff\metaY$ is true on every line. It is a tautology.
+\item Suppose that $(\metaX\eand\metaY)\eif\metaY$ is neither a tautology nor a contradiction. What can you say about whether $\metaX, \metaY \therefore\metaY$ is valid?
+%The sentence is false on some line of a complete truth table. On that line, \metaX and \metaY are true and \metaY is false. So the argument is invalid.
+\item Suppose that $\metaX$, $\metaY$ and $\metaY$  are jointly inconsistent. What can you say about $(\metaX\eand\metaY\eand\metaY)$?
+\item Suppose that \metaX is a contradiction. What can you say about whether $\metaX, \metaY \entails \metaY$?
+%Since \metaX is false on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \metaY is false. So the argument is valid.
+\item Suppose that \metaY is a tautology. What can you say about whether $\metaX, \metaY\entails \metaY$?
+%Since \metaY is true on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \metaY is false. So the argument is valid.
+\item Suppose that \metaX and \metaY are logically equivalent. What can you say about $(\metaX\eor\metaY)$?
+%Not much. $(\metaX\eor\metaY)$ is a tautology if \metaX and \metaY are tautologies; it is a contradiction if they are contradictions; it is contingent if they are contingent.
+\item Suppose that \metaX and \metaY are \emph{not} logically equivalent. What can you say about $(\metaX\eor\metaY)$?
+%\metaX and \metaY have different truth values on at least one line of a complete truth table, and $(\metaX\eor\metaY)$ will be true on that line. On other lines, it might be true or false. So $(\metaX\eor\metaY)$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
+\end{earg}
+\problempart
+Consider the following principle:
+	\begin{ebullet}
+		\item Suppose $\metaX$ and $\metaY$ are logically equivalent. Suppose an argument contains $\metaX$ (either as a premise, or as the conclusion). The validity of the argument would be unaffected, if we replaced $\metaX$ with $\metaY$.
+	\end{ebullet}
+Is this principle correct? Explain your answer.
 \chapter{Truth table shortcuts}\teachingnote{Not taught in course. This knowledge will not be needed for the exam. (Although you can use these techniques in the exam if you wish.)}
 With practice, you will quickly become adept at filling out truth tables. In this section, we want to give you some permissible shortcuts to help you along the way.
 
