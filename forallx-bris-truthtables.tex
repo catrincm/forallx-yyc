@@ -3,45 +3,57 @@
 \label{ch.TruthTables}
 \addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}
 
-\chapter{Characteristic truth tables}
+\chapter{Truth rules for the connectives of TFL}
 \label{s:CharacteristicTruthTables}
 
-We now move to looking at when sentences of TFL are true or false. We will give precise rules for determining this. The important feature of truth functional logic is that the truth value of a complex sentence, such as $A\eor(B\eand C)$ is determined just by the truths of is component parts, that is $A$, $B$ and $C$. If we're told whether $A$, $B$ and $C$ are true or false, then we will be able to say whether $A\eor(B\eand C)$ is true or false. 
+We now move to looking at when sentences of TFL are true or false. We will give precise rules for determining this. The important feature of truth functional logic is that the truth value of a complex sentence, such as $A\eor(B\eand C)$ is determined just by the truths of is component parts, that is $A$, $B$ and $C$. If we're told whether $A$, $B$ and $C$ are true or false, then we will be able to say whether $A\eor(B\eand C)$ is true or false.
 
-To be able to do this, we need to describe how the truth values are to be combined. We work through each of our connectives describing the rules governing it. 
+To be able to do this, we need to describe how the truth values are to be combined. We work through each of our connectives describing the rules governing it.
+
+\newglossaryentry{truth value}
+                 {
+                   name = truth value,
+                   description = {One of the two logical values sentences can have: True and False}
+                   }
 
 
-                                     
-
-\subsection{Negation} 
-
-We want to know whether a sentence of the form $\enot \metaX$ is true. This depends on whether $\metaX$ is true or not.
+\section{Negation}
 
 Consider:
 \begin{earg}
 \item[\ex{neg-f}] Bristol is not in France.
 \item[\ex{neg-f}] Bristol is not in England.
 \end{earg}
-`Bristol is in France' is false, so `Bristol is not in France' is true. 
+`Bristol is in France' is false, so `Bristol is not in France' is true.
 `Bristol is in England' is true, so `Bristol is not in England' is false.
 
-The rule governing $\enot$ is:
+In general, to know whether a sentence of the form $\enot \metaX$ is true. This depends on whether $\metaX$ is true or not in the way:
 \begin{itemize}
-\item If $\metaX$ is true, then $\enot \metaX$ is false. 
+\item If $\metaX$ is true, then $\enot \metaX$ is false.
 \item If $\metaX$ is false, then $\enot \metaX$ is true.
 \end{itemize}
 We record this in shorthand:
 \begin{highlighted}
-\begin{center}$\enot$ :
-\begin{tabular}{c@{ $\leadsto$ }c}
-T & F\\
-F & T 
+\begin{center}
+\begin{tabular}{ccc}
+If \metaX is: &&then \enot \metaX is:\\
+T &$\leadsto$& F\\
+F &$\leadsto$& T
 \end{tabular}
 \end{center}
 \end{highlighted}
+%or even more concisely (to help the memory):
+%\begin{highlighted}
+%\begin{center}$\enot$ :
+%\begin{tabular}{c@{ $\leadsto$ }c}
+%T & F\\
+%F & T
+%\end{tabular}
+%\end{center}
+%\end{highlighted}
 %
-%in an easy to read form: 
-%a \define{characteristic truth table}: 
+%in an easy to read form:
+%a \define{characteristic truth table}:
 %\newglossaryentry{characteristic truth table}
 %                 {
 %                   name = characteristic truth table,
@@ -51,36 +63,37 @@ F & T
 %\begin{tabular}{c|c}
 %If \metaX is:& then \enot\metaX is:\\\hline
 %T & F\\
-%F & T 
+%F & T
 %\end{tabular}
 %\end{center}
 We have abbreviated `True' with `T' and `False' with `F'. (But just to be clear, the two truth values are True and False; the truth values are not \emph{letters}!)
 
 
 
-\subsection{Conjunction}
-Recall that $\metaX\eand\metaY$ was used to symbolise `$\metaX$ and $\metaY$'. 
+\section{Conjunction}
+Recall that $\metaX\eand\metaY$ was used to symbolise `$\metaX$ and $\metaY$'.
 
 
 Consider:
 \begin{earg}
 \item[\ex{conj}] She can speak German and French.
 \end{earg}
-If she can speak German and she can speak French, then this is true, but otherwise it is false. 
+If she can speak German and she can speak French, then this is true, but otherwise it is false.
 
 More generally, the rule governing $\eand$ is:
 \begin{itemize}
-\item If $\metaX$ and $\metaY$ are both true, then $\metaX\eand\metaY$ is true. 
+\item If $\metaX$ and $\metaY$ are both true, then $\metaX\eand\metaY$ is true.
 \item Otherwise, $\metaX\eand \metaY$ is false.
 \end{itemize}
-Which we summarise 
+Which we summarise
 \begin{highlighted}
-\begin{center}$\eand$ :
-\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
-T & T & T\\
-T & F & F\\
-F & T & F\\
-F & F & F
+\begin{center}
+\begin{tabular}{cccc}
+If \metaX is:&and \metaY is:&&then $\metaX\eand\metaY$ is:\\
+T & T &$\leadsto$& T\\
+T & F &$\leadsto$& F\\
+F & T &$\leadsto$& F\\
+F & F &$\leadsto$& F
 \end{tabular}
 \end{center}
 \end{highlighted}
@@ -95,46 +108,46 @@ F & F & F
 %F & F & F
 %\end{tabular}
 %\end{center}
-Note that conjunction is \emph{symmetrical}. The truth value for $\metaX \eand \metaY$ is always the same as the truth value for $\metaY \eand \metaX$.  
+Note that conjunction is \emph{symmetrical}. The truth value for $\metaX \eand \metaY$ is always the same as the truth value for $\metaY \eand \metaX$.
 
-\subsection{Disjunction}
-Disjunction is a bit more subtle. 
+\section{Disjunction}
+Disjunction is a bit more subtle.
 Consider:
 \begin{earg}
 \item[\ex{conj}] She can speak German or French.
 \end{earg}
-If she cannot speak either German or French, then this is false. If she can speak German but not French, then it is true, and if she can speak French but not German it is also true. 
+If she cannot speak either German or French, then this is false. If she can speak German but not French, then it is true, and if she can speak French but not German it is also true.
 We have the general rules:
 \begin{itemize}
-\item If $\metaX$ and $\metaY$ are both false, then $\metaX\eor\metaY$ is false. 
-\item  If $\metaX$ is true and $\metaY$ are false, then $\metaX\eor\metaY$ is true. 
-\item  If $\metaX$ is false and $\metaY$ are true, then $\metaX\eor\metaY$ is true. 
+\item If $\metaX$ and $\metaY$ are both false, then $\metaX\eor\metaY$ is false.
+\item  If $\metaX$ is true and $\metaY$ are false, then $\metaX\eor\metaY$ is true.
+\item  If $\metaX$ is false and $\metaY$ are true, then $\metaX\eor\metaY$ is true.
 \end{itemize}
 
-But what if she can speak both? Is it true or false? 
-We have already pointed out that in English there are two kinds of disjunctions: an \emph{inclusive} and an \emph{exclusive} one. 
+But what if she can speak both? Is it true or false?
+We have already pointed out that in English there are two kinds of disjunctions: an \emph{inclusive} and an \emph{exclusive} one.
 
 For the inclusive or, we might whisper a ``or both'' after it; whereas for the exclusive or, we'd want to whisper a ``but not both'':
 \begin{earg}
 \item [\ex{inclor}] She speaks German or
-French (or both). 
+French (or both).
 \item [\ex{exclor}] She speaks German or
-French (but not both). 
+French (but not both).
 \end{earg}
 
-In logic there can be no ambiguity. We choose that $\eor$ stands for the \emph{inclusive or}. 
+In logic there can be no ambiguity. We choose that $\eor$ stands for the \emph{inclusive or}.
 That is, we give the final rule:
 \begin{itemize}
-\item If $\metaX$ and $\metaY$ are both true, then $\metaX\eor\metaY$ is true. 
+\item If $\metaX$ and $\metaY$ are both true, then $\metaX\eor\metaY$ is true.
 \end{itemize}
 
-So, when doing symbolisations, one should only symbolise a sentence as $\metaX\eor \metaY$ if it is to be read as the \emph{inclusive or}. To symbolise the exclusive or, you need to use the more complex sentence: $(\metaX\eor\metaY)\eand \enot(\metaX\eand\metaY)$, which essentially makes explicit the whispered ``but not both''. Sometimes the English is ambiguous, in which case one should point that out when symbolising and give the two alternative symbolisations. 
+So, when doing symbolisations, one should only symbolise a sentence as $\metaX\eor \metaY$ if it is to be read as the \emph{inclusive or}. To symbolise the exclusive or, you need to use the more complex sentence: $(\metaX\eor\metaY)\eand \enot(\metaX\eand\metaY)$, which essentially makes explicit the whispered ``but not both''. Sometimes the English is ambiguous, in which case one should point that out when symbolising and give the two alternative symbolisations.
 
 Consider:
 \begin{earg}
 \item[\ex{exclor}]She either ate pizza or pasta.
 \end{earg}
-Maybe this is an exclusive or, though an alternative treatment is to take this to be an inclusive or, but note that there's a implicit, or missing, premise: that she didn't eat both. 
+Maybe this is an exclusive or, though an alternative treatment is to take this to be an inclusive or, but note that there's a implicit, or missing, premise: that she didn't eat both.
 
 To summarise the rules for $\eor$:
 %\begin{center}
@@ -148,39 +161,35 @@ To summarise the rules for $\eor$:
 %\end{tabular}
 %\end{center}
 \begin{highlighted}
-\begin{center}$\eor$ :
-\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
-T & T & T\\
-T & F & T\\
-F & T & T\\
-F & F & F
+\begin{center}
+\begin{tabular}{cccc}
+If \metaX is:&and \metaY is:&&then $\metaX\eor\metaY$ is:\\
+T & T &$\leadsto$& T\\
+T & F &$\leadsto$& T\\
+F & T &$\leadsto$& T\\
+F & F &$\leadsto$& F
 \end{tabular}
 \end{center}
 \end{highlighted}
-Like conjunction, disjunction is symmetrical. 
+Like conjunction, disjunction is symmetrical.
 
 
-\subsection{Conditional}\label{s:IndicativeSubjunctive}
+
+\section{Conditional}\label{s:IndicativeSubjunctive}
 Suppose you are a bartender considering the conditional
 \begin{earg}
-\item[\ex{bartender}] If she is drinking a beer, then she is over eighteen. 
+\item[\ex{bartender}] If she is drinking a beer, then she is over eighteen.
 \end{earg}
-The bartender finds out that this beer drinker is sixteen, and can then conclude that sentence \ref{bartender} is false. This will give us the rule:
+
+Here is what we'll say about this conditional:
+
 \begin{itemize}
-\item If $\metaX$ is true and $\metaY$ is false, then $\metaX\eif \metaY$ is false.
-\end{itemize}
-If he instead finds out that she's nineteen, then there is no conflict with the conditional, and we will say \ref{bartender} is true. This is the rule:
-\begin{itemize}
-\item If $\metaX$ is true and $\metaY$ is true, then $\metaX\eif \metaY$ is true.
-\end{itemize}
-Someone who is drinking coke doesn't need to have their age checked. Whether they're sixteen or nineteen, sentence \ref{bartender} will be true. 
-\begin{itemize}
-\item If $\metaX$ is false and $\metaY$ true, then $\metaX\eif \metaY$ is true.
-\item If $\metaX$ is false and $\metaY$ false, then $\metaX\eif \metaY$ is true.
+\item If she's drinking beer and is sixteen, then it is false. (You should kick her out of the bar.)
+\item If she is drinking beer and is nineteen, then it's true.
+\item If she is drinking coke, then it's true. (No need to check her age)
 \end{itemize}
 
-
-%We get the characteristic truth table: 
+%We get the characteristic truth table:
 %\begin{center}
 %\begin{tabular}{c c|c}
 %\metaX & \metaY & $\metaX\eif\metaY$\\
@@ -193,31 +202,23 @@ Someone who is drinking coke doesn't need to have their age checked. Whether the
 %\end{center}
 We summarise these rules:
 \begin{highlighted}
-\begin{center}$\eif$ :
-\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
-T & T & T\\
-T & F & F\\
-F & T & T\\
-F & F & T
+\begin{center}
+\begin{tabular}{cccc}
+If \metaX is:&and \metaY is:&&then $\metaX\eif\metaY$ is:\\
+T & T &$\leadsto$& T\\
+T & F &$\leadsto$& F\\
+F & T &$\leadsto$& T\\
+F & F &$\leadsto$& T
 \end{tabular}
 \end{center}
 \end{highlighted}
-In this case, it's very important to remember which way around it goes. The TF-line is different to the FT-line. 
-Let's make it more explicit:
-\begin{center}
-\begin{tabular}{ccc}
-If \metaX is:&and \metaY is:& then $\metaX\eif\metaY$ is:\\
-T & T & T\\
-T & F & F\\
-F & T & T\\
-F & F & T
-\end{tabular}
-\end{center}
+In this case, it's very important to remember which way around it goes. The TF-line is different to the FT-line.
+
 This is why the terms `antecedent' and `consequent' are so useful.  \begin{highlighted}
 In $\metaX\eif\metaY$, \metaX is called the \define{antecedent}, and \metaY the \define{consequent}.
 \end{highlighted}
 We can redescribe this rule:
-If the antecedent is true and the consequent false, then the conditional sentence is false, otherwise it is true. 
+If the antecedent is true and the consequent false, then the conditional sentence is false, otherwise it is true.
 \newglossaryentry{antecedent}
 {
 name=antecedent,
@@ -231,12 +232,34 @@ name=consequent,
 description={The sentence on the right side of a \gls{conditional}}
 }
 
+The TFL connective $\eif$ is \emph{stipulated} to be governed by these rules. 
+
+However, some English sentences that have the form `if\ldots then\ldots' do not fit with these rules.
+Consider 
+\begin{earg}
+\item[pres] If the UK had voted to remain in the EU, then I would be able to fly.
+\end{earg}
+This has a false antecedent (we voted to exit), and a false consequent (I certainly can't fly). But the whole sentence would be judged to be true. 
+
+There are two kinds of sentences of the form `if\ldots, then\ldots' in English: indicative and subjunctive ones. 
+Consider the two sentences:
+\begin{earg}
+\item[\ex{indicative}] If Oswald didn't kill Kennedy, someone else did.
+\item[\ex{subjunctive}] If Oswald hadn't killed Kenney, someone else would have.
+\end{earg}
+The former uses the \define{indicative conditional} and is plausibly true. After all, we know that Kennedy was assassinated. The latter uses the \define{subjunctive (or counterfactual) conditional} and is plausibly false. Unless there was a conspiracy plot, if Oswald hadn't have killed Kenney then Kennedy wouldn't have been assassinated. 
+
+Whilst we use the English `if\ldots then\ldots' for both these sentences, they are very different kinds of conditionals. The $\eif$ of TFL does a terrible job at symbolising the subjunctive conditional which aren't governed by these rules. In fact TFL just doesn't have the resources to consider subjunctive conditionals, they are not ``truth functional''. We will discuss this in the next chapter, but for now we simply not that if you have to symbolise a subjunctive conditional in TFL it is then a matter of judgement whether to do it as $\metaX\eif \metaY$, or to simply use an atomic sentence. 
+
+It does a much better job at symbolising the indicative conditionals, though there are still some 
+
+
 \section{Biconditional}
 Consider
 \begin{earg}
-\item[\ex{bicond}] Sue is coming to the party if and only if Maya is coming. 
+\item[\ex{bicond}] Sue is coming to the party if and only if Maya is coming.
 \end{earg}
-If Sue and Maya are both coming, then this is true. If they're both not coming, then it is also true. If only one of them is coming, then it is false. 
+If Sue and Maya are both coming, then this is true. If they're both not coming, then it is also true. If only one of them is coming, then it is false.
 
 
 %\begin{center}
@@ -249,26 +272,30 @@ If Sue and Maya are both coming, then this is true. If they're both not coming, 
 %F & F & T
 %\end{tabular}
 %%\end{center}
+
+
 \begin{highlighted}
-\begin{center}$\eiff$ :
-\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
-T & T & T\\
-T & F & F\\
-F & T & F\\
-F & F & T
+\begin{center}
+\begin{tabular}{cccc}
+If \metaX is:&and \metaY is:&&then $\metaX\eiff\metaY$ is:\\
+T & T &$\leadsto$& T\\
+T & F &$\leadsto$& F\\
+F & T &$\leadsto$& F\\
+F & F &$\leadsto$& T
 \end{tabular}
 \end{center}
 
 \end{highlighted}
 
-You can see a summary of these rules for ease of reference in the `Quick Reference Appendix' \S\ref{app.CharacteristicTTs}
+\bigskip
+You can see a summary of the rules for all the connectives, for ease of reference, in the `Quick Reference Appendix' \S\ref{app.CharacteristicTTs}
 
 \chapter{Truth-functional connectives}
 \label{s:TruthFunctionality}
-In this chapter, we reflect on truth-functional logic and the connectives we've used. 
+In this chapter, we reflect on truth-functional logic and the connectives we've used.
 \section{Non truth-functional connectives}
 
-Let's introduce an important idea. 
+Let's introduce an important idea.
 	\factoidbox{
 		A connective is \define{truth-functional} iff the truth value of a sentence with that connective as its main operator is uniquely determined by the truth value(s) of the constituent sentence(s).
 	}
@@ -277,58 +304,50 @@ Let's introduce an important idea.
 name=truth-functional connective,
 description={an operator that builds larger sentences out of smaller ones and fixes the \gls{truth value} of the resulting sentence based only on the truth value of the component sentences}
 }
-      
-Every connective in TFL is truth-functional. 
-The truth value of a negation is uniquely determined by the truth value of the unnegated sentence. The truth value of a conjunction is uniquely determined by the truth value of both conjuncts. The truth value of a disjunction is uniquely determined by the truth value of both disjuncts, and so on. To determine the truth value of some TFL sentence, we only need to know the truth value of its components. 
 
-This is what gives TFL its name: it is \emph{truth-functional logic}.
+Every connective in TFL is truth-functional. We were able to give rules to determine what the truth value of a sentence $\enot\metaX$ is depending only on the truth value of $\metaX$. The truth value of $\metaX$ uniquely determines the truth value of $\enot \metaX$. The same is true for all the other connectives of TFL ($\eand,\eor,\eif,\eiff$). This is what gives TFL its name: it is \emph{truth-functional logic}.
 
-The truth value of a non-atomic sentence of TFL, such as $A\eand B$ depends on the truth values of $A$ and $B$. But once the truth values of $A$, $B$ and $C$ are provided, the truth value of $A\eand B$ is fixed. Indeed, this is the characteristic feature of \emph{truth functional logic}.
+%The truth value of a negation is uniquely determined by the truth value of the unnegated sentence. The truth value of a conjunction is uniquely determined by the truth value of both conjuncts. The truth value of a disjunction is uniquely determined by the truth value of both disjuncts, and so on.
 
-For each connective we need to describe how the truth value of a sentence with that as its main connective depends on the consistent parts. 
-\newglossaryentry{truth value}
-                 {
-                   name = truth value,
-                   description = {One of the two logical values sentences can have: True and False}
-                   }
+This then means that to determine the truth value of any TFL sentence, we only need to know the truth value of the atomic sentences it includes. We will see exactly how to do this in \S\ref{s:CompleteTruthTables}.
+
+
+%The truth value of a non-atomic sentence of TFL, such as $A\eand B$ depends on the truth values of $A$ and $B$. But once the truth values of $A$, $B$ and $C$ are provided, the truth value of $A\eand B$ is fixed. Indeed, this is the characteristic feature of \emph{truth functional logic}.
+
 
 In plenty of languages there are connectives that are not truth-functional. In English, for example, we can form a new sentence from any simpler sentence by prefixing it with `It is necessarily the case that\ldots'. The truth value of this new sentence is not fixed solely by the truth value of the original sentence. For consider two true sentences:
 	\begin{earg}
-		\item $2 + 2 = 4$
-		\item Shostakovich wrote fifteen string quartets
+		\item[\ex{nec-math}] $2 + 2 = 4$
+		\item[\ex{nec-music}] Shostakovich wrote fifteen string quartets
 	\end{earg}
 Whereas it is necessarily the case that $2 + 2 = 4$, it is not \emph{necessarily} the case that Shostakovich wrote fifteen string quartets. If Shostakovich had died earlier, he would have failed to finish Quartet no.\ 15; if he had lived longer, he might have written a few more. So `It is necessarily the case that\ldots' is a connective of English, but it is not \emph{truth-functional}.
 
 
-\section{Symbolizing versus translating}
-All of the connectives of TFL are truth-functional, but more than that: they really do nothing \emph{but} map us between truth values.  
 
-When we symbolize a sentence or an argument in TFL, we ignore everything \emph{besides} the contribution that the truth values of a component might make to the truth value of the whole. There are subtleties to our ordinary claims that far outstrip their mere truth values. Sarcasm; poetry; snide implicature; emphasis; these are important parts of everyday discourse, but none of this is retained in TFL. As remarked in \S\ref{s:TFLConnectives}, TFL cannot capture the subtle differences between the following English sentences:
-	\begin{earg}
-		\item Dana is a logician and Dana is a nice person
-		\item Although Dana is a logician, Dana is a nice person
-		\item Dana is a logician despite being a nice person
-		\item Dana is a nice person, but also a logician
-		\item Dana's being a logician notwithstanding, he is a nice person
-	\end{earg}
-All of the above sentences will be symbolized with the same TFL sentence, perhaps `$L \eand N$'.
+\section{Subjunctive conditionals}\label{s:IndicativeSubjunctive}
+Consider the two sentences:
+\begin{earg}
+\item[\ex{indicative}] If Oswald didn't kill Kennedy, someone else did.
+\item[\ex{subjunctive}] If Oswald hadn't killed Kenney, someone else would have.
+\end{earg}
+Plausibly the former is true; after all, we know that Kennedy was assassinated. The latter, however, is plausibly false. Unless there was a conspiracy plot, if Oswald hadn't have killed Kenney then Kennedy wouldn't have been assassinated. 
 
-We keep saying that we use TFL sentences to \emph{symbolize} English sentences. Many other textbooks talk about \emph{translating} English sentences into TFL. However, a good translation should preserve certain facets of meaning, and---as we have just pointed out---TFL just cannot do that. This is why we will speak of \emph{symbolizing} English sentences, rather than of \emph{translating} them.
+Whilst we use the English `if\ldots then\ldots' for both these sentences, they are very different kinds of conditionals. The former is \define{indicative} and the latter is \define{subjunctive}, also often called {counterfactual}.
 
-This affects how we should understand our symbolization keys. Consider a key like:
-	\begin{ekey}
-		\item[L] Dana is a logician.
-		\item[N] Dana is a nice person.
-	\end{ekey}
-Other textbooks will understand this as a stipulation that the TFL sentence `$L$' should \emph{mean} that Dana is a logician, and that the TFL sentence `$N$' should \emph{mean} that Dana is a nice person, but TFL just is totally unequipped to deal with \emph{meaning}. The preceding symbolization key is doing no more and no less than stipulating that the TFL sentence `$L$' should take the same truth value as the English sentence `Dana is a logician' (whatever that might be), and that the TFL sentence `$N$' should take the same truth value as the English sentence `Dana is a nice person' (whatever that might be). 
-	\factoidbox{
-		When we treat a TFL sentence as \emph{symbolizing} an English sentence, we are stipulating that the TFL sentence is to take the same truth value as that English sentence.
-	}
+The rules we have given don't work very well for subjunctive conditionals. 
+
+Consider:
+\begin{earg}
+\item[\ex{subj}] If . 
+\end{earg}
 
 
-\section{Indicative versus subjunctive conditionals}\label{s:IndicativeSubjunctive}
-We want to bring home the point that TFL can \emph{only} deal with truth functions by considering the case of the conditional. 
-We gave the characteristic truth table for the conditional in \S\ref{s:CharacteristicTruthTables}. 
+
+
+
+
+We want to bring home the point that TFL can \emph{only} deal with truth functions by considering the case of the conditional.
+We gave the characteristic truth table for the conditional in \S\ref{s:CharacteristicTruthTables}.
 
 The kind of justification we offered there made an important assumption: that what we said about the bartender sentence could form a general rule. In the bartender case, we said that if the antecedent is false and the consequent false then the conditional is true. (The nineteen year old coke drinker.) And we then concluded that whenever the antecedent and consequent are both false, then the conditional is true. This is required if we are to give a \emph{truth functional conditional}. Our conditional, `$\eif$', is stipulated to be governed by the rules:
 \begin{center}$\eif$ :
@@ -339,12 +358,12 @@ F & T & T\\
 F & F & T
 \end{tabular}
 \end{center}
-This connective is often explicitly called the \emph{material conditional}. It is stipulated to act according to these rules. 
-It is the {best} candidate for a truth-functional conditional. Otherwise put, \emph{it is the best conditional that TFL can provide}. 
+This connective is often more precisely called the \emph{material conditional} (we simply call it the `conditional' as it's the only one we use). It is stipulated to act according to these rules.
+It is the {best} candidate for a truth-functional conditional. Otherwise put, \emph{it is the best conditional that TFL can provide}.
 
 
 %
-%When we introduced the characteristic truth table for the material conditional in \S\ref{s:CharacteristicTruthTables}, we did not say anything to justify it. Let's now offer a justification, which follows Dorothy Edgington.\footnote{Dorothy Edgington, `Conditionals', 2006, in the \emph{Stanford Encyclopedia of Philosophy} (\url{http://plato.stanford.edu/entries/conditionals/}).} 
+%When we introduced the characteristic truth table for the material conditional in \S\ref{s:CharacteristicTruthTables}, we did not say anything to justify it. Let's now offer a justification, which follows Dorothy Edgington.\footnote{Dorothy Edgington, `Conditionals', 2006, in the \emph{Stanford Encyclopedia of Philosophy} (\url{http://plato.stanford.edu/entries/conditionals/}).}
 %
 %Suppose that Lara has drawn some shapes on a piece of paper, and coloured some of them in. We have not seen them, but nevertheless claim:
 %	\begin{quote}
@@ -387,31 +406,58 @@ But is it any good, as a surrogate for the conditionals we use in everyday langu
 		\item[\ex{brownwins1}] If Mitt Romney had won the 2012 election, then he would have been the 45th President of the USA.
 		\item[\ex{brownwins2}] If Mitt Romney had won the 2012 election, then he would have turned into a helium-filled balloon and floated away into the night sky.
 	\end{earg}
-Sentence \ref{brownwins1} is true; sentence \ref{brownwins2} is false, but both have false antecedents and false consequents. So the truth value of the whole sentence is not uniquely determined by the truth value of the parts. Do not just blithely assume that you can adequately symbolize an English `if \dots, then \dots' with TFL's `$\eif$'. 
+Sentence \ref{brownwins1} is true; sentence \ref{brownwins2} is false, but both have false antecedents and false consequents. So the truth value of the whole sentence is not uniquely determined by the truth value of the parts. We have to be a bit more careful when symbolising. Sometimes you cannot adequately symbolize an English `if \dots, then \dots' with TFL's `$\eif$'.
 
-The crucial point is that sentences \ref{brownwins1} and \ref{brownwins2} employ \emph{subjunctive} conditionals, rather than \emph{indicative} conditionals. They ask us to imagine something contrary to fact---Mitt Romney lost the 2012 election---and then ask us to evaluate what \emph{would} have happened in that case. Such considerations just cannot be tackled using `$\eif$'.
-So, $\eif$ is not at all good at symbolising \emph{subjunctive} conditionals, though it is the best that can be done in truth functional logic. 
+Sentences \ref{brownwins1} and \ref{brownwins2} employ \emph{subjunctive} conditionals, rather than \emph{indicative} conditionals. They ask us to imagine something contrary to fact---Mitt Romney lost the 2012 election---and then ask us to evaluate what \emph{would} have happened in that case. Such considerations just cannot be tackled using `$\eif$'.
+So, $\eif$ is not at all good at symbolising \emph{subjunctive} conditionals, though it is the best that can be done in truth functional logic.
 
-$\eif$ is better at symbolising \emph{indicative} conditionals. 
+$\eif$ is better at symbolising \emph{indicative} conditionals.
 There is a grammatical difference between the two conditionals. Consider:
 \begin{earg}
 \item[\ex{indicative}] If Oswald didn't kill Kennedy, someone else did.
-\item[\ex{subjunctive}] If Oswald hadn't have killed Kenney, someone else would have. 
+\item[\ex{subjunctive}] If Oswald hadn't have killed Kenney, someone else would have.
 \end{earg}
-The former is an \emph{indicative} conditional (and is true, after all, we know he was killed), the latter is \emph{subjunctive} (and is probably false, unless there was a conspiracy plot). 
+The former is an \emph{indicative} conditional (and is true; after all, we know he was killed), the latter is \emph{subjunctive} (and is probably false, unless there was a conspiracy plot).
 
-Exactly how well the material conditional does at representing \emph{indicative} conditionals, however, is a philosophically contentious issue, and not one we can further discuss in this course. 
+Exactly how well the material conditional does at representing \emph{indicative} conditionals, however, is a philosophically contentious issue, and not one we can delve into in this course.
 \todo{move some of the paradoxes stuff back in... ??}
-%We will say more about the difficulties with conditionals in \S\ref{s:ParadoxesOfMaterialConditional}. For now, we will content ourselves with the observation that `$\eif$' is the only candidate for a truth-functional conditional for TFL, but that many English conditionals cannot be represented adequately using `$\eif$'. TFL is an intrinsically limited language. 
+%We will say more about the difficulties with conditionals in \S\ref{s:ParadoxesOfMaterialConditional}. For now, we will content ourselves with the observation that `$\eif$' is the only candidate for a truth-functional conditional for TFL, but that many English conditionals cannot be represented adequately using `$\eif$'. TFL is an intrinsically limited language.
 
-%In truth functional logic we work with the \emph{material conditional}, which is stipulated to given by these truth rules. How well it does at capturing the English `if\ldots, then\ldots'. 
+%In truth functional logic we work with the \emph{material conditional}, which is stipulated to given by these truth rules. How well it does at capturing the English `if\ldots, then\ldots'.
+
+\section{Symbolizing versus translating}
+All of the connectives of TFL are truth-functional, but more than that: they really do nothing \emph{but} map us between truth values.
+
+When we symbolize a sentence or an argument in TFL, we ignore everything \emph{besides} the contribution that the truth values of a component might make to the truth value of the whole. There are subtleties to our ordinary claims that far outstrip their mere truth values. Sarcasm; poetry; snide implicature; emphasis; these are important parts of everyday discourse, but none of this is retained in TFL. As remarked in \S\ref{s:TFLConnectives}, TFL cannot capture the subtle differences between the following English sentences:
+	\begin{earg}
+		\item Dana is a logician and Dana is a nice person
+		\item Although Dana is a logician, Dana is a nice person
+		\item Dana is a logician despite being a nice person
+		\item Dana is a nice person, but also a logician
+		\item Dana's being a logician notwithstanding, he is a nice person
+	\end{earg}
+All of the above sentences will be symbolized with the same TFL sentence, perhaps `$L \eand N$'.
+
+We keep saying that we use TFL sentences to \emph{symbolize} English sentences. Many other textbooks talk about \emph{translating} English sentences into TFL. However, a good translation should preserve certain facets of meaning, and---as we have just pointed out---TFL just cannot do that. This is why we will speak of \emph{symbolizing} English sentences, rather than of \emph{translating} them.
+
+This affects how we should understand our symbolization keys. Consider a key like:
+	\begin{ekey}
+		\item[L] Dana is a logician.
+		\item[N] Dana is a nice person.
+	\end{ekey}
+Other textbooks will understand this as a stipulation that the TFL sentence `$L$' should \emph{mean} that Dana is a logician, and that the TFL sentence `$N$' should \emph{mean} that Dana is a nice person, but TFL just is totally unequipped to deal with \emph{meaning}. The preceding symbolization key is doing no more and no less than stipulating that the TFL sentence `$L$' should take the same truth value as the English sentence `Dana is a logician' (whatever that might be), and that the TFL sentence `$N$' should take the same truth value as the English sentence `Dana is a nice person' (whatever that might be).
+	\factoidbox{
+		When we treat a TFL sentence as \emph{symbolizing} an English sentence, we are stipulating that the TFL sentence is to take the same truth value as that English sentence.
+	}
+
+
 
 \chapter{Complete truth tables}
 \label{s:CompleteTruthTables}
 
-In \S\ref{s:CharacteristicTruthTables} we described how the truth values of sentences \metaX and \metaY should combine to determine the truth of a sentence such as $\metaX\eor\metaY$. 
+In \S\ref{s:CharacteristicTruthTables} we described how the truth values of two sentences, \metaX and \metaY, should combine to determine the truth of a sentence such as $\metaX\eor\metaY$.
 
-We will now describe how to extend this reasoning to determine the truths of more complex sentences such as $(I\eif H)\eand H$. 
+We will now describe how to extend this reasoning to determine the truths of more complex sentences such as $(\enot I\eif H)\eand H$.
 
 So far, we have considered assigning truth values to TFL sentences indirectly. We have said, for example, that a TFL sentence such as `$B$' is to take the same truth value as the English sentence `Ben is happy' (whatever that truth value may be), but we can also assign truth values \emph{directly}. We can simply stipulate that `$B$' is to be true, or stipulate that it is to be false.
 	\factoidbox{
@@ -424,52 +470,52 @@ name=valuation,
 description={An assignment of \glspl{truth value} to particular atomic \glspl{sentence of TFL}}
 }
 
-We describe how to fill out \define{truth tables}. 
+We describe how to fill out \define{truth tables}.
 Each row of a truth table is a valuation. The entire truth table represents all possible valuations; thus the truth table provides us with a means to calculate the truth values of complex sentences, on each possible valuation. This is easiest to explain by example.
 
 \section{A worked example}
 
-Consider the sentence `$A\eor B$'. 
-We will give a \emph{truth table} which lists all the valuations and says whether the sentence, `$A\eor B$' is true or false on each of them. 
-We start by listing the valuations. There are four possible ways to assign True and False to the atomic sentences $A$ and $B$:
-\begin{center}
-\begin{tabular}{c c|d e f}
-$A$&$B$&$A$&\eif&$B$\\
-\hline
- T & T\\
- T & F\\
- F & T\\
- F & F
-\end{tabular}
-\end{center}
-Now, we look at our rule for $\eor$:
-\begin{center}$\eor$ :
-\begin{tabular}{c@{, }c@{ $\leadsto$ }c}
-%1& 
-T & T & T\\
-%2& 
-T & F & T\\
-%3& 
-F & T & T\\
-%4&
- F & F & F
-\end{tabular}
-\end{center}
-And to work out what goes in each blank space in our truth table for $A\eor B$, we just follow the rules given here. In fact here, the lines nicely match up to the different rules to follow, and we can complete the truth table by simply copying it over:
-\begin{center}
-\begin{tabular}{c c|d e f}
-$A$&$B$&$A$&\eor&$B$\\
-\hline
- T & T&&T\\
- T & F&&T\\
- F & T&&T\\
- F & F&&F
-\end{tabular}
-\end{center}
-Often, though, it won't be quite so simple and we'll have to carefully go through which line of the connective-rule to follow. 
+%Consider the sentence `$A\eor B$'.
+%We will give a \emph{truth table} which lists all the valuations and says whether the sentence, `$A\eor B$' is true or false on each of them.
+%We start by listing the valuations. There are four possible ways to assign True and False to the atomic sentences $A$ and $B$:
+%\begin{center}
+%\begin{tabular}{c c|d e f}
+%$A$&$B$&$A$&\eif&$B$\\
+%\hline
+% T & T\\
+% T & F\\
+% F & T\\
+% F & F
+%\end{tabular}
+%\end{center}
+%Now, we look at our rule for $\eor$:
+%\begin{center}$\eor$ :
+%\begin{tabular}{c@{ }c@{ $\leadsto$ }c}
+%%1&
+%T & T & T\\
+%%2&
+%T & F & T\\
+%%3&
+%F & T & T\\
+%%4&
+% F & F & F
+%\end{tabular}
+%\end{center}
+%And to work out what goes in each blank space in our truth table for $A\eor B$, we just follow the rules given here. In fact here, the lines nicely match up to the different rules to follow, and we can complete the truth table by simply copying it over:
+%\begin{center}
+%\begin{tabular}{c c|d e f}
+%$A$&$B$&$A$&\eor&$B$\\
+%\hline
+% T & T&&T\\
+% T & F&&T\\
+% F & T&&T\\
+% F & F&&F
+%\end{tabular}
+%\end{center}
+%Often, though, it won't be quite so simple and we'll have to carefully go through which line of the connective-rule to follow.
 
 
-Consider the sentence `$(\enot I\eif H)\eand H$'. 
+Consider the sentence $(\enot I\eif H)\eand H$. We will give a \emph{truth table} which lists all the valuations and says whether this sentence is true or false on each of them.
 The valuations assign either True or False to each atomic sentence. In this case we have two atomic sentences, $I$ and $H$, so we have four possible valuations, each of which is a line in the truth table:
 \begin{center}
 \begin{tabular}{cc|c}
@@ -480,13 +526,13 @@ F&T&\\
 F&F&
 \end{tabular}
 \end{center}
-Our job is to fill out the truths of $(\enot I\eif H)\eand H$. 
+Our job is to fill out the truth values of $(\enot I\eif H)\eand H$.
 
-Here the formation tree will help us know what to do (see \S\ref{TFLsentences}): 
+Here the formation tree will help us know what to do (see \S\ref{TFLsentences}):
 \begin{center}
 \begin{forest}
 [$(\enot I\eand H)\eif H$
-	[$(\enot I\eif H)$
+	[$(\enot I\eand H)$
 		[$\enot I$
 			[$I$]
 		]
@@ -498,16 +544,16 @@ Here the formation tree will help us know what to do (see \S\ref{TFLsentences}):
 \end{center}
 The truth rule for $\enot$ tells us how the truth value of $\enot I$ depends on the truth of $I$. Then the rule for $\eand$ tells us how the truth value of $\enot I\eand H$ depends on the truths of $\enot I$ and $H$; and finally, the rule for $\eif$ tells us how the truth value of $(\enot I\eand H)\eif H$ depends on those of $\enot I\eand H$ and $H$.
 
-So to work out the truth values of $(\enot I\eand H)\eif H$ we first need to work out the truth values of $\enot I$ and $\enot I\eand H$. 
+So to work out the truth values of $(\enot I\eand H)\eif H$ we first need to work out the truth values of $\enot I$ and $\enot I\eand H$.
 
-So, we expand our truth table with columns for each of these. 
+So, we expand our truth table with columns for each of these.
 \begin{center}
 \begin{tabular}{cc|c|c|c}
 $I$&$H$&$\enot I$&$(\enot I\eand H)$&$(\enot I\eand H)\eif H$\\\hline
-T&T&\\
-T&F&\\
-F&T&\\
-F&F&
+T&T&&\\
+T&F&&\\
+F&T&&\\
+F&F&&
 \end{tabular}
 \end{center}
 The first step is $\enot I$.
@@ -519,7 +565,7 @@ T&$\leadsto$&F\\
 F&$\leadsto$&T
 \end{tabular}
 \end{center}
-Now, 
+Now, we can fill out:
 \begin{center}
 \begin{tabular}{cc|c|c|c}
 $I$&$H$&$\enot I$&$(\enot I\eand H)$&$(\enot I\eand H)\eif H$\\\hline
@@ -533,12 +579,12 @@ $\bigstar$
 We worked these out by:
 \begin{itemize}
 \item For `a': Look at the column for $I$, and see it's T, so by our rule (T-line), we fill out a=F.
-\item For `b': Look at the column for $I$, and see it's T, so by our rule (T-line), we fill out a=F.
-\item For `c': Look at the column for $I$, and see it's F, so by our rule (F-line), we fill out a=T.
-\item For `d': Look at the column for $I$, and see it's F, so by our rule (F-line), we fill out a=T.
+\item For `b': Look at the column for $I$, and see it's T, so by our rule (T-line), we fill out b=F.
+\item For `c': Look at the column for $I$, and see it's F, so by our rule (F-line), we fill out c=T.
+\item For `d': Look at the column for $I$, and see it's F, so by our rule (F-line), we fill out d=T.
 \end{itemize}
 
-The next step is to consider $\enot I\eand H$. For this we will use the truth rule we specified for $\eand$:
+The next step is to consider $\enot I\eand H$. For this we will use the truth rule for $\eand$:
 \begin{center}
 \begin{tabular}{ccccc}
 If \metaX is&and \metaY is  && then $\metaX\eand \metaY$ is\\
@@ -567,7 +613,7 @@ We worked these out by:
 \item For `d': Look at the column for $\enot I$ and the column for $H$, we have T and F; so by our rule (TF-line), we fill out a=F.
 \end{itemize}
 
-Now, finally, we need to look at $(\enot I\eand H)\eif H$, and will use the truth rule for $\eif$: 
+Now, finally, we need to look at $(\enot I\eand H)\eif H$, and will use the truth rule for $\eif$:
 
 \begin{center}
 \begin{tabular}{cccc}
@@ -591,7 +637,7 @@ F&F&T&F&d=T\\
 \end{center}
 We worked these out by:
 \begin{itemize}
-\item For `a': In the column for $(\enot I\eand H)$ (which is our antecedent) we have F; and in the column for $H$ (our consequent)  we have T. For the conditional, it's very important to bear in mind which order they come in. We are looking at antecedent then consequent, so the rule line we are looking at is FT (the antecedent is False and the consequent is True rather than visa versa). And we get a=T. 
+\item For `a': In the column for $(\enot I\eand H)$ (which is our antecedent) we have F; and in the column for $H$ (our consequent)  we have T. For the conditional, it's very important to bear in mind which order they come in. We are looking at antecedent then consequent, so the rule line we are looking at is FT (the antecedent is False and the consequent is True rather than visa versa). And we get a=T.
 \item For `b': In the column for $(\enot I\eand H)$ we have F; and in the column for $H$ we have F. So by our rule for $\eif$ (FF-line) we have b=T.
 \item For `c': In the column for $(\enot I\eand H)$ we have T; and in the column for $H$ we have T. So by our rule for $\eif$ (TT-line) we have b=T.
 \item For `d': In the column for $(\enot I\eand H)$ we have F; and in the column for $H$ we have F. So by our rule for $\eif$ (FF-line) we have d=T.
@@ -600,9 +646,9 @@ We worked these out by:
 
 
 
-When we do these in practice, our sentences can have many subsentences, consider, e.g.~$$\enot (B\eand(\enot B\eiff \enot A)))$$ A tool for fitting our truth tables on a page is not to put all the subsentences out as separate entire columns to calculate, but to simply list the values underneath the main connective of the sentence. This is simply to keep the truth table more concise. 
+When we do these in practice, our sentences can have many subsentences, consider, e.g.~$$\enot (B\eand(\enot B\eiff \enot A)))$$ A tool for fitting our truth tables on a page is not to put all the subsentences out as separate entire columns to calculate, but to simply list the values underneath the main connective of the sentence. This is simply to keep the truth table more concise.
 
-So instead of writing 
+So instead of writing
 \begin{center}
 \begin{tabular}{cc|cccc|c}
 $A$&$B$&$\enot B$&$\enot A$&$\enot B\eiff \enot A$&$(B\eand(\enot B\eiff \enot A)))$&$\enot (B\eand(\enot B\eiff \enot A)))$\\\hline
@@ -620,12 +666,12 @@ T&F&\textbf{T}&&F&T&F&F\\
 F&T&\textbf{T}&&F&F&F&T\\
 F&F&\textbf{T}&&F&T&T&T
 \end{tabular}
-\end{center}and highlight the column under the main connective, which provides our final answer. This is more concise and is more useful when we want to apply tricks to miss out some of the gaps by using strategies such as knowing that $\metaX$ is false is already enough to see that $\metaX\eand\metaY$ is false, we don't need to continue to work out the truth value of $\metaY$. 
+\end{center}and highlight the column under the main connective, which provides our final answer. This is more concise and is more useful when we want to apply tricks to miss out some of the gaps by using strategies such as knowing that $\metaX$ is false is already enough to see that $\metaX\eand\metaY$ is false, we don't need to continue to work out the truth value of $\metaY$.
 
-You should feel free to use whichever method you find easier. 
+You should feel free to use whichever method you find easier.
 
 \section{Building complete truth tables}
-A \define{complete truth table} has a line for every possible assignment of True and False to the relevant atomic sentences. Each line represents a \emph{valuation}, and a complete truth table has a line for all the different valuations. 
+A \define{complete truth table} has a line for every possible assignment of True and False to the relevant atomic sentences. Each line represents a \emph{valuation}, and a complete truth table has a line for all the different valuations.
 
 \newglossaryentry{complete truth table}
 {
@@ -746,7 +792,7 @@ Write complete truth tables for the following sentences and mark the column that
 
 %\begin{tabular}{c|c|ccccc}
 %\cline{2-2}
-%1.	&	\enot 	&	(S 	&	\eiff	&	(P 	&	\eif	&	S))	\\ 
+%1.	&	\enot 	&	(S 	&	\eiff	&	(P 	&	\eif	&	S))	\\
 %\cline{2-7}
 %	& 	F 		&	T	&	T	&	T	&	T	&	T	\\
 %	& 	F 		&	T	&	T	&	F	&	T	&	T	\\
@@ -775,7 +821,7 @@ Write complete truth tables for the following sentences and mark the column that
 %\cline{5-5}
 %3.	&	(A 	&	\eif	&	B)	&	 \eiff 	&	(\enot&	B 	&	\eiff 	&	 \enot 	& 	 A) \\
 %\cline{2-10}
-%	&	T	&	T	&	T	&	T		&	F	 &	T	&	T	&	F		&	T	\\	
+%	&	T	&	T	&	T	&	T		&	F	 &	T	&	T	&	F		&	T	\\
 %	&	T	&	F	&	F	&	T		&	T	 &	F	&	F	&	F		&	T	\\
 %	&	F	&	T	&	T	&	F		&	F	 &	T	&	F	&	T		&	F	\\
 %	&	F	&	T	&	F	&	T		&	T	 &	F	&	T	&	T		&	F	\\
@@ -806,7 +852,7 @@ Write complete truth tables for the following sentences and mark the column that
 %5.	&\enot&	(G 	&\eand &	(B 	&	 \eand 	&	 H))	&	\eiff 	&	(G 	& \eor 	& (B 	& \eor	& H))	\\
 %\cline{2-13}
 %	&F	   &	T	&	  T &	T	&	T		&	T	&	F	&	T	&	T	&	T	&	T	&	T	\\
-%	&T	   &	T	&	  F &	T	&	F		&	F	&	T	&	T	&	T	&	T	&	T	&	F	\\	
+%	&T	   &	T	&	  F &	T	&	F		&	F	&	T	&	T	&	T	&	T	&	T	&	F	\\
 %	&T	   &	T	&	 F  &	F	&	F		&	T	&	T	&	T	&	T	&	F	&	T	&	T	\\
 %	&T	   &	T	&	 F  &	F	&	F		&	F	&	T	&	T	&	T	&	F	&	F	&	F	\\
 %	&T	   &	F	&	F   &	T	&	T		&	T	&	T	&	F	&	T	&	T	&	T	&	T	\\
@@ -886,7 +932,7 @@ Write complete truth tables for the following sentences and mark the column that
 %	&	F	&	F		&	F	&	T	&	F	&	T	&	T		&	F	&	F		&F	\\
 %\cline{7-7}
 %\end{tabular}
-%	
+%
 %\vspace{1em}
 
 
@@ -894,7 +940,7 @@ Write complete truth tables for the following sentences and mark the column that
 
 %\begin{tabular}{ccccccc|c|cccc}
 %\cline{8-8}
-%5.	&	\enot 	&	[(D 	&	\eiff 	&	O) 	&	\eiff 	&	 A]	& 	\eif 	 &	(\enot 	& 	D 	 & 	 \eand &O) \\ 
+%5.	&	\enot 	&	[(D 	&	\eiff 	&	O) 	&	\eiff 	&	 A]	& 	\eif 	 &	(\enot 	& 	D 	 & 	 \eand &O) \\
 %	&	F		&	T	&	T	&	T	&	T	&	T	&	T	&	F		&	T	&	F	&T	\\
 %	&	T		&	T	&	T	&	T	&	F	&	F	&	F	&	F		&	T	&	F	&T	\\
 %	&	T		&	T	&	F	&	F	&	F	&	T	&	F	&	F		&	T	&	F	&F	\\
@@ -908,6 +954,48 @@ Write complete truth tables for the following sentences and mark the column that
 %\vspace{1em}
 \end{earg}
 
+\problempart
+ Can you think of sentences with the following truth table:
+\begin{enumerate}
+\item \begin{tabular}{cc|c}
+$A$&$B$&?\\\hline
+T&T&T\\
+T&F&T\\
+F&T&T\\
+F&F&T
+\end{tabular}\myanswer{$A\eor\enot A$}
+\item \begin{tabular}{cc|c}
+$A$&$B$&?\\\hline
+T&T&F\\
+T&F&F\\
+F&T&T\\
+F&F&F
+\end{tabular}\myanswer{$\enot A\eand B$}
+\item \begin{tabular}{cc|c}
+$A$&$B$&?\\\hline
+T&T&T\\
+T&F&F\\
+F&T&T\\
+F&F&T
+\end{tabular}\myanswer{\quad\begin{minipage}{.75\textwidth}
+$\enot( A\eand \enot B)$;\\ or the more systematic answer following G.2.: $$(A\eand B)\eor (\enot A\eand B)\eor (\enot A\eand\enot B)$$
+\end{minipage}}
+
+\end{enumerate}
+\problempart
+There are in fact sixteen different possible columns if there are two atomic sentences.
+\begin{enumerate}
+\item Can you explain why?\myanswer{\\ The first line might have T or F, the second line might have T or F, etc. There are 4 valuations, so there are $2\times 2\times 2\times 2=2^4=16$ different ways of putting Ts and Fs to these 4 lines. I.e.~16 different columns. }
+\item Can you show for each of these combinations that there is a sentence of TFL with that column describing its truth.
+\myanswer{\\
+See section 37.2 of forall$x$:Bristol for the general argument for this.
+}
+\item {} Can you show there's always a formula just using $\enot$ and $\eand$ with that column describing its truth.
+\myanswer{\\
+The previous answer had that every truth table can be given by a sentence with $\eand, \eor$ and $\enot$. We can replace any instances of $\eor$ by $\eand$ using: $$\metaX\eor\metaY\text{ is logically equivalent to }\enot(\enot\metaX\eand\enot\metaY)$$
+See 37.4 of forall$x$:Bristol for more details.
+}
+\end{enumerate}
 
 If you want additional practice, you can construct truth tables for any of the sentences and arguments in the exercises for the previous chapter.
 
@@ -918,11 +1006,21 @@ If you want additional practice, you can construct truth tables for any of the s
 In the previous section, we introduced the idea of a valuation and showed how to determine the truth value of any TFL sentence, on any valuation, using a truth table. In this section, we will introduce some related ideas, and show how to use truth tables to test whether or not they apply.
 
 \section{Entailment and validity}
-Logic is particularly useful for evaluating arguments, in particular to help us see if an argument is \emph{valid}: logic can help us see if an argument is valid in virtue of its form. 
+Logic is particularly useful for evaluating arguments, in particular to help us see if an argument is \emph{valid}: logic can help us see if an argument is valid in virtue of its form. \todo{replace the $\therefore$ symbol?}
 
-In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if it's impossible for all the premises to be true and the conclusion false. We investigated validity as it applies to English language arguments, but we also have TFL arguments. The logical substitute notion of validity replaces `impossible' by `\emph{logically} impossible', where logical impossibility is characterised by there being no valuations with the property of interest. 
+Now, since we are going to be talking about arguments a lot, we will introduce some abbreviation. An argument had the form:
+\begin{earg}
+\prem $\metaX_1$
+\prem $\metaX_2$
+\prem $\ldots$
+\prem $\metaX_n$
+\conc $\metaY$
+\end{earg}
+We can write this more concisely as: $$\metaX_1, \metaX_2, \ldots, \metaX_n\therefore \metaY$$ The $\therefore$ symbol can be read out loud as `therefore'. (When typing any answers out in word, you can replace it with `Therefore'.)
+
+In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if it's impossible for all the premises to be true and the conclusion false. We investigated validity as it applies to English language arguments, but we also have TFL arguments. The logical substitute notion of validity replaces `impossible' by `\emph{logically} impossible', where logical impossibility is characterised by there being no valuations with the property of interest.
 \factoidbox{
-	The TFL argument `$\metaX_1, \metaX_2, \ldots, \metaX_n\therefore \metaY$' is \define{valid} iff there are no valuations where the premises are true and the conclusion false. 
+	The TFL argument `$\metaX_1, \metaX_2, \ldots, \metaX_n\therefore \metaY$' is \define{valid} iff there are no valuations where the premises are true and the conclusion false.
 }
 \newglossaryentry{logically valid in TFL}
 {
@@ -930,7 +1028,7 @@ In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if 
 	text = logically valid,
 	description={A property held by arguments if and only if no \gls{valuation} makes all premises true and the conclusion false}
 }
-We will be using validity a lot in this course, and we have a corresponding notion that makes the claim that an argument is valid: that is the notion of \emph{entailment}. 
+We will be using validity a lot in this course, and we have a corresponding notion that makes the claim that an argument is valid: that is the notion of \emph{entailment}.
 \factoidbox{
 	The TFL sentences $\metaX_1, \metaX_2, \ldots, \metaX_n$ \define{entail} the sentence $\metaY$ iff there are no valuations where all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true and $\metaY$ false.
 }
@@ -941,12 +1039,12 @@ We will be using validity a lot in this course, and we have a corresponding noti
 	description={Some sentences entail another if and only if no \gls{valuation} makes all the former sentences true and the latter false, i.e.~if the corresponding argument is valid.}
 }
 
-We can see that entailment and validity are sister-notions: 
+We can see that entailment and validity are sister-notions:
 \factoidbox{
 		$\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\metaY$ iff $\metaX_1, \metaX_2, \ldots, \metaX_n \therefore \metaY$ is valid.
 	}
 
-It is easy to for entailment this with a truth table. Let us check whether `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$', we simply need to check whether there is any valuation which makes both `$\enot L \eif (J \eor L)$' and `$\enot L$' true whilst making `$J$' false. So we use a truth table: 
+It is easy to for entailment this with a truth table. Let us check whether `$\enot L \eif (J \eor L)$' and `$\enot L$' entail `$J$', we simply need to check whether there is any valuation which makes both `$\enot L \eif (J \eor L)$' and `$\enot L$' true whilst making `$J$' false. So we use a truth table:
 \begin{center}
 	\begin{tabular}{c c|d e e e e f|d f| c}
 		$J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
@@ -966,7 +1064,7 @@ The only row on which both`$\enot L \eif (J \eor L)$' and `$\enot L$' are true i
 %}
 %Here's why. If $\metaX_1, \metaX_2, \ldots, \metaX_n$ entail $\metaY$, then there is no valuation which makes all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true whilst making $\metaY$ false. This means that it is \emph{logically impossible} for $\metaX_1, \metaX_2, \ldots, \metaX_n$ all to be true whilst $\metaY$ is false. But this is just what it takes for an argument, with premises $\metaX_1, \metaX_2, \ldots, \metaX_n$ and conclusion $\metaY$, to be valid!
 
-In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\metaX_1, \metaX_2, \ldots, \metaX_n$, and conclusion $\metaY$. Then we test for entailment using truth tables. 
+In short, we have a way to test for the validity of English arguments. First, we symbolize them in TFL, as having premises $\metaX_1, \metaX_2, \ldots, \metaX_n$, and conclusion $\metaY$. Then we test for entailment using truth tables.
 
 \subsection{The double-turnstile}
 We are going to use the notion of entailment rather a lot in this course. It will help us, then, to introduce a symbol that abbreviates it. Rather than saying that the TFL sentences $\metaX_1, \metaX_2, \ldots$ and $\metaX_n$ together entail $\metaY$, we will abbreviate this by:
@@ -977,7 +1075,7 @@ Let me be clear. `$\entails$' is not a symbol of TFL. Rather, it is a symbol of 
 \begin{ebullet}
 	\item $P, P \eif Q \entails Q$
 \end{ebullet}
-is just an abbreviation for the English sentence: 
+is just an abbreviation for the English sentence:
 \begin{ebullet}
 	\item The TFL sentences `$P$' and `$P \eif Q$' entail `$Q$'
 \end{ebullet}
@@ -988,16 +1086,16 @@ $$\metaX \entails$$
 says that $\metaX$ is a contradiction.
 
 \subsection{`$\entails$' versus `$\eif$'}
-We now want to compare and contrast `$\entails$' and `$\eif$'. 
+We now want to compare and contrast `$\entails$' and `$\eif$'.
 
-Observe: $\metaX \entails \metaY$ iff there is no valuation of the atomic sentences that makes $\metaX$ true and $\metaY$ false. 
+Observe: $\metaX \entails \metaY$ iff there is no valuation of the atomic sentences that makes $\metaX$ true and $\metaY$ false.
 
-Observe: $\metaX \eif \metaY$ is a tautology iff there is no valuation of the atomic sentences that makes $\metaX \eif \metaY$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\metaX \eif \metaY$ is a tautology iff there is no valuation that makes $\metaX$ true and $\metaY$ false. 
+Observe: $\metaX \eif \metaY$ is a tautology iff there is no valuation of the atomic sentences that makes $\metaX \eif \metaY$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\metaX \eif \metaY$ is a tautology iff there is no valuation that makes $\metaX$ true and $\metaY$ false.
 
 Combining these two observations, we see that $\metaX \eif \metaY$  is a tautology iff  $\metaX \entails \metaY$. But there is a really, really important difference between `$\entails$' and `$\eif$':
 \factoidbox{`$\eif$' is a sentential connective of TFL.\\ `$\entails$' is a symbol of augmented English.
 }
-Indeed, when `$\eif$' is flanked with two TFL sentences, the result is a longer TFL sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding TFL sentences. 
+Indeed, when `$\eif$' is flanked with two TFL sentences, the result is a longer TFL sentence. By contrast, when we use `$\entails$', we form a metalinguistic sentence that \emph{mentions} the surrounding TFL sentences.
 
 \section{Tautologies and contradictions}\label{s:TautologiesAndContradictions}
 We have similar substitutes for the notions we introduced in \S\ref{s:BasicNotions}. There we explained \emph{necessary truth} and \emph{necessary falsity}. Both notions have surrogates in TFL. We will start with a surrogate for necessary truth.
@@ -1011,9 +1109,9 @@ name=tautology,
 description={A sentence that has only Ts in the column under the main logical operator of its \gls{complete truth table}; a sentence that is true on every \gls{valuation}}
 }
 
-We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every line of a complete truth table, then it is true on every valuation, so it is a tautology. In the example of \S\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology. 
+We can determine whether a sentence is a tautology just by using truth tables. If the sentence is true on every line of a complete truth table, then it is true on every valuation, so it is a tautology. In the example of \S\ref{s:CompleteTruthTables}, `$(H \eand I) \eif H$' is a tautology.
 
-Our main example of a tautology is $A\eor\enot A$. Whatever the weather is like you know it's either raining or not. Similarly here, whether or not $A$ is true, we already know $A\eor \enot A$. We can check this with a truth table. 
+Our main example of a tautology is $A\eor\enot A$. Whatever the weather is like you know it's either raining or not. Similarly here, whether or not $A$ is true, we already know $A\eor \enot A$. We can check this with a truth table.
 \begin{center}
 	\begin{tabular}{c|deef}
 	$A$&$A$&$\eor$&$\enot$&$A$\\\hline
@@ -1021,7 +1119,7 @@ Our main example of a tautology is $A\eor\enot A$. Whatever the weather is like 
 	F&F&\textbf{T}&T&F
 \end{tabular}
 \end{center}
-Since there is a $T$ under the main connective on every line of the truth table, $A\eor \enot A$ is true, whatever the valuation is, i.e.~whether $A$ is true or false. 
+Since there is a $T$ under the main connective on every line of the truth table, $A\eor \enot A$ is true, whatever the valuation is, i.e.~whether $A$ is true or false.
 
 
 This is only, though, a \emph{surrogate} for necessary truth. There are some necessary truths that we cannot adequately symbolize in TFL. An example is `$2 + 2 = 4$'. This \emph{must} be true, but if we try to symbolize it in TFL, the best we can offer is an atomic sentence, and no atomic sentence is a tautology. Still, if we can adequately symbolize some English sentence using a TFL sentence which is a tautology, then that English sentence expresses a necessary truth.
@@ -1037,10 +1135,10 @@ We have a similar surrogate for necessary falsity:
 description={A sentence that has only Fs in the column under the main logical operator of its \gls{complete truth table}; a sentence that is false on every \gls{valuation}}
 }
 
-We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every line of a complete truth table, then it is false on every valuation, so it is a contradiction. 
-%In the example of \S\ref{s:CompleteTruthTables}, `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$' is a contradiction. 
+We can determine whether a sentence is a contradiction just by using truth tables. If the sentence is false on every line of a complete truth table, then it is false on every valuation, so it is a contradiction.
+%In the example of \S\ref{s:CompleteTruthTables}, `$[(C\eiff C) \eif C] \eand \enot(C \eif C)$' is a contradiction.
 
-Our core example of a contradiction is $A\eand\enot A$. Whether $A$ is true or false, $A\eand\enot A$ is false. This can again be checked using truth tables, observing that there is an F under the main connective in each line of the truth table. 
+Our core example of a contradiction is $A\eand\enot A$. Whether $A$ is true or false, $A\eand\enot A$ is false. This can again be checked using truth tables, observing that there is an F under the main connective in each line of the truth table.
 
 
 \section{Logical equivalence}
@@ -1082,375 +1180,8 @@ In \S\ref{s:BasicNotions}, we said that sentences are jointly possible iff it is
 description={A property held by sentences if and only if the \gls{complete truth table} for those sentences contains one line on which all the sentences are true, i.e., if some \gls{valuation} makes all the sentences true}
 }
 
-Derivatively, sentences are jointly logically inconsistent if there is no valuation that makes them all true. Again, it is easy to test for joint logical consistency using truth tables. 
+Derivatively, sentences are jointly logically inconsistent if there is no valuation that makes them all true. Again, it is easy to test for joint logical consistency using truth tables.
 
-
-\chapter{Formal validity and English arguments}
-
-We can use the tool of TFL to investigate whether an argument of English is formally valid. 
-
-Consider an argument like:
-\begin{itemize}
-\item[]If Jones signed the contract under duress, then the contract is void. But since it was not signed under duress, the contract is not void.\footnote{
-This sort of example is discussed in \url{https://lawpublications.barry.edu/cgi/viewcontent.cgi?article=1026&context=barrylrev}.}
-\end{itemize}
-
-We are interested in determining if this is valid or not. Here's a general strategy to help us:
-\begin{highlighted}\begin{enumerate}
-\item Find the structure of the argument. \\Identify the premises and conclusion. 
-\item \label{itm:validity-symbolise}Symbolise the argument in TFL.
-\item \label{itm:validity-TTs} Check if the TFL argument is valid.\begin{itemize}\item Using truth tables to look for a valuation providing a counter example. If there is no such valuation, then it is valid. 
-\item Or, use natural deduction to show that it is valid.
-\end{itemize}
-%\item Use the insight you've now got from TFL to consider the original English argument and if that is valid. 
-\end{enumerate}
-\end{highlighted}
-
-%
-%
-%
-%
-%\chapter{English and TFL validity}
-%We have now seen two notions of validity. Arguments are valid if there are no ``counter-examples'', where a counter example is a situation where the premises are true and the conclusion is false. The difference between English and TFL validity is that TFL cashes the notion of `situation' out in a clear and careful way: a possible situation is given by a \emph{valuation}. The English notion, however relies on ``possibility'', which we didn't \emph{define} and there's no clear way of checking what is possible or not. 
-%
-%We are often interested in validity in English, but TFL is a tool that we can use to see if an English argument is valid or not. 
-%
-%\section{Using TFL to investigate validity in English}
-%
-%Consider an argument like:
-%\begin{itemize}
-%\item[]If Jones signed the contract under duress, then the contract is void. But since it was not signed under duress, the contract is not void.\footnote{
-%This sort of example is discussed in \url{https://lawpublications.barry.edu/cgi/viewcontent.cgi?article=1026&context=barrylrev}.}
-%\end{itemize}
-%
-%We are interested in determining if this is valid or not. Here's a general strategy to help us:
-%\begin{highlighted}\begin{enumerate}
-%\item Find the structure of the argument. \\Identify the premises and conclusion. 
-%\item \label{itm:validity-symbolise}Symbolise the argument in TFL.
-%\item \label{itm:validity-TTs} Check if the TFL argument is valid.\begin{itemize}\item Using truth tables to look for a valuation providing a counter example. If there is no such valuation, then it is valid. 
-%\item Or, use natural deduction to show that it is valid.
-%\end{itemize}
-%%\item Use the insight you've now got from TFL to consider the original English argument and if that is valid. 
-%\end{enumerate}\end{highlighted}
-
-Following this procedure, then, we need to first find the structure of the argument. It has two premises and a conclusion: 
-\begin{earg}
-\item If Jones signed the contract under duress, then the
-contract is void. 
-\item Jones did not sign the contract under duress.
-\item[\therefore] The contract is not void.
-\end{earg}
-
-We are interested in whether it is valid. I.e.~is there a situation where the premises are true and the conclusion is false. Perhaps in this case you can work it out, but if not TFL provides us a tool for thinking through all the possibilities. We therefore move to stage \ref{itm:validity-symbolise} and symbolise the sentences of the argument in TFL as well as we can. 
-
-\begin{earg}
-\item $D\eif V$
-\item $\enot D$
-\item[\therefore] $\enot V$
-\end{earg}
-
-And moving to stage \ref{itm:validity-TTs}, we check whether the TFL argument is valid. We do this with truth tables. Later in the course we'll see Natural Deduction which will provide an alternative method for checking validity. 
-
-So we need to fill in truth table with all the sentences involved in the argument. In this case each sentence has a simple structure, if we draw out the formation trees they just have one step, e.g.~\begin{center}
-\begin{forest}
-[$D\eif V$
-	[$D$]
-	[$V$]
-]
-\end{forest}
-\end{center}So our truth table doesn't need any additional ``calculation'' lines. We can directly fill it in, following our characteristic truth tables to know whether we go from T,F to T or F, etc. 
-\begin{center}
-\begin{tabular}{cc|ccc}
-&&Premise&Premise&Concln\\
-$D$&$V$&$D\eif V$&$\enot D$&$\enot V$\\\hline
-T&T&T&F&F\\
-T&F&F&F&T\\
-F&T&T&T&F\\
-F&F&T&T&T
-\end{tabular}
-\end{center}
-
-And we can see that this argument is invalid. The valuation providing the counter example is line 3: \begin{tabular}{cc}
-$D$&$V$\\\hline
-F&T
-\end{tabular}
-
-This allows us to read of a possibility where the premises are true but the conclusion false:  It might be that the contract is void without having been made under duress. E.g.~mental illness, misrepresentation,\ldots. 
-
-This has then allowed us to see that the original English argument is invalid. In fact, the argument followed an invalid pattern that is commonly found. It is a common fallacy called ``denying the consequent''. 
-%We will see some more common fallacies soon, but first let's work through another example where the strategy of moving to TFL will help us check if the original English argument is valid.
-
-This argument is invalid. So we can accept the premises and still reject the conclusion. If we have a valid argument, then the conclusion can only be rejected if the premises are rejected. In a valid argument our discussion needs to be focused on the premises.
-
- In fact in this case we can give a fixed-up, related, valid argument \begin{earg}\item $V\eif D$\item $\enot D$\item[\therefore]$\enot V$\end{earg} This uses the $\eif$ the other way around and is valid. It is an an argument form called Modus Tollens. However, presenting this argument and showing it's valid isn't enough to convince me of the conclusion that the contract is void: the argument uses a false premise: $V\eif D$. Or at least, this is a premise that I won't accept without further justification: look, if there was misrepresentation in the trial then $V\eif D$ is false. Give me a way of ruling out misrepresentation if you want to get to the conclusion that the contract is not void.
- 
-		
-\subsubsection*{Another example: disjunctive reasoning}
-\begin{quote}
-The murder weapon was the dagger or the rope. So Mrs.~Peacock is guilty. After all, if the murder weapon was the dagger then she's guilty. And if it was the rope, she's guilty. 
-\end{quote}
-
-First we find the argument structure:
-\begin{earg}
-\item The murder weapon was the dagger or the rope.
-\item If the murder weapon was the dagger then Mrs.~Peacock  is guilty.
-\item If the murder weapon was the rope then Mrs.~Peacock  is guilty.
-\item [\therefore] Mrs.~Peacock is guilty.
-\end{earg}
-We then symbolise each constituent sentence into TFL:
-\begin{earg}
-\item $D\eor R$
-\item $D\eif G$
-\item$R\eif G$
-\item[\therefore] $G$
-\end{earg}
-
-Now, we check if the TFL argument is valid using truth tables: 
-\begin{center}
-\begin{tabular}{ccc|cccc}
-&&&Premise&Premise&Premise&Concln\\
-$D$&$G$&$R$&$D\eor G$&$D\eif G$&$R\eif G$&$G$\\\hline
-T&T&T&T&T&T&T\\
-T&T&F&T&T&T&T\\
-T&F&T&T&F&F&F\\
-T&F&F&T&F&T&F\\
-F&T&T&T&T&T&T\\
-F&T&F&T&T&T&T\\
-F&F&T&F&T&F&F\\
-F&F&F&F&T&T&F
-\end{tabular}
-\end{center}
-And we see that this argument is valid: there is no valuation (=line) where the premises are all true and the conclusion false.
-
-%This allows us to conclude that the original English argument is valid.
-
-
-%\section{Fallacies}
-%
-%
-%There are a number of arguments that are commonly used which are fallacies that provide no support for the conclusion. They have a mistaken logical form. Let's see a few arguments: 
-%\begin{highlighted}
-%
-%\begin{tabular}{ll}
-%\textbf{Valid}&\textbf{Invalid. Fallacies}\\[1em]
-%\begin{minipage}{4cm}
-%Modus Ponens:
-%% $\metaX\eif\metaZ,\;\metaX\;\therefore\;\metaZ$
-%\begin{earg}
-%\item[] $\metaX\eif\metaZ$
-%\item[] $\metaX$
-%\item[\therefore]$\metaZ$
-%\end{earg}
-%\end{minipage}&
-%\begin{minipage}{5cm}
-%Affirming the consequent:
-%\begin{earg}
-%\item[] $\metaZ\eif\metaX$
-%\item[] $\metaX$
-%\item[\therefore]$\metaZ$
-%\end{earg}
-%\end{minipage}\\[4em]
-%
-%\begin{minipage}{3cm}
-%Modus Tollens:
-%\begin{earg}
-%\item[] $\metaX\eif\metaZ$
-%\item[] $\enot\metaZ$
-%\item[\therefore]$\enot\metaX$
-%\end{earg}
-%\end{minipage}&
-%\begin{minipage}{5cm}
-%Denying the antecedent:
-%\begin{earg}
-%\item[] $\metaZ\eif\metaX$
-%\item[] $\enot\metaZ$
-%\item[\therefore]$\enot\metaX$
-%\end{earg}
-%\end{minipage}
-%\end{tabular}\end{highlighted}
-%
-%We can check these with truth tables. We have already shown that Denying the Antecedent is invalid, that was our example of duress and the void contract. 
-%
-%Consider Affirming the Consequent:
-%\begin{center}
-%\begin{tabular}{cc|cccc}
-%&&Premise&Premise&Concln\\
-%$\metaX$&\metaZ&$\metaX\eif\metaZ$&\metaZ&\metaX\\\cline{1-5}
-%\Tstrut
-%T&T&T&T&T\\
-%T&F&F&F&T\\
-%F&T&T&T&F& $\leadsto$ This valuation shows invalid.\\
-%F&F&T&F&F
-%\end{tabular}
-%\end{center}
-%An example of an English argument with this structure is:\begin{itemize}
-%\item [] If the contract was signed under duress then it is void. It is void. Therefore it was signed under duress.
-%\end{itemize}Again we have the same sort of scenario showing it is invalid: it might be void because of misrepresentation.
-%
-%
-%Sometimes we see people who are plausibly providing the fallacious argument. We should think of counter examples such as misrepresentation case, and see if they can add further plausible premises that will allow us to rule out such cases or if they can fix up their argument.
-%
-%%We should help them by directing them towards the premise that would actually help them in their argument. 
-%
-%Consider the following argument: \begin{itemize}
-%\item []If each man had a definite set of rules of conduct by which he regulated his
-%life he would be a machine. But there are no such rules, so men
-%cannot be machines.\footnote{Close to an argument discussed in Alan Turing ``Computing Machinery and Intelligence''. Turing points out that the argument is invalid. }
-%\end{itemize}
-%We might symbolise this argument as:
-%\begin{earg}
-%\item $R\eif M$\item $\enot R$\item[\therefore]$\enot M$
-%\end{earg}This is denying the antecedent; and is invalid. 
-%%We walked through an example of denying the antecedent at the beginning of this chapter.
-%The situation showing its invalidity is a case where $M$ is true but $R$ false. This is a situation where men are machines but do not have a definite set of rules of conduct. 
-%
-%
-%
-%Each fallacy has a very closely connected valid argument. From the invalid argument \begin{earg}
-%\item $R\eif M$\item $\enot R$\item[\therefore]$\enot M$
-%\end{earg} we can construct a valid argument by reversing the ``if then''\begin{earg}
-%\item $M\eif R$\item $\enot R$\item[\therefore]$\enot M$
-%\end{earg}
-%
-%
-%The argument would be valid if the first premise ``If each man had a definite set of rules of conduct by which he regulated his life he would be a machine.'' was symbolised not as $R\eif M$, but as $M\eif R$: ``If man is a machine, then he would have a definite set of rules of conduct by which he regulated his life'' (``iff'' would do too: $R\eiff M$). It would then be an instance of Modus Tollens: a valid argument form. So it can be interpreted as a valid argument, but we then should make sure that if we are trying to use this as an argument we have the premise explicitly stated the way that we need it for the argument: $M\eif R$ instead of $R\eif M$; and we can direct our discussion towards the correct premise and think about whether it is true that if man is a machine then man is governed by a definite set of rules of conduct. 
-%
-%
-%
-%  
-%Here we list just a few more fallacies. Though there are many more!
-%\begin{itemize}
-%\item Begging the question.  An argument begs the question when the conclusion is implicit in premises. This is actually a valid argument: draw truth tables for $A\therefore A$ and you see there is no valuation where the premise is true but conclusion false: the premise just \emph{is} the conclusion. But it is a fallacious argument because it gives us no reason to believe the conclusion. Noone will accept the premises unless they already accept the conclusion. \begin{quote}
-%You should believe in God because He loves
-%you. He spoke to me and asked me to talk to
-%you about His love for you. 
-%\end{quote}
-%%[Does induction beg the question?]
-%\item False dilemma (of false dichotomy).  This implicitly assumes that these are the only two options. \begin{quote}
-%we can't
-%stand by and do nothing, therefore we have to
-%carry out my preferred policy
-%\end{quote}We can make this a valid argument by making the implicit premise $A\eor B$ (``my way or no way'') explicit. But this valid argument has a premise that we don't want to accept, so doesn't lead us to accepting the conclusion. 
-%\item Irrelevant conclusion.\begin{quote}The prosecution will show that the defendant in the dock was
-%indeed the murderer. The crime was heinous,
-%committed by a callous killer who is a danger to society, and
-%such a crime cannot be allowed to go unpunished.\end{quote}This is an argument of the form $A\therefore B$. The premise and conclusion are unconnected and the premise provides no support for the conclusion. 
-%%\item Equivocation. 
-%%\item Lots more
-%%%\item ambiguity in the conclusion
-%\end{itemize}
-%A fallacy is an argument that fails to provide a reason to
-%believe the conclusion. Usually because the relationship between premises and
-%conclusion is poor. Sometimes because the premises are not an independent
-%reason to believe the conclusion.
-%
-
-\section{Other kinds of validity}
-
-We have reached an important milestone: a test for the validity of arguments! However, we should not get carried away just yet. It is important to understand the {limits} of our achievement.
-
-This allows us to investigate the formal validity of an argument. More precisely, whether its TFL-form is a valid form.
-
-If the TFL-form of an argument is valid, then the argument is also conceputually valid, nomologically valid, and valid in any other (plausible) sense. We cannot conceive of possibilities that do not follow the laws of logic.
-
-\begin{highlighted}
-If the TFL symbolisation of an argument is valid (in TFL), then the original argument is formally valid, and valid in all the other senses. 
-\end{highlighted}
-
-However, some arguments may have their TFL forms being invalid but are nonetheless conceptually valid. For example: 
-\begin{earg}
-	\prem That is a triangle.
-	\conc That has three sides.
-\end{earg}
-This argument is conceptually valid. But it would be symbolised in TFL simply as:
-\begin{earg}
-\prem $A$
-\conc $B$
-\end{earg}and looking at the truth tables (which are very easy to do!) we see:
-\begin{center}
-\begin{tabular}{cc|cc}
-&&Premise&Concln\\
-$A$&$B$&$A$&$B$\\\hline
-T&T&T&T\\
-T&F&T&F\\
-F&T&F&T\\
-F&F&F&F
-\end{tabular}
-\end{center}
-The valuation in line 2 gives us a counterexample: it makes the premise, $A$, true, and the conclusion, $B$, false. 
-This valuation, however, violates the conceptual connections between words in English. Triangles simply have to have three sides. The ``case'' being described by this valuation makes it true that it is a triangle but false that it has three sides. That is not a conceptual possibility.
-The argument is conceptually valid, but its TFL symbolisation is invalid. 
-
-If the TFL symbolisation is valid, the argument must be conceptually valid too. But some conceptually valid arguments have invalid TFL symbolisations. 
-
-Consider: 
-%
-%However, it gives us a good tool. It can tell us where to look to think about our conceptual counterexample. For example in our argument:
-\begin{earg}
-\item If Jones signed the contract under duress, then the
-contract is void. 
-\item Jones did not sign the contract under duress.
-\item[\therefore] The contract is not void.
-\end{earg}which we symbolised in TFL as:
-\begin{center}
-$D\eif V$,\; $\enot D$\;\therefore\;$\enot V$
-\end{center}
-which is invalid. The valuation providing the counterexample is:
-\begin{tabular}{cc}
-$D$&$V$\\\hline
-F&T
-\end{tabular} To see if the argument is \emph{conceptually} valid, one should then investigate whether the valuations providing counterexamples to the formal validity are conceivable possibilities. Here, we're probably interested in something like legal validity, which governs conditions under which a contract is void. We now know we should investigate whether the possibility of it being void but not signed under duress is compatible with the legal laws. 
-This will depend on what the legal laws are. 
-Actually, a contract can be void without being signed under duress, for example due to misrepresentation or mental incapacity. 
-But were the laws different, and the only way to be void was to be signed under duress, then the argument would have been legally valid despite being formally invalid. 
-
-
-There is one loose end to tie up. In fact, TFL is in't all there is to formal validity. 
-If the TFL symbolisation of an argument is valid, then the original argument is formally valid. But consider the following argument:
-Consider 
-\begin{earg}
-\prem Socrates is a man.
-\prem All men are mortal.
-\conc Socrates is mortal. 
-\end{earg}
-When we symbolise this in TFL, each of the sentences is simply an atomic sentence, so we get:
-\begin{center}
-$A$, $B$\; \therefore \; $C$
-\end{center}
-which is invalid. 
-The problem isn't the symbolisation we gave. It is the best we could do \emph{in TFL}. The problem is that TFL is limited in the ``form'' it can see. We will improve on this when we move to First Order Logic in \S\ref{s:FOLBuildingBlocks}.
-This argument is formally valid in virtue of its FOL form rather than TFL form. 
-
-
-\todo{note I deleted the section on paradoxes of material implication and double negation}
-%
-%\section{The limits of these tests}\label{s:ParadoxesOfMaterialConditional}
-%We have reached an important milestone: a test for the validity of arguments! However, we should not get carried away just yet. It is important to understand the \emph{limits} of our achievement. We will illustrate these limits with three examples.
-%
-%Consider the sentence:
-%	\begin{earg}
-%\setcounter{eargnum}{1}
-%		\item\label{n:JanBald} Jan is neither bald nor not-bald.
-%	\end{earg}
-%To symbolize this sentence in TFL, we would offer something like `$\enot J \eand \enot \enot J$'. This a contradiction (check this with a truth-table), but sentence \ref{n:JanBald} does not itself seem like a contradiction; for we might have happily go on to add `Jan is on the borderline of baldness'!
-%
-%Third, consider the following sentence:
-%	\begin{earg}
-%\setcounter{eargnum}{2}	
-%		\item\label{n:GodParadox}	It's not the case that, if God exists, She answers malevolent prayers.
-%%	Aaliyah wants to kill Zebedee. She knows that, if she puts chemical A into Zebedee's water bottle, Zebedee will drink the contaminated water and die. Equally, Bathsehba wants to kill Zebedee. She knows that, if she puts chemical B into Zebedee's water bottle, then Zebedee will drink the contaminated water and die. But chemicals A and B neutralize each other; so that if both are added to the water bottle, then Zebedee will not die.
-%	\end{earg}
-%        Symbolizing this in TFL, we would offer something like `$\enot (G \eif M)$'. Now, `$\enot (G \eif M)$' entails `$G$' (again, check this with a truth table). So if we symbolize sentence \ref{n:GodParadox} in TFL, it seems to entail that God exists. But that's strange: surely even an atheist can accept sentence \ref{n:GodParadox}, without contradicting herself!
-%
-%        One lesson of this is that the symbolization of \ref{n:GodParadox} as `$\enot(G \eif M)$' shows that \ref{n:GodParadox} does not express what we intend. Perhaps we should rephrase it as
-%        	\begin{earg}
-%                  \setcounter{eargnum}{2}	
-%                \item\label{n:GodParadox2} If God exists, She does not answer malevolent prayers.
-%  \end{earg}
-%and symbolize \ref{n:GodParadox2} as `$G \eif \enot M$'.  Now, if atheists are right, and there is no God, then `$G$' is false and so `$G \eif \enot M$' is true, and the puzzle disappears. However, if `$G$' is false, `$G \eif M$', i.e.\ `If God exists, She answers malevolent prayers', is \emph{also} true!
-%                
-%In different ways, these four examples highlight some of the limits of working with a language (like TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of the material conditional}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using TFL, before we can adequately discuss its limits, and consider alternatives. 
-%
 
 
 
@@ -1501,7 +1232,7 @@ Use truth tables to determine whether each argument is valid or invalid.
 \item $A \eiff [A \eif (B \eand \enot B)]$ \vspace{.5ex}%contra
 
 
-\item $[(A \eand B) \eiff B] \eif (A \eif B)$ \vspace{.5ex}% contingent. 
+\item $[(A \eand B) \eiff B] \eif (A \eif B)$ \vspace{.5ex}% contingent.
 
 \end{earg}
 
@@ -1509,7 +1240,7 @@ Use truth tables to determine whether each argument is valid or invalid.
 
 \noindent\problempart
 \label{pr.TT.equiv}
-Determine whether each the following sentences are logically equivalent using complete truth tables. If the two sentences really are logically equivalent, write ``equivalent.'' Otherwise write, ``Not equivalent.'' 
+Determine whether each the following sentences are logically equivalent using complete truth tables. If the two sentences really are logically equivalent, write ``equivalent.'' Otherwise write, ``Not equivalent.''
 \begin{earg}
 \item $A$ and $\enot A$
 \item $A \eand \enot A$ and $\enot B \eiff B$
@@ -1532,65 +1263,65 @@ Determine whether each the following sentences are logically equivalent using co
 
 \problempart
 \label{pr.TT.consistent2}
-Determine whether each collection of sentences is jointly consistent or jointly inconsistent using a complete truth table. 
+Determine whether each collection of sentences is jointly consistent or jointly inconsistent using a complete truth table.
 \begin{earg}
 \item $A \eand \enot B$, $\enot(A \eif B)$, $B \eif A$\vspace{.5ex} %Consistent
 
-%\begin{tabular}{ccccccccccccccc} 
-%1. 	&	A 					 & \eand 		&  \enot & B & & \enot  		& 	 (A	  & 	 \eif	 	 & 	 B)		 & 	 & 	 B	 	 & 	\eif 	 	 & 	A 	 	 & 	 Consistent \\ 
-%\cline{2-5} \cline{7-10}\cline{12-14} 
-%	& 	T 					 & 	 F	 		&  F	 & T & & F	 		& 	 T	  & 	 T	 	 & 	T 	 	 & 	 & 	 T	 	 & 	 T	 	 & T	 	 	&	  \\ 
+%\begin{tabular}{ccccccccccccccc}
+%1. 	&	A 					 & \eand 		&  \enot & B & & \enot  		& 	 (A	  & 	 \eif	 	 & 	 B)		 & 	 & 	 B	 	 & 	\eif 	 	 & 	A 	 	 & 	 Consistent \\
+%\cline{2-5} \cline{7-10}\cline{12-14}
+%	& 	T 					 & 	 F	 		&  F	 & T & & F	 		& 	 T	  & 	 T	 	 & 	T 	 	 & 	 & 	 T	 	 & 	 T	 	 & T	 	 	&	  \\
 %\cline{2-14}
-%	& \multicolumn{1}{|r}{T}& 	\textbf{T}	 & T	 & F & & \textbf{T}	 & 	 T	 & 	 F	 	 & 	 F	 	 & 	 & 	 F	 	 & 	 \textbf{T}	 	 & 	 \multicolumn{1}{r|}{T}	 	 & 	  \\ 
+%	& \multicolumn{1}{|r}{T}& 	\textbf{T}	 & T	 & F & & \textbf{T}	 & 	 T	 & 	 F	 	 & 	 F	 	 & 	 & 	 F	 	 & 	 \textbf{T}	 	 & 	 \multicolumn{1}{r|}{T}	 	 & 	  \\
 %\cline{2-14}
-%	& 	 F	 				 & 	 F	 & 	 F	 & T & 	& 	 F	 & 	 F	 & 	 T	 	 & 	 T	 	 & 	  & 	 T	 	 & 	 F	 	 & 	 F	 	 & 	  \\ 
-%	& 	 F	  				& 	 F	 & 	 T	 & 	F&  & 	 F	 & 	 F	 & 	 T	 	 & 	 F	 	 & 	  & 	 F	 	 & 	 T	 	 & 	 F	 	 & 	  \\ 
+%	& 	 F	 				 & 	 F	 & 	 F	 & T & 	& 	 F	 & 	 F	 & 	 T	 	 & 	 T	 	 & 	  & 	 T	 	 & 	 F	 	 & 	 F	 	 & 	  \\
+%	& 	 F	  				& 	 F	 & 	 T	 & 	F&  & 	 F	 & 	 F	 & 	 T	 	 & 	 F	 	 & 	  & 	 F	 	 & 	 T	 	 & 	 F	 	 & 	  \\
 %\end{tabular}
 
-\item $A \eor B$, $A \eif \enot A$, $B \eif \enot B$ \vspace{.5ex}%inconsistent. 
+\item $A \eor B$, $A \eif \enot A$, $B \eif \enot B$ \vspace{.5ex}%inconsistent.
 
-%\begin{tabular}{ccccccccccccccc} 
-%2. &A	 & \eor 	 & B 	 & 	 	 & A 	 & \eif 	 & 	\enot & A 	 & 	 	 & B 	 & \eif 	 & \enot	 & 	B 	 & 	Inconsistent \\ 
+%\begin{tabular}{ccccccccccccccc}
+%2. &A	 & \eor 	 & B 	 & 	 	 & A 	 & \eif 	 & 	\enot & A 	 & 	 	 & B 	 & \eif 	 & \enot	 & 	B 	 & 	Inconsistent \\
 %\cline{2-4}\cline{6- 9} \cline{11-14}
-%   &	T	 & 	 T	 &T  	 & 	 	 & T	 & 	 F	 & 	F 	 & T 	 & 	 	 & 	T 	 & 	F 	 & 	 F	 & 	T 	 & 	 \\ 
-%   &	 T	& 	 T	 & F 	 & 	 	 & 	T 	 & 	 F	 & 	 F	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	 F	 & 	 \\ 
-%   &	 F	& 	 T	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	F 	 & 	 	 & 	 T	 & 	 F	 & 	 F	 & 	 T	 & 	 \\ 
-%   &	 F	& 	 F	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 \\ 
+%   &	T	 & 	 T	 &T  	 & 	 	 & T	 & 	 F	 & 	F 	 & T 	 & 	 	 & 	T 	 & 	F 	 & 	 F	 & 	T 	 & 	 \\
+%   &	 T	& 	 T	 & F 	 & 	 	 & 	T 	 & 	 F	 & 	 F	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	 F	 & 	 \\
+%   &	 F	& 	 T	 & 	 T	 & 	 	 & 	F 	 & 	 T	 & 	 T	 & 	F 	 & 	 	 & 	 T	 & 	 F	 & 	 F	 & 	 T	 & 	 \\
+%   &	 F	& 	 F	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 	 & 	 F	 & 	 T	 & 	 T	 & 	 F	 & 	 \\
 %\end{tabular}
 
 \item $\enot(\enot A \eor B) $, $A \eif \enot C$, $A \eif (B \eif C)$\vspace{.5ex} %Inconsistent
 
-%3. &\enot & (\enot & A & \eor &B) &  &A  & \eif 	 &\enot 	 &C & 	 & A &\eif 	& (B 	 &\eif 	& C)	 &Consistent \\ 
-%\cline{2-6}\cline{8-11} \cline{13-17} 
-%   &	F 	& 	F	 & 	T & T	 & T & 	  & T & F	 & 	 F&T 	 & 	 &T & T	 & T	 &T 	 &T 	 & \\ 
-%   &	 F	& 	F	 & 	T & T	 & T & 	  & T & T	 & 	 T& F	 & 	 &T & F	 & T	 & F	 &F 	 & \\ 
-% 
-%  &	 T & 	F 	& 	T & F	 & F & 	  & T & F	 & 	 F& T	 & 	 &T & T	 & F	 & T	 &T 	 & \\ 
+%3. &\enot & (\enot & A & \eor &B) &  &A  & \eif 	 &\enot 	 &C & 	 & A &\eif 	& (B 	 &\eif 	& C)	 &Consistent \\
+%\cline{2-6}\cline{8-11} \cline{13-17}
+%   &	F 	& 	F	 & 	T & T	 & T & 	  & T & F	 & 	 F&T 	 & 	 &T & T	 & T	 &T 	 &T 	 & \\
+%   &	 F	& 	F	 & 	T & T	 & T & 	  & T & T	 & 	 T& F	 & 	 &T & F	 & T	 & F	 &F 	 & \\
+%
+%  &	 T & 	F 	& 	T & F	 & F & 	  & T & F	 & 	 F& T	 & 	 &T & T	 & F	 & T	 &T 	 & \\
 %\cline{2-17}
-%   &	 \multicolumn{1}{|r}{{\color{red}T}}		&  F	 & 	T & F	 & 	F &  & 	T & {\color{red}T}	 & 	 T&F 	& 	 &T & {\color{red}T}	 & F	 & T	 &\multicolumn{1}{r|}{F} 	 & \\ 
+%   &	 \multicolumn{1}{|r}{{\color{red}T}}		&  F	 & 	T & F	 & 	F &  & 	T & {\color{red}T}	 & 	 T&F 	& 	 &T & {\color{red}T}	 & F	 & T	 &\multicolumn{1}{r|}{F} 	 & \\
 %\cline{2-17}
-%   &	 F	& 	T	 & 	F & T	 & 	T &  & 	F & T	 & 	 F& T	 & 	 &F	 & F	 & T	 & T	 &T 	 & \\ 
-%   &	 F	& 	 T	& 	F & T	 & 	T &  & 	F & T	 & 	T & F 	& 	 &F	 & T	 & T	 &F 	 &F 	 & \\ 
-%   &	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	F & T	 & 	 &F	 & T	 & F	 & T	 &T 	 & \\ 
-%   &	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	T & F	 & 	 &F	 & T	 & F	 & T	 &F 	 & \\ 
+%   &	 F	& 	T	 & 	F & T	 & 	T &  & 	F & T	 & 	 F& T	 & 	 &F	 & F	 & T	 & T	 &T 	 & \\
+%   &	 F	& 	 T	& 	F & T	 & 	T &  & 	F & T	 & 	T & F 	& 	 &F	 & T	 & T	 &F 	 &F 	 & \\
+%   &	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	F & T	 & 	 &F	 & T	 & F	 & T	 &T 	 & \\
+%   &	 F	& 	 T	& 	F & T	 & 	F &  & 	F & T	 & 	T & F	 & 	 &F	 & T	 & F	 & T	 &F 	 & \\
 %\end{tabular}
 %
 
 
 \item $A \eif B$, $A \eand \enot B$\vspace{.5ex} %Inconsistent
 
-\item $A \eif (B \eif C)$, $(A \eif B) \eif C$, $A \eif C$\vspace{.5ex} % consistent. 
+\item $A \eif (B \eif C)$, $(A \eif B) \eif C$, $A \eif C$\vspace{.5ex} % consistent.
 
 \end{earg}
 
 \noindent\problempart
 \label{pr.TT.consistent3}
-Determine whether each collection of sentences is jointly consistent or jointly inconsistent, using a complete truth table. 
+Determine whether each collection of sentences is jointly consistent or jointly inconsistent, using a complete truth table.
 \begin{earg}
 \item $\enot B$, $A \eif B$, $A$ \vspace{.5ex}%inconsistent.
 \item $\enot(A \eor B)$, $A \eiff B$, $B \eif A$\vspace{.5ex} %Consistent
 \item $A \eor B$, $\enot B$, $\enot B \eif \enot A$\vspace{.5ex} %Inconsistent
-\item $A \eiff B$, $\enot B \eor \enot A$, $A \eif B$\vspace{.5ex} %consistent. 
+\item $A \eiff B$, $\enot B \eor \enot A$, $A \eif B$\vspace{.5ex} %consistent.
 \item $(A \eor B) \eor C$, $\enot A \eor \enot B$, $\enot C \eor \enot B$\vspace{.5ex} %consistent
 \end{earg}
 
@@ -1599,27 +1330,27 @@ Determine whether each collection of sentences is jointly consistent or jointly 
 
 \noindent\problempart
 \label{pr.TT.valid2}
-Determine whether each argument is valid or invalid, using a complete truth table. 
+Determine whether each argument is valid or invalid, using a complete truth table.
 \begin{earg}
 \item $A\eif B$, $B \therefore  A$ %invalid
 
 \item $A\eiff B$, $B\eiff C \therefore A\eiff C$ %valid
 
-\item $A \eif B$, $A \eif C\therefore B \eif C$ %invalid. 
+\item $A \eif B$, $A \eif C\therefore B \eif C$ %invalid.
 
-\item $A \eif B$, $B \eif A\therefore A \eiff B$ %valid. 
+\item $A \eif B$, $B \eif A\therefore A \eiff B$ %valid.
 
 \end{earg}
 
 \noindent\problempart
 \label{pr.TT.valid3}
-Determine whether each argument is valid or invalid, using a complete truth table. 
+Determine whether each argument is valid or invalid, using a complete truth table.
 \begin{earg}
 \item $A\eor\bigl[A\eif(A\eiff A)\bigr] \therefore  A $\vspace{.5ex}%invalid
 \item $A\eor B$, $B\eor C$, $\enot B \therefore A \eand C$\vspace{.5ex} %valid
 \item $A \eif B$, $\enot A\therefore \enot B$ \vspace{.5ex}%invalid
 \item $A$, $B\therefore \enot(A\eif \enot B)$ \vspace{.5ex}%valid
-\item $\enot(A \eand B)$, $A \eor B$, $A \eiff B\therefore C$ \vspace{.5ex}%valid 
+\item $\enot(A \eand B)$, $A \eor B$, $A \eiff B\therefore C$ \vspace{.5ex}%valid
 \end{earg}
 
 \solutions
@@ -1641,7 +1372,7 @@ Answer each of the questions below and justify your answer.
 \item Suppose that \metaX and \metaY are \emph{not} logically equivalent. What can you say about $(\metaX\eor\metaY)$?
 %\metaX and \metaY have different truth values on at least one line of a complete truth table, and $(\metaX\eor\metaY)$ will be true on that line. On other lines, it might be true or false. So $(\metaX\eor\metaY)$ is either a tautology or it is contingent; it is \emph{not} a contradiction.
 \end{earg}
-\problempart 
+\problempart
 Consider the following principle:
 	\begin{ebullet}
 		\item Suppose $\metaX$ and $\metaY$ are logically equivalent. Suppose an argument contains $\metaX$ (either as a premise, or as the conclusion). The validity of the argument would be unaffected, if we replaced $\metaX$ with $\metaY$.
@@ -1650,8 +1381,348 @@ Is this principle correct? Explain your answer.
 
 
 
+\chapter{Formal validity and English arguments}
+
+We can use the tool of TFL to investigate whether an argument of English is formally valid.
+
+Consider an argument like:
+\begin{quote}
+If Jones signed the contract under duress, then the contract is void. But since it was not signed under duress, the contract is not void.\footnote{
+This sort of example is discussed in \url{https://lawpublications.barry.edu/cgi/viewcontent.cgi?article=1026&context=barrylrev}.}
+\end{quote}
+
+We are interested in determining if this is valid or not. Here's a general strategy to help us:
+\begin{highlighted}\begin{enumerate}
+\item Find the structure of the argument. \\Identify the premises and conclusion.
+\item \label{itm:validity-symbolise}Symbolise the argument in TFL.
+\item \label{itm:validity-TTs} Check if the TFL argument is valid.\begin{itemize}\item Using truth tables to look for a valuation providing a counter example. If there is no such valuation, then it is valid.
+\item Or, use natural deduction to show that it is valid.
+\end{itemize}
+%\item Use the insight you've now got from TFL to consider the original English argument and if that is valid.
+\end{enumerate}
+\end{highlighted}
+
+%
+%
+%
+%
+%\chapter{English and TFL validity}
+%We have now seen two notions of validity. Arguments are valid if there are no ``counter-examples'', where a counter example is a situation where the premises are true and the conclusion is false. The difference between English and TFL validity is that TFL cashes the notion of `situation' out in a clear and careful way: a possible situation is given by a \emph{valuation}. The English notion, however relies on ``possibility'', which we didn't \emph{define} and there's no clear way of checking what is possible or not.
+%
+%We are often interested in validity in English, but TFL is a tool that we can use to see if an English argument is valid or not.
+%
+%\section{Using TFL to investigate validity in English}
+%
+%Consider an argument like:
+%\begin{itemize}
+%\premIf Jones signed the contract under duress, then the contract is void. But since it was not signed under duress, the contract is not void.\footnote{
+%This sort of example is discussed in \url{https://lawpublications.barry.edu/cgi/viewcontent.cgi?article=1026&context=barrylrev}.}
+%\end{itemize}
+%
+%We are interested in determining if this is valid or not. Here's a general strategy to help us:
+%\begin{highlighted}\begin{enumerate}
+%\item Find the structure of the argument. \\Identify the premises and conclusion.
+%\item \label{itm:validity-symbolise}Symbolise the argument in TFL.
+%\item \label{itm:validity-TTs} Check if the TFL argument is valid.\begin{itemize}\item Using truth tables to look for a valuation providing a counter example. If there is no such valuation, then it is valid.
+%\item Or, use natural deduction to show that it is valid.
+%\end{itemize}
+%%\item Use the insight you've now got from TFL to consider the original English argument and if that is valid.
+%\end{enumerate}\end{highlighted}
+
+Following this procedure, then, we need to first find the structure of the argument. It has two premises and a conclusion:
+\begin{earg}
+\prem If Jones signed the contract under duress, then the
+contract is void.
+\prem Jones did not sign the contract under duress.
+\conc The contract is not void.
+\end{earg}
+
+We are interested in whether it is valid. I.e.~is there a situation where the premises are true and the conclusion is false. Perhaps in this case you can work it out, but if not TFL provides us a tool for thinking through all the possibilities. We therefore move to stage \ref{itm:validity-symbolise} and symbolise the sentences of the argument in TFL as well as we can.
+
+\begin{earg}
+ \prem $D\eif V$
+ \item $\enot D$
+ \conc $\enot V$
+ \end{earg}
+
+And moving to stage \ref{itm:validity-TTs}, we check whether the TFL argument is valid. We do this with truth tables. Later in the course we'll see Natural Deduction which will provide an alternative method for checking validity.
+
+So we need to fill in truth table with all the sentences involved in the argument. In this case each sentence has a simple structure, if we draw out the formation trees they just have one step, e.g.~\begin{center}
+\begin{forest}
+[$D\eif V$
+	[$D$]
+	[$V$]
+]
+\end{forest}
+\end{center}So our truth table doesn't need any additional ``calculation'' lines. We can directly fill it in, following our characteristic truth tables to know whether we go from T,F to T or F, etc.
+\begin{center}
+\begin{tabular}{cc|ccc}
+&&Premise&Premise&Concln\\
+$D$&$V$&$D\eif V$&$\enot D$&$\enot V$\\\hline
+T&T&T&F&F\\
+T&F&F&F&T\\
+F&T&T&T&F\\
+F&F&T&T&T
+\end{tabular}
+\end{center}
+
+And we can see that this argument is invalid. The valuation providing the counter example is line 3: \begin{tabular}{cc}
+$D$&$V$\\\hline
+F&T
+\end{tabular}
+
+This allows us to read of a possibility where the premises are true but the conclusion false:  It might be that the contract is void without having been made under duress. E.g.~mental illness, misrepresentation,\ldots.
+
+This has then allowed us to see that the original English argument is invalid. In fact, the argument followed an invalid pattern that is commonly found. It is a common fallacy called ``denying the consequent''.
+%We will see some more common fallacies soon, but first let's work through another example where the strategy of moving to TFL will help us check if the original English argument is valid.
+
+This argument is invalid. So we can accept the premises and still reject the conclusion. If we have a valid argument, then the conclusion can only be rejected if the premises are rejected. In a valid argument our discussion needs to be focused on the premises.
+
+ In fact in this case we can give a fixed-up, related, valid argument \begin{earg}\prem $V\eif D$\prem $\enot D$\conc$\enot V$\end{earg} This uses the $\eif$ the other way around and is valid. It is an an argument form called Modus Tollens. However, presenting this argument and showing it's valid isn't enough to convince me of the conclusion that the contract is void: the argument uses a false premise: $V\eif D$. Or at least, this is a premise that I won't accept without further justification: look, if there was misrepresentation in the trial then $V\eif D$ is false. Give me a way of ruling out misrepresentation if you want to get to the conclusion that the contract is not void.
+
+
+\subsubsection*{Another example: disjunctive reasoning}
+\begin{quote}
+The murder weapon was the dagger or the rope. So Mrs.~Peacock is guilty. After all, if the murder weapon was the dagger then she's guilty. And if it was the rope, she's guilty.
+\end{quote}
+
+First we find the argument structure:
+\begin{earg}
+\prem The murder weapon was the dagger or the rope.
+\prem If the murder weapon was the dagger then Mrs.~Peacock  is guilty.
+\prem If the murder weapon was the rope then Mrs.~Peacock  is guilty.
+\conc Mrs.~Peacock is guilty.
+\end{earg}
+We then symbolise each constituent sentence into TFL:
+\begin{earg}
+\prem $D\eor R$
+\prem $D\eif G$
+\prem$R\eif G$
+\conc $G$
+\end{earg}
+
+Now, we check if the TFL argument is valid using truth tables:
+\begin{center}
+\begin{tabular}{ccc|cccc}
+&&&Premise&Premise&Premise&Concln\\
+$D$&$G$&$R$&$D\eor G$&$D\eif G$&$R\eif G$&$G$\\\hline
+T&T&T&T&T&T&T\\
+T&T&F&T&T&T&T\\
+T&F&T&T&F&F&F\\
+T&F&F&T&F&T&F\\
+F&T&T&T&T&T&T\\
+F&T&F&T&T&T&T\\
+F&F&T&F&T&F&F\\
+F&F&F&F&T&T&F
+\end{tabular}
+\end{center}
+And we see that this argument is valid: there is no valuation (=line) where the premises are all true and the conclusion false.
+
+%This allows us to conclude that the original English argument is valid.
+
+
+%\section{Fallacies}
+%
+%
+%There are a number of arguments that are commonly used which are fallacies that provide no support for the conclusion. They have a mistaken logical form. Let's see a few arguments:
+%\begin{highlighted}
+%
+%\begin{tabular}{ll}
+%\textbf{Valid}&\textbf{Invalid. Fallacies}\\[1em]
+%\begin{minipage}{4cm}
+%Modus Ponens:
+%% $\metaX\eif\metaZ,\;\metaX\;\therefore\;\metaZ$
+%\begin{earg}
+%\prem $\metaX\eif\metaZ$
+%\prem $\metaX$
+%\conc$\metaZ$
+%\end{earg}
+%\end{minipage}&
+%\begin{minipage}{5cm}
+%Affirming the consequent:
+%\begin{earg}
+%\prem $\metaZ\eif\metaX$
+%\prem $\metaX$
+%\conc$\metaZ$
+%\end{earg}
+%\end{minipage}\\[4em]
+%
+%\begin{minipage}{3cm}
+%Modus Tollens:
+%\begin{earg}
+%\prem $\metaX\eif\metaZ$
+%\prem $\enot\metaZ$
+%\conc$\enot\metaX$
+%\end{earg}
+%\end{minipage}&
+%\begin{minipage}{5cm}
+%Denying the antecedent:
+%\begin{earg}
+%\prem $\metaZ\eif\metaX$
+%\prem $\enot\metaZ$
+%\conc$\enot\metaX$
+%\end{earg}
+%\end{minipage}
+%\end{tabular}\end{highlighted}
+%
+%We can check these with truth tables. We have already shown that Denying the Antecedent is invalid, that was our example of duress and the void contract.
+%
+%Consider Affirming the Consequent:
+%\begin{center}
+%\begin{tabular}{cc|cccc}
+%&&Premise&Premise&Concln\\
+%$\metaX$&\metaZ&$\metaX\eif\metaZ$&\metaZ&\metaX\\\cline{1-5}
+%\Tstrut
+%T&T&T&T&T\\
+%T&F&F&F&T\\
+%F&T&T&T&F& $\leadsto$ This valuation shows invalid.\\
+%F&F&T&F&F
+%\end{tabular}
+%\end{center}
+%An example of an English argument with this structure is:\begin{itemize}
+%\item [] If the contract was signed under duress then it is void. It is void. Therefore it was signed under duress.
+%\end{itemize}Again we have the same sort of scenario showing it is invalid: it might be void because of misrepresentation.
+%
+%
+%Sometimes we see people who are plausibly providing the fallacious argument. We should think of counter examples such as misrepresentation case, and see if they can add further plausible premises that will allow us to rule out such cases or if they can fix up their argument.
+%
+%%We should help them by directing them towards the premise that would actually help them in their argument.
+%
+%Consider the following argument: \begin{itemize}
+%\item []If each man had a definite set of rules of conduct by which he regulated his
+%life he would be a machine. But there are no such rules, so men
+%cannot be machines.\footnote{Close to an argument discussed in Alan Turing ``Computing Machinery and Intelligence''. Turing points out that the argument is invalid. }
+%\end{itemize}
+%We might symbolise this argument as:
+%\begin{earg}
+%\item $R\eif M$\item $\enot R$\conc$\enot M$
+%\end{earg}This is denying the antecedent; and is invalid.
+%%We walked through an example of denying the antecedent at the beginning of this chapter.
+%The situation showing its invalidity is a case where $M$ is true but $R$ false. This is a situation where men are machines but do not have a definite set of rules of conduct.
+%
+%
+%
+%Each fallacy has a very closely connected valid argument. From the invalid argument \begin{earg}
+%\item $R\eif M$\item $\enot R$\conc$\enot M$
+%\end{earg} we can construct a valid argument by reversing the ``if then''\begin{earg}
+%\item $M\eif R$\item $\enot R$\conc$\enot M$
+%\end{earg}
+%
+%
+%The argument would be valid if the first premise ``If each man had a definite set of rules of conduct by which he regulated his life he would be a machine.'' was symbolised not as $R\eif M$, but as $M\eif R$: ``If man is a machine, then he would have a definite set of rules of conduct by which he regulated his life'' (``iff'' would do too: $R\eiff M$). It would then be an instance of Modus Tollens: a valid argument form. So it can be interpreted as a valid argument, but we then should make sure that if we are trying to use this as an argument we have the premise explicitly stated the way that we need it for the argument: $M\eif R$ instead of $R\eif M$; and we can direct our discussion towards the correct premise and think about whether it is true that if man is a machine then man is governed by a definite set of rules of conduct.
+%
+%
+%
+%
+%Here we list just a few more fallacies. Though there are many more!
+%\begin{itemize}
+%\item Begging the question.  An argument begs the question when the conclusion is implicit in premises. This is actually a valid argument: draw truth tables for $A\therefore A$ and you see there is no valuation where the premise is true but conclusion false: the premise just \emph{is} the conclusion. But it is a fallacious argument because it gives us no reason to believe the conclusion. Noone will accept the premises unless they already accept the conclusion. \begin{quote}
+%You should believe in God because He loves
+%you. He spoke to me and asked me to talk to
+%you about His love for you.
+%\end{quote}
+%%[Does induction beg the question?]
+%\item False dilemma (of false dichotomy).  This implicitly assumes that these are the only two options. \begin{quote}
+%we can't
+%stand by and do nothing, therefore we have to
+%carry out my preferred policy
+%\end{quote}We can make this a valid argument by making the implicit premise $A\eor B$ (``my way or no way'') explicit. But this valid argument has a premise that we don't want to accept, so doesn't lead us to accepting the conclusion.
+%\item Irrelevant conclusion.\begin{quote}The prosecution will show that the defendant in the dock was
+%indeed the murderer. The crime was heinous,
+%committed by a callous killer who is a danger to society, and
+%such a crime cannot be allowed to go unpunished.\end{quote}This is an argument of the form $A\therefore B$. The premise and conclusion are unconnected and the premise provides no support for the conclusion.
+%%\item Equivocation.
+%%\item Lots more
+%%%\item ambiguity in the conclusion
+%\end{itemize}
+%A fallacy is an argument that fails to provide a reason to
+%believe the conclusion. Usually because the relationship between premises and
+%conclusion is poor. Sometimes because the premises are not an independent
+%reason to believe the conclusion.
+%
+
+\section{Other kinds of validity}
+
+We have reached an important milestone: a test for the validity of arguments! However, we should not get carried away just yet. It is important to understand the {limits} of our achievement.
+
+This allows us to investigate the formal validity of an argument. More precisely, whether its TFL-form is a valid form.
+
+If the TFL-form of an argument is valid, then the argument is also conceputually valid, nomologically valid, and valid in any other (plausible) sense. We cannot conceive of possibilities that do not follow the laws of logic.
+
+\begin{highlighted}
+If the TFL symbolisation of an argument is valid (in TFL), then the original argument is formally valid, and valid in all the other senses.
+\end{highlighted}
+
+However, some arguments may have their TFL forms being invalid but are nonetheless conceptually valid. For example:
+\begin{earg}
+	\prem That is a triangle.
+	\conc That has three sides.
+\end{earg}
+This argument is conceptually valid. But it would be symbolised in TFL simply as:
+\begin{earg}
+\prem $A$
+\conc $B$
+\end{earg}and looking at the truth tables (which are very easy to do!) we see:
+\begin{center}
+\begin{tabular}{cc|cc}
+&&Premise&Concln\\
+$A$&$B$&$A$&$B$\\\hline
+T&T&T&T\\
+T&F&T&F\\
+F&T&F&T\\
+F&F&F&F
+\end{tabular}
+\end{center}
+The valuation in line 2 gives us a counterexample: it makes the premise, $A$, true, and the conclusion, $B$, false.
+This valuation, however, violates the conceptual connections between words in English. Triangles simply have to have three sides. The ``case'' being described by this valuation makes it true that it is a triangle but false that it has three sides. That is not a conceptual possibility.
+The argument is conceptually valid, but its TFL symbolisation is invalid.
+
+If the TFL symbolisation is valid, the argument must be conceptually valid too. But some conceptually valid arguments have invalid TFL symbolisations.
+
+Consider:
+%
+%However, it gives us a good tool. It can tell us where to look to think about our conceptual counterexample. For example in our argument:
+\begin{earg}
+\prem If Jones signed the contract under duress, then the
+contract is void.
+\prem Jones did not sign the contract under duress.
+\conc The contract is not void.
+\end{earg}which we symbolised in TFL as:
+\begin{center}
+$D\eif V$,\; $\enot D$\;\therefore\;$\enot V$
+\end{center}
+which is invalid. The valuation providing the counterexample is:
+\begin{tabular}{cc}
+$D$&$V$\\\hline
+F&T
+\end{tabular} To see if the argument is \emph{conceptually} valid, one should then investigate whether the valuations providing counterexamples to the formal validity are conceivable possibilities. Here, we're probably interested in something like legal validity, which governs conditions under which a contract is void. We now know we should investigate whether the possibility of it being void but not signed under duress is compatible with the legal laws.
+This will depend on what the legal laws are.
+Actually, a contract can be void without being signed under duress, for example due to misrepresentation or mental incapacity.
+But were the laws different, and the only way to be void was to be signed under duress, then the argument would have been legally valid despite being formally invalid.
+
+
+There is one loose end to tie up. In fact, TFL is in't all there is to formal validity.
+If the TFL symbolisation of an argument is valid, then the original argument is formally valid. But consider the following argument:
+Consider
+\begin{earg}
+\prem Socrates is a man.
+\prem All men are mortal.
+\conc Socrates is mortal.
+\end{earg}
+When we symbolise this in TFL, each of the sentences is simply an atomic sentence, so we get:
+\begin{center}
+$A$, $B$\; \therefore \; $C$
+\end{center}
+which is invalid.
+The problem isn't the symbolisation we gave. It is the best we could do \emph{in TFL}. The problem is that TFL is limited in the ``form'' it can see, after all. We will improve on this when we move to First Order Logic in \S\ref{s:FOLBuildingBlocks}.
+This argument is formally valid in virtue of its FOL form rather than TFL form.
+
+
+\todo{note I deleted the section on paradoxes of material implication and double negation}
+
+
 \chapter{Truth table shortcuts}\teachingnote{Not taught in course. This knowledge will not be needed for the exam. (Although you can use these techniques in the exam if you wish.)}
-With practice, you will quickly become adept at filling out truth tables. In this section, we want to give you some permissible shortcuts to help you along the way. 
+With practice, you will quickly become adept at filling out truth tables. In this section, we want to give you some permissible shortcuts to help you along the way.
 
 \section{Working through truth tables}
 You will quickly find that you do not need to copy the truth value of each atomic sentence, but can simply refer back to them. So you can speed things up by writing:
@@ -1695,7 +1766,7 @@ $P$&$Q$& $((P$&\eif&$Q$)&\eif&$P)$&\eif&$P$\\
  T & T & &  & & & & \TTbf{T} & \\
  T & F &  &  & && & \TTbf{T} & \\
  F & T & & T & & F & & \TTbf{T} & \\
- F & F & & T & & F & &\TTbf{T} & 
+ F & F & & T & & F & &\TTbf{T} &
 \end{tabular}
 \end{center}
 So `$((P \eif Q) \eif P) \eif P$' is a tautology. In fact, it is an instance of \emph{Peirce's Law}, named after Charles Sanders Peirce.
@@ -1703,10 +1774,10 @@ So `$((P \eif Q) \eif P) \eif P$' is a tautology. In fact, it is an instance of 
 \section{Testing for validity and entailment}
 When we use truth tables to test for validity or entailment, we are checking for \emph{bad} lines: lines where the premises are all true and the conclusion is false. Note:
 	\begin{earg}
-		\item[\textbullet] Any line where the conclusion is true is not a bad line. 
-		\item[\textbullet] Any line where some premise is false is not a bad line. 
+		\item[\textbullet] Any line where the conclusion is true is not a bad line.
+		\item[\textbullet] Any line where some premise is false is not a bad line.
 	\end{earg}
-Since \emph{all} we are doing is looking for bad lines, we should bear this in mind. So: if we find a line where the conclusion is true, we do not need to evaluate anything else on that line: that line definitely isn't bad. Likewise, if we find a line where some premise is false, we do not need to evaluate anything else on that line. 
+Since \emph{all} we are doing is looking for bad lines, we should bear this in mind. So: if we find a line where the conclusion is true, we do not need to evaluate anything else on that line: that line definitely isn't bad. Likewise, if we find a line where some premise is false, we do not need to evaluate anything else on that line.
 
 With this in mind, consider how we might test the following for validity:
 	$$\enot L \eif (J \eor L), \enot L \therefore J$$
@@ -1722,7 +1793,7 @@ $J$&$L$&\enot&$L$&\eif&$(J$&\eor&$L)$&\enot&$L$&$J$\\
  F & F & &&?&&&&?&& {F}
 \end{tabular}
 \end{center}
-where the blanks indicate that we are not going to bother doing any more investigation (since the line is not bad) and the question-marks indicate that we need to keep investigating. 
+where the blanks indicate that we are not going to bother doing any more investigation (since the line is not bad) and the question-marks indicate that we need to keep investigating.
 
 The easiest premise to evaluate is the second, so we next do that:
 \begin{center}
@@ -1805,7 +1876,7 @@ We have been discussing shortcuts in testing for logically validity, but exactly
 \practiceproblems
 \problempart
 \label{pr.TT.TTorC2}
-Using shortcuts, determine whether each sentence is a tautology, a contradiction, or neither. 
+Using shortcuts, determine whether each sentence is a tautology, a contradiction, or neither.
 \begin{earg}
 \item $\enot B \eand B$ %contra
 \item $\enot D \eor D$ %taut
@@ -1821,29 +1892,29 @@ Using shortcuts, determine whether each sentence is a tautology, a contradiction
 
 \chapter{Partial truth tables}\label{s:PartialTruthTable}\teachingnote{Not taught in course. This knowledge will not be needed for the exam. (Although you can use these techniques in the exam if you wish.)}
 
-Sometimes, we do not need to know what happens on every line of a truth table. Sometimes, just a line or two will do. 
+Sometimes, we do not need to know what happens on every line of a truth table. Sometimes, just a line or two will do.
 
-\paragraph{Tautology.} 
-In order to show that a sentence is a tautology, we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every line of the truth table. So we need a complete truth table. 
+\paragraph{Tautology.}
+In order to show that a sentence is a tautology, we need to show that it is true on every valuation. That is to say, we need to know that it comes out true on every line of the truth table. So we need a complete truth table.
 
-To show that a sentence is \emph{not} a tautology, however, we only need one line: a line on which the sentence is false. Therefore, in order to show that some sentence is not a tautology, it is enough to provide a single valuation---a single line of the truth table---which makes the sentence false. 
+To show that a sentence is \emph{not} a tautology, however, we only need one line: a line on which the sentence is false. Therefore, in order to show that some sentence is not a tautology, it is enough to provide a single valuation---a single line of the truth table---which makes the sentence false.
 
 Suppose that we want to show that the sentence `$(U \eand T) \eif (S \eand W)$' is \emph{not} a tautology. We set up a \define{partial truth table}:
 \begin{center}
 \begin{tabular}{c c c c |d e e e e e f}
 $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \hline
-   &   &   &   &    &   &    &\TTbf{F}&    &   &   
+   &   &   &   &    &   &    &\TTbf{F}&    &   &
 \end{tabular}
 \end{center}
-We have only left space for one line, rather than 16, since we are only looking for one line on which the sentence is false. For just that reason, we have filled in `F' for the entire sentence. 
+We have only left space for one line, rather than 16, since we are only looking for one line on which the sentence is false. For just that reason, we have filled in `F' for the entire sentence.
 
 The main logical operator of the sentence is a conditional. In order for the conditional to be false, the antecedent must be true and the consequent must be false. So we fill these in on the table:
 \begin{center}
 \begin{tabular}{c c c c |d e e e e e f}
 $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \hline
-   &   &   &   &    &  T  &    &\TTbf{F}&    &   F &   
+   &   &   &   &    &  T  &    &\TTbf{F}&    &   F &
 \end{tabular}
 \end{center}
 In order for the `$(U\eand T)$' to be true, both `$U$' and `$T$' must be true.
@@ -1851,7 +1922,7 @@ In order for the `$(U\eand T)$' to be true, both `$U$' and `$T$' must be true.
 \begin{tabular}{c c c c|d e e e e e f}
 $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \hline
-   & T & T &   &  T &  T  & T  &\TTbf{F}&    &   F &   
+   & T & T &   &  T &  T  & T  &\TTbf{F}&    &   F &
 \end{tabular}
 \end{center}
 Now we just need to make `$(S\eand W)$' false. To do this, we need to make at least one of `$S$' and `$W$' false. We can make both `$S$' and `$W$' false if we want. All that matters is that the whole sentence turns out false on this line. Making an arbitrary decision, we finish the table in this way:
@@ -1859,13 +1930,13 @@ Now we just need to make `$(S\eand W)$' false. To do this, we need to make at le
 \begin{tabular}{c c c c|d e e e e e f}
 $S$&$T$&$U$&$W$&$(U$&\eand&$T)$&\eif    &$(S$&\eand&$W)$\\
 \hline
- F & T & T & F &  T &  T  & T  &\TTbf{F}&  F &   F & F  
+ F & T & T & F &  T &  T  & T  &\TTbf{F}&  F &   F & F
 \end{tabular}
 \end{center}
-We now have a partial truth table, which shows that `$(U \eand T) \eif (S \eand W)$' is not a tautology. Put otherwise, we have shown that there is a valuation which makes `$(U \eand T) \eif (S \eand W)$' false, namely, the valuation which makes `$S$' false, `$T$' true, `$U$' true and `$W$' false. 
+We now have a partial truth table, which shows that `$(U \eand T) \eif (S \eand W)$' is not a tautology. Put otherwise, we have shown that there is a valuation which makes `$(U \eand T) \eif (S \eand W)$' false, namely, the valuation which makes `$S$' false, `$T$' true, `$U$' true and `$W$' false.
 
 \paragraph{Contradiction.}
-Showing that something is a contradiction requires a complete truth table: we need to show that there is no valuation which makes the sentence true; that is, we need to show that the sentence is false on every line of the truth table. 
+Showing that something is a contradiction requires a complete truth table: we need to show that there is no valuation which makes the sentence true; that is, we need to show that the sentence is false on every line of the truth table.
 
 However, to show that something is \emph{not} a contradiction, all we need to do is find a valuation which makes the sentence true, and a single line of a truth table will suffice. We can illustrate this with the same example.
 \begin{center}
@@ -1890,7 +1961,7 @@ To show that two sentences are logically equivalent, we must show that the sente
 To show that two sentences are \emph{not} logically equivalent, we only need to show that there is a valuation on which they have different truth values. So this requires only a one-line partial truth table: make the table so that one sentence is true and the other false.
 
 \paragraph{Consistency.}
-To show that some sentences are jointly consistent, we must show that there is a valuation which makes all of the sentences true,so this requires only a partial truth table with a single line. 
+To show that some sentences are jointly consistent, we must show that there is a valuation which makes all of the sentences true,so this requires only a partial truth table with a single line.
 
 To show that some sentences are jointly inconsistent, we must show that there is no valuation which makes all of the sentence true. So this requires a complete truth table: You must show that on every row of the table at least one of the sentences is false.
 
@@ -1971,7 +2042,7 @@ Determine whether each sentence is a tautology, a contradiction, or a contingent
 % truth tables in LaTeX generated by http://www.curtisbright.com/logic/. Be sure to give him a shout out.
 
 \begin{earg}
-\item  $A \eif \enot A$ \vspace{.5ex}							
+\item  $A \eif \enot A$ \vspace{.5ex}
 
 %{\color{red}
 %$
@@ -1980,12 +2051,12 @@ Determine whether each sentence is a tautology, a contradiction, or a contingent
 %T&T&\mathbf{F}&F&T\\
 %F&F&\mathbf{T}&T&F
 %\end{array}
-%$ 
+%$
 %
 %Contingent	 \vspace{6pt}
 %}
 %	T letter, 2 connectives
-\item $A \eif (A \eand (A \eor B))$ \vspace{.5ex}	
+\item $A \eif (A \eand (A \eor B))$ \vspace{.5ex}
 
 %{\color{red}
 %$
@@ -2020,7 +2091,7 @@ Determine whether each sentence is a tautology, a contradiction, or a contingent
 %}
 %		2 letters, 3 connectives
 
-\item $A \eif \enot(A \eand (A \eor B)) $	\vspace{.5ex}	
+\item $A \eif \enot(A \eand (A \eor B)) $	\vspace{.5ex}
 
 %{\color{red}
 %$
@@ -2039,7 +2110,7 @@ Determine whether each sentence is a tautology, a contradiction, or a contingent
 %
 % 2 letters, 4 connectives
 
-\item $\enot B \eif [(\enot A \eand A) \eor B]$\vspace{.5ex} 
+\item $\enot B \eif [(\enot A \eand A) \eor B]$\vspace{.5ex}
 
 %{\color{red}
 %$
@@ -2073,7 +2144,7 @@ Determine whether each sentence is a tautology, a contradiction, or a contingent
 %}
 %2 letters, 6 connectives
 
-\item $[(A \eand B) \eand C] \eif B$\vspace{.5ex}							
+\item $[(A \eand B) \eand C] \eif B$\vspace{.5ex}
 %
 %{\color{red}
 %$
@@ -2095,7 +2166,7 @@ Determine whether each sentence is a tautology, a contradiction, or a contingent
 %
 %3 letters, 3 connectives
 
-\item $\enot\bigl[(C\eor A) \eor B\bigr]$\vspace{.5ex} 						
+\item $\enot\bigl[(C\eor A) \eor B\bigr]$\vspace{.5ex}
 %
 %{\color{red}
 %$
@@ -2117,7 +2188,7 @@ Determine whether each sentence is a tautology, a contradiction, or a contingent
 %}
 %	 	3 letters, 3 connectives
 
-\item $\bigl[(A\eand B) \eand\enot(A\eand B)\bigr] \eand C$ \vspace{.5ex}	
+\item $\bigl[(A\eand B) \eand\enot(A\eand B)\bigr] \eand C$ \vspace{.5ex}
 %
 %{\color{red}
 %$
@@ -2140,7 +2211,7 @@ Determine whether each sentence is a tautology, a contradiction, or a contingent
 %
 %% 	3 letters, 5 connectives
 %
-\item $(A \eand B) ]\eif[(A \eand C) \eor (B \eand D)]$ \vspace{.5ex}		
+\item $(A \eand B) ]\eif[(A \eand C) \eor (B \eand D)]$ \vspace{.5ex}
 %
 %{\color{red}
 %$
@@ -2168,7 +2239,7 @@ Determine whether each sentence is a tautology, a contradiction, or a contingent
 \item $(A \eand B) \eor (A \eor B)$\vspace{.5ex} 				%	Contingent		2 letters, 5 connectives
 \item $\enot(A\eand B) \eiff A$\vspace{.5ex} 					%contingent			2 letters, 3 connectives
 \item $A\eif(B\eor C)$\vspace{.5ex} 							%contingent			3 letters, 2 connectives
-\item $(A \eand\enot A) \eif (B \eor C)$\vspace{.5ex} 			%tautology			3 letters, 4 connectives 
+\item $(A \eand\enot A) \eif (B \eor C)$\vspace{.5ex} 			%tautology			3 letters, 4 connectives
 \item $(B\eand D) \eiff [A \eiff(A \eor C)]$\vspace{.5ex}			%contingent			4 letters, 4 connectives
 \item $\enot[(A \eif B) \eor (C \eif D)]$\vspace{.5ex} 			% Contingent. 		4 letters, 4 connectives
 \end{earg}
@@ -2195,7 +2266,7 @@ Determine whether each the following pairs of sentences are logically equivalent
 Determine whether each collection of sentences is jointly consistent or jointly inconsistent. Justify your answer with a complete or partial truth table where appropriate.
 \begin{earg}
 \item $A\eif A$, $\enot A \eif \enot A$, $A\eand A$, $A\eor A$ %consistent
-\item $A \eif \enot A$, $\enot A \eif A$%inconsistent. 
+\item $A \eif \enot A$, $\enot A \eif A$%inconsistent.
 \item $A\eor B$, $A\eif C$, $B\eif C$ %consistent
 \item $A \eor B$, $A \eif C$, $B \eif C$, $\enot C$ %	Inconsistent
 \item $B\eand(C\eor A)$, $A\eif B$, $\enot(B\eor C)$  %inconsistent
@@ -2207,7 +2278,7 @@ Determine whether each collection of sentences is jointly consistent or jointly 
 \end{earg}
 
 \noindent\problempart Determine whether each argument is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
-\label{pr.TT.valid5} 
+\label{pr.TT.valid5}
 \begin{earg}
 \item $A\eif(A\eand\enot A)\therefore \enot A$% valid
 \item $A \eor B$, $A \eif B$, $B \eif A \therefore  A \eiff B$  % Valid
@@ -2223,7 +2294,7 @@ Determine whether each collection of sentences is jointly consistent or jointly 
 \end{earg}
 
 \noindent\problempart Determine whether each argument is valid or invalid. Justify your answer with a complete or partial truth table where appropriate.
-\label{pr.TT.valid6} 
+\label{pr.TT.valid6}
 \begin{earg}
 \item $A\eiff\enot(B\eiff A)\therefore A$ % invalid
 \item $A\eor B$, $B\eor C$, $\enot A\therefore B \eand C$ % invalid
@@ -2231,4 +2302,27 @@ Determine whether each collection of sentences is jointly consistent or jointly 
 \item $A \eor B$, $C \eif A$, $C \eif B\therefore A \eif (B \eif C)$ % invalid
 \item $A \eif B$, $\enot B \eor A\therefore A \eiff B$ % valid
 \end{earg}
+
+\chapter{TFL vs English connectives }\label{s:ParadoxesOfMaterialConditional}
+\teachingnote{Not covered in this course. This is just a taster.\\}
+Consider the sentence:
+	\begin{earg}
+		\item[\ex{n:JanBald}] Jan is neither bald nor not-bald.
+	\end{earg}
+To symbolize this sentence in TFL, we would offer something like `$\enot J \eand \enot \enot J$'. This a contradiction (check this with a truth-table), but sentence \ref{n:JanBald} does not itself seem like a contradiction; for we might have happily go on to add `Jan is on the borderline of baldness'!
+
+Third, consider the following sentence:
+	\begin{earg}
+		\item[\ex{n:GodParadox}]	It's not the case that, if God exists, She answers malevolent prayers.
+%	Aaliyah wants to kill Zebedee. She knows that, if she puts chemical A into Zebedee's water bottle, Zebedee will drink the contaminated water and die. Equally, Bathsehba wants to kill Zebedee. She knows that, if she puts chemical B into Zebedee's water bottle, then Zebedee will drink the contaminated water and die. But chemicals A and B neutralize each other; so that if both are added to the water bottle, then Zebedee will not die.
+	\end{earg}
+        Symbolizing this in TFL, we would offer something like `$\enot (G \eif M)$'. Now, `$\enot (G \eif M)$' entails `$G$' (again, check this with a truth table). So if we symbolize sentence \ref{n:GodParadox} in TFL, it seems to entail that God exists. But that's strange: surely even an atheist can accept sentence \ref{n:GodParadox}, without contradicting herself!
+
+        One lesson of this is that the symbolization of \ref{n:GodParadox} as `$\enot(G \eif M)$' shows that \ref{n:GodParadox} does not express what we intend. Perhaps we should rephrase it as
+        	\begin{earg}
+                \item[\ex{n:GodParadox2}] If God exists, She does not answer malevolent prayers.
+  \end{earg}
+and symbolize \ref{n:GodParadox2} as `$G \eif \enot M$'.  Now, if atheists are right, and there is no God, then `$G$' is false and so `$G \eif \enot M$' is true, and the puzzle disappears. However, if `$G$' is false, `$G \eif M$', i.e.\ `If God exists, She answers malevolent prayers', is \emph{also} true!
+
+In different ways, these  examples highlight some of the limits of working with a language (like TFL) that can \emph{only} handle truth-functional connectives. Moreover, these limits give rise to some interesting questions in philosophical logic. The case of Jan's baldness (or otherwise) raises the general question of what logic we should use when dealing with \emph{vague} discourse. The case of the atheist raises the question of how to deal with the (so-called) \emph{paradoxes of the material conditional}. Part of the purpose of this course is to equip you with the tools to explore these questions of \emph{philosophical logic}. But we have to walk before we can run; we have to become proficient in using TFL, before we can adequately discuss its limits, and consider alternatives.
 
