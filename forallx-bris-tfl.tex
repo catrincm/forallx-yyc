@@ -823,10 +823,12 @@ To see this, we can draw the formation tree:
 \end{center}
 $\enot (R\eand Q)$ is the subsentence in which $\enot$ is the main logical operator. We have worked that out by drawing the formation tree and finding the lowest sentence in which that connective instance appears. 
 
+We might informally describe the scope as the part of the whole sentence that that connective cares about. For the purposes of the connective $\eand$ in $(A\eor (B\eand \enot C))$, the truth value of $A$ is irrelevant. It is only what is going on with $B$ and $\enot C$ that matters for it. The notion of scope will be very important when we look at First Order Logic.
+
 
 %which was constructed by conjoining $P$ with $ (\enot (R \eand B) \eiff Q)$. This last sentence was constructed by placing a biconditional between $\enot (R \eand B)$ and $Q$. The former of these sentences---a subsentence of our original sentence---is a sentence for which $\enot$ is the main logical operator. So the scope of the negation is just $\enot(R \eand B)$. 
-More generally:
-	\factoidbox{The \define{scope} of an instance of a connective is the subsentence for which it is the main connective.}
+%More generally:
+%	\factoidbox{The \define{scope} of an instance of a connective is the subsentence for which it is the main connective.}
 \newglossaryentry{scope}
 {
 name=scope,
