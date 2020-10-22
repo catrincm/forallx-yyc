@@ -644,27 +644,27 @@ Three people are standing in a row looking at each other.
 \end{center}
 Alice is happy. Charlie is not happy. Is there someone who is happy who is looking at someone who is not happy?
 \end{quote} \ldots Think about it! \\\ldots Answer: Yes. 
-Our Law of Excluded Middle and Disjunction Elimination rules allow us to show this. 
+Our Law of Excluded Middle, Disjunction Elimination and Conditional Introduction rules allow us to show this. 
 %They write up 
-We can demonstrate this in the following argument, which we present in a pseudo-formal style.
+We can demonstrate this in the following argument, which we present in a pseudo-formal style. (The gaps in the vertical line are just results of our text being too long to fit on a line. Please ignore them.)
 \footnote{
 Though, actually, this is most naturally formulated as a validity claim of First Order Logic. We'll walk through the formal proof as formulated in First Order Logic in  \S\ref{s:ExistsE}.
 }
 \begin{pf}
-	\have{lem}{\text{Bob is either happy or he's not happy}}%\LEM
+	\have{lem}{\parbox{.8\textwidth}{{Bob is either happy or he's not happy}}}%\LEM
 	\open
-	\hypo{b}{\text{Suppose Bob is happy}}
-	\have{ab}{\text{Then happy Bob is looking at not-happy Charlie}}
-	\have{abc}{\text{So someone who is happy is looking at someone who is not happy}}
+	\hypo{b}{\parbox{.8\textwidth}{{Suppose Bob is happy}}}
+	\have{ab}{\parbox{.8\textwidth}{{Then happy Bob is looking at not-happy Charlie}}}
+	\have{abc}{\parbox{.8\textwidth}{{So someone who is happy is looking at someone who is not happy}}}\vspace*{1em}
 	\close
-\have{babc}{\text{If Bob is happy then someone who is happy is looking at someone who is not happy}}
+\have{babc}{\parbox{.8\textwidth}{{If Bob is happy then someone who is happy is looking at someone who is not happy}}}\vspace*{1em}
 	\open
 	\hypo{b2}{\text{Suppose Bob is not happy}}
 	\have{ab2}{\text{Then happy Alice is looking at not-happy Bob}}
-	\have{abc2}{\text{So someone who is happy is looking at someone who is not happy.}}
+	\have{abc}{\parbox{.8\textwidth}{{So someone who is happy is looking at someone who is not happy}}}\vspace*{1em}
 	\close
-\have{nbabc}{\text{If Bob is not happy then someone who is happy is looking at someone who is not happy}}
-	\have{con}{\text{Therefore, someone who is happy is looking at someone who is not happy.}}%\orE{lem,b-abc,b2-abc2} 
+\have{babc}{\parbox{.8\textwidth}{{If Bob is not happy then someone who is happy is looking at someone who is not happy}}}\vspace*{1em}
+	\have{con}{\parbox{.8\textwidth}{Therefore, someone who is happy is looking at someone who is not happy.}}%\orE{lem,b-abc,b2-abc2} 
 \end{pf}
 
 Are you convinced now that someone who is happy is looking at someone who is not happy? If not, find a friend and work through it together. Sometimes it can really help to try walking through the argument together.
