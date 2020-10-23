@@ -159,7 +159,7 @@ No Fs are Gs & $\forall x(Fx \eif\enot Gx)$\ or\ $\enot\exists x(Fx \eand Gx)$\\
 \begin{tabular*}{\textwidth}{ll}
 Only c is G & $\forall x(Gx \eif x\eid c)$ or perhaps $\eiff$.  \\
 Everything besides c is G & $\forall x(\enot \,x \eid  c \eif Gx)$\\
-%$j$ is more $R$ than anyone else. & $\forall x(x\neq j \eif Rjx)$\\
+%$j$ is more $R$ than anyone else. & $\forall x(xotEeq j \eif Rjx)$\\
 The F is G & $\exists x(Fx \eand \forall y(Fy \eif x\eid y) \eand Gx)$\\
 It is not the case that the F is G & $\enot\exists x(Fx \eand \forall y(Fy \eif x\eid y) \eand Gx)$\\
 The F is non-G & $\exists x(Fx \eand \forall y(Fy \eif x\eid y) \eand \enot Gx)$
@@ -173,7 +173,6 @@ The F is non-G & $\exists x(Fx \eand \forall y(Fy \eif x\eid y) \eand \enot Gx)$
 
 % BEGIN: symbolizing cardinality
 
-\newpage
 \section{Using identity to symbolize quantities}
 
 \subsection*{There are at least \blank\ Fs.}
@@ -269,27 +268,27 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \vfill\null
 \columnbreak
 
-%\begin{pf}
-%	\have[m]{ab}{\metaX\eor\metaY}
-%\\	\open
-%		\hypo[i]{a}{\metaX}
-%		\ellipsesline
-%		\have[j]{c1}{\metaZ}
-%	\close
-%	\open
-%		\hypo[k]{b}{\metaY}
-%		\ellipsesline
-%		\have[l]{c2}{\metaZ}
-%	\close
-%	\have[\ ]{c}{\metaZ} \oe{ab,a-c1, b-c2}
-%\end{pf}
-
 \begin{pf}
 	\have[m]{ab}{\metaX\eor\metaY}
-	\have[i]{xz}{\metaX\eif\metaZ}
-	\have[j]{yz}{\metaX\eif\metaZ}
-	\have[\ ]{c}{\metaZ} \oe{ab,xz,yz}
+\\	\open
+		\hypo[i]{a}{\metaX}
+		\ellipsesline
+		\have[j]{c1}{\metaZ}
+	\close
+	\open
+		\hypo[k]{b}{\metaY}
+		\ellipsesline
+		\have[l]{c2}{\metaZ}
+	\close
+	\have[\ ]{c}{\metaZ} \oe{ab,a-c1, b-c2}
 \end{pf}
+%
+%\begin{pf}
+%	\have[m]{ab}{\metaX\eor\metaY}
+%	\have[i]{xz}{\metaX\eif\metaZ}
+%	\have[j]{yz}{\metaX\eif\metaZ}
+%	\have[\ ]{c}{\metaZ} \oe{ab,xz,yz}
+%\end{pf}
 
 \end{multicols} % Disjunction
 
@@ -346,34 +345,35 @@ One way to say `there are exactly $n$ Fs' is to conjoin two of the symbolization
 \vspace{-10pt}
 \begin{multicols}{2}
 \subsubsection*{Negation}
-%\begin{pf}
-%\open
-%	\hypo[m]{a}{\metaX}
-%	\ellipsesline
-%	\have[n]{nb}{\ered}
-%\close
-%\have[\ ]{na}{\enot\metaX}\ni{a-nb}
-%\end{pf}
 \begin{pf}
-\have[m]{a}{\metaX \eif \ered}
-\have[\ ]{na}{\enot\metaX}\ni{a}
+\open
+	\hypo[m]{a}{\metaX}
+	\ellipsesline
+	\have[n]{nb}{\ered}
+\close
+\have[\ ]{na}{\enot\metaX}\ni{a-nb}
 \end{pf}
+
+%\begin{pf}
+%\have[m]{a}{\metaX \eif \ered}
+%\have[\ ]{na}{\enot\metaX}\ni{a}
+%\end{pf}
 
 \vfill\null
 \columnbreak
 
-%\begin{pf}
-%\open
-%	\hypo[m]{a}{\enot\metaX}
-%	\ellipsesline
-%	\have[n]{nb}{\ered}
-%\close
-%\have[\ ]{na}{\enot\metaX}\ne{a-nb}
-%\end{pf}
 \begin{pf}
-\have[m]{a}{\enot\metaX \eif \ered}
-\have[\ ]{na}{\metaX}\ne{a}
+\open
+	\hypo[m]{a}{\enot\metaX}
+	\ellipsesline
+	\have[n]{nb}{\ered}
+\close
+\have[\ ]{na}{\metaX}\pbc{a-nb}
 \end{pf}
+%\begin{pf}
+%\have[m]{a}{\enot\metaX \eif \ered}
+%\have[\ ]{na}{\metaX}\ne{a}
+%\end{pf}
 
 
 \end{multicols} % Negation
