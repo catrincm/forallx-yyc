@@ -4,9 +4,9 @@ This is the formal logic textbook, _forall x: Bristol Remix_.
 
 Download links:
 
-- [Textbook](/forallxbris.pdf)
-- [Accessible Textbook](/forallxbris-accessible.pdf)
-- [Solutions Book](/forallxbris.pdf)
+- [Textbook](https://catrincm.github.io/forallx-bris/forallxbris.pdf)
+- [Accessible Textbook](https://catrincm.github.io/forallx-bris/forallxbris-accessible.pdf)
+- [Solutions Book](https://catrincm.github.io/forallx-bris/forallxsol.pdf)
 
 
 This book is based on forallx: Calgary by
