@@ -30,7 +30,7 @@ jobs:
     - name: Upload
       run: |
         # configure git
-        git config --global user.name "Catrin Campbell-Moore"
+        git config --global user.name "catrincm"
         git config --global user.email "catrin.cmoore@gmail.com"
         # setup ssh
         mkdir ~/.ssh
