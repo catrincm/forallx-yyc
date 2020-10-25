@@ -185,3 +185,4 @@ TSWLatexianTemp*
 *png
 *svg
 *.synctex(busy)
+.DS_Store
