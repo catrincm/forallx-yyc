@@ -26,7 +26,6 @@ jobs:
       run: |
         file forallxbris.pdf | grep -q ' PDF '
         file forallxbris-accessible.pdf | grep -q ' PDF '
-        file solutions/forallxsol.pdf | grep -q ' PDF '
     - name: Upload
       run: |
         # configure git
@@ -41,9 +40,8 @@ jobs:
         git clone --depth=1 --branch gh-pages git@github.com:xu-cheng/latex-tutorial.git "$GITHUB_WORKSPACE/deploy"
         cp -f forallxbris.pdf "$GITHUB_WORKSPACE/deploy/forallxbris.pdf"
         cp -f forallxbris-accessible.pdf "$GITHUB_WORKSPACE/deploy/forallxbris-accessible.pdf"
-        cp -f solutions/forallxsol.pdf "$GITHUB_WORKSPACE/deploy/forallxsol.pdf"
         cd "$GITHUB_WORKSPACE/deploy"
-        git add forallxbris.pdf forallxbris-accessible.pdf forallxsol.pdf
+        git add forallxbris.pdf forallxbris-accessible.pdf
         git commit -m "[github actions] deploy"
         git push
       env:
