@@ -200,8 +200,7 @@ Give a proof for each of the following arguments:
         \have{gh2}{G \eor H}\oi{g}
         \have{bot2}{\ered}\ri{ncon, gh2}
 \close        
-\have{if}{\enot (G \eor H)\eif \bot}\ifI{ncon-bot2}
-\have{con}{G \eor H}\notE{if}
+\have{con}{(G \eor H)}\pbc{ncon-bot2}
 \end{pf}
 }
 
@@ -294,8 +293,7 @@ Give a proof for each of the following arguments:
 	\have{pq}{P \eif Q}\ci{p2-q}
 	\have{red1}{\ered}\ri{pq, npq}
 \close
-\have{if}{\enot P\eif \ered}\ifI{np-red1}
-\have{con}{P}\notE{if}
+\have{con}{P}\pbc{np-red1}
 \end{pf}}
 \end{earg}
 
@@ -445,8 +443,7 @@ Show that each of the following sentences is a theorem:
         \have{nnn2}{N \eor \enot N}\oi{nn}
         \have{bot2}{\ered}\ri{ncon, nnn2}
 \close
-\have{if}{\enot(N\eor\enot N)\eif \ered}\ifI{ncon-bot2}
-\have{con}{N \eor \enot N}\notE{if}
+\have{con}{N \eor \enot N}\pbc{ncon-bot2}
 \end{pf}}
 
 \newpage
@@ -490,8 +487,7 @@ Show that each of the following sentences is a theorem:
 		\have{ab}{A \eif B}\ci{a-b}
 		\have{red1}{\ered}\ri{ab, nab}
 	\close
-	\have{if}{\enot A\eif \ered}\ifI{aba-red1}
-	\have{a2}{A}\notE{if}
+	\have{a2}{A}\pbc{aba-red1}
 \close
 \have{con}{((A \eif B) \eif A) \eif A}\ci{aba-a2}
 \end{pf}}
@@ -517,8 +513,7 @@ Provide proofs to show each of the following:
         \have{g2}{G}\ce{ncg, nc}
         \have{bot2}{\ered}\ri{ng, g2}
 \close
-\have{if}{\enot G\eif \ered}\ifI{ng-bot2}
-\have{con}{G}\notE{if}
+\have{con}{G}\pbc{ng-bot2}
 \end{pf}}
 
 \item $M \eand (\enot N \eif \enot M) \proves (N \eand M) \eor \enot M$
@@ -531,8 +526,7 @@ Provide proofs to show each of the following:
 	\have{nM}{\enot M}\ce{nNnM, nN}
 	\have{red}{\ered}\ri{M, nM}
 \close
-\have{if}{\enot N\eif \ered}\ifI{nN-red}
-\have{N}{N}\notE{if}
+\have{N}{N}\pbc{nN-red}
 \have{NM}{N \eand M}\ai{N, M}
 \have{con}{(N \eand M) \eor \enot M}\oi{NM}	
 \end{pf}}
@@ -764,8 +758,7 @@ Show that each of the following pairs of sentences are provably equivalent: %TB:
 		\have{gh}{G \eiff H}\bi{g-h, h1-g1}
 		\have{red2}{\ered}\ri{gh, ngh}
 	\close
-	\have{if}{\enot H\eif\ered}\ifI{nh-red2}
-	\have{h2}{H}\notE{if}
+	\have{h2}{H}\pbc{nh-red2}
 \close
 \open
 	\hypo{h3}{H}
