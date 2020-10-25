@@ -44,8 +44,8 @@ And that will increase exponentially as more atomic sentences get added. Once an
 \prem It wasn't Alice.
 \prem It wasn't Betty,
 \prem\,$\vdots$
-\item [] It wasn't Uli,
-\item [\therefore] It was Volker. 
+\prem It wasn't Uli,
+\conc It was Volker. 
 \end{earg}
 \end{center}
 This argument is also valid---as you might be able to tell---but to test it requires a truth table with $2^{20} = 1048576$ lines. In principle, we can set a machine to grind through truth tables and report back when it is finished. In practice, complicated arguments in TFL can become \emph{intractable} if we use truth tables.
@@ -194,9 +194,9 @@ We can also apply the rule when our $\metaX\eif \metaY$ and $\metaX$ are not the
 	\hypo{assn1}{\text{Premise 1}}
 	\hypo{assn2}{\text{Premise 2}}
 	\have[\ ]{dots}{\;\raise-.65ex\hbox{\vdots}}
-	\have[8]{ab}{S\eif F}\by{?}{assn2}
+	\have[8]{ab}{S\eif F}\by{some rule}{}
 	\have[\ ]{dots}{\;\raise-.65ex\hbox{\vdots}}
-	\have[15]{a}{S}\by{?}{assn1}
+	\have[15]{a}{S}\by{another rule}{}
 	\have[\ ]{dots}{\;\raise-.65ex\hbox{\vdots}}
 	\have[23]{b}{F} \ce{ab,a}
 \end{pf}
@@ -370,21 +370,22 @@ Simple, but effective. In fact this shows that we didn't need to have the rule o
 For the biconditional we encode the idea that $\metaX\eiff\metaY$ is equivalent to $(\metaX\eif\metaY)\eand(\metaY\eif\metaX)$. 
 % instead of $\metaX\eiff\metaY$. We thus introduce the rules allowing you to move between these formulations: 
 
-The rules we give, then, are basically versions of the rules for conjunction:
+The rules we give, then, are very closely related to the rules for conjunction:
+Two elimination rules
 \factoidbox{
 \begin{pf}
 \ellipsesline
 \have[m]{ab}{\metaX\eiff\metaY}
 \ellipsesline
 \have[\ ]{b}{\metaX\eif\metaY}\iffE{ab}
-\end{pf}
+\end{pf}and
 \begin{pf}
 \ellipsesline
 \have[m]{ab}{\metaX\eiff\metaY}
 \ellipsesline
 \have[\ ]{b}{\metaY\eif\metaX}\iffE{ab}
 \end{pf}
-}
+}and an introduction rule:
 \factoidbox{
 \begin{pf}
 \ellipsesline
@@ -439,9 +440,9 @@ Armed with all this, we present the disjunction introduction rule(s):
 	\have[m]{a}{\metaX}
 	\ellipsesline
 	\have[\ ]{ab}{\metaX\eor\metaY}\oi{a}
-\end{pf}}
+\end{pf}
 and
-\factoidbox{\begin{pf}
+\begin{pf}
 \ellipsesline
 	\have[m]{a}{\metaX}
 	\ellipsesline
@@ -462,6 +463,7 @@ The rule \emph{Law of Excluded Middle} encodes this fact: it simply says that yo
 
 \factoidbox{
 	\begin{pf}
+	\ellipsesline
 	\have[\ ]{lem}{\metaX\eor\enot\metaX}\LEM
 	\end{pf}
 } 
@@ -513,8 +515,11 @@ Instead of tackling negation directly, we will first think about \emph{contradic
 An effective form of argument is to argue your opponent into contradicting themselves. At that point, you have them on the ropes. They have to give up at least one of their assumptions. We are going to make use of this idea in our proof system, by adding a new symbol, `$\ered$', to our proofs. This should be read as something like `contradiction!'\ or `reductio!'\ or `but that's absurd!'  The rule for introducing this symbol is that we can use it whenever we explicitly contradict ourselves, i.e.\ whenever we find both a sentence and its negation appearing in our proof:
 \factoidbox{
 \begin{pf}
+\ellipsesline
 \have[m]{a}{\metaX}
+\ellipsesline
 \have[n]{na}{\enot\metaX}
+\ellipsesline
 \have[ ]{bot}{\ered}\ri{a, na}
 \end{pf}}
 It does not matter what order the sentence and its negation appear in, and they do not need to appear on adjacent lines. 
@@ -524,6 +529,7 @@ It does not matter what order the sentence and its negation appear in, and they 
 \subsection{Contradiction Elimination}
 Our elimination rule for `$\ered$' is known as \emph{ex falso quod libet}, or \emph{explosion}. This means `anything follows from a contradiction', and the idea is precisely that: if we obtained a contradiction, symbolized by `$\ered$', then we can infer whatever we like. How can this be motivated, as a rule of argumentation? Well, consider the English rhetorical device `\ldots and if \emph{that's} true, I'll eat my hat'. Since contradictions simply cannot be true, if one \emph{i}s true then not only will I eat my hat, I'll have it too.\footnote{Thanks to Adam Caulton for this.} Here is the formal rule:
 \factoidbox{\begin{pf}
+\ellipsesline
 \have[m]{bot}{\ered}
 \have[ ]{}{\metaX}\re{bot}
 \end{pf}}

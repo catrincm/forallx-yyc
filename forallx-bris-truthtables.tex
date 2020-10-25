@@ -1028,7 +1028,7 @@ In \S\ref{s:Valid} we introduce the notion of validity: an argument is valid if 
 
 
 Validity is a property of an \emph{argument}. 
-If we want to talk about the conclusion being a consequence of the premises, we use the term `\emph{entails}'.
+If we want to talk about the conclusion being a consequence of the premises, or \emph{following from}, we use the term `\emph{entails}'.
 \factoidbox{
 	The TFL sentences $\metaX_1, \metaX_2, \ldots, \metaX_n$ \define{entail} the sentence $\metaY$ iff there are no valuations where all of $\metaX_1, \metaX_2, \ldots, \metaX_n$ true and $\metaY$ false.
 }
@@ -1078,7 +1078,7 @@ Observe: $\metaX$ entails $\metaY$ iff there is no valuation of the atomic sente
 
 Observe: $\metaX \eif \metaY$ is a tautology iff there is no valuation of the atomic sentences that makes $\metaX \eif \metaY$ false. Since a conditional is true except when its antecedent is true and its consequent false, $\metaX \eif \metaY$ is a tautology iff there is no valuation that makes $\metaX$ true and $\metaY$ false.
 
-Combining these two observations, we see that $\metaX \eif \metaY$  is a tautology iff  $\metaX$ entails $\metaY$. But there is a really, really important difference between entailment and `$\eif$': `$\eif$' is a sentential connective of TFL.\\ `entails' is a word in English. 
+Combining these two observations, we see that $\metaX \eif \metaY$  is a tautology iff  $\metaX$ entails $\metaY$. But there is a really, really important difference between entailment and `$\eif$': `$\eif$' is a sentential connective of TFL.\\ `Entails' is a word in English. 
 %\factoidbox{`$\eif$' is a sentential connective of TFL.\\ `$\entails$' is a symbol of augmented English.
 %}
 When `$\eif$' is flanked with two TFL sentences, the result is a longer TFL sentence. By contrast, when we use `entails', we are expressing that there is a relationship between the surrounding TFL sentences.
@@ -1145,7 +1145,7 @@ We are interested in whether it is valid. I.e.~is there a situation where the pr
 
 \begin{earg}
  \prem $D\eif V$
- \item $\enot D$
+ \prem $\enot D$
  \conc $\enot V$
  \end{earg}
 
