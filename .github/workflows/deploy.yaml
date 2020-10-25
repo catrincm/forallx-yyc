@@ -38,7 +38,7 @@ jobs:
         echo "$DEPLOY_KEY" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
         git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-        git clone --depth=1 --branch gh-pages git@github.com:xu-cheng/latex-tutorial.git "$GITHUB_WORKSPACE/deploy"
+        git clone --depth=1 --branch gh-pages git@github.com:catrincm/forallxbris.git "$GITHUB_WORKSPACE/deploy"
         cp -f forallxbris.pdf "$GITHUB_WORKSPACE/deploy/forallxbris.pdf"
         cp -f forallxbris-accessible.pdf "$GITHUB_WORKSPACE/deploy/forallxbris-accessible.pdf"
         cp -f solutions/forallxsol.pdf "$GITHUB_WORKSPACE/deploy/forallxsol.pdf"
