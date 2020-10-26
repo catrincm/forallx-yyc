@@ -778,20 +778,26 @@ Determine whether each argument is valid or invalid, using a complete truth tabl
 \label{pr.TT.concepts}
 Answer each of the questions below and justify your answer.
 \begin{earg}
-\item Suppose that \metaX and \metaY are logically equivalent. What can you say about $\metaX\eiff\metaY$?
-\item[] \myanswer{\metaX and \metaY have the same truth value on every line of a complete truth table, so $\metaX\eiff\metaY$ is true on every line. It is a tautology.}
-\item Suppose that $(\metaX\eand\metaY)\eif\metaZ $ is neither a tautology nor a contradiction. What can you say about whether $\metaX, \metaY \therefore\metaZ $ is valid?
-\item[] \myanswer{Since the sentence $(\metaX\eand\metaY)\eif\metaZ $ is not a tautology, there is some line on which it is false. Since it is a conditional, on that line, \metaX and \metaY are true and \metaZ  is false. So the argument is invalid.}
-\item Suppose that $\metaX$, $\metaY$ and $\metaZ $  are jointly unsatisfiable. What can you say about $(\metaX\eand\metaY\eand\metaZ )$?
-\item[] \myanswer{Since the sentences are jointly unsatisfiable, there is no valuation on which they are all true. So their conjunction is false on every valuation. It is a contradiction}
-\item Suppose that \metaX is a contradiction. What can you say about whether $\metaX, \metaY \entails \metaZ $?
-\item[] \myanswer{Since \metaX is false on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \metaZ  is false. So the entailment holds.}
-\item Suppose that \metaZ  is a tautology. What can you say about whether $\metaX, \metaY\entails \metaZ $?
-\item[] \myanswer{Since \metaZ  is true on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \metaZ  is false. So the entailment holds.}
-\item Suppose that \metaX and \metaY are logically equivalent. What can you say about $(\metaX\eor\metaY)$?
-\item[] \myanswer{Not much. Since $\metaX$ and $\metaY$ are true on exactly the same lines of the truth table, their disjunction is true on exactly the same lines. So, their disjunction is logically equivalent to them.}
-\item Suppose that \metaX and \metaY are \emph{not} logically equivalent. What can you say about $(\metaX\eor\metaY)$?
-\item[] \myanswer{\metaX and \metaY have different truth values on at least one line of a complete truth table, and $(\metaX\eor\metaY)$ will be true on that line. On other lines, it might be true or false. So $(\metaX\eor\metaY)$ is either a tautology or it is contingent; it is \emph{not} a contradiction.}
+\item Suppose $\metaX$ is true and $\metaY$ is true\\Is $\metaX\eor\metaY$ true.\myanswer{\\true}
+\item Suppose $\metaX$ is false \\Is $\metaX\eor\metaY$ true?\myanswer{\\false. If $\metaY$ is also false, then $\metaX\eor\metaY$ is false. }
+\item Suppose $\metaX$ is false \\Is $\metaX\eif\metaY$ true. \myanswer{\\true}
+%\item Suppose $\entails \metaX$.\\ What can you say about $\metaX$?\myanswer{\\There are no valuations where the premises (in this case nothing) are true and the conclusion, \metaX, is false. So there are no valuations where the conclusion is false. I.e.~$\metaX$ is true on all valuations. It is a tautology.}
+%\item Suppose that \metaX and \metaY are logically equivalent.\\ What can you say about $\metaX\eiff\metaY$?
+%\myanswer{\item[] \metaX and \metaY have the same truth value on every line of a complete truth table, so $\metaX\eiff\metaY$ is true on every line. It is a tautology.}
+%\item Suppose $\metaX\entails\metaY$. \\Is $\metaX\therefore\metaY$ valid?\myanswer{\\Yes}
+\item Suppose that $\metaX$, $\metaY$ and $\metaZ$  are jointly inconsistent. \\What can you say about $\metaX\eand\metaY\eand\metaY$?
+\myanswer{\item[] Since the sentences are jointly inconsistent, there is no valuation on which they are all true. So their conjunction is false on every valuation. It is a contradiction}
+\item Suppose $\metaX$ is a tautology and  $\metaX\therefore\metaY$ is a valid argument. \\What can you say about $\metaY$?
+\item Suppose that $(\metaX\eand\metaY)\eif\metaZ$ is not a tautology.\\ What can you say about whether $\metaX, \metaY \therefore\metaZ$ is valid?
+\myanswer{\item[] Since the sentence $(\metaX\eand\metaY)\eif\metaZ$ is not a tautology, there is some line on which it is false. Since it is a conditional, on that line, \metaX and \metaY are true and \metaZ is false. So the argument is invalid.}
+\item Suppose that \metaX is a contradiction.\\ What can you say about whether $\metaX, \metaY \entails \metaZ$?
+\myanswer{\item[] Since \metaX is false on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \metaZ is false. So the entailment holds.}
+%%\item Suppose that \metaZ is a tautology.\\ What can you say about whether $\metaX, \metaY\entails \metaZ$?
+%%\myanswer{\item[] Since \metaZ is true on every line of a complete truth table, there is no line on which \metaX and \metaY are true and \metaZ is false. So the entailment holds.}
+\item Suppose that \metaX and \metaY are logically equivalent.\\ What can you say about $(\metaX\eor\metaY)$?
+\myanswer{\item[] Not much. Since $\metaX$ and $\metaY$ are true on exactly the same lines of the truth table, their disjunction is true on exactly the same lines. So, their disjunction is logically equivalent to them.}
+\item Suppose that \metaX and \metaY are \emph{not} logically equivalent.\\ What can you say about $\metaX\eor\metaY$?
+\myanswer{\item[] \metaX and \metaY have different truth values on at least one line of a complete truth table, and $(\metaX\eor\metaY)$ will be true on that line. On other lines, it might be true or false. So $\metaX\eor\metaY$ is either a tautology or it is contingent; it is \emph{not} a contradiction.}
 \end{earg}
 
 \problempart
