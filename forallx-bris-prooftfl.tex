@@ -691,6 +691,18 @@ Note that we have made `$P$' available, by treating it as an additional assumpti
 	\have{pr}{P \eif R}\ci{p-r}
 \end{pf}
 
+The subproof also doesn't need to start immediately. For example:
+\begin{pf}
+	\hypo{pqo}{(P \eif Q)\eand O}
+	\hypo{qr}{Q\eif R}
+	\have{pq}{P\eif Q}\andE{pqo}
+	\open
+		\hypo{p}{P}
+		\have{q}{Q}\ce{pq,p}
+		\have{r}{R}\ce{qr,q}
+	\close
+	\have{pr}{P \eif R}\ci{p-r}
+\end{pf}
 %\section{Reiteration}\label{s:Reiteration}
 %When using subproofs, as we did for Conditional Introduction, we introduce one more rule which will be useful.  
 %
@@ -917,7 +929,7 @@ For example:
 			\hypo{nd}{\enot D}
 			\have{ndr}{\ered}\ri{d, nd}
 		\close
-		\have{con}{D}\ni{nd-ndr}
+		\have{con}{D}\pbc{nd-ndr}
 	\end{pf}
 
 There is no explicit rule for Negation Elimination. Though both Proof by Contradiction and Contradiction Introduction involve eliminating negations. 
@@ -1156,6 +1168,15 @@ So, for example if we gave
 		\close
 \end{pf}
 this does not count as a proof corresponding to the argument $A\,\therefore\,B$. 
+But \begin{pf}
+	\hypo{1}{A}
+	\open
+		\hypo{b}{B}
+		\have{b2}{B}\Reiteration{b}
+		\close
+		\have{bb}{B\eif B}\ifI{b-b2}
+\end{pf}
+counts as a proof corresponding to $A\therefore B\eif B$ as the subproof has been closed on line 4. 
 
 So we have now said when we have a proof in our natural deduction system that corresponds to a particular argument. If we can find a proof then we know that the argument is valid.
 \begin{highlighted}
