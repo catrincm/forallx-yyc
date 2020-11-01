@@ -1308,65 +1308,87 @@ This inference pattern is called \emph{modus tollens}. The corresponding rule is
 As usual, the premises may occur in either order.
 %, but we always cite the conditional first. 
 
-%\section{Other derivable rules?}
-\section{Other derivable rules}
-%\nonexaminable
-There are many other derivable rules we could add to our system. 
-%I'll leave a few more here, but won't discuss them in much detail, and they won't be required for the exam. 
+%%\section{Other derivable rules?}
+%\section{Other derivable rules}
+%%\nonexaminable
+%There are many other derivable rules we could add to our system. 
+%%I'll leave a few more here, but won't discuss them in much detail, and they won't be required for the exam. 
 
-\subsection{Double-negation elimination}
-Another useful rule is \emph{double-negation elimination}. This rule does exactly what it says on the tin:
-\factoidbox{\begin{pf}
-		\have[m]{dna}{\enot \enot \metaX}
-		\have[ ]{a}{\metaX}\dne{dna}
-	\end{pf}}
-%We actually gave the argument for this in \S\ref{s:Reiteration}
-%The justification for this is that, in natural language, double-negations tend to cancel out. 
-The justification for this is the same as the justification for LEM (\S\ref{sec:LEM}).
-Any sentence is either true or false, there is no other possibility beyond these two options.  So for any sentence $A$, exactly one of $A$ or $\enot A$ must be true.
-So if $\enot A$ isn't true (which is what $\enot \enot A$ says) then $A$ must be true.  We can present this argument more formally as follows:
-
+\section{Double-negation}
+A sentence $\enot\enot \metaX$ is always logically equivalent to $\metaX$. 
+We can add rules to our system that encode this idea: allowing us to immediately eliminate or introduce double negations:
+\begin{highlighted}
 \begin{pf}
-\hypo{nna}{\enot\enot A}
-\have{lem}{A\eor\enot A}\LEM
-\open
-	\hypo{a}{A}
-	\have{a2}{A}\by{R}{a}
-\close
-\have{atoa}{A \eif A}{\ci{a-a2}}
-\open
-	\hypo{na}{\enot A}
-	\have{bot}{\ered}\redI{na,nna}
-	\have{a3}{A}\redE{bot}
-\close
-\have{natoa}{\enot A \eif A}{\ci{na-a3}}
-%\have{a4}{A}\orE{lem,a-a2, na-a3}
-\have{a4}{A}\orE{lem,atoa,natoa}
+	\have[m]{dna}{\enot \enot \metaX}
+	\have[ ]{a}{\metaX}\dne{dna}
 \end{pf}
+\end{highlighted}
+\begin{highlighted}
+\begin{pf}
+	\have[m]{a}{ \metaX}
+	\have[ ]{dna}{\enot \enot \metaX}\by{DNI}{a}
+\end{pf}
+\end{highlighted}
+%
+%Another useful rule is \emph{double-negation elimination}. This rule does exactly what it says on the tin:
+%\factoidbox{\begin{pf}
+%		\have[m]{dna}{\enot \enot \metaX}
+%		\have[ ]{a}{\metaX}\dne{dna}
+%	\end{pf}}
+%
+
+%%The justification for this is that, in natural language, double-negations tend to cancel out. 
+%The justification for this is the same as the justification for LEM (\S\ref{sec:LEM}).
+%Any sentence is either true or false, there is no other possibility beyond these two options.  
+%So for any sentence $A$, exactly one of $A$ or $\enot A$ must be true.
+%So if $\enot A$ isn't true (which is what $\enot \enot A$ says) then $A$ must be true.  We can present this argument more formally as follows:
+%
+%\begin{pf}
+%\hypo{nna}{\enot\enot A}
+%\have{lem}{A\eor\enot A}\LEM
+%\open
+%	\hypo{a}{A}
+%	\have{a2}{A}\by{R}{a}
+%\close
+%\have{atoa}{A \eif A}{\ci{a-a2}}
+%\open
+%	\hypo{na}{\enot A}
+%	\have{bot}{\ered}\redI{na,nna}
+%	\have{a3}{A}\redE{bot}
+%\close
+%\have{natoa}{\enot A \eif A}{\ci{na-a3}}
+%%\have{a4}{A}\orE{lem,a-a2, na-a3}
+%\have{a4}{A}\orE{lem,atoa,natoa}
+%\end{pf}
 
 That said, you should be aware that 
 in ordinary language we can sometimes speak in a way that is similar to, but not quite, a double negation.
 %context and emphasis can prevent them from doing so. 
 Consider: `Jane is not \emph{un}happy'. Arguably, one cannot infer `Jane is happy'.
-Perhaps the speaker is using this unusual indirect phrasing to draw attention to the possible difference between `happy' and `not unhappy'.
+Perhaps the speaker is using this unusual indirect phrasing to draw attention to the possible difference between `unhappy' and `not unhappy'.
 %, since the first sentence should be understood as meaning the same as  `Jane is not \emph{un}happy'. 
 %This is compatible with 
 Perhaps what they mean to suggest is that
-`Jane is in a state of profound indifference'. As usual, moving to TFL forces us to sacrifice certain nuances of English expressions.
+`Jane is in a state of profound indifference'. 
+Here, then, `Jane is unhappy' should not be thought of as equivalent to `It is not the case that Jane is happy', and it should not be symbolised as $\enot H$ but should rather be a separate atomic sentence. So `Jane is not unhappy' is not then seen as a double negation. 
+%
+%Since in logic we are always allowed to draw this inference, we would then have to be careful about our symbolisations. Should `Jane is unhappy' really be symbolised as $\enot A$ when $A$ symbolises `Jane is happy'? Not really. It's possible that Jane is neither happy nor unhappy. But its symbolisation as $\enot A$ would 
 
-%\subsection{Proof by contradiction}
-%A further rule is very closely related to $\enot$I. This is \emph{proof by contradiction}, also sometimes called \emph{indirect proof}. It allows us to prove something by assuming its negation and showing that it leads to contradiction. This technique is incredibly common in mathematics, for example it is used to show that $\sqrt{2}$ is irrational. 
+
 %
-%\factoidbox{\begin{pf}
-%\open
-%\hypo[m]{na}{\enot \metaX}
-%\have[n]{red}{\ered}
-%\close
-%\have[ ]{a}{\metaX}\ProofbyContradiction{na-red}
-%\end{pf}
-%}
-%
-\subsection{De Morgan Rules}
+%%\subsection{Proof by contradiction}
+%%A further rule is very closely related to $\enot$I. This is \emph{proof by contradiction}, also sometimes called \emph{indirect proof}. It allows us to prove something by assuming its negation and showing that it leads to contradiction. This technique is incredibly common in mathematics, for example it is used to show that $\sqrt{2}$ is irrational. 
+%%
+%%\factoidbox{\begin{pf}
+%%\open
+%%\hypo[m]{na}{\enot \metaX}
+%%\have[n]{red}{\ered}
+%%\close
+%%\have[ ]{a}{\metaX}\ProofbyContradiction{na-red}
+%%\end{pf}
+%%}
+%%
+\section{De Morgan Rules}
 Our final additional rules are called De Morgan's Laws. (These are named after Augustus De Morgan.) The shape of the rules should be familiar from truth tables.
 
 The first De Morgan rule is:
@@ -1389,7 +1411,8 @@ And the fourth is the reverse of the third:
 	\have[m]{ab}{\enot \metaX \eand \enot \metaY}
 	\have[\ ]{dm}{\enot (\metaX \eor \metaY)}\dem{ab}
 \end{pf}}
-\emph{These are all of the additional rules of our proof system for TFL.}
+\bigskip 
+\emph{There are many more rules one could add to the system as derived rules. But these are all the ones we'll introduce.}
 
 \practiceproblems
 \solutions
@@ -1520,14 +1543,14 @@ You now want, on line $k$, to prove $\metaY$. You can do this with the rule of D
 			\have{red}{\ered}\ri{a, na}
 			\have{b1}{\metaY}\re{red}
 		\close
-	\have{xtoy}{\metaX\eif\metaY}{\ci{(a)-(b1)}}
+%	\have{xtoy}{\metaX\eif\metaY}{\ci{(a)-(b1)}}
 		\open
 			\hypo{b}{\metaY}
 			\have{b2}{\metaY}\by{R}{b}
 		\close
-	\have{ytoy}{\metaY\eif\metaY}{\ci{(b)-(b2)}}
-%	\have{con}{\metaY}\oe{ab, a-b1, b-b2}
-	\have{con}{\metaY}\oe{ab, xtoy, ytoy}
+%	\have{ytoy}{\metaY\eif\metaY}{\ci{(b)-(b2)}}
+	\have{con}{\metaY}\oe{ab, a-b1, b-b2}
+%	\have{con}{\metaY}\oe{ab, xtoy, ytoy}
 \end{pf}
 
 To be clear: this is not a proof. Rather, it is a proof \emph{scheme}. 
@@ -1558,50 +1581,74 @@ to prove $\enot \metaX$. You can do this with the rule of MT, introduced in \S\r
 		\have{b}{\metaY}\ce{ab, a}
 		\have{nb1}{\ered}\ri{b, nb}
 		\close
-\have{xtoxx}{X \eif \ered}{\ci{(a)-(nb1)}}
-%	\have{no}{\enot\metaX}\ni{a-nb1}
-\have{no}{\enot\metaX}{\ni{xtoxx}}
+%\have{xtoxx}{X \eif \ered}{\ci{(a)-(nb1)}}
+	\have{no}{\enot\metaX}\ni{a-nb1}
+%\have{no}{\enot\metaX}{\ni{xtoxx}}
 \end{pf}
 Again, the rule of MT can be derived from the \emph{basic} rules of \S\ref{s:BasicTFL}.
 
 
 
-\section{Derivation of Double-negation elimination}
-Consider the following deduction scheme:
-	\begin{pf}
-	\have[m]{m}{\enot \enot \metaX}
-	\have[j]{lem}{\metaX\eor\enot\metaX}\LEM
+\section{Derivation of Double-negation rules}
+Consider the following deduction schema:
+\begin{pf}
+\have[m]{m}{\metaX}
 	\open
-		\hypo[k]{a}{\metaX}
-		\have{a1}{\metaX}\by{R}{a}
+	\hypo[j]{j}{\enot \metaX}
+	\have{bot}{\ered}\redI{j,m}
 	\close
-\have{xtox}{\metaX\eif\metaX}{\ci{(a)-(a1)}}
-	\open
-		\hypo{na}{\enot \metaX}
-		\have{red}{\ered}\ri{na, m}
-		\have{a2}{\metaX}\re{red}
-	\close
-\have{nxtox}{\enot\metaX\eif\metaX}{\ci{(na)-(a2)}}	
-%\have{con}{\metaX}\orE{lem,a-a1, na-a2}
-\have{con}{\metaX}\orE{lem,xtox,nxtox}
+\have{con}{\enot\enot\metaX}\notI{j - (bot)}
 \end{pf}
-Again,  we can derive the DNE rule from the \emph{basic} rules of \S\ref{s:BasicTFL}.
+and
+\begin{pf}
+\have[m]{m}{\enot \enot \metaX}
+	\open
+	\hypo[j]{j}{\enot \metaX}
+	\have{bot}{\ered}\redI{j,m}
+	\close
+\have{con}{\metaX}\pbc{j - (bot)}
+\end{pf}
+So again,  we can derive the double negations rules from the \emph{basic} rules of \S\ref{s:BasicTFL}.
 
 
 
 
-%\section{Derivation of Proof by Contradiction}
-%Once we have DNE, proof by contradiction is a very quick consequence of $\enot$I:
-%\begin{pf}
-%\open
-%\hypo[m]{na}{\enot \metaX}
-%\have[n]{red}{\ered}
-%\close
-%\have[k]{nna}{\enot\enot \metaX}\notI{na-red}
-%\have[ ]{a}{\metaX}\dne{nna}
+%\section{Derivation of Double-negation elimination}
+%Consider the following deduction scheme:
+%	\begin{pf}
+%	\have[m]{m}{\enot \enot \metaX}
+%	\have[j]{lem}{\metaX\eor\enot\metaX}\LEM
+%	\open
+%		\hypo[k]{a}{\metaX}
+%		\have{a1}{\metaX}\by{R}{a}
+%	\close
+%\have{xtox}{\metaX\eif\metaX}{\ci{(a)-(a1)}}
+%	\open
+%		\hypo{na}{\enot \metaX}
+%		\have{red}{\ered}\ri{na, m}
+%		\have{a2}{\metaX}\re{red}
+%	\close
+%\have{nxtox}{\enot\metaX\eif\metaX}{\ci{(na)-(a2)}}	
+%%\have{con}{\metaX}\orE{lem,a-a1, na-a2}
+%\have{con}{\metaX}\orE{lem,xtox,nxtox}
 %\end{pf}
+%Again,  we can derive the DNE rule from the \emph{basic} rules of \S\ref{s:BasicTFL}.
 %
-\newpage
+%
+%
+%
+%%\section{Derivation of Proof by Contradiction}
+%%Once we have DNE, proof by contradiction is a very quick consequence of $\enot$I:
+%%\begin{pf}
+%%\open
+%%\hypo[m]{na}{\enot \metaX}
+%%\have[n]{red}{\ered}
+%%\close
+%%\have[k]{nna}{\enot\enot \metaX}\notI{na-red}
+%%\have[ ]{a}{\metaX}\dne{nna}
+%%\end{pf}
+%%
+%\newpage
 \section{Derivation of De Morgan rules}
 Here is a demonstration of how we could derive the first De Morgan rule:
  	\begin{pf}
@@ -1614,18 +1661,18 @@ Here is a demonstration of how we could derive the first De Morgan rule:
 				\have{ab}{\metaX \eand \metaY}\ai{a,b}
 				\have{nab1}{\ered}\ri{ab, nab}
 			\close
-		\have{ytoxx}{\metaY \eif \ered}{\ci{(b)-(nab1)}}
-			\have{nb}{\enot \metaY}\ni{ytoxx}%\ni{b-nab1}
+%		\have{ytoxx}{\metaY \eif \ered}{\ci{(b)-(nab1)}}
+			\have{nb}{\enot \metaY}\ni{b-nab1}%\ni{ytoxx}
 			\have{dis}{\enot\metaX \eor \enot \metaY}\oi{nb}
 		\close
-\have{xtocon}{\metaX \eif (\enot \metaX \eor \enot \metaY)}{\ci{(a)-(dis)}}
+%\have{xtocon}{\metaX \eif (\enot \metaX \eor \enot \metaY)}{\ci{(a)-(dis)}}
 			\open
 			\hypo{na1}{\enot \metaX}
 			\have{dis1}{\enot\metaX \eor \enot \metaY}\oi{na1}
 		\close
-\have{nxtocon}{\enot\metaX \eif (\enot \metaX \eor \enot \metaY)}{\ci{(na1)-(dis1)}}
-%		\have{con}{\enot \metaX \eor \enot \metaY}\orE{lem,a-dis, na1-dis1}
-\have{con}{\enot \metaX \eor \enot \metaY}\orE{lem,xtocon,nxtocon}
+%\have{nxtocon}{\enot\metaX \eif (\enot \metaX \eor \enot \metaY)}{\ci{(na1)-(dis1)}}
+		\have{con}{\enot \metaX \eor \enot \metaY}\orE{lem,a-dis, na1-dis1}
+%\have{con}{\enot \metaX \eor \enot \metaY}\orE{lem,xtocon,nxtocon}
 	\end{pf}
 Here is a demonstration of how we could derive the second De Morgan rule:
  	\begin{pf}
@@ -1638,18 +1685,18 @@ Here is a demonstration of how we could derive the second De Morgan rule:
 				\hypo{na}{\enot \metaX}
 				\have{c1}{\ered}\ri{a, na}
 			\close
-\have{nxtoxx}{\enot \metaX \eif \ered}{\ci{(na)-(c1)}}
+%\have{nxtoxx}{\enot \metaX \eif \ered}{\ci{(na)-(c1)}}
 			\open
 				\hypo{nb}{\enot \metaY}
 				\have{c2}{\ered}\ri{b, nb}
 			\close
-\have{nytoxx}{\enot \metaY \eif \ered}{\ci{(nb)-(c2)}}
-%			\have{con2}{\ered}\oe{nab, na-c1, nb-c2}
-			\have{con2}{\ered}\oe{nab,nxtoxx,nytoxx}
+%\have{nytoxx}{\enot \metaY \eif \ered}{\ci{(nb)-(c2)}}
+			\have{con2}{\ered}\oe{nab, na-c1, nb-c2}
+%			\have{con2}{\ered}\oe{nab,nxtoxx,nytoxx}
 		\close
-		\have{abtoxx}{(\metaX \eand \metaY)\eif \ered}\ci{(ab)-(con2)}
-%		\have{nab}{\enot (\metaX \eand \metaY)}\ni{ab-con2}
-		\have{nab}{\enot (\metaX \eand \metaY)}\ni{abtoxx}
+%		\have{abtoxx}{(\metaX \eand \metaY)\eif \ered}\ci{(ab)-(con2)}
+		\have{nab}{\enot (\metaX \eand \metaY)}\ni{ab-con2}
+%		\have{nab}{\enot (\metaX \eand \metaY)}\ni{abtoxx}
 	\end{pf}
 Similar demonstrations can be offered explaining how we could derive the third and fourth De Morgan rules. These are left as exercises.
 
