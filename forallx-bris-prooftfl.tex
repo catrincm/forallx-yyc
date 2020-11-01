@@ -1510,23 +1510,23 @@ Give a proof for each of these arguments:
 
 In this section, we will see why we introduced the rules of our proof system in two separate batches. In particular, we want to show that the additional rules of \S\ref{s:Further} are not strictly speaking necessary, but can be derived from the basic rules of \S\ref{s:BasicTFL}.
  
-\section{Derivation of Reiteration}
-We actually start by talking about the derivation of the rule of reiteration. We actually took this as a basic rule of the system. But we didn't need to. We could have instead had it as a derived rule. 
-
-Suppose you have some sentence on some line of your deduction:
-\begin{pf}
-	\have[m]{a}{\metaX}
-\end{pf}
-You now want to repeat yourself, on some line $k$. You could just invoke the rule R, introduced in \S\ref{s:Further}. But equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
-\begin{pf}
-	\have[m]{a}{\metaX}
-	\have[k]{aa}{\metaX \eand \metaX}\ai{a, a}
-	\have{a2}{\metaX}\ae{aa}
-\end{pf}
-To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, `$\metaX$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\metaX$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
-
-Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the other rules of \S\ref{s:BasicTFL}. So we did not actually need to introduce it as a \emph{basic} rule in our system; we could have introduced it as a \emph{derived} rule. However, for ease, we have allowed it in as a basic rule. 
-
+%\section{Derivation of Reiteration}
+%We actually start by talking about the derivation of the rule of reiteration. We actually took this as a basic rule of the system. But we didn't need to. We could have instead had it as a derived rule. 
+%
+%Suppose you have some sentence on some line of your deduction:
+%\begin{pf}
+%	\have[m]{a}{\metaX}
+%\end{pf}
+%You now want to repeat yourself, on some line $k$. You could just invoke the rule R, introduced in \S\ref{s:Further}. But equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
+%\begin{pf}
+%	\have[m]{a}{\metaX}
+%	\have[k]{aa}{\metaX \eand \metaX}\ai{a, a}
+%	\have{a2}{\metaX}\ae{aa}
+%\end{pf}
+%To be clear: this is not a proof. Rather, it is a proof  \emph{scheme}. After all, it uses a variable, `$\metaX$', rather than a sentence of TFL, but the point is simple: Whatever sentences of TFL we plugged in for `$\metaX$', and whatever lines we were working on, we could produce a bona fide proof. So you can think of this as a recipe for producing proofs. 
+%
+%Indeed, it is a recipe which shows us that, anything we can prove using the rule R, we can prove (with one more line) using just the other rules of \S\ref{s:BasicTFL}. So we did not actually need to introduce it as a \emph{basic} rule in our system; we could have introduced it as a \emph{derived} rule. However, for ease, we have allowed it in as a basic rule. 
+%
 
 \section{Derivation of Disjunctive syllogism}
 Suppose that you are in a proof, and you have something of this form:
@@ -1564,15 +1564,16 @@ Indeed, it is a recipe which shows us that, anything we can prove using the rule
 %So the DS rule, again, can be derived from our more basic rules.
 % Adding it to our system does not make any new proofs possible. Any time you use the DS rule, you could always take a few extra lines and prove the same thing using only our basic rules. It is a \emph{derived} rule.
 
-\section{Derivation of Modus tollens}
-Suppose you have the following in your proof:
-\begin{pf}
-	\have[m]{ab}{\metaX\eif\metaY}
-	\have[n]{a}{\enot\metaY}
-\end{pf}
-You now want
-%, on line $k$, 
-to prove $\enot \metaX$. You can do this with the rule of MT, introduced in \S\ref{s:Further}. Equally well, you can do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
+\section{Derivation of Modus Tollens}
+Suppose in the course of you proof you already have $\metaX\eif\metaY$, say on line $m$, and $\enot\metaY$ on line $n$. At some later line, $k$, you want to get $\enot\metaX$. 
+%\begin{pf}
+%	\have[m]{ab}{\metaX\eif\metaY}
+%	\have[n]{a}{\enot\metaY}
+%\end{pf}
+%You now want
+%%, on line $k$, 
+%to prove $\enot \metaX$.
+ You can do this with the rule of Modus Tollens (MT), introduced in \S\ref{s:Further}. But you could also do this with the \emph{basic} rules of \S\ref{s:BasicTFL}:
 \begin{pf}
 	\have[m]{ab}{\metaX\eif\metaY}
 	\have[n]{nb}{\enot\metaY}
