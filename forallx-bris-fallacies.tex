@@ -112,6 +112,24 @@ But of course the sceptic won't accept the first or second premise here. Moore h
 %This is an argument of the form A ∴ B. The premise and conclusion are unconnected and the premise provides no support for
 %the conclusion.
 
+\practiceproblems
+
+\problempart Give your own example of each of the following fallacies:
+\begin{enumerate}
+\item Affirming the consequent
+\item Quantifier shift fallacy
+\item Ad hominem fallacy
+\item Begging the question
+\end{enumerate}
+
+\problempart Identify which fallacy the following arguments commit:
+\begin{enumerate}
+\item John Locke thought that the criterion for personal identity is psychological continuity. But he wrote in support of slavery in \emph{The Fundamental Constitutions of Carolina}. Therefore, personal identity cannot consist in psychological continuity.
+\item Cigarettes are deadly, since cigarettes will kill you. 
+\item When it's about to rain, cows go under nearby trees. And indeed they are going under the trees. So it must be about to rain.
+\item Everything that happens must have a cause, and so there must be some first thing that causes everything else.\footnote{This is sometimes (mis)attributed to the early modern British empiricist philosopher, John Locke.}
+\end{enumerate}
+
 
 \chapter{Probabilistic fallacies}
 \label{s:ProbFallacies}
@@ -138,7 +156,7 @@ It is called the base rate fallacy because people who commit it ignore how uncom
 
 This fallacy arises when people see a trend in two separate samples and infer that the same trend will occur when the samples are merged. Let's see what this means in a particular example. Suppose I have kidney stones. I go to my doctor and I ask what sort of treatment she'd recommend. She tells me that there are two available: Treatment 1 and Treatment 2. She also tells me that doctors divide kidney stones into two types: small ones and large ones. She tells me that, when treating small kidney stones, Treatment 1 has been successful a greater proportion of the time it's been used than Treatment 2. And she also tells me that, when treating large kidney stones, Treatment 1 has been successful a greater proportion of the time it's been used than Treatment 2. `OK,' I say, `sounds like a no-brainer---I should go for Treatment 1, because it has been more successful a greater proportion of the time it's been used than Treatment 2.' Unfortunately, though, this reasoning is bad.
 
-It's easy to see why it's tempting, but it's nonetheless bad probabilistic reasoning. It's tempting because it looks a lot like a valid form of reasoning in truth-functional logic, namely, \emph{disjunctive syllogism}. A disjunctive syllogism is an argument that run as follows:
+It's easy to see why it's tempting, but it's nonetheless bad probabilistic reasoning. It's tempting because it looks a lot like a valid form of reasoning in truth-functional logic: 
 \begin{earg}
 \prem \metaX or \metaY.
 \prem If \metaX, then \metaZ.
@@ -185,7 +203,7 @@ F & T \\
 F & F
 \end{tabular}
 \end{center}
-Each valuation represents a way the world could be. The first row represents the worlds where $A$ and $B$ are both true, for instance. When we assign probabilities, we assign numbers to each valuation, or way the world might be. And we make sure of two things:
+Each valuation represents a possible ``case''. The first row represents the worlds where $A$ and $B$ are both true, for instance. When we assign probabilities, we assign numbers to each valuation. And we make sure of two things:
 \begin{itemize}
 \item first, each number is either 0 or 1 or something in between them---e.g. 0.1, or 0.7, or 0.1987362;
 \item second, when we add up the numbers we assign to all the valuations, they add up to 1.
@@ -203,7 +221,7 @@ F & F & 0.4 & 0.2 & 0.25 & 0.1
 \end{center}
 OK, so that gives our assignments of probabilities to the valuations. But now we want to know the probabilities of the atomic sentences, and indeed the probability of any sentence built up from $A$ and $B$ using truth-functional connectives. How do we get that?
 
-To get the probability of a formula $X$, we look at the probabilities assigned to each of the valuations that make it true, and we add them up. So, for instance, the probability of $A$ according to probability assignment $p_1$ is $p_1(A) = 0.1 + 0.3 = 0.4$, since $A$ is true at the first two valuations, and $p_1$ gives them probability 0.1 and 0.3 respectively. Similarly, the probability of $B$ on $p_1$ above is $p_1(B) = 0.1 + 0.2 = 0.3$.
+To get the probability of a sentence $X$, we look at the probabilities assigned to each of the valuations that make it true, and we add them up. So, for instance, the probability of $A$ according to probability assignment $p_1$ is $p_1(A) = 0.1 + 0.3 = 0.4$, since $A$ is true at the first two valuations, and $p_1$ gives them probability 0.1 and 0.3 respectively. Similarly, the probability of $B$ on $p_1$ above is $p_1(B) = 0.1 + 0.2 = 0.3$.
 
 What about the probability of $A \eor B$ and the probability of $A\eand B$? Well, let's look at the truth tables:
 \begin{center}
@@ -218,7 +236,8 @@ F & F  & 0.4 & 0.3 & 0.25 & 0.1 & F & F
 \end{center}
 So, for $p_1$, the probability of $A\eand B$ is $p_1(A\eand B) = 0.1$, since $A\eand B$ is true only on the first valuation, and the probability that $p_1$ assigns to that is $0.1$. And, for $p_1$, the probability of $A \eor B$ is $p_1(A \eor B) = 0.6$, since $A \eor B$ is true on the first three valuations, and $p_1$ assigns probabilities $0.1$, $0.3$, and $0.2$ to them, and $0.1 + 0.3 + 0.2 = 0.6$.
 
-This allows us to state a few relationships between the probability of sentences that are logically related:
+\subsection{General properties}
+We can also see some general things about probabilities of sentences which are logically related:
 \begin{itemize}
 \item For any sentence $X$, $p(\enot X) = 1 - p(X)$.
 
@@ -228,7 +247,9 @@ That is, you get the probability of the negation of a sentence by subtracting th
 It's worth thinking this through. The probability of $X \eor Y$ is the sum of the probabilities of the valuations at which $X \eor Y$ is true; that is, the valuations at which $X$ or $Y$ or both are true. Now, first, add up the probabilities of the valuations at which $X$ is true. That gives $p(X)$. Second, add up the probabilities of the valuations at which $Y$ is true. That gives $p(Y)$. But at this point we've double counted those valuations at which $X$ and $Y$ are both true. We counted them once when we calculated $p(X)$ and we counted them again when we calculated $p(Y)$. So we need to subtract one lot of them. But of course the valuations at which $X$ and $Y$ are both true are exactly the valuations at which $X\eand Y$ is true. So we subtract $p(X\eand Y)$ from $p(X) + p(Y)$. So $p(X \eor Y) = p(X) + p(Y) - p(X\eand Y)$.
 \end{itemize}
 
-So that gives us the probabilities of different sentences. But there is one further probabilistic notion that is very important. It's the notion of a conditional probability. Because often we don't just ask how likely $X$ is; we ask how likely $X$ is \emph{given that $Y$ is true}. For instance, I ask how likely I am to have the disease \emph{given I tested positive}. Or I ask how likely it is that we'll play rounders on the Downs \emph{given that it is raining}. So, if we have two sentences, $X$ and $Y$, and a probability assignment $p$, we write $p(X | Y)$ for the probability of $X$ given $Y$. Now, how do we calculate $p(X |Y)$? Well, here's the definition:
+
+\subsection{Conditional Probabilities}
+So that gives us the probabilities of different sentences. There is one further probabilistic notion that is very important. It's the notion of a conditional probability. Because often we don't just ask how likely $X$ is; we ask how likely $X$ is \emph{given that $Y$ is true}. For instance, I ask how likely I am to have the disease \emph{given I tested positive}. Or I ask how likely it is that we'll play rounders on the Downs \emph{given that it is raining}. So, if we have two sentences, $X$ and $Y$, and a probability assignment $p$, we write $p(X | Y)$ for the probability of $X$ given $Y$. Now, how do we calculate $p(X |Y)$? Well, here's the definition:
 \[
 p(X | Y) = \frac{p(X\eand Y)}{p(Y)}
 \]
@@ -275,38 +296,27 @@ And this is what we calculated above as well.
 
 \practiceproblems
 
-\problempart Give your own example of each of the following fallacies:
-\begin{enumerate}
-\item Affirming the consequent
-\item Quantifier shift fallacy
-\item Ad hominem fallacy
-\item Begging the question
-\end{enumerate}
-
-\problempart Identify which fallacy the following arguments commit:
-\begin{enumerate}
-\item John Locke thought that the criterion for personal identity is psychological continuity. But he wrote in support of slavery in \emph{The Fundamental Constitutions of Carolina}. Therefore, personal identity cannot consist in psychological continuity.
-\item Cigarettes are deadly, since cigarettes will kill you. 
-\item When it's about to rain, cows go under nearby trees. And indeed they are going under the trees. So it must be about to rain.
-\item Everything that happens must have a cause, and so there must be some first thing that causes everything else.\footnote{This is sometimes (mis)attributed to the early modern British empiricist philosopher, John Locke.}
-\end{enumerate}
-
 \problempart Look at probability assignment $p_2$ above. Calculate the following probabilites.
 \begin{enumerate}
 \item $p_2(A)$
 \item $p_2(B)$
 \item $p_2(A\eand  B)$
 \item $p_2(A \eor B)$
+\item $p_2(B\eif A)$
 \item $p_2(A | B)$
 \item $p_2(B | A)$
 \end{enumerate}
 If you feel you still need more practice, try doing the same for $p_3$ and $p_4$.
 
+
+
 \problempart Suppose I give you the following probabilities:
 \[
-p(A) = 0.3 \mbox{\ \ \ and\ \ \ } p(B | A) = 0.6 \mbox{\ \ \ and\ \ \ } p(B | \enot A) = 0.4
+p(A) = 0.3 \qquad p(B | A) = 0.6 \qquad p(B | \enot A) = 0.4
 \]
 Use them and Bayes' Theorem to calculate $p(A | B)$.
+
+\problempart Go back to the Base Rate Fallacy and show using Bayes' Theorem that the answer is $1\%$. 
 
 \problempart Explain why the following facts hold for any sentences $X$, $Y$.
 \begin{enumerate}
