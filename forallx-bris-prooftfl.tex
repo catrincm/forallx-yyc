@@ -9,16 +9,84 @@ Way back in \S\ref{s:Valid}, we said that an argument is valid iff it is impossi
 
 In the case of TFL, this led us to develop truth tables. Each line of a complete truth table corresponds to a valuation. So, when faced with a TFL argument, we have a very direct way to assess whether it is possible to make all of the premises true and the conclusion false: just thrash through the truth table.
 
-However, truth tables do not necessarily give us much \emph{insight}. Consider two arguments in TFL:
+However, providing a truth table is not how one will usually work with arguments. When you actually use arguments, for example in philosophical essays, you typically instead will break down an argument into smaller steps. If you are trying to show to your reader that a particular argument is valid, the truth table method says to check all possibilities. We will instead provide an alternative way of showing arguments are valid which matches natural ways of reasoning. 
+
+The idea of natural deduction is how you might go about trying to convince an interlocutor that your argument is valid. You would generally do this by breaking your argument into smaller steps that are obviously valid and piecing these together. 
+
+Suppose you're trying to convince someone that $$A\eif(B\eand C),A\therefore B$$ is valid, and they don't see it. You can help them by breaking it up into two steps: first see that $B\eand C$ follows and then note that $B$ follows from $B\eand C$. 
+
+
+In more detail: 
+Grant me that $A\eif (B\eand C)$ and $A$ are true. Then what else do we know to be true? Here's something: $B\eand C$. Why? Because in general Modus Ponens is an excellent argument pattern: any argument of the form $X,\;X\eif Y\;\therefore\;Y$ is valid: there are no valuations where $X$ and $X\eif Y$ are true but $Y$ is false. So if our premises  $A\eif (B\eand C)$ and $A$ are true, then $B\eand C$ must also be true: that's just Modus Ponens. So now from our supposition of $A\eif(B\eand C)$ and $A$, we now also know $B\eand C$. What else follows from these three statements? Here's something: $B$. Why? Well, $B\eand C$ is true; so certainly $B$ must be true. So we know that from $A\eif(B\eand C)$ and $A$ we can conclude $B$ by walking someone through these two steps. This will be enough to show that $A\eif(B\eand C),\,A\therefore B$ is valid. 
+
+To keep track of what assumptions have been made and steps of the argument we will give precise forms that this argument should be written:
+\begin{pf}
+\hypo{abc}{A\eif (B\eand C)}
+\hypo{a}{A}
+\have{bc}{B\eand C}\by{From}{abc, a}
+\have{b}{B}\by{From}{bc}
+\end{pf}
+Our premises are written above the horizontal line. They have to be granted without justification. Then each new line follows from the previous lines. The vertical line is there to highlight that everything coming below is within the context of the premises that have been assumed; that we are looking for consequences of the premises.
+
+We can also use this presentation to be clear about arguments that we make in English:
+\begin{pf}
+\hypo{abc}{\text{If Alice came to the party, then Beth and Cath came}}
+\hypo{a}{\text{Alice came to the party}}
+\have{bc}{\text{Beth and Cath came to the party}}\by{From}{abc, a}
+\have{b}{\text{Beth came to the party}}\by{From}{bc}
+\end{pf}
+
+You might think of it as a bag you're collecting things to be accepted in. You have to grant the premises, they go in the bag for free, then we give certain rules that allow us to add additional statements which must be true so long as the other things already in the bag are true. 
+
+
+Suppose I provide you with the following argument:
+\begin{pf}
+\hypo{a}{P\eif (\enot Q\eif \enot R)}
+\hypo{c}{P\eif\enot Q}
+\hypo{b}{P\eand S}
+\have{d}{\enot R}\by{From}{a,c,b}
+\end{pf}
+I concluded line 3 as a logical consequence of lines 1, 2 and 3. It does follow, i.e, the argument is valid; but this is not very helpful to someone who doesn't yet see that it's valid.
+
+Instead, we will be describing various rules which we propose that have to be accepted as valid reasoning steps, and all more complicated steps should be broken up into simpler ones. So we should break this argument up into the steps:
+ \begin{pf}
+ \hypo{pqr}{P\eif (\enot Q\eif \enot R)}
+ \hypo{pq}{P\eif\enot Q}
+ \hypo{ps}{P\eand S}
+ \have{p}{P}\by{From}{ps}
+  \have{nqr}{\enot Q\eif R}\by{From}{pqr,p}
+ \have{nq}{\enot Q}\by{From}{pq,p}
+ \have{r}{R}\by{From}{nqr,nq}	
+ \end{pf}
+
+The other thing we should do is to give a name for the steps that we use. Here we've just said `From 1,4', but someone might ask: \emph{how} does it follow from lines 1 and 4. We will give names for the various simple steps of reasoning we use and say: ``well, it follows from lines 1 and 4 by the rule ``\eif E''.''
+ \begin{pf}
+ \hypo{pqr}{P\eif (\enot Q\eif \enot R)}
+ \hypo{pq}{P\eif\enot Q}
+ \hypo{ps}{P\eand S}
+ \have{p}{P}\by{\eand E}{ps}
+  \have{nqr}{\enot Q\eif R}\by{\eif E}{pqr,p}
+ \have{nq}{\enot Q}\by{\eif E}{pq,p}
+ \have{r}{R}\by{\eif E}{nqr,nq}	
+ \end{pf}
+
+We will provide various rules, and describe why they are acceptable. We should then break any other valid arguments should be broken up into these steps of reasoning. 
+
+
+
+\section{More reasons for natural deduction}
+
+
+Using truth tables to show validity does not necessarily give us much \emph{insight}. Consider two arguments in TFL:
 	\begin{align*}
 		P \eor Q, \enot P & \therefore Q\\
 		P \eif Q, P & \therefore Q
 	\end{align*}
 Clearly, these are valid arguments. You can confirm that they are valid by constructing four-line truth tables, but we might say that they make use of different \emph{forms} of reasoning. It might be nice to keep track of these different forms of inference. 
 
-One aim of a \emph{natural deduction system} is to show that particular arguments are valid, in a way that allows us to understand the reasoning that the arguments might involve. We begin with very basic rules of inference. These rules can be combined to offer more complicated arguments. Indeed, with just a small starter pack of rules of inference, we hope to capture all valid arguments. 
+One aim of a \emph{natural deduction system} is to show that particular arguments are valid, in a way that allows us to understand the reasoning that the arguments might involve. 
 
-\emph{This is a very different way of thinking about arguments.} 
+{This is a very different way of thinking about arguments.} 
 
 With truth tables, we directly consider different ways to make sentences true or false. With natural deduction systems, we manipulate sentences in accordance with rules that we have set down as good rules. The latter promises to give us a better insight---or at least, a different insight---into how arguments work.
 
@@ -76,64 +144,57 @@ The modern development of natural deduction dates from simultaneous and unrelate
 Natural deduction selects a few basic rules of inference and natural forms of reasoning and encodes these into a proof system. We will now see natural deduction for TFL. This system will form the basis also for natural deduction for FOL, which will also add rules for the quantifiers. 
 
 \chapter{The First Basic Rules for TFL}\label{s:BasicTFL}
-The idea of natural deduction is how you might go about trying to convince an interlocutor that your argument is valid. You would generally do this by breaking your argument into smaller steps that are obviously valid and piecing these together. 
-
-Suppose you're trying to convince someone that $A\eif(B\eand C),A\therefore B$ is valid, and they don't see it. You can help them by breaking it up into two steps: first use Modus Ponens to get $B\eand C$ and then note that $B$ follows from $B\eand C$. In more detail: 
-
-Grant me that $A\eif (B\eand C)$ and $A$ are true. Then what else do we know to be true? Here's something: $B\eand C$. Why? Because in general Modus Ponens is an excellent argument pattern: any argument of the form $X,\;X\eif Y\;\therefore\;Y$ is valid: there are no valuations where $X$ and $X\eif Y$ are true but $Y$ is false. So if our premises  $A\eif (B\eand C)$ and $A$ are true, then $B\eand C$ must also be true: that's just Modus Ponens. So now from our supposition of $A\eif(B\eand C)$ and $A$, we now also know $B\eand C$. What else follows from these three statements? Here's something: $B$. Why? Well, $B\eand C$ is true; so certainly $B$ must be true. So we know that from $A\eif(B\eand C)$ and $A$ we can conclude $B$ by walking someone through these two steps. This will be enough to show that $A\eif(B\eand C),\,A\therefore B$ is valid. 
-
-To keep track of what assumptions have been made and steps of the argument we will give precise forms that this argument should be written:
-\begin{pf}
-\hypo{abc}{A\eif (B\eand C)}
-\hypo{a}{A}
-\have{bc}{B\eand C}\by{Modus Ponens (which will be called $\eif$E)}{abc, a}
-\have{b}{B}\andE{bc}
-\end{pf}
-
-Each new line follows from the previous lines by an application of one of our simple steps of inference, e.g.~Modus Ponens. We will always justify what allowed us to conclude the next line by adding a citation next to the line, e.g.~``$\eand$E 3''. We are allowed to write $B$ on line 4 because it follows from line 3 by an application of the rule $\eand$E.
-
-You might think of it as a bag you're collecting things to be accepted in. You have to grant the premises, they go in the bag for free, then we give certain rules that allow us to add additional statements which must be true so long as the other things already in the bag are true. 
-
-We will develop this \define{natural deduction} system by specifying some basic rules of the system. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main logical operator, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main logical operator.
 
 
+%
+%
+%
+%We will develop this \define{natural deduction} system by specifying some basic rules of the system. For each connective, there will be \define{introduction} rules, that allow us to prove a sentence that has that connective as the main logical operator, and \define{elimination} rules, that allow us to prove something given a sentence that has that connective as the main logical operator.
+%
+%
+%
+%\section{The idea of a formal proof}
+%A \emph{formal proof} is a sequence of sentences, some of which are marked as being initial assumptions (or premises). The last line of the formal proof is the conclusion. (Henceforth, we will simply call these `proofs', but you should be aware that there are \emph{informal proofs} too.)
+%
+%As an illustration, consider:
+%	$$\enot (A \eor B) \therefore \enot A \eand \enot B$$
+%We will start a proof by writing the premise:
+%\begin{pf}
+%	\hypo{a1}{\enot (A \eor B)}
+%\end{pf}
+%Note that we have numbered the premise, since we will want to refer back to it. Indeed, every line on a proof is numbered, so that we can refer back to it. 
+%
+%Note also that we have drawn a line underneath the premise. Everything written above the line is an \emph{assumption}. Everything written below the line will either be something which follows from the assumptions, or it will be some new assumption. We are hoping to conclude that `$\enot A \eand \enot B$'; so we are hoping ultimately to conclude our proof with
+%\begin{pf}
+%	\have[n]{con}{\enot A \eand \enot B}
+%\end{pf}
+%for some number $n$. It doesn't matter which line we end on, but we would obviously prefer a short proof to a long one.
+%
+%Similarly, suppose we wanted to consider:
+%$$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \therefore \enot C\eor D$$
+%The argument has three premises, so we start by writing them all down, numbered, and drawing a line under them:
+%\begin{pf}
+%	\hypo{a1}{A \eor B}
+%	\hypo{a2}{\enot (A\eand C)}
+%	\hypo{a3}{\enot (B \eand \enot D)}
+%\end{pf}
+%and we are hoping to conclude with some line:
+%\begin{pf}
+%	\have[n]{con}{\enot C \eor D}
+%\end{pf}
+%
+%If we can find a sequence of lines, each of which follows from the earlier lines by one of our rules, then this is a proof that the argument is valid, or we more simply say it is a proof of the argument. 
+%
+%All that remains to do is to explain each of the rules that we can use along the way from premises to conclusion. 
+%%The rules are broken down by our logical connectives.
 
-\section{The idea of a formal proof}
-A \emph{formal proof} is a sequence of sentences, some of which are marked as being initial assumptions (or premises). The last line of the formal proof is the conclusion. (Henceforth, we will simply call these `proofs', but you should be aware that there are \emph{informal proofs} too.)
+We will now describe the various rules one can use. All other valid arguments should be broken up into steps using these rules. We will give a particular list of rules, other systems will choose other particular rules. 
 
-As an illustration, consider:
-	$$\enot (A \eor B) \therefore \enot A \eand \enot B$$
-We will start a proof by writing the premise:
-\begin{pf}
-	\hypo{a1}{\enot (A \eor B)}
-\end{pf}
-Note that we have numbered the premise, since we will want to refer back to it. Indeed, every line on a proof is numbered, so that we can refer back to it. 
+The rules we give will mostly be attached to particular connectives. This is something that helps with the way to go about finding proofs and it has some technical benefits. 
 
-Note also that we have drawn a line underneath the premise. Everything written above the line is an \emph{assumption}. Everything written below the line will either be something which follows from the assumptions, or it will be some new assumption. We are hoping to conclude that `$\enot A \eand \enot B$'; so we are hoping ultimately to conclude our proof with
-\begin{pf}
-	\have[n]{con}{\enot A \eand \enot B}
-\end{pf}
-for some number $n$. It doesn't matter which line we end on, but we would obviously prefer a short proof to a long one.
+%It would be be convenient to present our rules by going through the various connectives and giving introduction and elimination rules. 
+%However, some rules will involve the tool of \emph{subproofs}, which introduces some complexity. So we begin just by giving the rules that don't do so. 
 
-Similarly, suppose we wanted to consider:
-$$A\eor B, \enot (A\eand C), \enot (B \eand \enot D) \therefore \enot C\eor D$$
-The argument has three premises, so we start by writing them all down, numbered, and drawing a line under them:
-\begin{pf}
-	\hypo{a1}{A \eor B}
-	\hypo{a2}{\enot (A\eand C)}
-	\hypo{a3}{\enot (B \eand \enot D)}
-\end{pf}
-and we are hoping to conclude with some line:
-\begin{pf}
-	\have[n]{con}{\enot C \eor D}
-\end{pf}
-
-If we can find a sequence of lines, each of which follows from the earlier lines by one of our rules, then this is a proof that the argument is valid, or we more simply say it is a proof of the argument. 
-
-All that remains to do is to explain each of the rules that we can use along the way from premises to conclusion. 
-%The rules are broken down by our logical connectives.
-
-It would be nice to present our rules by going through the various connectives and giving introduction and elimination rules. However, some rules will involve the tool of \emph{subproofs}, which introudces some complexity. So we begin just by giving the rules that don't do so. 
 
 \section{Reiteration}\label{s:Reiteration}
 The very first rule is so breathtakingly obvious that it is surprising we bother with it at all. 
